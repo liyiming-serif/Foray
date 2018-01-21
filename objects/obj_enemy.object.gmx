@@ -27,6 +27,72 @@
             <kind>1</kind>
             <string>///plane constructor
 scr_plane_create(4,6,.2,3);
+//TODO: AI states
+state = 0;
+alarm[0] = room_speed/4;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///check player is within nimbus
+if(point_distance(obj_player.x,obj_player.y,x,y)&lt;=264){
+    //check player is within shooting range
+    var pa = point_direction(x,y,obj_player.x,obj_player.y);
+    var da = abs(angle_difference(pa,direction));
+    if(da &lt;= 20){
+        state = 1;
+    }
+    else{
+        state = 0;
+    }
+}
+else{
+    state = 0;
+}
+alarm[0] = room_speed/4;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(state == 1){
+    scr_shoot();
+}
 </string>
           </argument>
         </arguments>

@@ -28,7 +28,9 @@
             <string>///initialize global variables
 global.TURN_SPRITE_THRESHOLD = 1;
 global.TURN_DAMPENER = 4;
-global.CAM_FOLLOW_DIST = 24;
+global.CAM_FOLLOW_DIST = 48;
+
+global.player = 0;
 
 //initiallize particle system
 //global.particle_sys = part_system_create();
