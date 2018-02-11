@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\spr_plane1</sprite>
     <sprite>sprites\spr_plane2</sprite>
+    <sprite>sprites\spr_plane3</sprite>
     <sprite>sprites\spr_balloon</sprite>
     <sprite>sprites\spr_zeppelin</sprite>
     <sprite>sprites\spr_bullet</sprite>
@@ -23,6 +24,7 @@
     <script>scripts\scr_shoot.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_balloon_create.gml</script>
+    <script>scripts\scr_nearest_in_line.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -34,6 +36,7 @@
     <object>objects\obj_control</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_camera_follow</object>
+    <object>objects\obj_ship_parent</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_construct</room>

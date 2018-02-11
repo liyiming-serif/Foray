@@ -29,6 +29,7 @@
 global.TURN_SPRITE_THRESHOLD = 1;
 global.TURN_DAMPENER = 4;
 global.CAM_FOLLOW_DIST = 48;
+global.AIR_FRIC = 0.01
 
 global.player = 0;
 

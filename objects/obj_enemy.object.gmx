@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_ship_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///plane constructor
-scr_plane_create(4,6,.2,3);
+scr_plane_create(4,6,.2,4,15);
 //TODO: AI states
 state = 0;
 alarm[0] = room_speed/4;
@@ -53,15 +53,21 @@ alarm[0] = room_speed/4;
           <argument>
             <kind>1</kind>
             <string>///check player is within nimbus
-if(point_distance(obj_player.x,obj_player.y,x,y)&lt;=264){
-    //check player is within shooting range
-    var pa = point_direction(x,y,obj_player.x,obj_player.y);
-    var da = abs(angle_difference(pa,direction));
-    if(da &lt;= 20){
-        state = 1;
+var pd = point_distance(obj_player.x,obj_player.y,x,y);
+if(pd&lt;=264){
+    if(pd&lt;=96){
+        //state = 2;
     }
     else{
-        state = 0;
+        //check player is within shooting range
+        var pa = point_direction(x,y,obj_player.x,obj_player.y);
+        var da = abs(angle_difference(pa,direction));
+        if(da &lt;= 20){
+            state = 1;
+        }
+        else{
+            state = 0;
+        }
     }
 }
 else{
@@ -92,6 +98,12 @@ alarm[0] = room_speed/4;
             <kind>1</kind>
             <string>if(state == 1){
     scr_shoot();
+}
+if(state ==2){
+    scr_plane_turn_avoiding(obj_player.x, obj_player.y, true);
+}
+else{
+    scr_plane_turn_avoiding(obj_player.x, obj_player.y, false);
 }
 </string>
           </argument>
