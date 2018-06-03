@@ -26,15 +26,29 @@
           <argument>
             <kind>1</kind>
             <string>///initialize global variables
+
+//there can only be one.
+if(instance_number(obj_control)&gt;1){
+    instance_destroy(id,false);
+}
+
 global.TURN_SPRITE_THRESHOLD = 1;
 global.TURN_DAMPENER = 4;
 global.CAM_FOLLOW_DIST = 48;
-global.AIR_FRIC = 0.01
+global.AIR_FRIC = 0.01;
 
 global.player = 0;
 
+//controls
+global.BRAKE_KEY = ord('Z');
+global.ACC_KEY = ord('X');
+
 //initiallize particle system
-//global.particle_sys = part_system_create();
+global.partsys = part_system_create();
+
+global.b1_miss = part_type_create();
+part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);
+part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.5);
 </string>
           </argument>
         </arguments>
@@ -59,8 +73,8 @@ global.player = 0;
             <kind>1</kind>
             <string>///garbage collection
 
-//free the particle system
-
+part_system_destroy(global.partsys);
+part_type_destroy(global.b1_miss);
 </string>
           </argument>
         </arguments>

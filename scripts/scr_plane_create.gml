@@ -1,21 +1,25 @@
 #define scr_plane_create
-///scr_plane_create(min_speed, max_speed, acc, turn, ai_skill)
+///scr_plane_create(neutral_speed, min_speed, max_speed, acc, turn)
 
 //CONSTRUCTOR:
-min_speed = argument0; //displayed as: speed
-max_speed = argument1;
-acc = argument2;
-turn = argument3; //displayed as: turn
+neutral_speed = argument0; //displayed as: speed
+min_speed = argument1;
+max_speed = argument2;
+acc = argument3;
+turn = argument4; //displayed as: turn
 
-curr_speed = min_speed;
-shoot_rate = 12;
+curr_speed = neutral_speed;
+shoot_rate = room_speed*0.2;
 shoot_counter = 0;
+shoot_variance = 5;
+shoot_range = room_speed*0.5;
+shoot_range_variance = room_speed*0.1;
 ax = 0;
 ay = 0;
 image_speed = 0;
 
 //ai behavior parameters
-react_time = argument4;
+
 
 #define scr_plane_point_turn
 ///scr_plane_point_turn(xtarget, ytarget, away)
@@ -57,11 +61,20 @@ else{
 #define scr_plane_brake
 ///scr_plane_brake()
 
-if(curr_speed - global.AIR_FRIC > min_speed){
-    curr_speed -= global.AIR_FRIC ;
+if(curr_speed - acc > min_speed){
+    curr_speed -= acc;
 }
 else{
     curr_speed = min_speed;
+}
+
+#define scr_plane_neutral
+///scr_plane_neutral()
+if(abs(curr_speed-neutral_speed)>global.AIR_FRIC){
+    curr_speed -= global.AIR_FRIC*sign(curr_speed-neutral_speed);
+}
+else{
+    curr_speed = neutral_speed;
 }
 
 #define scr_plane_turn_avoiding

@@ -14,6 +14,7 @@
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_camera</sprite>
     <sprite>sprites\spr_cannonball</sprite>
+    <sprite>sprites\eff_b1_miss</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
@@ -24,7 +25,6 @@
     <script>scripts\scr_shoot.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_balloon_create.gml</script>
-    <script>scripts\scr_nearest_in_line.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -39,6 +39,7 @@
     <object>objects\obj_ship_parent</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_title</room>
     <room>rooms\rm_construct</room>
   </rooms>
   <help>

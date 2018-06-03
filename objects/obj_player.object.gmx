@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>obj_ship_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///plane constructor
-scr_plane_create(4,6,0.1,3,0);
+scr_plane_create(4,2,6,0.1,3);
 </string>
           </argument>
         </arguments>
@@ -80,12 +80,15 @@ if(mouse_check_button(mb_left)){
             <kind>1</kind>
             <string>///keyboard controls
 
-//hold 'space' to boost
-if(keyboard_check(vk_space)){
+//accelerate
+if(keyboard_check(global.BRAKE_KEY)){
+    scr_plane_brake();
+}
+else if(keyboard_check(global.ACC_KEY)){
     scr_plane_boost();
 }
 else{
-    scr_plane_brake();
+    scr_plane_neutral();
 }
 </string>
           </argument>
