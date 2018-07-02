@@ -25,16 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///initialize global variables
+            <string>///INITIALIZATION
 
 //there can only be one.
 if(instance_number(obj_control)&gt;1){
     instance_destroy(id,false);
 }
 
+//initiallize globals
 global.TURN_SPRITE_THRESHOLD = 1;
 global.TURN_DAMPENER = 4;
-global.CAM_FOLLOW_DIST = 48;
+global.MAX_CAM_FOLLOW_DIST = 120;
+global.CAM_X = 0;
+global.CAM_Y = 0;
 global.AIR_FRIC = 0.01;
 
 global.player = 0;
@@ -42,6 +45,7 @@ global.player = 0;
 //controls
 global.BRAKE_KEY = ord('Z');
 global.ACC_KEY = ord('X');
+global.OPTIONS_KEY = ord('F');
 
 //initiallize particle system
 global.partsys = part_system_create();
@@ -49,6 +53,13 @@ global.partsys = part_system_create();
 global.b1_miss = part_type_create();
 part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);
 part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.5);
+
+//DISPLAY/RESOLUTION MANAGER 
+global.IDEAL_WIDTH = 540;
+global.IDEAL_HEIGHT = 360;
+scr_init_views();
+scr_set_res(0);
+room_goto(room_next(room));
 </string>
           </argument>
         </arguments>
@@ -75,6 +86,114 @@ part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.5);
 
 part_system_destroy(global.partsys);
 part_type_destroy(global.b1_miss);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///'F' to toggle fullscreen
+if(keyboard_check_pressed(global.OPTIONS_KEY)){
+    if(window_get_fullscreen()){
+        scr_set_res(2);
+    }
+    else{
+        scr_set_res(0);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Lerp-parallax
+if(window_get_fullscreen()){
+    background_x[0] = lerp(0,room_width-background_width[0],view_xview[0]/(room_width-view_wview[0]));
+    background_y[0] = lerp(0,room_height-background_height[0],view_yview[0]/(room_height-view_hview[0]));
+}
+else{
+    background_x[0] = lerp(0,room_width-background_width[0],view_xview[1]/(room_width-view_wview[1]));
+    background_y[0] = lerp(0,room_height-background_height[0],view_yview[1]/(room_height-view_hview[1]));
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Update Follow Camera
+
+///remain in front of the player object
+if(instance_number(obj_player)&gt;0){
+    with(obj_player){
+        global.CAM_X = x+lengthdir_x(global.MAX_CAM_FOLLOW_DIST-8*sqr(curr_speed-min_speed),direction);
+        global.CAM_Y = y+lengthdir_y(global.MAX_CAM_FOLLOW_DIST-8*sqr(curr_speed-min_speed),direction);
+    }
+}
+
+if(window_get_fullscreen()){
+    //Center on camera
+    view_xview[0]=lerp(view_xview[0],global.CAM_X-view_wview[0]/2,0.05);
+    view_yview[0]=lerp(view_yview[0],global.CAM_Y-view_hview[0]/2,0.05);
+    
+    //clamp to room
+    view_xview[0]=clamp(view_xview[0],0,room_width-view_wview[0]);
+    view_yview[0]=clamp(view_yview[0],0,room_height-view_hview[0]);
+}
+else{
+    //Center on camera
+    view_xview[1]=lerp(view_xview[1],global.CAM_X-view_wview[1]/2,0.05);
+    view_yview[1]=lerp(view_yview[1],global.CAM_Y-view_hview[1]/2,0.05);
+    
+    //clamp to room
+    view_xview[1]=clamp(view_xview[1],0,room_width-view_wview[1]);
+    view_yview[1]=clamp(view_yview[1],0,room_height-view_hview[1]);
+}
 </string>
           </argument>
         </arguments>

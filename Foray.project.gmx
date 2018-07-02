@@ -25,6 +25,7 @@
     <script>scripts\scr_shoot.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_balloon_create.gml</script>
+    <script>scripts\scr_set_res.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -35,11 +36,10 @@
     <object>objects\obj_cannonball</object>
     <object>objects\obj_control</object>
     <object>objects\obj_spawner</object>
-    <object>objects\obj_camera_follow</object>
     <object>objects\obj_ship_parent</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_title</room>
+    <room>rooms\_rm_title</room>
     <room>rooms\rm_construct</room>
   </rooms>
   <help>

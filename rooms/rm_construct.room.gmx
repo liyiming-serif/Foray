@@ -11,8 +11,8 @@
   <colour>12632256</colour>
   <showcolour>0</showcolour>
   <code></code>
-  <enableViews>-1</enableViews>
-  <clearViewBackground>-1</clearViewBackground>
+  <enableViews>0</enableViews>
+  <clearViewBackground>0</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>0</isSet>
@@ -41,7 +41,7 @@
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="-1" objName="obj_camera_follow" xview="0" yview="0" wview="540" hview="360" xport="0" yport="0" wport="1080" hport="720" hborder="540" vborder="360" hspeed="5" vspeed="5"/>
+    <view visible="0" objName="" xview="0" yview="0" wview="540" hview="360" xport="0" yport="0" wport="540" hport="360" hborder="0" vborder="0" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -52,13 +52,11 @@
   </views>
   <instances>
     <instance objName="obj_player" x="360" y="336" name="inst_DF7E64C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_camera_follow" x="432" y="336" name="inst_4B6A80CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_balloon" x="1272" y="672" name="inst_DE8BD036" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_balloon" x="792" y="768" name="inst_B69D6A1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_balloon" x="1224" y="312" name="inst_B5CB1B6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy" x="168" y="216" name="inst_6DCDA263" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy" x="504" y="552" name="inst_F6E06A50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy" x="888" y="240" name="inst_D7367505" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy" x="984" y="240" name="inst_419F3C80" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy" x="744" y="528" name="inst_381C264E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

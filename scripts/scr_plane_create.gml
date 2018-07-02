@@ -12,7 +12,7 @@ curr_speed = neutral_speed;
 shoot_rate = room_speed*0.2;
 shoot_counter = 0;
 shoot_variance = 5;
-shoot_range = room_speed*0.5;
+shoot_range = room_speed*0.7;
 shoot_range_variance = room_speed*0.1;
 ax = 0;
 ay = 0;
@@ -32,11 +32,25 @@ else{
     var pa = point_direction(x,y,argument0,argument1);
 }
 var da = angle_difference(pa,direction);
-var ta = min(abs(da),turn);
+//(t)urn (m)odifier based on speed
+var tm = (1.25*max_speed-curr_speed)/(1.25*max_speed-min_speed)*turn;
+var ta = min(abs(da),tm);
 direction += ta*sign(da);
-image_angle = direction;
+
 speed = curr_speed*(1-ta/(turn*global.TURN_DAMPENER));
-if(ta >= turn*global.TURN_SPRITE_THRESHOLD){
+
+//drifting
+if(keyboard_check(global.BRAKE_KEY)){
+    da = angle_difference(pa,image_angle);
+    ta = min(abs(da),turn*1.25);
+    image_angle += ta*sign(da);
+}
+else {
+    var da2 = angle_difference(direction,image_angle);
+    var ta2 = min(abs(da2),turn);
+    image_angle += ta2*sign(da2);
+}
+if(ta > turn*global.TURN_SPRITE_THRESHOLD){
     if(sign(da) == -1){
         image_index = 2;
     }
@@ -48,37 +62,10 @@ else{
     image_index = 0;
 }
 
-#define scr_plane_boost
-///scr_plane_boost()
-
-if(curr_speed + acc < max_speed){
-    curr_speed += acc;
-}
-else{
-    curr_speed = max_speed;
-}
-
-#define scr_plane_brake
-///scr_plane_brake()
-
-if(curr_speed - acc > min_speed){
-    curr_speed -= acc;
-}
-else{
-    curr_speed = min_speed;
-}
-
-#define scr_plane_neutral
-///scr_plane_neutral()
-if(abs(curr_speed-neutral_speed)>global.AIR_FRIC){
-    curr_speed -= global.AIR_FRIC*sign(curr_speed-neutral_speed);
-}
-else{
-    curr_speed = neutral_speed;
-}
-
 #define scr_plane_turn_avoiding
 ///scr_plane_turn_avoiding(xtarget, ytarget, away)
+
+//TURNS THE PLANE WHILE AVOIDING OBSTACLES
 
 //sensing obstacles
 var sx, sy, i, adir, sharp;
@@ -134,4 +121,25 @@ if(ta >= turn*global.TURN_SPRITE_THRESHOLD){
 }
 else{
     image_index = 0;
+}
+
+#define scr_plane_boost
+///scr_plane_boost()
+
+curr_speed = clamp(curr_speed+acc,min_speed,max_speed);
+
+
+#define scr_plane_brake
+///scr_plane_brake()
+
+curr_speed = clamp(curr_speed-0.1*acc,min_speed,max_speed);
+
+#define scr_plane_neutral
+///scr_plane_neutral()
+
+if(curr_speed<neutral_speed){//too slow
+    curr_speed = clamp(curr_speed+acc,min_speed,neutral_speed);
+}
+else if(curr_speed>neutral_speed){//too fast
+    curr_speed = clamp(curr_speed-0.1*acc,neutral_speed,max_speed);
 }

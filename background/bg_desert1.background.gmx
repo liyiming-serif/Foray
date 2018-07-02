@@ -13,7 +13,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>540</width>
-  <height>360</height>
+  <width>1080</width>
+  <height>720</height>
   <data>images\bg_desert1.png</data>
 </background>
