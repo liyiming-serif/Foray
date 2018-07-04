@@ -60,6 +60,15 @@ global.IDEAL_HEIGHT = 360;
 scr_init_views();
 scr_set_res(0);
 room_goto(room_next(room));
+
+//AI
+enum ai_states{
+    chasing,
+    firing,
+    fleeing,
+    avoiding,
+    reloading
+}
 </string>
           </argument>
         </arguments>
