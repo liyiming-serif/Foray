@@ -32,20 +32,23 @@ if(instance_number(obj_control)&gt;1){
     instance_destroy(id,false);
 }
 
-//initiallize globals
+//INITIALLIZE GLOBALS
 global.TURN_SPRITE_THRESHOLD = 1;
-global.TURN_DAMPENER = 4;
+global.TURN_DAMPENER = 4; //how little turning reduces speed
 global.MAX_CAM_FOLLOW_DIST = 120;
 global.CAM_X = 0;
 global.CAM_Y = 0;
-global.AIR_FRIC = 0.01;
+global.ACC_SPEED = 0.5;
+global.BRAKE_SPEED = 0.05;
+global.DRIFT = 1.25;
+global.ACC_DAMPENER = 1.25; //how little acc reduces turn
 
-global.player = 0;
+global.player_id = 0;
 
 //controls
-global.BRAKE_KEY = ord('Z');
-global.ACC_KEY = ord('X');
-global.OPTIONS_KEY = ord('F');
+global.brake_key = ord('Z');
+global.acc_key = ord('X');
+global.options_key = ord('F');
 
 //initiallize particle system
 global.partsys = part_system_create();
@@ -61,7 +64,7 @@ scr_init_views();
 scr_set_res(0);
 room_goto(room_next(room));
 
-//AI
+//AI ENUMS
 enum ai_states{
     chasing,
     firing,
@@ -69,6 +72,14 @@ enum ai_states{
     avoiding,
     reloading
 }
+
+enum ai_types{
+    chaser,
+    sniper
+}
+//ai difficulty modifiers
+global.AI_TURN_REDUC = 0.6;
+global.AI_SPEED_REDUC = 0.8;
 </string>
           </argument>
         </arguments>
@@ -118,7 +129,7 @@ part_type_destroy(global.b1_miss);
           <argument>
             <kind>1</kind>
             <string>///'F' to toggle fullscreen
-if(keyboard_check_pressed(global.OPTIONS_KEY)){
+if(keyboard_check_pressed(global.options_key)){
     if(window_get_fullscreen()){
         scr_set_res(2);
     }

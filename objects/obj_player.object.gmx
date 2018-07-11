@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///plane constructor
-scr_plane_create(5,3,6,0.5,3);
+scr_plane_create(3,2,4,4);
 </string>
           </argument>
         </arguments>
@@ -80,11 +80,10 @@ if(mouse_check_button(mb_left)){
             <kind>1</kind>
             <string>///keyboard controls
 
-//accelerate
-if(keyboard_check(global.BRAKE_KEY)){
+if(keyboard_check(global.brake_key)){
     scr_plane_brake();
 }
-else if(keyboard_check(global.ACC_KEY)){
+else if(keyboard_check(global.acc_key)){
     scr_plane_boost();
 }
 else{

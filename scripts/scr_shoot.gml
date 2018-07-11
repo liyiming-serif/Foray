@@ -11,4 +11,5 @@ if(shoot_counter >= shoot_rate){
 }
 else{
     shoot_counter += 1;
+    return noone;
 }

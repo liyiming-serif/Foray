@@ -22,6 +22,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_plane_create.gml</script>
+    <script>scripts\scr_aiplane_create.gml</script>
     <script>scripts\scr_shoot.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_balloon_create.gml</script>

@@ -26,10 +26,36 @@
           <argument>
             <kind>1</kind>
             <string>///plane constructor
-scr_plane_create(4,2,6,.2,1);
-//TODO: AI states
-state = 0;
-alarm[0] = room_speed/4;
+scr_plane_create(3,2,4,4);
+//ai constructor
+scr_aiplane_create(40,192,room_speed/4,5);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset state from RELOADING
+if(!alarm[0]){
+    state = ai_states.chasing;
+}
 </string>
           </argument>
         </arguments>
@@ -52,28 +78,15 @@ alarm[0] = room_speed/4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///check player is within nimbus
-var pd = point_distance(obj_player.x,obj_player.y,x,y);
-if(pd&lt;=264){
-    if(pd&lt;=96){
-        //state = 2;
-    }
-    else{
-        //check player is within shooting range
-        var pa = point_direction(x,y,obj_player.x,obj_player.y);
-        var da = abs(angle_difference(pa,direction));
-        if(da &lt;= 20){
-            state = 1;
-        }
-        else{
-            state = 0;
-        }
-    }
+            <string>///Reset state from AVOIDING
+if(!alarm[1]){
+    state = ai_states.chasing;
 }
 else{
-    state = 0;
+    state = ai_states.reloading;
 }
-alarm[0] = room_speed/4;
+sprite_index = spr_plane2;
+turn = og_turn*global.AI_TURN_REDUC;
 </string>
           </argument>
         </arguments>
@@ -96,14 +109,20 @@ alarm[0] = room_speed/4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(state == 1){
-    scr_shoot();
-}
-if(state ==2){
-    scr_plane_turn_avoiding(obj_player.x, obj_player.y, true);
-}
-else{
-    scr_plane_turn_avoiding(obj_player.x, obj_player.y, false);
+            <string>///Evaluate AI FSM
+
+switch(state){
+    case ai_states.chasing:
+        scr_aiplane_aim();
+    case ai_states.firing:
+        scr_aiplane_shoot();
+    case ai_states.avoiding:
+        scr_aiplane_navigate(obj_player.x,obj_player.y,false);
+        break;
+    case ai_states.fleeing:
+    case ai_states.reloading:
+        scr_aiplane_navigate(obj_player.x,obj_player.y,true);
+        break;
 }
 </string>
           </argument>
