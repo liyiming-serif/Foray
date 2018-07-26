@@ -8,14 +8,14 @@ This demo also showcases a preliminary particle system for bullet fx, and shader
   
 ### Controls
 Your plane turns and moves towards your mouse.  
-* [LMB] to shoot in the direction you're facing.
-* [Z] to brake. Braking allows you to make sharp turns. 
-* [X] to boost. Your ability to turn drops sharply.
+* 'LMB' to shoot in the direction you're facing.
+* 'Z' to brake. Braking allows you to make sharp turns. 
+* 'X' to boost. Your ability to turn drops sharply.
   
 ### Running the Demo
 `Tested only on Windows` Foray.exe contains the installer. Run it and follow the installation wizard.
   
-__To uninstall__, simply delete the `Foray` game folder from the path you specified when you installed the game. By default it's in C:\Users\<username>\Foray. You can also run `Add or Remove Programs` and select `Foray`	from the list of programs, then hit uninstall.
+__To uninstall__, simply delete the `Foray` game folder from the path you specified when you installed the game. By default it's in C:\Users\\<username>\Foray. You can also run `Add or Remove Programs` and select `Foray` from the list of programs, then hit uninstall.
   
 ### Roadmap
 * Collisions. So you may rain fire upon your enemies!
