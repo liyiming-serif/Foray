@@ -1,5 +1,5 @@
 #define scr_plane_create
-///scr_plane_create(neutral_speed, min_speed, max_speed, turn)
+///scr_plane_create(neutral_speed, min_speed, max_speed, turn, modifier)
 
 //CONSTRUCTOR:
 neutral_speed = argument0; //displayed as: speed
@@ -10,13 +10,25 @@ turn = argument3; //displayed as: turn
 curr_speed = neutral_speed;
 is_braking = false;
 
+//shooting (TODO: refactor)
 shoot_rate = room_speed*0.2;
 shoot_counter = 0;
 shoot_variance = 5;
 shoot_range = room_speed*0.7;
 shoot_range_variance = room_speed*0.1;
 
-image_speed = 0;
+//animation
+image_speed = 0.4;
+neutral_frame = 0; //starting frames
+right_frame = 16;
+left_frame = 20;
+l_bound_frame = neutral_frame; //upper and lower frame bounds
+u_bound_frame = right_frame;
+
+//shader
+modifier = argument4/256.0; //magic number for 256 max palettes
+palette_ref = shader_get_sampler_index(shader_pal_swapper, "palette");
+row_ref = shader_get_uniform(shader_pal_swapper, "row");
 
 
 #define scr_plane_point_turn
@@ -48,15 +60,18 @@ else {
     image_angle += ta2*sign(da2);
 }
 if(ta > turn*global.TURN_SPRITE_THRESHOLD){
-    if(sign(da) == -1){
-        image_index = 2;
+    if(sign(da) == 1){ //left turn
+        l_bound_frame = left_frame;
+        u_bound_frame = sprite_get_number(sprite_index);
     }
-    else{
-        image_index = 1;
+    else{ //right turn
+        l_bound_frame = right_frame;
+        u_bound_frame = left_frame;
     }
 }
-else{
-    image_index = 0;
+else{ //neutral
+    l_bound_frame = neutral_frame;
+    u_bound_frame = right_frame;
 }
 
 #define scr_plane_boost
@@ -78,4 +93,23 @@ if(curr_speed<neutral_speed){//too slow
 }
 else if(curr_speed>neutral_speed){//too fast
     curr_speed = clamp(curr_speed-global.BRAKE_SPEED,neutral_speed,max_speed);
+}
+#define scr_plane_recolor
+///scr_plane_recolor()
+
+//Apply palette swap shader. CALL DURING DRAW EVENT
+shader_set(shader_pal_swapper);
+texture_set_stage(palette_ref, global.palette_texture);
+shader_set_uniform_f(row_ref, modifier);
+draw_self();
+shader_reset();
+
+#define scr_plane_advance_frame
+///scr_plane_advance_frame()
+
+if(image_index>=u_bound_frame){
+    image_index = l_bound_frame;
+}
+else if(image_index<l_bound_frame){
+    image_index = l_bound_frame;
 }

@@ -57,6 +57,12 @@ global.b1_miss = part_type_create();
 part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);
 part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.5);
 
+global.flare1 = part_type_create();
+part_type_sprite(global.flare1, eff_flare1, true, true, false);
+
+//shader globals
+global.palette_texture = background_get_texture(bg_palette);
+
 //DISPLAY/RESOLUTION MANAGER 
 global.IDEAL_WIDTH = 540;
 global.IDEAL_HEIGHT = 360;
@@ -76,6 +82,13 @@ enum ai_states{
 enum ai_types{
     chaser,
     sniper
+}
+
+enum modifiers{
+    adept = 0,
+    swift = 1,
+    sturdy = 2,
+    mkii = 3
 }
 //ai difficulty modifiers
 global.AI_TURN_REDUC = 0.6;

@@ -24,6 +24,8 @@ if(neutral_speed!=undefined){
 
 ax = 0;
 ay = 0;
+sx = lengthdir_x(speed*foresight,direction);
+sy = lengthdir_y(speed*foresight,direction);
 state = ai_states.chasing;
 rounds_left = max_rounds;
 
@@ -33,9 +35,7 @@ rounds_left = max_rounds;
 //CALCULATES TRAJECTORY FOR AVOIDING OBSTACLES, THEN TURNS THE PLANE
 
 //sensing obstacles
-var sx, sy, i, adir;
-sx = lengthdir_x(speed*foresight,direction);
-sy = lengthdir_y(speed*foresight,direction);
+var i, adir;
 i = collision_line(x,y,sx+x,sy+y,obj_ship_parent,false,true);
 if(state != ai_states.avoiding){
     ax = 0;
@@ -44,16 +44,15 @@ if(state != ai_states.avoiding){
 
 //avoiding obstacles
 if(i!=noone){
-    //sprite_index = spr_plane3;
     adir = point_direction(i.x-x,i.y-y,sx,sy);
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = ai_states.avoiding;
-    sprite_index = spr_plane3;
+    //sprite_index = spr_plane3;
     turn = og_turn;
     if(!alarm[0]){
         alarm[0] = reflexes;
-        rounds_left = max_rounds;
+        //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }
 if(state == ai_states.avoiding){
@@ -62,6 +61,8 @@ if(state == ai_states.avoiding){
 }
 
 scr_plane_point_turn(argument0+ax,argument1+ay,argument2);
+sx = lengthdir_x(speed*foresight,direction);
+sy = lengthdir_y(speed*foresight,direction);
 
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
@@ -72,7 +73,7 @@ if(state==ai_states.firing && scr_shoot()!=noone){
         rounds_left = max_rounds;
         state = ai_states.reloading;
         if(!alarm[1]){
-            alarm[1] = room_speed*2;
+            alarm[1] = room_speed*3;
         }
     }
 }
@@ -86,7 +87,7 @@ if(pd<=nimbus){
     //check player is within shooting range
     var pa = point_direction(x,y,obj_player.x,obj_player.y);
     var da = abs(angle_difference(pa,direction));
-    if(da <= 20){
+    if(da <= 30){
         state = ai_states.firing;
     }
 }
