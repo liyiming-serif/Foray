@@ -1,5 +1,6 @@
 # Foray
 ![mmm...deliciously shitty 30FPS](tech_demo.gif)
+  
 An arcade flying game I'm doing the art and progamming for in my spare time. Hope that by final release you have half as much fun playing it as I did making it <3
   
 ## Technical Demo (7/26/18)
