@@ -53,6 +53,7 @@
     var b = instance_create(x,y,obj_cannonball);
     b.direction = da;
     b.speed = speed + 4;
+    b.isFriendly = false;
 }
 alarm[0] = room_speed;
 </string>

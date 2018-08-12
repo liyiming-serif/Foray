@@ -17,6 +17,7 @@
     <sprite>sprites\spr_cannonball</sprite>
     <sprite>sprites\eff_b1_miss</sprite>
     <sprite>sprites\eff_flare1</sprite>
+    <sprite>sprites\eff_hit1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
@@ -33,6 +34,7 @@
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swapper.shader</shader>
+    <shader type="GLSLES">shaders\shader_hit_flash.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\obj_player</object>

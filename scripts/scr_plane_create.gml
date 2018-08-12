@@ -14,7 +14,7 @@ is_braking = false;
 shoot_rate = room_speed*0.2;
 shoot_counter = 0;
 shoot_variance = 5;
-shoot_range = room_speed*0.7;
+shoot_range = room_speed*0.8;
 shoot_range_variance = room_speed*0.1;
 
 //animation
@@ -25,10 +25,14 @@ left_frame = 20;
 l_bound_frame = neutral_frame; //upper and lower frame bounds
 u_bound_frame = right_frame;
 
-//shader
+//palette swap shader
 modifier = argument4/256.0; //magic number for 256 max palettes
 palette_ref = shader_get_sampler_index(shader_pal_swapper, "palette");
 row_ref = shader_get_uniform(shader_pal_swapper, "row");
+
+//hitstun and invincibility frames
+hitstun = 0;
+invincibility = 0;
 
 
 #define scr_plane_point_turn
@@ -94,13 +98,18 @@ if(curr_speed<neutral_speed){//too slow
 else if(curr_speed>neutral_speed){//too fast
     curr_speed = clamp(curr_speed-global.BRAKE_SPEED,neutral_speed,max_speed);
 }
-#define scr_plane_recolor
-///scr_plane_recolor()
+#define scr_plane_shade
+///scr_plane_shade()
 
-//Apply palette swap shader. CALL DURING DRAW EVENT
-shader_set(shader_pal_swapper);
-texture_set_stage(palette_ref, global.palette_texture);
-shader_set_uniform_f(row_ref, modifier);
+//Decide which shader to use for this frame. CALL DURING DRAW EVENT
+if (hitstun>0){ //apply hit flash shader
+    shader_set(shader_hit_flash);
+}
+else{ //apply palette swap shader
+    shader_set(shader_pal_swapper);
+    texture_set_stage(palette_ref, global.palette_texture);
+    shader_set_uniform_f(row_ref, modifier);
+}
 draw_self();
 shader_reset();
 
@@ -113,3 +122,7 @@ if(image_index>=u_bound_frame){
 else if(image_index<l_bound_frame){
     image_index = l_bound_frame;
 }
+
+//countdown hitstun and invincibility
+hitstun = max(hitstun-1, 0);
+invincibility = max(invincibility-1,0);

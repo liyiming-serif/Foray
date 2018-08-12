@@ -55,10 +55,14 @@ global.partsys = part_system_create();
 
 global.b1_miss = part_type_create();
 part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);
-part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.5);
+part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.3);
 
 global.flare1 = part_type_create();
 part_type_sprite(global.flare1, eff_flare1, true, true, false);
+
+global.hit1 = part_type_create();
+part_type_sprite(global.hit1, eff_hit1, true, true, false);
+part_type_life(global.hit1, room_speed*0.2, room_speed*0.25);
 
 //shader globals
 global.palette_texture = background_get_texture(bg_palette);

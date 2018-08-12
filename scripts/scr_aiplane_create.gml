@@ -67,7 +67,7 @@ sy = lengthdir_y(speed*foresight,direction);
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
 
-if(state==ai_states.firing && scr_shoot()!=noone){
+if(state==ai_states.firing && scr_shoot(false)!=noone){
     rounds_left--;
     if(rounds_left<=0){
         rounds_left = max_rounds;
