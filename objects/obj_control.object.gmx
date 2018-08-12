@@ -148,7 +148,7 @@ part_type_destroy(global.b1_miss);
             <string>///'F' to toggle fullscreen
 if(keyboard_check_pressed(global.options_key)){
     if(window_get_fullscreen()){
-        scr_set_res(2);
+        scr_set_res(1);
     }
     else{
         scr_set_res(0);
