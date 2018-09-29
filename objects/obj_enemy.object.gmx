@@ -28,7 +28,7 @@
             <string>///plane constructor
 scr_plane_create(30,3,2,4,4,modifiers.adept);
 //ai constructor
-scr_aiplane_create(40,192,room_speed/4,5);
+scr_aiplane_create(46,192,room_speed/3,5);
 
 </string>
           </argument>
