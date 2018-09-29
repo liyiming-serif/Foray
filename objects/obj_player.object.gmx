@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///plane constructor
-scr_plane_create(3,2,4,4,modifiers.adept);
+scr_plane_create(30,3,2,4,4,modifiers.swift);
 </string>
           </argument>
         </arguments>
@@ -49,7 +49,8 @@ scr_plane_create(3,2,4,4,modifiers.adept);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Turn off muzzle flare
+            <string>///Turn off plane shooting sprite
+
 sprite_index = spr_plane1;
 </string>
           </argument>
@@ -73,14 +74,42 @@ sprite_index = spr_plane1;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Advance frame
+scr_plane_advance_frame();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///mouse controls
+
+if(hp&lt;=0) return undefined;
 
 //turn towards mouse pointer
 scr_plane_point_turn(mouse_x, mouse_y, false);
 
 //hold 'LMB' to shoot
 if(mouse_check_button(mb_left)){
-    scr_shoot(true);
+    if(scr_shoot(obj_bullet, shoot_variance, 7, shoot_range, 2, global.flare1, true)!=noone){
+        //change plane to shooting sprite
+        sprite_index = spr_plane1_shoot;
+        alarm[11] = room_speed*0.1;
+    }
 }
 </string>
           </argument>
@@ -104,6 +133,8 @@ if(mouse_check_button(mb_left)){
             <kind>1</kind>
             <string>///keyboard controls
 
+if(hp&lt;=0) return undefined;
+
 if(keyboard_check(global.brake_key)){
     scr_plane_brake();
 }
@@ -117,6 +148,8 @@ else{
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="4" ename="obj_projectile_parent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -133,14 +166,13 @@ else{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
-scr_plane_advance_frame();
+            <string>scr_plane_hit(true);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_bullet">
+    <event eventtype="7" enumb="7">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -157,15 +189,9 @@ scr_plane_advance_frame();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(invincibility &lt;= 0 &amp;&amp; !other.isFriendly){
-    //flash white
-    hitstun = 7;
-    
-    //destroy bullet and spawn hit particle
-    part_type_direction(global.hit1,other.direction,other.direction,0,0);
-    part_type_orientation(global.hit1,0,0,0,0,true);
-    part_particles_create(global.partsys,other.x,other.y,global.hit1,1);
-    instance_destroy(other);
+            <string>///finish death seq if out of hp
+if(hp&lt;=0){
+    room_restart();
 }
 </string>
           </argument>

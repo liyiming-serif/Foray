@@ -1,12 +1,14 @@
 #define scr_plane_create
-///scr_plane_create(neutral_speed, min_speed, max_speed, turn, modifier)
+///scr_plane_create(max_hp, neutral_speed, min_speed, max_speed, turn, modifier)
 
 //CONSTRUCTOR:
-neutral_speed = argument0; //displayed as: speed
-min_speed = argument1;
-max_speed = argument2;
-turn = argument3; //displayed as: turn
+max_hp = argument0; //displayed as: hp
+neutral_speed = argument1; //displayed as: speed
+min_speed = argument2;
+max_speed = argument3;
+turn = argument4; //displayed as: turn
 
+hp = max_hp;
 curr_speed = neutral_speed;
 is_braking = false;
 
@@ -15,7 +17,6 @@ shoot_rate = room_speed*0.2;
 shoot_counter = 0;
 shoot_variance = 5;
 shoot_range = room_speed*0.8;
-shoot_range_variance = room_speed*0.1;
 
 //animation
 image_speed = 0.4;
@@ -26,7 +27,7 @@ l_bound_frame = neutral_frame; //upper and lower frame bounds
 u_bound_frame = right_frame;
 
 //palette swap shader
-modifier = argument4/256.0; //magic number for 256 max palettes
+modifier = argument5/256.0; //magic number for 256 max palettes
 palette_ref = shader_get_sampler_index(shader_pal_swapper, "palette");
 row_ref = shader_get_uniform(shader_pal_swapper, "row");
 
@@ -66,7 +67,7 @@ else {
 if(ta > turn*global.TURN_SPRITE_THRESHOLD){
     if(sign(da) == 1){ //left turn
         l_bound_frame = left_frame;
-        u_bound_frame = sprite_get_number(sprite_index);
+        u_bound_frame = image_number;
     }
     else{ //right turn
         l_bound_frame = right_frame;
@@ -116,7 +117,7 @@ shader_reset();
 #define scr_plane_advance_frame
 ///scr_plane_advance_frame()
 
-if(image_index>=u_bound_frame){
+if(image_index>u_bound_frame && hp > 0){
     image_index = l_bound_frame;
 }
 else if(image_index<l_bound_frame){
@@ -126,3 +127,40 @@ else if(image_index<l_bound_frame){
 //countdown hitstun and invincibility
 hitstun = max(hitstun-1, 0);
 invincibility = max(invincibility-1,0);
+
+#define scr_plane_hit
+///scr_plane_hit(isFriendly)
+if(hp<=0) return undefined;
+
+var isFriendly = argument0;
+
+if(invincibility <= 0 && isFriendly!=other.isFriendly){
+    //flash white + apply damage
+    hitstun = other.dmg*room_speed/24;
+    hp -= other.dmg;
+    
+    //destroy bullet and spawn hit particle
+    part_type_direction(global.hit1,other.direction,other.direction,0,0);
+    part_type_orientation(global.hit1,0,0,0,0,true);
+    part_particles_create(global.partsys,other.x,other.y,global.hit1,1);
+    instance_destroy(other);
+    
+    //initiate death seq if hp <= 0
+    if(hp <= 0){
+        //set crash sprite
+        sprite_index = spr_plane1_land;
+        image_index = 0;
+        l_bound_frame = 0;
+        r_bound_frame = image_number+1;
+        image_speed = 0.2;
+        
+        //set crash course
+        direction += 2*random_range(-shoot_variance, shoot_variance);
+        
+        //stop other animation seqs
+        alarm[11] = -1;
+        
+        //create explosion particle
+        part_particles_create(global.partsys,x,y,global.boom_air,1);
+    }
+}

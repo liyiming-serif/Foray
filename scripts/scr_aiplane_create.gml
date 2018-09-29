@@ -7,6 +7,7 @@ nimbus = argument1;
 reflexes = argument2;
 max_rounds = argument3;
 
+//Weaken AI (player handicap)
 if(turn!=undefined){
     og_turn = turn;
     turn *= global.AI_TURN_REDUC;
@@ -21,7 +22,14 @@ if(neutral_speed!=undefined){
     max_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
 }
+if(max_hp!=undefined){
+    og_max_hp = max_hp;
+    
+    max_hp = ceil(max_hp*global.AI_HP_REDUC);
+    hp = max_hp;
+}
 
+//entry point for AI FSM
 ax = 0;
 ay = 0;
 sx = lengthdir_x(speed*foresight,direction);
@@ -67,7 +75,12 @@ sy = lengthdir_y(speed*foresight,direction);
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
 
-if(state==ai_states.firing && scr_shoot(false)!=noone){
+if(state==ai_states.firing && scr_shoot(obj_bullet, shoot_variance, 7, shoot_range, 2, global.flare1, false)!=noone){
+    //change plane to shooting sprite
+    sprite_index = spr_plane1_shoot;
+    alarm[11] = room_speed*0.1;
+
+    //Decide to transition AI to 'reloading'
     rounds_left--;
     if(rounds_left<=0){
         rounds_left = max_rounds;

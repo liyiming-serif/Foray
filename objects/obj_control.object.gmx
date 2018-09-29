@@ -64,6 +64,10 @@ global.hit1 = part_type_create();
 part_type_sprite(global.hit1, eff_hit1, true, true, false);
 part_type_life(global.hit1, room_speed*0.2, room_speed*0.25);
 
+global.boom_air = part_type_create();
+part_type_sprite(global.boom_air, eff_boom_air, true, true, false);
+part_type_life(global.boom_air, room_speed*0.5, room_speed*0.6);
+
 //shader globals
 global.palette_texture = background_get_texture(bg_palette);
 
@@ -97,6 +101,7 @@ enum modifiers{
 //ai difficulty modifiers
 global.AI_TURN_REDUC = 0.6;
 global.AI_SPEED_REDUC = 0.8;
+global.AI_HP_REDUC = 0.5;
 </string>
           </argument>
         </arguments>
@@ -148,7 +153,7 @@ part_type_destroy(global.b1_miss);
             <string>///'F' to toggle fullscreen
 if(keyboard_check_pressed(global.options_key)){
     if(window_get_fullscreen()){
-        scr_set_res(1);
+        scr_set_res(2);
     }
     else{
         scr_set_res(0);

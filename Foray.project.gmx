@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\spr_plane1</sprite>
     <sprite>sprites\spr_plane1_shoot</sprite>
+    <sprite>sprites\spr_plane1_land</sprite>
     <sprite>sprites\spr_plane2</sprite>
     <sprite>sprites\spr_plane3</sprite>
     <sprite>sprites\spr_balloon</sprite>
@@ -18,6 +19,7 @@
     <sprite>sprites\eff_b1_miss</sprite>
     <sprite>sprites\eff_flare1</sprite>
     <sprite>sprites\eff_hit1</sprite>
+    <sprite>sprites\eff_boom_air</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
@@ -35,6 +37,7 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swapper.shader</shader>
     <shader type="GLSLES">shaders\shader_hit_flash.shader</shader>
+    <shader type="GLSLES">shaders\shader_weak_spotter.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -46,6 +49,7 @@
     <object>objects\obj_control</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_ship_parent</object>
+    <object>objects\obj_projectile_parent</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\_rm_title</room>

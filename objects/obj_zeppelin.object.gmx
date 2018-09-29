@@ -33,10 +33,14 @@ if(alt_cannon){ //second salvo
     b = instance_create(x+lengthdir_x(c_mag,c_dir),y+lengthdir_y(c_mag,c_dir),obj_cannonball);
     b.direction = direction-135;
     b.speed = 3;
+    b.isFriendly = false;
+    b.dmg = 5;
     
     b = instance_create(x+lengthdir_x(c_mag,c_dir),y+lengthdir_y(c_mag,c_dir),obj_cannonball);
     b.direction = direction-45;
     b.speed = 3;
+    b.isFriendly = false;
+    b.dmg = 5;
     
     alt_cannon = false;
     
@@ -48,6 +52,8 @@ else{ //first salvo
     var b = instance_create(x+lengthdir_x(c_mag,c_dir),y+lengthdir_y(c_mag,c_dir),obj_cannonball);
     b.direction = direction-90;
     b.speed = 3;
+    b.isFriendly = false;
+    b.dmg = 5;
     
     alt_cannon = true;
 }
@@ -81,10 +87,14 @@ if(alt_cannon){ //second salvo
     b = instance_create(x+lengthdir_x(c_mag,c_dir),y+lengthdir_y(c_mag,c_dir),obj_cannonball);
     b.direction = direction+135;
     b.speed = 3;
+    b.isFriendly = false;
+    b.dmg = 5;
     
     b = instance_create(x+lengthdir_x(c_mag,c_dir),y+lengthdir_y(c_mag,c_dir),obj_cannonball);
     b.direction = direction+45;
     b.speed = 3;
+    b.isFriendly = false;
+    b.dmg = 5;
     
     alt_cannon = false;
 }
@@ -95,6 +105,8 @@ else{ //first salvo
     var b = instance_create(x+lengthdir_x(c_mag,c_dir),y+lengthdir_y(c_mag,c_dir),obj_cannonball);
     b.direction = direction+90;
     b.speed = 3;
+    b.isFriendly = false;
+    b.dmg = 5;
     
     //alarm[2] = room_speed/3;
     alt_cannon = true;
@@ -131,6 +143,8 @@ if(volley_counter &gt; 0){
     b.speed = speed + 4;
     b.image_angle = b.direction;
     alarm[1] = 10;
+    b.dmg = 2;
+    b.isFriendly = false;
 }
 else{
     volley_counter = front_volley;

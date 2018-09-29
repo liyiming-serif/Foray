@@ -1,24 +1,32 @@
-///scr_shoot(isFriendly)
+///scr_shoot(type, accuracy, speed, range, dmg, part_type, isFriendly)
+var type = argument0;
+var accuracy = argument1;
+var sp = argument2;
+var range = argument3;
+var dmg = argument4;
+var part_type = argument5;
+var isFriendly = argument6;
 
 if(shoot_counter >= shoot_rate){
     shoot_counter = 0;
     //actually create bullet
-    var b = instance_create(x,y,obj_bullet);
-    b.direction = image_angle+random_range(-shoot_variance,shoot_variance);
-    b.speed = speed + 7;
+    var b = instance_create(x+lengthdir_x(16,image_angle),y+lengthdir_y(16,image_angle),type);
+    b.direction = image_angle+random_range(-accuracy,accuracy);
+    b.speed = speed + sp;
     b.image_angle = b.direction;
-    b.alarm[0] = shoot_range+random_range(-shoot_range_variance, shoot_range_variance);
-    b.isFriendly = argument0;
+    b.alarm[0] = range;
+    b.dmg = dmg;
+    b.isFriendly = isFriendly;
     
-    //produce muzzle flare
-    part_type_life(global.flare1, room_speed*0.1, room_speed*0.15);
-    part_type_direction(global.flare1,b.direction,b.direction,0,0);
-    part_type_orientation(global.flare1,-shoot_variance,shoot_variance,0,0,true);
-    part_type_speed(global.flare1,speed,speed,0,0);
-    part_particles_create(global.partsys,x,y,global.flare1,1);
-    //change plane to shooting sprite
-    alarm[11] = room_speed*0.05;
-    sprite_index = spr_plane1_shoot;
+    //produce muzzle flare [optional]
+    if(part_type!=noone){
+        part_type_life(part_type, room_speed*0.1, room_speed*0.15);
+        part_type_direction(part_type,b.direction,b.direction,0,0);
+        part_type_orientation(part_type,-accuracy,accuracy,0,0,true);
+        part_type_speed(part_type,speed,speed,0,0);
+        part_particles_create(global.partsys,x,y,part_type,1);
+    }
+    
     return b;
 }
 else{

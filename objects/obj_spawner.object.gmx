@@ -48,13 +48,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///spawn zeppelins and balloons
+            <string>///spawn replacement enemies
 
-var zep = instance_create(x,y,obj_zeppelin);
-with(zep){
-    scr_zeppelin_create(270,1);
+//var zep = instance_create(x,y,obj_zeppelin);
+//with(zep){
+//    scr_zeppelin_create(270,1);
+//}
+if(instance_number(obj_enemy)&lt;3){
+    instance_create(x,y,obj_enemy);
 }
-alarm[0] = room_speed*8;
+
+alarm[0] = room_speed*7;
 </string>
           </argument>
         </arguments>
