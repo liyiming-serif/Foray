@@ -1,12 +1,14 @@
 #define scr_plane_create
-///scr_plane_create(max_hp, neutral_speed, min_speed, max_speed, turn, modifier)
+///scr_plane_create(model)
 
-//CONSTRUCTOR:
-max_hp = argument0; //displayed as: hp
-neutral_speed = argument1; //displayed as: speed
-min_speed = argument2;
-max_speed = argument3;
-turn = argument4; //displayed as: turn
+//SUPERCLASS CONSTRUCTOR: don't call directly
+var mp = ds_list_find_value(global.MODELS, argument0);
+
+max_hp = ds_map_find_value(mp,"max_hp"); //displayed as: hp
+neutral_speed = ds_map_find_value(mp,"neutral_speed"); //displayed as: speed
+min_speed = ds_map_find_value(mp,"min_speed");
+max_speed = ds_map_find_value(mp,"max_speed");
+turn = ds_map_find_value(mp,"turn"); //displayed as: turn
 
 hp = max_hp;
 curr_speed = neutral_speed;
@@ -27,9 +29,9 @@ l_bound_frame = neutral_frame; //upper and lower frame bounds
 u_bound_frame = right_frame;
 
 //palette swap shader
-modifier = argument5/256.0; //magic number for 256 max palettes
-palette_ref = shader_get_sampler_index(shader_pal_swapper, "palette");
-row_ref = shader_get_uniform(shader_pal_swapper, "row");
+modifier = argument0/256.0; //magic number for 256 max palettes
+palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
+row_ref = shader_get_uniform(shader_pal_swap, "row");
 
 //hitstun and invincibility frames
 hitstun = 0;
@@ -106,10 +108,22 @@ else if(curr_speed>neutral_speed){//too fast
 if (hitstun>0){ //apply hit flash shader
     shader_set(shader_hit_flash);
 }
-else{ //apply palette swap shader
-    shader_set(shader_pal_swapper);
+else if (object_index==obj_enemy && hp<=achy && image_index%2!=0){
+    palette_ref = shader_get_sampler_index(shader_wedge_flash, "palette");
+    row_ref = shader_get_uniform(shader_wedge_flash, "row");
+    shader_set(shader_wedge_flash);
     texture_set_stage(palette_ref, global.palette_texture);
     shader_set_uniform_f(row_ref, modifier);
+    shader_set_uniform_f(angles_ref, 0.52, 1.6);
+    var uvs = sprite_get_uvs(sprite_index,image_index);
+    shader_set_uniform_f(sprite_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
+    palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
+    row_ref = shader_get_uniform(shader_pal_swap, "row");
+}
+else{ //apply palette swap shader
+    shader_set(shader_pal_swap);
+    texture_set_stage(palette_ref, global.palette_texture);
+    shader_set_uniform_f(row_ref, modifier); 
 }
 draw_self();
 shader_reset();

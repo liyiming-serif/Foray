@@ -1,41 +1,47 @@
 #define scr_aiplane_create
-///scr_aiplane_create(foresight, nimbus, reflexes, max_rounds)
+///scr_aiplane_create(x, y, dir, modifier, foresight, nimbus, reflexes, max_rounds, achy)
 
-//CONSTRUCTOR: MUST CALL PLANE CONSTRUCTOR FIRST
-foresight = argument0;
-nimbus = argument1;
-reflexes = argument2;
-max_rounds = argument3;
+//CONSTRUCTOR:
+with(instance_create(argument0,argument1,obj_enemy)){
+    direction = argument2;
+    scr_plane_create(argument3);
 
-//Weaken AI (player handicap)
-if(turn!=undefined){
+    foresight = argument4; //how far plane looks for avoiding obstacles
+    nimbus = argument5; //distance before plane opens fire
+    reflexes = argument6; //how fast plane switches AI states
+    max_rounds = argument7; //rounds plane fires before reloading
+    
+    //Handicap AI
     og_turn = turn;
     turn *= global.AI_TURN_REDUC;
-}
-if(neutral_speed!=undefined){
+
     og_neutral_speed = neutral_speed;
     og_min_speed = min_speed;
     og_max_speed = max_speed;
-    
     neutral_speed *= global.AI_SPEED_REDUC;
     min_speed *= global.AI_SPEED_REDUC;
     max_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
-}
-if(max_hp!=undefined){
+        
     og_max_hp = max_hp;
-    
     max_hp = ceil(max_hp*global.AI_HP_REDUC);
+    achy = ceil(argument8*max_hp);
+    achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
     hp = max_hp;
+    is_achy = false;
+    
+    //wedge shader
+    angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
+    sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "sprite_uvs");
+    
+    //entry point for AI FSM
+    ax = 0;
+    ay = 0;
+    sx = lengthdir_x(speed*foresight,direction);
+    sy = lengthdir_y(speed*foresight,direction);
+    state = ai_states.chasing;
+    rounds_left = max_rounds;
 }
-
-//entry point for AI FSM
-ax = 0;
-ay = 0;
-sx = lengthdir_x(speed*foresight,direction);
-sy = lengthdir_y(speed*foresight,direction);
-state = ai_states.chasing;
-rounds_left = max_rounds;
 
 #define scr_aiplane_navigate
 ///scr_aiplane_avoid(xtarget, ytarget, away)
@@ -103,4 +109,11 @@ if(pd<=nimbus){
     if(da <= 30){
         state = ai_states.firing;
     }
+}
+#define scr_aiplane_hit
+///scr_aiplane_hit()
+
+scr_plane_hit(false);
+if(!is_achy && hp<=achy){
+    
 }

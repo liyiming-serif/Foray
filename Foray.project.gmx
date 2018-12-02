@@ -3,19 +3,47 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles">
+    <datafile>
+      <name>plane_models.json</name>
+      <exists>-1</exists>
+      <size>547</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>plane_models.json</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_plane1</sprite>
     <sprite>sprites\spr_plane1_shoot</sprite>
     <sprite>sprites\spr_plane1_land</sprite>
+    <sprite>sprites\spr_plane1_buckle</sprite>
     <sprite>sprites\spr_plane2</sprite>
     <sprite>sprites\spr_plane3</sprite>
     <sprite>sprites\spr_balloon</sprite>
     <sprite>sprites\spr_zeppelin</sprite>
+    <sprite>sprites\spr_char</sprite>
+    <sprite>sprites\spr_char_back</sprite>
     <sprite>sprites\spr_bullet</sprite>
-    <sprite>sprites\spr_camera</sprite>
     <sprite>sprites\spr_cannonball</sprite>
+    <sprite>sprites\spr_camera</sprite>
+    <sprites name="cursors">
+      <sprite>sprites\spr_cursor</sprite>
+      <sprite>sprites\spr_c_cursor</sprite>
+      <sprite>sprites\spr_meter</sprite>
+      <sprite>sprites\eff_link</sprite>
+    </sprites>
     <sprite>sprites\eff_b1_miss</sprite>
     <sprite>sprites\eff_flare1</sprite>
     <sprite>sprites\eff_hit1</sprite>
@@ -27,6 +55,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_player_create.gml</script>
     <script>scripts\scr_plane_create.gml</script>
     <script>scripts\scr_aiplane_create.gml</script>
     <script>scripts\scr_shoot.gml</script>
@@ -35,9 +64,10 @@
     <script>scripts\scr_set_res.gml</script>
   </scripts>
   <shaders name="shaders">
-    <shader type="GLSLES">shaders\shader_pal_swapper.shader</shader>
+    <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
     <shader type="GLSLES">shaders\shader_hit_flash.shader</shader>
-    <shader type="GLSLES">shaders\shader_weak_spotter.shader</shader>
+    <shader type="GLSLES">shaders\shader_wedge_flash.shader</shader>
+    <shader type="GLSLES">shaders\shader_wedge_hit_flash.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\obj_player</object>
@@ -51,8 +81,11 @@
     <object>objects\obj_ship_parent</object>
     <object>objects\obj_projectile_parent</object>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\tl_test_wave</timeline>
+  </timelines>
   <rooms name="rooms">
-    <room>rooms\_rm_title</room>
+    <room>rooms\_rm_loading</room>
     <room>rooms\rm_construct</room>
   </rooms>
   <help>
