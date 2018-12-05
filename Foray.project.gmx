@@ -29,8 +29,6 @@
     <sprite>sprites\spr_plane1_shoot</sprite>
     <sprite>sprites\spr_plane1_land</sprite>
     <sprite>sprites\spr_plane1_buckle</sprite>
-    <sprite>sprites\spr_plane2</sprite>
-    <sprite>sprites\spr_plane3</sprite>
     <sprite>sprites\spr_balloon</sprite>
     <sprite>sprites\spr_zeppelin</sprite>
     <sprite>sprites\spr_char</sprite>

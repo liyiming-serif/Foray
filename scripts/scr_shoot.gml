@@ -10,7 +10,7 @@ var isFriendly = argument6;
 if(shoot_counter >= shoot_rate){
     shoot_counter = 0;
     //actually create bullet
-    var b = instance_create(x+lengthdir_x(16,image_angle),y+lengthdir_y(16,image_angle),type);
+    var b = instance_create(x+lengthdir_x(12,image_angle),y+lengthdir_y(12,image_angle),type);
     b.direction = image_angle+random_range(-accuracy,accuracy);
     b.speed = speed + sp;
     b.image_angle = b.direction;

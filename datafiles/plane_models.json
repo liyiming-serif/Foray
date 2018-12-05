@@ -16,6 +16,14 @@
       "min_speed": 2,
       "max_speed": 4,
       "turn": 4
+    },
+    {
+      "name": "Horde Drab",
+      "max_hp": 30,
+      "neutral_speed": 3,
+      "min_speed": 2,
+      "max_speed": 4,
+      "turn": 4
     }
   ],
   "weapons": ["machine gun", "rifle"]

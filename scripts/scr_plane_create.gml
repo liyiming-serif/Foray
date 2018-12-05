@@ -13,6 +13,7 @@ turn = ds_map_find_value(mp,"turn"); //displayed as: turn
 hp = max_hp;
 curr_speed = neutral_speed;
 is_braking = false;
+has_pilot = true;
 
 //shooting (TODO: refactor)
 shoot_rate = room_speed*0.2;
@@ -104,7 +105,7 @@ else if(curr_speed>neutral_speed){//too fast
 #define scr_plane_shade
 ///scr_plane_shade()
 
-//Decide which shader to use for this frame. CALL DURING DRAW EVENT
+//Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if (hitstun>0){ //apply hit flash shader
     shader_set(shader_hit_flash);
 }

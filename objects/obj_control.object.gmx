@@ -109,7 +109,8 @@ enum ai_types{
 
 enum mk{ //TODO: replace with modifiers
     red_tail = 0,
-    asteroid_blues =1
+    asteroid_blues = 1,
+    horde_drab = 2
 }
 //ai difficulty modifiers
 global.AI_TURN_REDUC = 0.6;

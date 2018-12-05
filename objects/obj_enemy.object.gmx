@@ -33,6 +33,30 @@ sprite_index = spr_plane1;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>target_id = global.player_id;
+alarm[10] = tut;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -132,8 +156,8 @@ scr_plane_advance_frame();
             <string>///Evaluate AI FSM
 
 if(hp&lt;=0) return undefined;
-
-if(instance_number(obj_player)&lt;=0) return undefined;
+if(!has_pilot) return undefined;
+if(!instance_exists(target_id)) return undefined;
 
 switch(state){
     case ai_states.chasing:
@@ -141,11 +165,11 @@ switch(state){
     case ai_states.firing:
         scr_aiplane_shoot();
     case ai_states.avoiding:
-        scr_aiplane_navigate(obj_player.x,obj_player.y,false);
+        scr_aiplane_navigate(target_id.x,target_id.y,false);
         break;
     case ai_states.fleeing:
     case ai_states.reloading:
-        scr_aiplane_navigate(obj_player.x,obj_player.y,true);
+        scr_aiplane_navigate(target_id.x,target_id.y,true);
         break;
 }
 </string>

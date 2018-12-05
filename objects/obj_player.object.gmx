@@ -75,6 +75,7 @@ scr_plane_advance_frame();
             <string>///mouse controls
 
 if(hp&lt;=0) return undefined;
+if(!has_pilot) return undefined;
 
 //turn towards mouse pointer
 scr_plane_point_turn(mouse_x, mouse_y, false);
@@ -110,6 +111,7 @@ if(mouse_check_button(mb_left)){
             <string>///keyboard controls
 
 if(hp&lt;=0) return undefined;
+if(!has_pilot) return undefined;
 
 if(keyboard_check(global.brake_key)){
     scr_plane_brake();

@@ -37,7 +37,7 @@ const float PI = 3.14159265359; //because gm's glsles is ancient.
 
 bool in_range(vec2 pos)
 {
-    pos.x-=0.5;
+    pos.x-=0.625;
     pos.y-=0.5;
     if(pos.y==0.0 && pos.x==0.0){
         return true;

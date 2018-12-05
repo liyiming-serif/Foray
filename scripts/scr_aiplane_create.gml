@@ -1,31 +1,28 @@
 #define scr_aiplane_create
-///scr_aiplane_create(x, y, dir, modifier, foresight, nimbus, reflexes, max_rounds, achy)
+///scr_aiplane_create(x, y, dir, modifier, foresight, nimbus, reflexes, max_rounds, tut, achy)
 
 //CONSTRUCTOR:
 with(instance_create(argument0,argument1,obj_enemy)){
     direction = argument2;
     scr_plane_create(argument3);
 
+    //TODO: (1) refactor foresight, nimbus, and reflexes to a 'skill' arg
+    //      (2) refactor foresight, reflexes to consider speed and turn
+    //      (3) refactor nimbus and max_rounds to wpn properties
     foresight = argument4; //how far plane looks for avoiding obstacles
     nimbus = argument5; //distance before plane opens fire
-    reflexes = argument6; //how fast plane switches AI states
+    reflexes = argument6; //how fast plane switches out of AVOID state
     max_rounds = argument7; //rounds plane fires before reloading
+    tut = argument8; //max time before realizing player switched planes
     
     //Handicap AI
-    og_turn = turn;
     turn *= global.AI_TURN_REDUC;
-
-    og_neutral_speed = neutral_speed;
-    og_min_speed = min_speed;
-    og_max_speed = max_speed;
     neutral_speed *= global.AI_SPEED_REDUC;
     min_speed *= global.AI_SPEED_REDUC;
     max_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
-        
-    og_max_hp = max_hp;
     max_hp = ceil(max_hp*global.AI_HP_REDUC);
-    achy = ceil(argument8*max_hp);
+    achy = ceil(argument9*max_hp); //hp threshold for commandeering
     achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
     hp = max_hp;
     is_achy = false;
@@ -35,6 +32,7 @@ with(instance_create(argument0,argument1,obj_enemy)){
     sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "sprite_uvs");
     
     //entry point for AI FSM
+    alarm[10] = 0;
     ax = 0;
     ay = 0;
     sx = lengthdir_x(speed*foresight,direction);
@@ -62,7 +60,6 @@ if(i!=noone){
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = ai_states.avoiding;
-    //sprite_index = spr_plane3;
     turn = og_turn;
     if(!alarm[0]){
         alarm[0] = reflexes;
@@ -101,15 +98,16 @@ if(state==ai_states.firing && scr_shoot(obj_bullet, shoot_variance, 7, shoot_ran
 ///scr_aiplane_aim()
 
 ///check player is within nimbus
-var pd = point_distance(obj_player.x,obj_player.y,x,y);
+var pd = point_distance(target_id.x,target_id.y,x,y);
 if(pd<=nimbus){
     //check player is within shooting range
-    var pa = point_direction(x,y,obj_player.x,obj_player.y);
+    var pa = point_direction(x,y,target_id.x,target_id.y);
     var da = abs(angle_difference(pa,direction));
     if(da <= 30){
         state = ai_states.firing;
     }
 }
+
 #define scr_aiplane_hit
 ///scr_aiplane_hit()
 
