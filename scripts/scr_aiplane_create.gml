@@ -25,20 +25,26 @@ with(instance_create(argument0,argument1,obj_enemy)){
     achy = ceil(argument9*max_hp); //hp threshold for commandeering
     achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
     hp = max_hp;
-    is_achy = false;
+    achy_hp = global.MAX_ACHY_HP; //amount of shots until pilot bails
     
     //wedge shader
     angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
+    origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
     sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "sprite_uvs");
+    on_target = 0;
+    onTarget_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
     
     //entry point for AI FSM
-    alarm[10] = 0;
+    target_id = global.player_id;
+    alarm[9] = tut;
     ax = 0;
     ay = 0;
     sx = lengthdir_x(speed*foresight,direction);
     sy = lengthdir_y(speed*foresight,direction);
     state = ai_states.chasing;
     rounds_left = max_rounds;
+    
+    return id;
 }
 
 #define scr_aiplane_navigate
@@ -60,7 +66,7 @@ if(i!=noone){
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = ai_states.avoiding;
-    turn = og_turn;
+    //turn = og_turn;
     if(!alarm[0]){
         alarm[0] = reflexes;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
@@ -111,7 +117,30 @@ if(pd<=nimbus){
 #define scr_aiplane_hit
 ///scr_aiplane_hit()
 
+var php = hp;
 scr_plane_hit(false);
-if(!is_achy && hp<=achy){
-    
+if(hp<=achy){
+    if(php>achy){        
+        scr_aiplane_gen_weakspot();
+    }
 }
+if(achy_hp<=0){ //time to bail
+    achy = -1;
+    scr_plane_bail();
+}
+
+#define scr_aiplane_gen_weakspot
+///scr_aiplane_gen_weakspot()
+
+var w;
+
+//calculate width of angles based on model quality
+w = pi;
+
+//starting angle based on rng
+angles[0] = random_range(-pi,pi);
+angles[1] = angles[0]+w;
+if(angles[1]>pi){
+    angles[1]-=2*pi;
+}
+

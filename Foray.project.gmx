@@ -35,7 +35,6 @@
     <sprite>sprites\spr_char_back</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_cannonball</sprite>
-    <sprite>sprites\spr_camera</sprite>
     <sprites name="cursors">
       <sprite>sprites\spr_cursor</sprite>
       <sprite>sprites\spr_c_cursor</sprite>
@@ -46,6 +45,7 @@
     <sprite>sprites\eff_flare1</sprite>
     <sprite>sprites\eff_hit1</sprite>
     <sprite>sprites\eff_boom_air</sprite>
+    <sprite>sprites\eff_lockon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
@@ -53,9 +53,9 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_player_create.gml</script>
     <script>scripts\scr_plane_create.gml</script>
     <script>scripts\scr_aiplane_create.gml</script>
+    <script>scripts\scr_player_create.gml</script>
     <script>scripts\scr_shoot.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_balloon_create.gml</script>
@@ -72,15 +72,18 @@
     <object>objects\obj_enemy</object>
     <object>objects\obj_balloon</object>
     <object>objects\obj_zeppelin</object>
+    <object>objects\obj_player_avatar</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
     <object>objects\obj_control</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_ship_parent</object>
     <object>objects\obj_projectile_parent</object>
+    <object>objects\obj_cursor</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_test_wave</timeline>
+    <timeline>timelines\tl_commandeer_coroutine</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\_rm_loading</room>

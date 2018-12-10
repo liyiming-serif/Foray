@@ -57,12 +57,17 @@ global.BRAKE_SPEED = 0.05;
 global.DRIFT = 1.25;
 global.ACC_DAMPENER = 1.25; //how little acc reduces turn
 global.ACHY_VARIANCE = 0.05;
+global.MAX_ACHY_HP = 15;
+global.SPAWN_INVINCIBILITY = room_speed*2.5; //invincibility after swapping planes
+global.TINT_RED_SPEED = floor(room_speed*0.5);
+global.JUMP_SPEED = 10;
 
 global.player_id = 0;
 
 //controls
 global.brake_key = ord('Z');
 global.acc_key = ord('X');
+global.commandeer_key = ord('C');
 global.options_key = ord('F');
 
 //initiallize particle system
@@ -89,8 +94,11 @@ global.palette_texture = background_get_texture(bg_palette);
 //DISPLAY/RESOLUTION MANAGER 
 global.IDEAL_WIDTH = 540;
 global.IDEAL_HEIGHT = 360;
+global.FULLSCREEN_WIDTH = 0; //calculated in init views
+global.FULLSCREEN_HEIGHT = 0;
 scr_init_views();
 scr_set_res(0);
+window_set_cursor(cr_none);
 room_goto(room_next(room));
 
 //AI ENUMS
@@ -110,7 +118,10 @@ enum ai_types{
 enum mk{ //TODO: replace with modifiers
     red_tail = 0,
     asteroid_blues = 1,
-    horde_drab = 2
+    horde_drab = 2,
+    iznik_night = 3,
+    tint_green = 254,
+    tint_red = 255
 }
 //ai difficulty modifiers
 global.AI_TURN_REDUC = 0.6;

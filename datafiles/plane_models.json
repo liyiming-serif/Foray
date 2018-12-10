@@ -18,7 +18,15 @@
       "turn": 4
     },
     {
-      "name": "Horde Drab",
+      "name": "Drab of the Horde",
+      "max_hp": 30,
+      "neutral_speed": 3,
+      "min_speed": 2,
+      "max_speed": 4,
+      "turn": 4
+    },
+    {
+      "name": "Iznik Night",
       "max_hp": 30,
       "neutral_speed": 3,
       "min_speed": 2,

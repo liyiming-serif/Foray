@@ -29,7 +29,8 @@ varying vec4 v_vColour;
 uniform sampler2D palette;
 uniform float row;
 uniform int onTarget; // is hitting weak spot?
-uniform vec2 angles; //(min,max), radians, anti-clockwise, [0,2*PI]
+uniform vec2 angles; //(min,max), radians, anti-clockwise, [-PI,PI]
+uniform vec2 origin;
 uniform vec4 sprite_uvs;//left, top, 1/width, 1/height
                         //used to get true uv-coords.
 
@@ -37,15 +38,12 @@ const float PI = 3.14159265359; //because gm's glsles is ancient.
 
 bool in_range(vec2 pos)
 {
-    pos.x-=0.625;
-    pos.y-=0.5;
+    pos.x-=origin.x;
+    pos.y-=origin.y;
     if(pos.y==0.0 && pos.x==0.0){
         return true;
     }
     float angle = atan(pos.y,pos.x);
-    if (angle < 0.0){
-        angle += 2.0*PI;
-    }
     
     if(angles[0]>angles[1]){
         return (angle >= angles[0]) || (angle < angles[1]);
