@@ -25,7 +25,6 @@ with(instance_create(argument0,argument1,obj_enemy)){
     achy = ceil(argument9*max_hp); //hp threshold for commandeering
     achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
     hp = max_hp;
-    achy_hp = global.MAX_ACHY_HP; //amount of shots until pilot bails
     
     //wedge shader
     angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
@@ -143,4 +142,3 @@ angles[1] = angles[0]+w;
 if(angles[1]>pi){
     angles[1]-=2*pi;
 }
-

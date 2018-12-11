@@ -108,27 +108,8 @@ else if(curr_speed>neutral_speed){//too fast
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if (hitstun>0){
-    if(object_index==obj_enemy && hp<=achy){ //apply hit flash with wedge flash
-        angles_ref = shader_get_uniform(shader_wedge_hit_flash, "angles");
-        origin_ref = shader_get_uniform(shader_wedge_hit_flash, "origin");
-        sprite_uvs_ref = shader_get_uniform(shader_wedge_hit_flash, "sprite_uvs");
-        onTarget_ref = shader_get_uniform(shader_wedge_hit_flash, "onTarget");
-        
-        shader_set(shader_wedge_hit_flash);
-        shader_set_uniform_i(onTarget_ref, on_target);
-        shader_set_uniform_f_array(angles_ref, angles);
-        shader_set_uniform_f(origin_ref, sprite_get_xoffset(sprite_index)/sprite_get_width(sprite_index), sprite_get_yoffset(sprite_index)/sprite_get_width(sprite_index));
-        var uvs = sprite_get_uvs(sprite_index,image_index);
-        shader_set_uniform_f(sprite_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-        
-        angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
-        origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
-        sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "sprite_uvs");
-        onTarget_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
-    }
-    else{ //apply hit flash
-        shader_set(shader_hit_flash);
-    }
+    //apply hit flash
+    shader_set(shader_hit_flash);
 }
 else if (object_index==obj_enemy && hp<=achy && image_index%2!=0){ //apply wedge flash
     palette_ref = shader_get_sampler_index(shader_wedge_flash, "palette");
