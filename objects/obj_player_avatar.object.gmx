@@ -3,7 +3,7 @@
   <spriteName>spr_char</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///error check on target id existence
-if(!instance_exists(target_id)){
+if(!scr_instance_exists(target_id)){
     room_restart();
 }
 </string>
@@ -52,7 +52,20 @@ if(!instance_exists(target_id)){
           <argument>
             <kind>1</kind>
             <string>///advance frame
-if(image_index==jump_frame){ //begin jump
+if(image_index&lt;jump_frame &amp;&amp; scr_instance_exists(pid)){ //jump squat
+    x = pid.x;
+    y = pid.y;
+}
+
+if(image_index==jump_frame &amp;&amp; !has_jumped){ //begin jump
+    var target_coords, future;
+    future = target_id.speed*distance_to_object(target_id)/global.JUMP_SPEED;
+    target_coords[0] = target_id.x+lengthdir_x(future,target_id.direction);
+    target_coords[1] = target_id.y+lengthdir_y(future,target_id.direction);
+    if(target_coords[1]&lt;y){
+        sprite_index = spr_char_back;
+    }
+    
     og_image_speed = image_speed;
     move_towards_point(target_coords[0],target_coords[1],global.JUMP_SPEED);
     image_speed = min(1,(land_frame-jump_frame)/ceil(distance_to_point(target_coords[0],target_coords[1])/speed));
@@ -63,6 +76,7 @@ if(image_index==jump_frame){ //begin jump
     else{
         image_angle -= 90;
     }
+    has_jumped = true;
 }
 else if(image_index==land_frame){ //begin land
     image_speed = og_image_speed;

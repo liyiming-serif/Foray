@@ -28,7 +28,7 @@ void main()
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
-uniform int onTarget; // is hitting weak spot?
+uniform float onTarget; // is hitting weak spot? USING GML BOOL SEMANTICS!!!
 uniform vec2 angles; //(min,max), radians, anti-clockwise, [-PI,PI]
 uniform vec2 origin;
 uniform vec4 sprite_uvs;//left, top, 1/width, 1/height
@@ -55,13 +55,15 @@ void main()
 {
     vec4 base_color = texture2D( gm_BaseTexture, v_vTexcoord );
     vec2 pos = (v_vTexcoord-sprite_uvs.xy)*sprite_uvs.zw;
-    if(onTarget==1){ //flash green
-        gl_FragColor = vec4(0.328125,0.89453125,0.0,base_color.a);
+    if(in_range(pos)){
+        if(onTarget>=0.5){ //flash green
+            gl_FragColor = vec4(0.328125,0.89453125,0.0,base_color.a);
+        }
+        else { //flash red
+            gl_FragColor = vec4(0.85546875,0.09375,0.26953125,base_color.a);
+        }
     }
-    else if(in_range(pos)){ //flash red
-        gl_FragColor = vec4(0.85546875,0.09375,0.26953125,base_color.a);
-    }
-    else{
+    else{ //normal hit flash
         gl_FragColor = vec4(1.0,1.0,0.7265625,base_color.a);
     }
 }

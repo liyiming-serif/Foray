@@ -28,11 +28,13 @@ varying vec4 v_vColour;
 
 uniform sampler2D palette;
 uniform float row;
-uniform int onTarget; // is hitting weak spot?
+uniform float onTarget; // is hitting weak spot? USING GML BOOL SEMANTICS!!!
 uniform vec2 angles; //(min,max), radians, anti-clockwise, [-PI,PI]
 uniform vec2 origin;
 uniform vec4 sprite_uvs;//left, top, 1/width, 1/height
                         //used to get true uv-coords.
+                        
+uniform float isMeter; //(cursor only) hide instead of flash
 
 const float PI = 3.14159265359; //because gm's glsles is ancient.
 
@@ -56,14 +58,19 @@ void main()
     vec4 base_color = texture2D( gm_BaseTexture, v_vTexcoord );
     vec2 pos = (v_vTexcoord-sprite_uvs.xy)*sprite_uvs.zw;
     if(in_range(pos)){
-        if(onTarget==1){ //flash green
+        if(isMeter>=0.5){ //hide a slice of the sprite
+            gl_FragColor = vec4(0.0,0.0,0.0,0.0);
+        }
+        else if(onTarget>=0.5){ //flash green
             gl_FragColor = vec4(0.328125,0.89453125,0.0,base_color.a);
+            //gl_FragColor = texture2D(palette, vec2( base_color.r, 0.9921875));
         }
         else { //flash red
             gl_FragColor = vec4(0.85546875,0.09375,0.26953125,base_color.a);
+            //gl_FragColor = texture2D(palette, vec2( base_color.r, 0.99609375));
         }
     }
-    else{
+    else{ //normal pal swap
         gl_FragColor = texture2D(palette, vec2( base_color.r, row ));
     }
 }

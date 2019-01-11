@@ -1,11 +1,13 @@
 #define scr_aiplane_create
-///scr_aiplane_create(x, y, dir, modifier, foresight, nimbus, reflexes, max_rounds, tut, achy)
+///scr_aiplane_create(x, y, dir, modifier, foresight, nimbus, reflexes, max_rounds, tut, achy, wpn_name='')
 
 //CONSTRUCTOR:
 with(instance_create(argument0,argument1,obj_enemy)){
     direction = argument2;
-    scr_plane_create(argument3);
-
+    scr_plane_instantiate(argument3);
+    //arm the plane
+    gid = scr_wpn_create(x,y,direction,argument10,false);
+    
     //TODO: (1) refactor foresight, nimbus, and reflexes to a 'skill' arg
     //      (2) refactor foresight, reflexes to consider speed and turn
     //      (3) refactor nimbus and max_rounds to wpn properties
@@ -25,13 +27,6 @@ with(instance_create(argument0,argument1,obj_enemy)){
     achy = ceil(argument9*max_hp); //hp threshold for commandeering
     achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
     hp = max_hp;
-    
-    //wedge shader
-    angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
-    origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
-    sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "sprite_uvs");
-    on_target = 0;
-    onTarget_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
     
     //entry point for AI FSM
     target_id = global.player_id;
@@ -83,11 +78,7 @@ sy = lengthdir_y(speed*foresight,direction);
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
 
-if(state==ai_states.firing && scr_shoot(obj_bullet, shoot_variance, 7, shoot_range, 2, global.flare1, false)!=noone){
-    //change plane to shooting sprite
-    sprite_index = spr_plane1_shoot;
-    alarm[11] = room_speed*0.1;
-
+if(state==ai_states.firing && scr_plane_shoot("pressed")!=undefined){
     //Decide to transition AI to 'reloading'
     rounds_left--;
     if(rounds_left<=0){
@@ -118,27 +109,9 @@ if(pd<=nimbus){
 
 var php = hp;
 scr_plane_hit(false);
-if(hp<=achy){
-    if(php>achy){        
-        scr_aiplane_gen_weakspot();
-    }
-}
-if(achy_hp<=0){ //time to bail
-    achy = -1;
-    scr_plane_bail();
-}
-
-#define scr_aiplane_gen_weakspot
-///scr_aiplane_gen_weakspot()
-
-var w;
-
-//calculate width of angles based on model quality
-w = pi;
-
-//starting angle based on rng
-angles[0] = random_range(-pi,pi);
-angles[1] = angles[0]+w;
-if(angles[1]>pi){
-    angles[1]-=2*pi;
+if(hp<=achy && php>achy){     
+    var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
+    scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));
+    //make it easier to aim
+    turn *= global.AI_TURN_REDUC;
 }

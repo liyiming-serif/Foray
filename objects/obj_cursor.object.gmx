@@ -35,16 +35,83 @@ if(instance_number(obj_control)&gt;1){
 image_speed = 0.4;
 palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
 row_ref = shader_get_uniform(shader_pal_swap, "row");
-rt_modifier = 0;
+modifier = 0
+rt_modifier = modifier;
 l_bound_frame = 0;
-u_bound_frame = 6;
-flash_frame = 7;
+u_bound_frame = 7;
+flash_frame = 8;
+
+//commandeer controls
+target_plane = 0; //inst id of the plane about to be commandeered
+target_prev = 0;
+cid = 0; //child id of cursor frame
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Release commandeer button
+
+instance_destroy(cid);
+sprite_index = spr_cursor;
+l_bound_frame = 0;
+u_bound_frame = 7;
+flash_frame = 8;
+cid = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Advance frame
+if(scr_instance_exists(global.player_id) &amp;&amp; global.player_id.sprite_index==spr_plane1_shoot){
+    image_index = flash_frame;
+}
+else if(image_index&gt;u_bound_frame){
+    image_index = l_bound_frame;
+}
+else if(image_index&lt;l_bound_frame){
+    image_index = l_bound_frame;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -90,16 +157,86 @@ else{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
-if(instance_exists(global.player_id) &amp;&amp; global.player_id.sprite_index==spr_plane1_shoot){
-    image_index = flash_frame;
+            <string>///keyboard controls
+
+if(keyboard_check(global.commandeer_key)){ //buffer-able key press
+    
+    if(instance_number(obj_cursor_frame)==0){
+        cid = instance_create(0,0,obj_cursor_frame);
+        cid.pid = self;
+        sprite_index = spr_c_cursor; 
+        l_bound_frame = 0;
+        u_bound_frame = 9;
+    }
+    
 }
-else if(image_index&gt;u_bound_frame){
-    image_index = l_bound_frame;
+else{ //key release even when out of window
+    if(scr_instance_exists(cid) &amp;&amp; !alarm[0]){
+        alarm[0] = global.C_RECOVERY;
+        cid.image_index = 1;
+    }
 }
-else if(image_index&lt;l_bound_frame){
-    image_index = l_bound_frame;
+
+if(keyboard_check_released(global.commandeer_key)){ //commandeer plane
+    if(scr_instance_exists(target_plane) &amp;&amp; target_plane.on_target){
+        with(global.player_id){
+            scr_player_bail(other.target_plane);
+        }
+    }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///calculate on_target
+
+if(target_prev != target_plane){ //target changed since last frame
+    if(scr_instance_exists(target_prev)){ //reset previous target's on target var
+        target_prev.on_target = 0.0;
+    }
+}
+
+if(scr_instance_exists(target_plane)&amp;&amp;is_array(target_plane.angles)&amp;&amp;scr_instance_exists(global.player_id)){
+    var pa, da, ir;
+    pa = point_direction(target_plane.x,target_plane.y,global.player_id.x,global.player_id.y);
+    da = degtorad(angle_difference(pa,target_plane.image_angle));
+    if(target_plane.angles[0]&gt;target_plane.angles[1]){
+        ir = (da &gt;= target_plane.angles[0]) || (da &lt; target_plane.angles[1]);
+    }
+    else{
+        ir = (da &gt;= target_plane.angles[0]) &amp;&amp; (da &lt; target_plane.angles[1]);
+    }
+    if(ir){
+        target_plane.on_target = 1.0;
+        rt_modifier = mk.tint_green/256.0;
+    }
+    else{
+        target_plane.on_target = 0.0;
+        rt_modifier = mk.tint_red/256.0;
+    }
+}
+else{
+    rt_modifier = modifier/256.0;
+}
+target_prev = target_plane;
+//reset target for new frame
+target_plane = 0;
 </string>
           </argument>
         </arguments>
@@ -150,7 +287,33 @@ shader_reset();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Stop drawing self
+            <string>///Draw square targets
+if(scr_instance_exists(target_plane)){
+    var ind, t;
+    ind = image_index mod sprite_get_number(eff_lockon);
+    t = target_plane;
+    if(t.on_target){ //lockon: green
+        //top left
+        draw_sprite_ext(eff_lockon,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
+        //bottom left
+        draw_sprite_ext(eff_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
+        //bottom right
+        draw_sprite_ext(eff_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
+        //top right
+        draw_sprite_ext(eff_lockon,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
+    }
+    else{ //lockon: red
+        //top left
+        draw_sprite_ext(eff_lockoff,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
+        //bottom left
+        draw_sprite_ext(eff_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
+        //bottom right
+        draw_sprite_ext(eff_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
+        //top right
+        draw_sprite_ext(eff_lockoff,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
+    }
+}
+
 </string>
           </argument>
         </arguments>

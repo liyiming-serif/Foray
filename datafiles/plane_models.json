@@ -32,7 +32,61 @@
       "min_speed": 2,
       "max_speed": 4,
       "turn": 4
+    },
+    {
+      "name": "Remy",
+      "max_hp": 30,
+      "neutral_speed": 3,
+      "min_speed": 2,
+      "max_speed": 4,
+      "turn": 4
     }
   ],
-  "weapons": ["machine gun", "rifle"]
+  "weapons": {
+    "mg":{
+      "obj_ind":"obj_wpn_mg",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_shoot",
+      "on_release_cb":"scr_do_nothing",
+      "shoot_frame":1,
+      "anim_speed":0.5,
+      "projectile_ind":"obj_bullet",
+      "recoil":7,
+      "palette":192,
+      "shoot_rate":13,
+      "accuracy":2,
+      "speed":8.5,
+      "dmg":2,
+      "range":[280,288],
+      "muzzle_flare":{
+        "lifespan":[6,9]
+      }
+    },
+    "cannon":{
+      "obj_ind":"obj_wpn_cannon",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_do_nothing",
+      "on_release_cb":"scr_cannon_shoot",
+      "shoot_frame":1,
+      "anim_speed":0.25,
+      "projectile_ind":"obj_cannonball",
+      "recoil":12,
+      "palette":194,
+      "shoot_rate":60,
+      "accuracy":4,
+      "speed":5,
+      "dmg":5,
+      "range":[136,136]
+    },
+    "snipe":{
+      "shoot_frame":1,
+      "anim_speed":0.5,
+      "projectile_ind":"obj_cannonball",
+      "shoot_rate":10,
+      "accuracy":30,
+      "speed":15,
+      "dmg":5,
+      "lifespan":[40,45]
+    }
+  },
 }
