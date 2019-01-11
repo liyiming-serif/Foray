@@ -1,20 +1,29 @@
 #define scr_player_create
-///scr_player_create(x, y, dir, model)
+///scr_player_create(x, y, dir, model, wpn_name='')
 
 //CONSTRUCTOR:
 with(instance_create(argument0,argument1,obj_player)){
     direction = argument2;
-    scr_plane_create(argument3);
-    is_buckle = false; //can't perform ANY action that would change sprite (i.e. shoot)
+    scr_plane_instantiate(argument3);
+    //arm the plane
+    gid = scr_wpn_create(x,y,direction,argument4,true);
+
     global.player_id = id;
-    obj_cursor.rt_modifier = rt_modifier; //update cursor color palette
+    obj_cursor.modifier = modifier; //update cursor color palette
     return id;
 }
 
 #define scr_player_bail
 ///scr_player_bail(target_id)
 
-scr_plane_bail();
+has_pilot=false;
+argument[0].has_pilot = false; //target plane bails too
+
+//play buckling animation for old plane
+sprite_index = spr_plane1_buckle;
+image_index = 0;
+l_bound_frame = 0;
+r_bound_frame = image_number+1;
 
 //creation code for player avatar
 with(instance_create(x,y,obj_player_avatar)){
@@ -23,12 +32,12 @@ with(instance_create(x,y,obj_player_avatar)){
     image_speed = 0.25;
     jump_frame = 4;
     land_frame = 6;
-    
+
+    pid = other.id;    
     target_id = argument0;
-    target_coords[0] = target_id.x+lengthdir_x(target_id.speed*jump_frame/image_speed,target_id.direction);
-    target_coords[1] = target_id.y+lengthdir_y(target_id.speed*jump_frame/image_speed,target_id.direction);
+    has_jumped = false;
     
-    if(target_coords[1]<y){
+    if(target_id.y<y){
         sprite_index = spr_char_back;
     }
 }

@@ -44,11 +44,12 @@ file_text_close(f);
 //Parse JSONs
 global.MAP = json_decode(raw);
 global.MODELS = ds_map_find_value(global.MAP, "models");
+global.WEAPONS = ds_map_find_value(global.MAP, "weapons");
 
 
 //INITIALLIZE GLOBALS
-global.TURN_SPRITE_THRESHOLD = 1;
 global.TURN_DAMPENER = 4; //how little turning reduces speed
+global.C_TURN_DAMPENER = 0.25; //dampening factor when holding [C]
 global.MAX_CAM_FOLLOW_DIST = 120;
 global.CAM_X = 0;
 global.CAM_Y = 0;
@@ -57,11 +58,11 @@ global.BRAKE_SPEED = 0.05;
 global.DRIFT = 1.25;
 global.ACC_DAMPENER = 1.25; //how little acc reduces turn
 global.ACHY_VARIANCE = 0.05;
-global.MAX_ACHY_HP = 15;
 global.SPAWN_INVINCIBILITY = room_speed*2.5; //invincibility after swapping planes
-global.TINT_RED_SPEED = floor(room_speed*0.5);
-global.JUMP_SPEED = 10;
+global.JUMP_SPEED = 6;
+global.C_RECOVERY = room_speed*0.24;
 
+//player tracker
 global.player_id = 0;
 
 //controls
@@ -90,6 +91,7 @@ part_type_life(global.boom_air, room_speed*0.5, room_speed*0.6);
 
 //shader globals
 global.palette_texture = background_get_texture(bg_palette);
+global.isMeter_ref = shader_get_uniform(shader_wedge_flash, "isMeter");
 
 //DISPLAY/RESOLUTION MANAGER 
 global.IDEAL_WIDTH = 540;
@@ -120,15 +122,24 @@ enum mk{ //TODO: replace with modifiers
     asteroid_blues = 1,
     horde_drab = 2,
     iznik_night = 3,
+    remy = 4,
     tint_green = 254,
     tint_red = 255
 }
+
+enum wpn{
+    machine_gun = 0,
+    cannon = 1
+}
+
 //ai difficulty modifiers
-global.AI_TURN_REDUC = 0.6;
-global.AI_SPEED_REDUC = 0.8;
-global.AI_HP_REDUC = 0.8;
-global.AI_SHOT_SP_REDUC = 0.8;
-global.AI_SHOT_RATE_REDUC = 0.9;
+global.AI_TURN_REDUC = 0.65;
+global.AI_SPEED_REDUC = 1.1;
+global.AI_HP_REDUC = 0.9;
+global.AI_SHOT_SP_REDUC = 0.65;
+global.AI_SHOT_RANGE_REDUC = 0.9;
+global.AI_SHOT_ACC_REDUC = 2.0;
+global.AI_SHOT_RATE_REDUC = 1.0;
 </string>
           </argument>
         </arguments>
@@ -240,10 +251,18 @@ else{
             <string>///Update Follow Camera
 
 ///remain in front of the player object
-if(instance_number(obj_player)&gt;0){
-    with(obj_player){
-        global.CAM_X = x+lengthdir_x(global.MAX_CAM_FOLLOW_DIST-8*sqr(curr_speed-min_speed),direction);
-        global.CAM_Y = y+lengthdir_y(global.MAX_CAM_FOLLOW_DIST-8*sqr(curr_speed-min_speed),direction);
+if(scr_instance_exists(global.player_id)){
+    with(global.player_id){
+        if(object_index==obj_player){
+            var d = curr_speed-neutral_speed;
+            global.CAM_X = x+lengthdir_x(global.MAX_CAM_FOLLOW_DIST-8*sign(d)*sqr(d),direction);
+            global.CAM_Y = y+lengthdir_y(global.MAX_CAM_FOLLOW_DIST-8*sign(d)*sqr(d),direction);
+        }
+        else{
+            global.CAM_X = x+lengthdir_x(global.MAX_CAM_FOLLOW_DIST,direction);
+            global.CAM_Y = y+lengthdir_y(global.MAX_CAM_FOLLOW_DIST,direction);
+    
+        }
     }
 }
 

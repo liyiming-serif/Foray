@@ -35,17 +35,22 @@
     <sprite>sprites\spr_char_back</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_cannonball</sprite>
+    <sprite>sprites\spr_mg</sprite>
+    <sprite>sprites\spr_bomb</sprite>
     <sprites name="cursors">
       <sprite>sprites\spr_cursor</sprite>
       <sprite>sprites\spr_c_cursor</sprite>
+      <sprite>sprites\spr_cf_cursor</sprite>
       <sprite>sprites\spr_meter</sprite>
       <sprite>sprites\eff_link</sprite>
     </sprites>
     <sprite>sprites\eff_b1_miss</sprite>
     <sprite>sprites\eff_flare1</sprite>
+    <sprite>sprites\eff_flare2</sprite>
     <sprite>sprites\eff_hit1</sprite>
     <sprite>sprites\eff_boom_air</sprite>
     <sprite>sprites\eff_lockon</sprite>
+    <sprite>sprites\eff_lockoff</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
@@ -53,13 +58,14 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_plane_create.gml</script>
+    <script>scripts\scr_plane_instantiate.gml</script>
     <script>scripts\scr_aiplane_create.gml</script>
     <script>scripts\scr_player_create.gml</script>
-    <script>scripts\scr_shoot.gml</script>
+    <script>scripts\scr_wpn_create.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_balloon_create.gml</script>
     <script>scripts\scr_set_res.gml</script>
+    <script>scripts\scr_instance_exists.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
@@ -75,11 +81,16 @@
     <object>objects\obj_player_avatar</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
+    <object>objects\obj_wpn_mg</object>
+    <object>objects\obj_wpn_cannon</object>
     <object>objects\obj_control</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_ship_parent</object>
+    <object>objects\obj_plane_parent</object>
     <object>objects\obj_projectile_parent</object>
+    <object>objects\obj_wpn_parent</object>
     <object>objects\obj_cursor</object>
+    <object>objects\obj_cursor_frame</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_test_wave</timeline>
