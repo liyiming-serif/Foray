@@ -8,30 +8,6 @@
   <parentName>obj_plane_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Update weapon
-scr_plane_update_wpn();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -73,9 +49,15 @@ scr_plane_advance_frame();
             <kind>1</kind>
             <string>///keyboard + mouse controls
 
-if(hp&lt;=0 || !has_pilot || sprite_index==spr_plane1_buckle || id!=global.player_id) {
+if(hp&lt;=0 || !has_pilot || id!=global.player_id) {
     //NOTE: return exits the whole event, not just the code block
     scr_plane_idle();
+    return undefined;
+}
+
+//buckling dampens turning and disables keyboard+firing
+if(sprite_index==spr_plane1_buckle){
+    scr_plane_point_turn(mouse_x, mouse_y, false,global.C_TURN_DAMPENER);
     return undefined;
 }
 
@@ -168,7 +150,7 @@ if(hp&lt;=0){
 }
 else if(sprite_index==spr_plane1_buckle){
     sprite_index = spr_plane1;
-    if(!has_pilot){ //TODO: calculate starting_angle
+    if(!has_pilot){
         var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
         scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));
     }

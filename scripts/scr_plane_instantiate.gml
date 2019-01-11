@@ -187,7 +187,7 @@ hitstun = max(hitstun-1, 0);
 invincibility = max(invincibility-1,0);
 
 //advance frame
-if(image_index>=u_bound_frame && hp > 0){
+if(image_index>u_bound_frame && hp > 0){
     image_index = l_bound_frame;
 }
 else if(image_index<l_bound_frame){
@@ -250,11 +250,12 @@ if(isFriendly!=other.isFriendly){
 
 //create player plane
 var new = scr_player_create(x,y,direction,modifier,gid.key);
+new.speed = speed;
 //play buckling animation for new plane
-sprite_index = spr_plane1_buckle;
-image_index = 0;
-l_bound_frame = 0;
-r_bound_frame = image_number+1;
+new.sprite_index = spr_plane1_buckle;
+new.image_index = 0;
+new.l_bound_frame = 0;
+new.r_bound_frame = image_number;
 //start tint green coroutine
 new.timeline_index = tl_commandeer_coroutine;
 new.timeline_position = 24;
