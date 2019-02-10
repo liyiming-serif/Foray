@@ -52,7 +52,7 @@ alarm[9] = tut;
             <kind>1</kind>
             <string>///Reset state from RELOADING
 if(!alarm[0]){
-    state = ai_states.chasing;
+    state = ai_states.CHASING;
 }
 </string>
           </argument>
@@ -78,10 +78,10 @@ if(!alarm[0]){
             <kind>1</kind>
             <string>///Reset state from AVOIDING
 if(!alarm[1]){
-    state = ai_states.chasing;
+    state = ai_states.CHASING;
 }
 else{
-    state = ai_states.reloading;
+    state = ai_states.RELOADING;
 }
 
 //turn = og_turn*global.AI_TURN_REDUC;
@@ -137,15 +137,15 @@ if(hp&lt;=0 || !has_pilot || !instance_exists(target_id)){
 }
 
 switch(state){
-    case ai_states.chasing:
+    case ai_states.CHASING:
         scr_aiplane_aim();
-    case ai_states.firing:
+    case ai_states.FIRING:
         scr_aiplane_shoot();
-    case ai_states.avoiding:
+    case ai_states.AVOIDING:
         scr_aiplane_navigate(target_id.x,target_id.y,false);
         break;
-    case ai_states.fleeing:
-    case ai_states.reloading:
+    case ai_states.FLEEING:
+    case ai_states.RELOADING:
         scr_aiplane_navigate(target_id.x,target_id.y,true);
         break;
 }

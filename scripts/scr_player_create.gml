@@ -1,12 +1,14 @@
 #define scr_player_create
-///scr_player_create(x, y, dir, model, wpn_name='')
+///scr_player_create(x, y, dir, model, wpn_name)
+var xv = argument0;
+var yv = argument1;
+var dir = argument2;
+var model = argument3;
+var wpn_name = argument4;
 
-//CONSTRUCTOR:
-with(instance_create(argument0,argument1,obj_player)){
-    direction = argument2;
-    scr_plane_instantiate(argument3);
-    //arm the plane
-    gid = scr_wpn_create(x,y,direction,argument4,true);
+//PLAYER CONSTRUCTOR:
+with(instance_create(xv,yv,obj_player)){
+    scr_plane_instantiate(dir,model,wpn_name,true);
 
     global.player_id = id;
     obj_cursor.modifier = modifier; //update cursor color palette
@@ -30,8 +32,8 @@ with(instance_create(x,y,obj_player_avatar)){
     global.player_id = id;
     
     image_speed = 0.25;
-    jump_frame = 4;
-    land_frame = 6;
+    jump_frame = 3;
+    land_frame = 9;
 
     pid = other.id;    
     target_id = argument0;

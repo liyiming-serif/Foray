@@ -1,14 +1,14 @@
 #define scr_wpn_create
-///scr_wpn_create(x, y, dir, wpn_name, isFriendly)
+///scr_wpn_create(x, y, dir, wpn_name, is_friendly)
 
 //Used for creating a generic gun from JSON.
 //Additional JSON properties should be read in wpn obj's create event.
 
-var mp = ds_map_find_value(global.WEAPONS,argument3);
+var mp = ds_map_find_value(global.weapons,argument3);
 
 with(instance_create(argument0,argument1,asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     key = argument3;
-    isFriendly = argument4;
+    is_friendly = argument4;
     image_angle = argument2;
     image_angle_prev = image_angle;
     dx = 0;
@@ -33,7 +33,7 @@ with(instance_create(argument0,argument1,asset_get_index(ds_map_find_value(mp,"o
     }
     
     //AI mods
-    if(!isFriendly){
+    if(!is_friendly){
         muzzle_vel *= global.AI_SHOT_SP_REDUC;
         accuracy *= global.AI_SHOT_ACC_REDUC;
         shoot_rate *= global.AI_SHOT_RATE_REDUC;
@@ -86,7 +86,7 @@ lv = dot_product(dx,dy,refx,refy);
 
 //actually create bullet
 var b = instance_create(x+lengthdir_x(barrel_len,image_angle),y+lengthdir_y(barrel_len,image_angle),bullet_type);
-if(isFriendly){
+if(is_friendly){
     b.direction = image_angle+2*av+random_range(-accuracy,accuracy);
 }
 else{
@@ -96,7 +96,7 @@ b.speed = muzzle_vel + lv;
 b.image_angle = b.direction;
 b.alarm[0] = random_range(range[0],range[1])/muzzle_vel;
 b.dmg = dmg;
-b.isFriendly = isFriendly;
+b.is_friendly = is_friendly;
 
 //produce muzzle flare [optional]
 if(muzzle_flare!=undefined){

@@ -14,7 +14,7 @@
       "max_hp": 30,
       "neutral_speed": 3,
       "min_speed": 2,
-      "max_speed": 4,
+      "max_speed": 4.5,
       "turn": 4
     },
     {
