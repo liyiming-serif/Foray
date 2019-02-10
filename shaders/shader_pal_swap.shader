@@ -30,6 +30,6 @@ uniform float row;
 
 void main()
 {
-    vec4 base_color = texture2D( gm_BaseTexture, v_vTexcoord );
-    gl_FragColor = texture2D( palette, vec2( base_color.r, row ) );
+    vec4 baseColor = texture2D( gm_BaseTexture, v_vTexcoord );
+    gl_FragColor = texture2D( palette, vec2( baseColor.r, row ) );
 }

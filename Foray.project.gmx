@@ -51,10 +51,17 @@
     <sprite>sprites\eff_boom_air</sprite>
     <sprite>sprites\eff_lockon</sprite>
     <sprite>sprites\eff_lockoff</sprite>
+    <sprite>sprites\eff_smoke_lt</sprite>
+    <sprite>sprites\eff_smoke_dk</sprite>
+    <sprite>sprites\eff_trail_close</sprite>
+    <sprite>sprites\eff_trail_far</sprite>
+    <sprite>sprites\eff_smoke_fire</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
     <background>background\bg_palette</background>
+    <background>background\ts_sand_flora</background>
+    <background>background\ts_rock_crater</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

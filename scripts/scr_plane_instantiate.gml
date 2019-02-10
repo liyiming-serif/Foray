@@ -1,11 +1,17 @@
 #define scr_plane_instantiate
-///scr_plane_instantiate(model)
+///scr_plane_instantiate(dir, model, wpn_name, is_friendly)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
+direction = argument0;
+modifier = argument1;
+var wpn_name = argument2;
+is_friendly = argument3;
+
+//orient the plane
 image_angle = direction;
 
-modifier = argument0;
-var mp = ds_list_find_value(global.MODELS, modifier);
+//initallize stats
+var mp = ds_list_find_value(global.models, modifier);
 
 max_hp = ds_map_find_value(mp,"max_hp"); //displayed as: hp
 neutral_speed = ds_map_find_value(mp,"neutral_speed"); //displayed as: speed
@@ -35,13 +41,16 @@ row_ref = shader_get_uniform(shader_pal_swap, "row");
 angles = -1;
 angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
 origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
-sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "sprite_uvs");
+sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "spriteUVs");
 on_target = 0.0;
-onTarget_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
+on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
 
 //hitstun and invincibility frames
 hitstun = 0;
 invincibility = 0;
+
+//arm the plane
+gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly);
 
 
 #define scr_plane_point_turn
@@ -126,8 +135,9 @@ if(curr_speed<neutral_speed){//too slow
     curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,neutral_speed);
 }
 else if(curr_speed>neutral_speed){//too fast
-    curr_speed = clamp(curr_speed-global.BRAKE_SPEED,neutral_speed,max_speed);
+    curr_speed = clamp(curr_speed-global.AIR_FRIC,neutral_speed,max_speed);
 }
+
 #define scr_plane_shade
 ///scr_plane_shade()
 
@@ -136,20 +146,22 @@ if (hitstun>0){
     if (is_array(angles) && image_index%3>1.5){ //apply hit wedge flash
         angles_ref = shader_get_uniform(shader_wedge_hit_flash, "angles");
         origin_ref = shader_get_uniform(shader_wedge_hit_flash, "origin");
-        sprite_uvs_ref = shader_get_uniform(shader_wedge_hit_flash, "sprite_uvs");
-        onTarget_ref = shader_get_uniform(shader_wedge_hit_flash, "onTarget");
+        sprite_uvs_ref = shader_get_uniform(shader_wedge_hit_flash, "spriteUVs");
+        on_target_ref = shader_get_uniform(shader_wedge_hit_flash, "onTarget");
         
         shader_set(shader_wedge_hit_flash);
-        shader_set_uniform_f(onTarget_ref, on_target);
+        shader_set_uniform_f(on_target_ref, on_target);
         shader_set_uniform_f_array(angles_ref, angles);
-        shader_set_uniform_f(origin_ref, sprite_get_xoffset(sprite_index)/sprite_get_width(sprite_index), sprite_get_yoffset(sprite_index)/sprite_get_width(sprite_index));
+        var originx = sprite_get_xoffset(sprite_index)/sprite_get_width(sprite_index);
+        var originy = sprite_get_yoffset(sprite_index)/sprite_get_height(sprite_index);
+        shader_set_uniform_f(origin_ref, originx, originy);
         var uvs = sprite_get_uvs(sprite_index,image_index);
         shader_set_uniform_f(sprite_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
         
         angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
         origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
-        sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "sprite_uvs");
-        onTarget_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
+        sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "spriteUVs");
+        on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
     }
     //apply hit flash
     shader_set(shader_hit_flash);
@@ -161,12 +173,14 @@ else if (is_array(angles) && image_index%3>1.5){ //apply wedge flash
     shader_set(shader_wedge_flash);
     shader_set_uniform_f(row_ref, rt_modifier);
     texture_set_stage(palette_ref, global.palette_texture);
-    shader_set_uniform_f(onTarget_ref, on_target);
+    shader_set_uniform_f(on_target_ref, on_target);
     shader_set_uniform_f_array(angles_ref, angles);
-    shader_set_uniform_f(origin_ref, sprite_get_xoffset(sprite_index)/sprite_get_width(sprite_index), sprite_get_yoffset(sprite_index)/sprite_get_width(sprite_index));
+    var originx = sprite_get_xoffset(sprite_index)/sprite_get_width(sprite_index);
+    var originy = sprite_get_yoffset(sprite_index)/sprite_get_height(sprite_index);
+    shader_set_uniform_f(origin_ref, originx, originy);
     var uvs = sprite_get_uvs(sprite_index,image_index);
     shader_set_uniform_f(sprite_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-    shader_set_uniform_f(global.isMeter_ref, 0.0);
+    shader_set_uniform_f(global.is_meter_ref, 0.0);
     
     palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
     row_ref = shader_get_uniform(shader_pal_swap, "row");
@@ -195,12 +209,10 @@ else if(image_index<l_bound_frame){
 }
 
 #define scr_plane_hit
-///scr_plane_hit(isFriendly)
+///scr_plane_hit()
 if(hp<=0) return undefined;
 
-var isFriendly = argument0;
-
-if(isFriendly!=other.isFriendly){
+if(is_friendly!=other.is_friendly){
 
     if(invincibility>0){ //destroy bullet and exit early
         instance_destroy(other);
@@ -328,5 +340,5 @@ return ret;
 //Update weapon position and image angle. Call during the end step.
 gid.image_angle = image_angle;
 
-gid.x = x+lengthdir_x(20,image_angle);
-gid.y = y+lengthdir_y(20,image_angle);
+gid.x = x+lengthdir_x(18,image_angle);
+gid.y = y+lengthdir_y(18,image_angle);

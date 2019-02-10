@@ -1,21 +1,23 @@
 #define scr_aiplane_create
-///scr_aiplane_create(x, y, dir, modifier, foresight, nimbus, reflexes, max_rounds, tut, achy, wpn_name='')
+///scr_aiplane_create(x, y, dir, model, wpn_name, foresight, nimbus, reflexes, max_rounds, tut, achy)
+var xv = argument0;
+var yv = argument1;
+var dir = argument2;
+var model = argument3;
+var wpn_name = argument4;
 
 //CONSTRUCTOR:
-with(instance_create(argument0,argument1,obj_enemy)){
-    direction = argument2;
-    scr_plane_instantiate(argument3);
-    //arm the plane
-    gid = scr_wpn_create(x,y,direction,argument10,false);
+with(instance_create(xv,yv,obj_enemy)){
+    scr_plane_instantiate(dir,model,wpn_name,false);
     
     //TODO: (1) refactor foresight, nimbus, and reflexes to a 'skill' arg
     //      (2) refactor foresight, reflexes to consider speed and turn
     //      (3) refactor nimbus and max_rounds to wpn properties
-    foresight = argument4; //how far plane looks for avoiding obstacles
-    nimbus = argument5; //distance before plane opens fire
-    reflexes = argument6; //how fast plane switches out of AVOID state
-    max_rounds = argument7; //rounds plane fires before reloading
-    tut = argument8; //max time before realizing player switched planes
+    foresight = argument5; //how far plane looks for avoiding obstacles
+    nimbus = argument6; //distance before plane opens fire
+    reflexes = argument7; //how fast plane switches out of AVOID state
+    max_rounds = argument8; //rounds plane fires before reloading
+    tut = argument9; //(t)arget (u)pdate (t)ime
     
     //Handicap AI
     turn *= global.AI_TURN_REDUC;
@@ -24,7 +26,7 @@ with(instance_create(argument0,argument1,obj_enemy)){
     max_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
     max_hp = ceil(max_hp*global.AI_HP_REDUC);
-    achy = ceil(argument9*max_hp); //hp threshold for commandeering
+    achy = ceil(argument10*max_hp); //hp threshold for commandeering
     achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
     hp = max_hp;
     
@@ -35,7 +37,7 @@ with(instance_create(argument0,argument1,obj_enemy)){
     ay = 0;
     sx = lengthdir_x(speed*foresight,direction);
     sy = lengthdir_y(speed*foresight,direction);
-    state = ai_states.chasing;
+    state = ai_states.CHASING;
     rounds_left = max_rounds;
     
     return id;
@@ -49,7 +51,7 @@ with(instance_create(argument0,argument1,obj_enemy)){
 //sensing obstacles
 var i, adir;
 i = collision_line(x,y,sx+x,sy+y,obj_ship_parent,false,true);
-if(state != ai_states.avoiding){
+if(state != ai_states.AVOIDING){
     ax = 0;
     ay = 0;
 }
@@ -59,14 +61,14 @@ if(i!=noone){
     adir = point_direction(i.x-x,i.y-y,sx,sy);
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    state = ai_states.avoiding;
+    state = ai_states.AVOIDING;
     //turn = og_turn;
     if(!alarm[0]){
         alarm[0] = reflexes;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }
-if(state == ai_states.avoiding){
+if(state == ai_states.AVOIDING){
     argument0 = x;
     argument1 = y;
 }
@@ -78,12 +80,12 @@ sy = lengthdir_y(speed*foresight,direction);
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
 
-if(state==ai_states.firing && scr_plane_shoot("pressed")!=undefined){
+if(state==ai_states.FIRING && scr_plane_shoot("pressed")!=undefined){
     //Decide to transition AI to 'reloading'
     rounds_left--;
     if(rounds_left<=0){
         rounds_left = max_rounds;
-        state = ai_states.reloading;
+        state = ai_states.RELOADING;
         if(!alarm[1]){
             alarm[1] = room_speed*3;
         }
@@ -100,7 +102,7 @@ if(pd<=nimbus){
     var pa = point_direction(x,y,target_id.x,target_id.y);
     var da = abs(angle_difference(pa,direction));
     if(da <= 30){
-        state = ai_states.firing;
+        state = ai_states.FIRING;
     }
 }
 
