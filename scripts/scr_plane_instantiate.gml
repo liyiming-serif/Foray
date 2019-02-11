@@ -22,6 +22,7 @@ turn = ds_map_find_value(mp,"turn"); //displayed as: turn
 hp = max_hp;
 curr_speed = neutral_speed;
 is_braking = false;
+is_boosting = false;
 has_pilot = true;
 
 //animation
@@ -48,6 +49,10 @@ on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
 //hitstun and invincibility frames
 hitstun = 0;
 invincibility = 0;
+
+//particle counters
+smoke_counter = global.SMOKE_RATE;
+trail_counter = global.TRAIL_RATE;
 
 //arm the plane
 gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly);
@@ -120,17 +125,20 @@ image_angle += ta2*sign(da2);
 #define scr_plane_boost
 ///scr_plane_boost()
 is_braking = false;
+is_boosting = true;
 curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,max_speed);
 
 
 #define scr_plane_brake
 ///scr_plane_brake()
 is_braking = true;
+is_boosting = false;
 curr_speed = clamp(curr_speed-global.BRAKE_SPEED,min_speed,max_speed);
 
 #define scr_plane_neutral
 ///scr_plane_neutral()
 is_braking = false;
+is_boosting = false;
 if(curr_speed<neutral_speed){//too slow
     curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,neutral_speed);
 }
@@ -199,6 +207,41 @@ shader_reset();
 //countdown hitstun and invincibility
 hitstun = max(hitstun-1, 0);
 invincibility = max(invincibility-1,0);
+
+//emit far contrail if boosting
+trail_counter = min(trail_counter+1,global.TRAIL_RATE);
+if(is_boosting && trail_counter>=global.TRAIL_RATE){
+    var px, py;
+    px = x+lengthdir_x(-32,image_angle);
+    py = y+lengthdir_y(-32,image_angle);
+    part_type_direction(global.trail_far,image_angle,image_angle,0,0);
+    part_type_orientation(global.trail_far,0,0,0,0,true);
+    part_type_speed(global.trail_far,speed,speed,0,0);
+    part_particles_create(global.partsys,px,py,global.trail_far,1);
+    //px = x+lengthdir_x(30,image_angle-135);
+    //py = y+lengthdir_y(30,image_angle-135);
+    //part_particles_create(global.partsys,px,py,global.trail_far,1); //right
+    trail_counter = 0;
+}
+
+//evaluate hp and produce dmg indicators
+for(var i=array_length_1d(global.DMG_THRESHOLDS)-1; i>=0; i--;){
+    if(smoke_counter<global.SMOKE_RATE){
+        smoke_counter++;
+        break;
+    } //smoke not ready yet
+    if(hp<max_hp*global.DMG_THRESHOLDS[i]){
+        var px, py;
+        px = x+irandom_range(-sprite_width/2,sprite_width/2);
+        py = y+irandom_range(-sprite_height/2,sprite_height/2);
+        part_type_direction(global.dmg_ind[i],image_angle,image_angle,0,0);
+        part_type_orientation(global.dmg_ind[i],0,0,0,0,true);
+        part_type_speed(global.dmg_ind[i],min_speed,min_speed,0,0);
+        part_particles_create(global.partsys,px,py,global.dmg_ind[i],1);
+        smoke_counter = 0;
+        break;
+    } //produce smoke particle
+}
 
 //advance frame
 if(image_index>u_bound_frame && hp > 0){

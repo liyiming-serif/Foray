@@ -60,7 +60,15 @@ global.ACC_DAMPENER = 1.25; //how little acc reduces turn
 global.ACHY_VARIANCE = 0.05;
 global.SPAWN_INVINCIBILITY = room_speed*2.5; //invincibility after swapping planes
 global.JUMP_SPEED = 6;
-global.C_RECOVERY = room_speed*0.24;
+global.C_RECOVERY = room_speed*0.18;
+global.SMOKE_RATE = room_speed*0.3;
+global.TRAIL_RATE = room_speed*0.25;
+global.DMG_THRESHOLDS[0] = 0.61;
+global.DMG_THRESHOLDS[1] = 0.38;
+global.DMG_THRESHOLDS[2] = 0.20;
+
+//TODO: use to change movement speed while still animating at 60fps
+global.game_speed = 1.0;
 
 //player tracker
 global.player_id = 0;
@@ -75,7 +83,7 @@ global.acc_key = ord('X');
 global.commandeer_key = ord('C');
 global.options_key = ord('F');
 
-//initiallize particle system
+//initiallize particle system + particles
 global.partsys = part_system_create();
 
 global.b1_miss = part_type_create();
@@ -92,6 +100,25 @@ part_type_life(global.hit1, room_speed*0.2, room_speed*0.25);
 global.boom_air = part_type_create();
 part_type_sprite(global.boom_air, eff_boom_air, true, true, false);
 part_type_life(global.boom_air, room_speed*0.5, room_speed*0.6);
+
+global.dmg_ind[0] = part_type_create();
+part_type_sprite(global.dmg_ind[0], eff_smoke_lt, true, true, false);
+part_type_life(global.dmg_ind[0], room_speed*0.3, room_speed*0.5);
+part_type_size(global.dmg_ind[0], 0.75, 2, 0, 0);
+
+global.dmg_ind[1] = part_type_create();
+part_type_sprite(global.dmg_ind[1], eff_smoke_dk, true, true, false);
+part_type_life(global.dmg_ind[1], room_speed*0.3, room_speed*0.5);
+part_type_size(global.dmg_ind[1], 1, 2.25, 0, 0);
+
+global.dmg_ind[2] = part_type_create();
+part_type_sprite(global.dmg_ind[2], eff_smoke_fire, true, true, false);
+part_type_life(global.dmg_ind[2], room_speed*0.4, room_speed*0.6);
+part_type_size(global.dmg_ind[2], 0.8, 1.5, 0, 0);
+
+global.trail_far = part_type_create();
+part_type_sprite(global.trail_far, eff_trail_far, true, true, false);
+part_type_life(global.trail_far, room_speed*0.4, room_speed*0.4);
 
 //shader globals
 global.palette_texture = background_get_texture(bg_palette);

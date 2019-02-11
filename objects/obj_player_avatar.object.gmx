@@ -57,7 +57,7 @@ if(image_index&lt;jump_frame &amp;&amp; scr_instance_exists(pid)){ //jump squat
     y = pid.y;
 }
 
-if(image_index==jump_frame &amp;&amp; !has_jumped){ //begin jump
+if(image_index&gt;=jump_frame &amp;&amp; !has_jumped){ //begin jump
     var target_coords, future;
     future = target_id.speed*distance_to_object(target_id)/global.JUMP_SPEED;
     target_coords[0] = target_id.x+lengthdir_x(future,target_id.direction);
@@ -65,9 +65,13 @@ if(image_index==jump_frame &amp;&amp; !has_jumped){ //begin jump
     if(target_coords[1]&lt;y){
         sprite_index = spr_char_back;
     }
+    else{
+        sprite_index = spr_char;
+    }
     
     og_image_speed = image_speed;
     move_towards_point(target_coords[0],target_coords[1],global.JUMP_SPEED);
+    image_index = jump_frame;
     image_speed = min(1,(land_frame-jump_frame)/ceil(distance_to_point(target_coords[0],target_coords[1])/speed));
     image_angle = direction;
     if(sprite_index == spr_char){
@@ -78,12 +82,9 @@ if(image_index==jump_frame &amp;&amp; !has_jumped){ //begin jump
     }
     has_jumped = true;
 }
-else if(image_index==land_frame){ //begin land
+else if(image_index&gt;=land_frame){ //landing
     image_speed = og_image_speed;
     image_angle = 0;
-}
-
-if(image_index&gt;=land_frame){ //landing
     x = target_id.x;
     y = target_id.y;
 }

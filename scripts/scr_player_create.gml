@@ -31,7 +31,7 @@ r_bound_frame = image_number+1;
 with(instance_create(x,y,obj_player_avatar)){
     global.player_id = id;
     
-    image_speed = 0.25;
+    image_speed = 0.4;
     jump_frame = 3;
     land_frame = 9;
 
