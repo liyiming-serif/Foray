@@ -234,6 +234,17 @@ if(scr_instance_exists(target_plane)&amp;&amp;is_array(target_plane.angles)&amp;
 else{
     rt_modifier = modifier/256.0;
 }
+
+//slow down the action if on target to aid commandeering
+if(scr_instance_exists(target_plane) &amp;&amp; target_plane.on_target){
+    global.game_speed = max(global.game_speed-global.SLOMO_RATE, global.SLOMO_MIN);
+    //global.game_speed = global.SLOMO_MIN;
+}
+else{
+    global.game_speed = min(global.game_speed+global.SLOMO_RATE, 1.0);
+    //global.game_speed = 1.0
+}
+
 target_prev = target_plane;
 //reset target for new frame
 target_plane = 0;

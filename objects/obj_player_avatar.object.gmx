@@ -56,10 +56,10 @@ if(image_index&lt;jump_frame &amp;&amp; scr_instance_exists(pid)){ //jump squat
     x = pid.x;
     y = pid.y;
 }
-
+//TODO: factor game_speed when predicting plane position
 if(image_index&gt;=jump_frame &amp;&amp; !has_jumped){ //begin jump
     var target_coords, future;
-    future = target_id.speed*distance_to_object(target_id)/global.JUMP_SPEED;
+    future = target_id.curr_speed*distance_to_object(target_id)/global.JUMP_SPEED;
     target_coords[0] = target_id.x+lengthdir_x(future,target_id.direction);
     target_coords[1] = target_id.y+lengthdir_y(future,target_id.direction);
     if(target_coords[1]&lt;y){

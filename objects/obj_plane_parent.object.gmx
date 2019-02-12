@@ -75,7 +75,7 @@ scr_plane_update_wpn();
           <argument>
             <kind>1</kind>
             <string>///clean up abandoned planes
-if(!has_pilot){
+if(!has_pilot &amp;&amp; instance_number(obj_player_avatar)&lt;1){
     instance_destroy();
 }
 </string>

@@ -62,7 +62,6 @@ if(i!=noone){
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = ai_states.AVOIDING;
-    //turn = og_turn;
     if(!alarm[0]){
         alarm[0] = reflexes;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);

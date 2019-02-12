@@ -102,8 +102,8 @@ image_angle_prev = image_angle;
           <argument>
             <kind>1</kind>
             <string>///increment shoot_counter
-if(!is_undefined(shoot_rate) &amp;&amp; shoot_counter&lt;shoot_rate){
-    shoot_counter++;
+if(!is_undefined(shoot_rate)){
+    shoot_counter = min(shoot_counter+global.game_speed,shoot_rate);
 }
 </string>
           </argument>

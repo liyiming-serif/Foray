@@ -84,19 +84,21 @@ if(argument_count==4){
 //actually turn plane, affecting direction.
 var da = angle_difference(pa,direction);
 var ta = min(abs(da),tm);
-direction += ta*sign(da);
-speed = curr_speed*(1-ta/(turn*global.TURN_DAMPENER)); //slow down based on turn angle
+direction += global.game_speed*ta*sign(da);
+
+//slow down based on turn angle
+speed = global.game_speed*curr_speed*(1-ta/(turn*global.TURN_DAMPENER));
 
 //drifting, affecting image_angle
 if(is_braking && !(argument_count==4 && abs(argument[3])<1)){
     da = angle_difference(pa,image_angle);
     ta = min(abs(da),turn*global.DRIFT);
-    image_angle += ta*sign(da);
+    image_angle += global.game_speed*ta*sign(da);
 }
 else {
     var da2 = angle_difference(direction,image_angle);
     var ta2 = min(abs(da2),turn);
-    image_angle += ta2*sign(da2);
+    image_angle += global.game_speed*ta2*sign(da2);
 }
 
 //change sprite based on turn angle
@@ -120,7 +122,8 @@ else{ //neutral
 //maybe refactor this, idk. copy-pasted from point_turn
 var da2 = angle_difference(direction,image_angle);
 var ta2 = min(abs(da2),turn);
-image_angle += ta2*sign(da2);
+image_angle += global.game_speed*ta2*sign(da2);
+speed = global.game_speed*curr_speed;
 
 #define scr_plane_boost
 ///scr_plane_boost()
@@ -205,8 +208,8 @@ shader_reset();
 ///scr_plane_advance_frame()
 
 //countdown hitstun and invincibility
-hitstun = max(hitstun-1, 0);
-invincibility = max(invincibility-1,0);
+hitstun = max(hitstun-global.game_speed, 0);
+invincibility = max(invincibility-global.game_speed,0);
 
 //emit far contrail if boosting
 trail_counter = min(trail_counter+1,global.TRAIL_RATE);
@@ -236,7 +239,7 @@ for(var i=array_length_1d(global.DMG_THRESHOLDS)-1; i>=0; i--;){
         py = y+irandom_range(-sprite_height/2,sprite_height/2);
         part_type_direction(global.dmg_ind[i],image_angle,image_angle,0,0);
         part_type_orientation(global.dmg_ind[i],0,0,0,0,true);
-        part_type_speed(global.dmg_ind[i],min_speed,min_speed,0,0);
+        part_type_speed(global.dmg_ind[i],speed*0.6,speed*0.6,0,0);
         part_particles_create(global.partsys,px,py,global.dmg_ind[i],1);
         smoke_counter = 0;
         break;
