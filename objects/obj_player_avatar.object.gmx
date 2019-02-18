@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///error check on target id existence
 if(!scr_instance_exists(target_id)){
-    room_restart();
+    scr_set_level("level1");
 }
 </string>
           </argument>

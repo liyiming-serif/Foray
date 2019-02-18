@@ -141,7 +141,7 @@ scr_plane_hit(true);
 
 if(hp&lt;=0){
     if(global.player_id==id){
-        room_restart();
+        scr_set_level("level1");
     }
     else{
         instance_destroy(self);
