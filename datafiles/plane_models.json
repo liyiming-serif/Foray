@@ -42,6 +42,41 @@
       "turn": 4
     }
   ],
+  "balloons":{
+    "skymine" : {
+      "max_hp":12,
+      "dmg":8,
+      "fric":0.06,
+      "range":48
+    },
+    "balloon":{
+      "max_hp":30,
+      "speed":0.7,
+      "gun_turn":2,
+      "update_target_time":300
+    },
+    "zeppelin":{
+      "max_hp":80,
+      "speed":0.7,
+      "turn":0.1,
+      "update_target_time":300
+    }
+  },
+  "projectiles":{
+    "bullet":{
+      "obj_ind":"obj_bullet",
+      "anim_speed":0.5,
+      "hit_part":"hit1",
+      "miss_part":"b1_miss",
+      "palette1":128
+    },
+    "cannonball":{
+      "obj_ind":"obj_cannonball",
+      "anim_speed":0.5,
+      "hit_part":"hit1",
+      "palette1":128
+    }
+  },
   "weapons": {
     "mg":{
       "obj_ind":"obj_wpn_mg",
@@ -50,43 +85,90 @@
       "on_release_cb":"scr_do_nothing",
       "shoot_frame":1,
       "anim_speed":0.5,
-      "projectile_ind":"obj_bullet",
+      "projectile":"bullet",
       "recoil":7,
       "palette":192,
-      "shoot_rate":13,
+      "shoot_rate":11,
       "accuracy":2,
-      "speed":8.5,
+      "muzzle_vel":10,
       "dmg":2,
-      "range":[280,288],
-      "muzzle_flare":{
-        "lifespan":[6,9]
-      }
+      "range":[300,312],
+      "muzzle_flare":"flare1"
     },
     "cannon":{
       "obj_ind":"obj_wpn_cannon",
       "on_click_cb":"scr_do_nothing",
-      "pressed_cb":"scr_do_nothing",
-      "on_release_cb":"scr_cannon_shoot",
+      "pressed_cb":"scr_cannon_shoot",
+      "on_release_cb":"scr_do_nothing",
       "shoot_frame":1,
       "anim_speed":0.25,
-      "projectile_ind":"obj_cannonball",
+      "projectile":"cannonball",
       "recoil":12,
       "palette":194,
-      "shoot_rate":60,
-      "accuracy":4,
-      "speed":5,
+      "shoot_rate":90,
+      "accuracy":1,
+      "muzzle_vel":7,
       "dmg":5,
-      "range":[136,136]
+      "range":[440,480],
+      "muzzle_flare":"flare1"
     },
-    "snipe":{
+    "airtillery":{
+      "obj_ind":"obj_wpn_airtillery",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_charge_shoot",
+      "on_release_cb":"scr_charge_scatter",
       "shoot_frame":1,
       "anim_speed":0.5,
-      "projectile_ind":"obj_cannonball",
-      "shoot_rate":10,
-      "accuracy":30,
-      "speed":15,
+      "projectile":"bullet",
+      "recoil":7,
+      "palette":196,
+      "shoot_rate":11,
+      "accuracy":2,
+      "muzzle_vel":10,
+      "dmg":2,
+      "range":[552,564],
+      "muzzle_flare":"flare1",
+      "rounds":5,
+      "reload_rate":90,
+      "charge_part":["charge",20,30],
+      "sweep_angle":90
+    },
+    "burst_cannon":{
+      "obj_ind":"obj_wpn_cannon",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_charge_shoot",
+      "on_release_cb":"scr_charge_scatter",
+      "shoot_frame":1,
+      "anim_speed":0.25,
+      "projectile":"cannonball",
+      "recoil":12,
+      "palette":194,
+      "shoot_rate":18,
+      "accuracy":1,
+      "muzzle_vel":6,
       "dmg":5,
-      "lifespan":[40,45]
+      "range":[600,624],
+      "muzzle_flare":"flare1",
+      "rounds":4,
+      "reload_rate":90,
+      "charge_part":["charge",20,30],
+      "sweep_angle":135
+    },
+    "mine_layer":{
+      "obj_ind":"obj_wpn_mine_layer",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_charge_shoot",
+      "on_release_cb":"scr_lay_mine",
+      "projectile":"",
+      "recoil":1,
+      "shoot_rate":30,
+      "accuracy":24,
+      "muzzle_vel":6,
+      "muzzle_vel_var":2,
+      "range":[0,0],
+      "rounds":1,
+      "reload_rate":90,
+      "hp_reduc":0.5
     }
   },
 }

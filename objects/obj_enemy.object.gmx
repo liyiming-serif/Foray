@@ -8,31 +8,6 @@
   <parentName>obj_plane_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="2" enumb="9">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///poll target_id coroutine
-target_id = global.player_id;
-alarm[9] = tut;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -131,7 +106,7 @@ scr_plane_advance_frame();
             <kind>1</kind>
             <string>///Evaluate AI FSM
 
-if(hp&lt;=0 || !has_pilot || !instance_exists(target_id)){
+if(hp&lt;=0 || !has_pilot || !scr_instance_exists(target_id)){
     scr_plane_idle();
     return undefined;
 }

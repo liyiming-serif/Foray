@@ -20,6 +20,13 @@
           <argument>
             <kind>1</kind>
             <string>scr_player_create(800,500,90,mk.ASTEROID_BLUES,"mg");
+scr_skymine_queue(160,180);
+scr_skymine_queue(240,900);
+scr_skymine_queue(1550,1080);
+scr_skymine_queue(2000,180);
+scr_skymine_queue(1850,210);
+scr_skymine_queue(875,550);
+scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon",90);
 </string>
           </argument>
         </arguments>
@@ -46,9 +53,139 @@
           <argument>
             <kind>1</kind>
             <string>
-scr_aiplane_create(1250,700,90,mk.RED_TAIL,"mg",46,192,room_speed/3,5,90,0.3);
-scr_aiplane_create(150,800,90,mk.RED_TAIL,"mg",46,192,room_speed/3,5,90,0.3);
-scr_aiplane_create(550,200,270,mk.ASTEROID_BLUES,"mg",46,192,room_speed/3,5,90,0.3);
+//scr_aiplane_create(1250,700,90,mk.RED_TAIL,"mg",46,192,room_speed/3,5,90,0.3);
+//scr_aiplane_create(150,800,90,mk.RED_TAIL,"mg",46,192,room_speed/3,5,90,0.3);
+//scr_aiplane_create(550,200,270,mk.ASTEROID_BLUES,"mg",46,192,room_speed/3,5,90,0.3);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>360</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_balloon_create(-24,-24,"cannon",false,20,undefined,960,1080);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>480</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//scr_balloon_create(672,1368,"cannon",false,20,undefined,1392,384);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>540</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//scr_balloon_create(2016,-24,"cannon",false,20,undefined,640,840);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>600</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//scr_balloon_create(-24,1224,"mg",false,20,undefined,1392,840);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>630</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//scr_balloon_create(2016,1272,"cannon",false,20,undefined,408,288);
 </string>
           </argument>
         </arguments>

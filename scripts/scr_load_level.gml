@@ -64,5 +64,8 @@ view_yview[1]=0;
 global.tile_x = 0;
 global.tile_y = 0;
 
+//reset skymine spawn queues
+ds_list_clear(global.skymine_queue);
+
 //magic number that has to do with tile refresh rate
 obj_control.alarm[0] = 2;

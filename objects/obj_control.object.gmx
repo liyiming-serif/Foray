@@ -44,7 +44,9 @@ file_text_close(f);
 //Parse JSONs
 global.plane_models = json_decode(raw);
 global.models = ds_map_find_value(global.plane_models, "models");
+global.projectiles = ds_map_find_value(global.plane_models, "projectiles");
 global.weapons = ds_map_find_value(global.plane_models, "weapons");
+global.balloons = ds_map_find_value(global.plane_models, "balloons");
 
 //Unintiallized level json + metadata
 global.curr_level_data = undefined;
@@ -114,11 +116,14 @@ enum ai_states{
 //ai difficulty modifiers
 global.AI_TURN_REDUC = 0.65;
 global.AI_SPEED_REDUC = 1.1;
-global.AI_HP_REDUC = 0.9;
-global.AI_SHOT_SP_REDUC = 0.65;
+global.AI_HP_REDUC = 0.8;
+global.AI_SHOT_SP_REDUC = 0.5;
 global.AI_SHOT_RANGE_REDUC = 0.9;
 global.AI_SHOT_ACC_REDUC = 2.0;
-global.AI_SHOT_RATE_REDUC = 1.0;
+global.AI_SHOT_RATE_REDUC = 1.4;
+
+//skymine spawn deferral
+global.skymine_queue = ds_list_create();
 
 //initiallize particle system + particles
 global.partsys = part_system_create();
@@ -129,14 +134,23 @@ part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.3);
 
 global.flare1 = part_type_create();
 part_type_sprite(global.flare1, eff_flare1, true, true, false);
+part_type_life(global.flare1, room_speed*0.1, room_speed*0.15);
 
 global.hit1 = part_type_create();
 part_type_sprite(global.hit1, eff_hit1, true, true, false);
 part_type_life(global.hit1, room_speed*0.2, room_speed*0.25);
 
+global.charge = part_type_create();
+part_type_sprite(global.charge, eff_charge, true, true, false);
+part_type_size(global.charge,0.5,1.5,0,0);
+
 global.boom_air = part_type_create();
 part_type_sprite(global.boom_air, eff_boom_air, true, true, false);
 part_type_life(global.boom_air, room_speed*0.5, room_speed*0.6);
+
+global.explosion = part_type_create();
+part_type_sprite(global.explosion, eff_explosion, true, true, false);
+part_type_life(global.explosion, room_speed*0.6, room_speed*0.8);
 
 global.dmg_ind[0] = part_type_create();
 part_type_sprite(global.dmg_ind[0], eff_smoke_lt, true, true, false);
@@ -203,6 +217,7 @@ ds_map_destroy(global.plane_models);
 if(global.curr_level_name!=""){
     ds_map_destroy(global.curr_level_data);
 }
+ds_list_destroy(global.skymine_queue);
 </string>
           </argument>
         </arguments>

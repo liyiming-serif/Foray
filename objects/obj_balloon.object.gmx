@@ -8,7 +8,7 @@
   <parentName>obj_ship_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,13 +25,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_balloon_create();
+            <string>///gc wpn mounts
+scr_ship_gc_wpns()
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Deathrattle
+
+part_particles_create(global.partsys,x,y,global.boom_air,1);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -48,21 +72,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(point_distance(x,y,global.player_id.x,global.player_id.y)&lt;=216){
-    var da = point_direction(x,y,global.player_id.x,global.player_id.y);
-    var b = instance_create(x,y,obj_cannonball);
-    b.direction = da;
-    b.speed = speed + 4;
-    b.isFriendly = false;
-    b.dmg = 5;
-}
-alarm[0] = room_speed;
+            <string>///Update wpns
+
+scr_balloon_update_wpn();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_projectile_parent">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -79,12 +97,54 @@ alarm[0] = room_speed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///destroy bullet and spawn hit particle
-if(other.isFriendly){
-    part_type_direction(global.hit1,other.direction,other.direction,0,0);
-    part_type_orientation(global.hit1,0,0,0,0,true);
-    part_particles_create(global.partsys,other.x,other.y,global.hit1,1);
-    instance_destroy(other);
+            <string>///Advance frame
+
+scr_ship_advance_frame();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Navigate balloon
+scr_balloon_navigate();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Aim Wpns
+if(scr_instance_exists(gid[0])){
+    scr_balloon_aim();
 }
 </string>
           </argument>

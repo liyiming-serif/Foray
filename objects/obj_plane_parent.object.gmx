@@ -51,7 +51,7 @@ sprite_index = spr_plane1;
           <argument>
             <kind>1</kind>
             <string>///Update weapon
-scr_plane_update_wpn();
+scr_ship_update_wpn(sprite_width-sprite_xoffset-2,image_angle,gid);
 </string>
           </argument>
         </arguments>
@@ -68,7 +68,7 @@ scr_plane_update_wpn();
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>

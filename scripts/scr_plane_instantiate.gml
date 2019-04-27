@@ -1,11 +1,16 @@
 #define scr_plane_instantiate
-///scr_plane_instantiate(dir, model, wpn_name, is_friendly)
+///scr_plane_instantiate(dir, model, wpn_name, is_friendly, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
-direction = argument0;
-modifier = argument1;
-var wpn_name = argument2;
-is_friendly = argument3;
+direction = argument[0];
+modifier = argument[1];
+var wpn_name = argument[2];
+if(argument_count==5){
+    scr_ship_instantiate(argument[3],argument[4]);
+}
+else{
+    scr_ship_instantiate(argument[3]);
+}
 
 //orient the plane
 image_angle = direction;
@@ -46,16 +51,15 @@ sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "spriteUVs");
 on_target = 0.0;
 on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
 
-//hitstun and invincibility frames
-hitstun = 0;
-invincibility = 0;
-
 //particle counters
 smoke_counter = global.SMOKE_RATE;
 trail_counter = global.TRAIL_RATE;
 
 //arm the plane
 gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly);
+
+//callbacks
+death_seq_cb = scr_plane_crash;
 
 
 #define scr_plane_point_turn
@@ -207,9 +211,7 @@ shader_reset();
 #define scr_plane_advance_frame
 ///scr_plane_advance_frame()
 
-//countdown hitstun and invincibility
-hitstun = max(hitstun-global.game_speed, 0);
-invincibility = max(invincibility-global.game_speed,0);
+scr_ship_advance_frame();
 
 //emit far contrail if boosting
 trail_counter = min(trail_counter+1,global.TRAIL_RATE);
@@ -254,51 +256,30 @@ else if(image_index<l_bound_frame){
     image_index = l_bound_frame;
 }
 
-#define scr_plane_hit
-///scr_plane_hit()
-if(hp<=0) return undefined;
+#define scr_plane_crash
+///scr_plane_crash()
 
-if(is_friendly!=other.is_friendly){
+//reset tint and shaders
+angles = -1;
 
-    if(invincibility>0){ //destroy bullet and exit early
-        instance_destroy(other);
-        return undefined;
-    }    
+//set crash sprite
+sprite_index = spr_plane1_land;
+image_index = 0;
+l_bound_frame = 0;
+r_bound_frame = image_number+1;
+image_speed = 0.2;
 
-    //spawn hit particle
-    part_type_direction(global.hit1,other.direction,other.direction,0,0);
-    part_type_orientation(global.hit1,0,0,0,0,true);
-    part_particles_create(global.partsys,other.x,other.y,global.hit1,1);
-    
-    //flash white
-    hitstun = other.dmg*room_speed/30;
-    
-    //apply dmg + initiate death seq if hp <= 0
-    hp -= other.dmg;
-    if(hp <= 0){
-        //reset tint and shaders
-        angles = -1;
-    
-        //set crash sprite
-        sprite_index = spr_plane1_land;
-        image_index = 0;
-        l_bound_frame = 0;
-        r_bound_frame = image_number+1;
-        image_speed = 0.2;
-        
-        //set crash course
-        direction += 2*random_range(-other.dmg, other.dmg);
-        
-        //stop other animation seqs
-        alarm[11] = -1;
-        
-        //create explosion particle
-        part_particles_create(global.partsys,x,y,global.boom_air,1);
-    }
-    
-    //destroy bullet
-    instance_destroy(other);
-}
+//set crash course
+direction += 2*random_range(-other.dmg, other.dmg);
+
+//stop other animation seqs
+alarm[11] = -1;
+
+//create explosion particle
+part_particles_create(global.partsys,x,y,global.boom_air,1);
+
+//gc wpn
+scr_ship_gc_wpns();
 
 #define scr_plane_steal
 ///scr_plane_steal()
@@ -359,32 +340,11 @@ if(angles[1]>pi){
 
 //wrapper around executing gid callbacks for reducing copied code
 var cb, ret;
-cb = argument0;
-with(gid){
-    switch(cb){
-        case "on_click":
-            ret = script_execute(on_click_cb);
-            break;
-        case "pressed":
-            ret = script_execute(pressed_cb);
-            break;
-        case "on_release":
-            ret = script_execute(on_release_cb);
-            break;
-    }
-}
+cb = argument[0];
+ret= scr_ship_shoot(gid,cb);
 if(ret!=undefined){
     //change plane to shooting sprite
     sprite_index = spr_plane1_shoot;
     alarm[11] = gid.recoil;
 }
 return ret;
-
-#define scr_plane_update_wpn
-///scr_plane_update_wpn()
-
-//Update weapon position and image angle. Call during the end step.
-gid.image_angle = image_angle;
-
-gid.x = x+lengthdir_x(18,image_angle);
-gid.y = y+lengthdir_y(18,image_angle);

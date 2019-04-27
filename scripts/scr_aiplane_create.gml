@@ -1,23 +1,22 @@
 #define scr_aiplane_create
-///scr_aiplane_create(x, y, dir, model, wpn_name, foresight, nimbus, reflexes, max_rounds, tut, achy)
-var xv = argument0;
-var yv = argument1;
-var dir = argument2;
-var model = argument3;
-var wpn_name = argument4;
+///scr_aiplane_create(x, y, dir, model, wpn_name, foresight, nimbus, reflexes, max_rounds, update_target_time, achy)
+var xv = argument[0];
+var yv = argument[1];
+var dir = argument[2];
+var model = argument[3];
+var wpn_name = argument[4];
 
 //CONSTRUCTOR:
 with(instance_create(xv,yv,obj_enemy)){
-    scr_plane_instantiate(dir,model,wpn_name,false);
+    scr_plane_instantiate(dir,model,wpn_name,false,argument[9]);
     
     //TODO: (1) refactor foresight, nimbus, and reflexes to a 'skill' arg
     //      (2) refactor foresight, reflexes to consider speed and turn
     //      (3) refactor nimbus and max_rounds to wpn properties
-    foresight = argument5; //how far plane looks for avoiding obstacles
-    nimbus = argument6; //distance before plane opens fire
-    reflexes = argument7; //how fast plane switches out of AVOID state
-    max_rounds = argument8; //rounds plane fires before reloading
-    tut = argument9; //(t)arget (u)pdate (t)ime
+    foresight = argument[5]; //how far plane looks for avoiding obstacles
+    nimbus = argument[6]; //distance before plane opens fire
+    reflexes = argument[7]; //how fast plane switches out of AVOID state
+    max_rounds = argument[8]; //rounds plane fires before reloading
     
     //Handicap AI
     turn *= global.AI_TURN_REDUC;
@@ -26,13 +25,11 @@ with(instance_create(xv,yv,obj_enemy)){
     max_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
     max_hp = ceil(max_hp*global.AI_HP_REDUC);
-    achy = ceil(argument10*max_hp); //hp threshold for commandeering
+    achy = ceil(argument[10]*max_hp); //hp threshold for commandeering
     achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
     hp = max_hp;
     
     //entry point for AI FSM
-    target_id = global.player_id;
-    alarm[9] = tut;
     ax = 0;
     ay = 0;
     sx = lengthdir_x(speed*foresight,direction);
@@ -51,6 +48,15 @@ with(instance_create(xv,yv,obj_enemy)){
 //sensing obstacles
 var i, adir;
 i = collision_line(x,y,sx+x,sy+y,obj_ship_parent,false,true);
+//don't dodge if obstacle is moving away too fast
+if(i!=noone){
+    if(i.speed>speed*0.5 && abs(angle_difference(i.direction,direction))<60.0){
+        var l = distance_to_object(i);
+        if(l>foresight*0.3){
+            i = noone;
+        }
+    }
+}
 if(state != ai_states.AVOIDING){
     ax = 0;
     ay = 0;
@@ -100,7 +106,7 @@ if(pd<=nimbus){
     //check player is within shooting range
     var pa = point_direction(x,y,target_id.x,target_id.y);
     var da = abs(angle_difference(pa,direction));
-    if(da <= 30){
+    if(da <= 40){
         state = ai_states.FIRING;
     }
 }
@@ -109,7 +115,7 @@ if(pd<=nimbus){
 ///scr_aiplane_hit()
 
 var php = hp;
-scr_plane_hit(false);
+scr_ship_hit();
 if(hp<=achy && php>achy){     
     var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
     scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));
