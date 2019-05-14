@@ -44,6 +44,10 @@ file_text_close(f);
 //Parse JSONs
 global.plane_models = json_decode(raw);
 global.models = ds_map_find_value(global.plane_models, "models");
+var stat_tiers = ds_map_find_value(global.plane_models, "stat_tiers");
+global.speed_tiers = ds_map_find_value(stat_tiers, "speeds");
+global.turn_tiers = ds_map_find_value(stat_tiers, "turns");
+global.amr_tiers = ds_map_find_value(stat_tiers, "armors");
 global.projectiles = ds_map_find_value(global.plane_models, "projectiles");
 global.weapons = ds_map_find_value(global.plane_models, "weapons");
 global.balloons = ds_map_find_value(global.plane_models, "balloons");
@@ -73,6 +77,11 @@ global.TRAIL_RATE = room_speed*0.25;
 global.DMG_THRESHOLDS[0] = 0.61;
 global.DMG_THRESHOLDS[1] = 0.38;
 global.DMG_THRESHOLDS[2] = 0.20;
+global.MIN_DMG = 0.5;
+
+//HUD constants
+global.HBAR_X = 16;
+global.HBAR_Y = 24;
 
 //Use to change movement speed while still animating at 60fps
 global.game_speed = 1.0;
@@ -93,13 +102,8 @@ global.acc_key = ord('X');
 global.commandeer_key = ord('C');
 global.options_key = ord('F');
 
-//Models
-enum mk{ //TODO: replace with modifiers
-    RED_TAIL = 0,
-    ASTEROID_BLUES = 1,
-    HORDE_DRAB = 2,
-    IZNIK_NIGHT = 3,
-    REMY = 4,
+//Set plane palettes
+enum mk{ //TODO: add modifiers
     TINT_GREEN = 254,
     TINT_RED = 255
 }
@@ -114,6 +118,8 @@ enum ai_states{
 };
 
 //ai difficulty modifiers
+global.spawn_cap = 0.0;
+
 global.AI_TURN_REDUC = 0.65;
 global.AI_SPEED_REDUC = 1.1;
 global.AI_HP_REDUC = 0.8;
@@ -421,6 +427,36 @@ else{
 
 tile_layer_shift(127, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Update gameplay global vars
+global.spawn_cap = 0.0;
+for(var i = 0; i &lt; instance_number(obj_ship_parent); i++)
+{
+    var s = instance_find(obj_ship_parent,i);
+    var t = variable_instance_get(s,"threat");
+    if(t!=undefined){
+        global.spawn_cap+=t;
+    }
+}
 </string>
           </argument>
         </arguments>

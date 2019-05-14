@@ -1,14 +1,14 @@
 #define scr_aiplane_create
-///scr_aiplane_create(x, y, dir, model, wpn_name, foresight, nimbus, reflexes, max_rounds, update_target_time, achy)
+///scr_aiplane_create(x, y, dir, model_name, wpn_name, foresight, nimbus, reflexes, max_rounds, update_target_time, achy)
 var xv = argument[0];
 var yv = argument[1];
 var dir = argument[2];
-var model = argument[3];
+var model_name = argument[3];
 var wpn_name = argument[4];
 
 //CONSTRUCTOR:
 with(instance_create(xv,yv,obj_enemy)){
-    scr_plane_instantiate(dir,model,wpn_name,false,argument[9]);
+    scr_plane_instantiate(dir,model_name,wpn_name,false,argument[9]);
     
     //TODO: (1) refactor foresight, nimbus, and reflexes to a 'skill' arg
     //      (2) refactor foresight, reflexes to consider speed and turn

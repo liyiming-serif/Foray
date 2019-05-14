@@ -40,8 +40,24 @@ if(is_friendly!=other.is_friendly){
         part_particles_create(global.partsys,other.x,other.y,other.hit_part,1);
     }
     
+    //Apply armor 
+    if(variable_instance_exists(id,"amr")){
+        other.dmg = max(other.dmg-amr,global.MIN_DMG);
+    }
+    
     //flash white
     hitstun = other.dmg*room_speed/30;
+    
+    //player_hit specific code
+    //This isn't its own function because it needs to run
+    //after dmg calculation, but before dmg application.
+    if(!other.is_friendly){
+        //TODO: apply screen shake
+        //TODO: apply screen flash
+        
+        //DIFFICULTY MOD: scale dmg down by spawn capacity
+        other.dmg = max((1-global.spawn_cap*0.6)*other.dmg,global.MIN_DMG);
+    }
     
     //apply dmg + initiate death seq if hp <= 0
     hp -= other.dmg;
@@ -108,6 +124,7 @@ g.y = y+lengthdir_y(r,t);
 var g, cb, ret;
 g = argument[0];
 cb = argument[1];
+
 with(g){
     switch(cb){
         case "on_click":

@@ -11,6 +11,7 @@ with(instance_create(xv,yv,obj_balloon)){
     hp = ds_map_find_value(mp, "max_hp");
     curr_speed = ds_map_find_value(mp, "speed");
     gun_turn = ds_map_find_value(mp, "gun_turn");
+    threat = ds_map_find_value(mp,"threat");
     
     is_armored = argument[3];
     sweep_angle = argument[4];

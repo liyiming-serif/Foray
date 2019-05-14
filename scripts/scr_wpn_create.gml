@@ -1,23 +1,29 @@
 #define scr_wpn_create
-///scr_wpn_create(x, y, dir, wpn_name, is_friendly)
+///scr_wpn_create(x, y, dir, wpn_name, is_friendly, dmg_mod=1)
 
 //Used for creating a generic gun from JSON.
 //Additional JSON properties should be read in wpn obj's create event.
 
-var mp = ds_map_find_value(global.weapons,argument3);
+var mp = ds_map_find_value(global.weapons,argument[3]);
 //wpn not found, returning null id
 if(mp==undefined){
     return 0;
 }
 
-with(instance_create(argument0,argument1,asset_get_index(ds_map_find_value(mp,"obj_ind")))){
-    key = argument3;
-    is_friendly = argument4;
-    image_angle = argument2;
+with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(mp,"obj_ind")))){
+    key = argument[3];
+    is_friendly = argument[4];
+    image_angle = argument[2];
     image_angle_prev = image_angle;
     dx = 0;
     dy = 0;
     av = 0;
+    
+    //optional dmg modifier
+    display_dmg = 1;
+    if(argument_count==6){
+        display_dmg = argument[5];
+    }
     
     //scr_shoot attributes
     bullet_type = ds_map_find_value(mp,"projectile");
@@ -26,7 +32,7 @@ with(instance_create(argument0,argument1,asset_get_index(ds_map_find_value(mp,"o
     recoil = ds_map_find_value(mp,"recoil"); //num frames gun and plane flash from firing
     accuracy = ds_map_find_value(mp,"accuracy");
     muzzle_vel = ds_map_find_value(mp,"muzzle_vel");
-    dmg = ds_map_find_value(mp,"dmg");
+    dmg = scr_interpolate_stat(display_dmg, ds_map_find_value(mp,"dmg"));
     range[0] = ds_list_find_value(ds_map_find_value(mp,"range"),0);
     range[1] = ds_list_find_value(ds_map_find_value(mp,"range"),1);
     if(ds_map_exists(mp,"barrel_len")){
@@ -155,7 +161,7 @@ return b;
 ///scr_lay_mine()
 
 //check cooldown
-if(shoot_counter < shoot_rate){
+if(shoot_counter < shoot_rate && global.spawn_cap<1.0){
     return undefined;
 }
 shoot_counter = 0;
@@ -195,12 +201,13 @@ else if(image_index<l_bound_frame){
 
 #define scr_cannon_shoot
 ///scr_cannon_shoot()
-//game_restart();
+
 var b = scr_shoot();
 if(b!=undefined){
     b.image_angle = 0;
 }
 return b;
+
 #define scr_charge_shoot
 ///scr_charge_shoot()
 

@@ -1,65 +1,90 @@
 {
   "modifiers": [],
-  "models": [
-    {
+  "stat_tiers":{
+    "speeds":[2.5,3.75,4.5],
+    "turns":[3,5,6],
+    "armors":[0,2,4]
+  },
+  "models":{
+    "max_hp": 30,
+    "threat": 0.06,
+    "red_tail":{
       "name": "Red Tail",
-      "max_hp": 30,
-      "neutral_speed": 3,
-      "min_speed": 2,
-      "max_speed": 4,
-      "turn": 4
+      "speed": 2,
+      "turn": 1,
+      "dmg":1,
+      "amr":1,
+
+      "palette": 0,
+      "min_speed": 2.5,
+      "max_speed": 5
     },
-    {
+    "asteroid_blues":{
       "name": "Asteroid Blues",
-      "max_hp": 30,
-      "neutral_speed": 3,
+      "speed": 1,
+      "turn": 1,
+      "dmg": 1,
+      "amr": 1,
+
+      "palette": 1,
       "min_speed": 2,
-      "max_speed": 4.5,
-      "turn": 4
+      "max_speed": 4,
     },
-    {
+    "horde_drab":{
       "name": "Drab of the Horde",
-      "max_hp": 30,
-      "neutral_speed": 3,
+      "speed": 1,
+      "turn": 1,
+      "dmg":1,
+      "amr":1,
+
+      "palette": 2,
       "min_speed": 2,
-      "max_speed": 4,
-      "turn": 4
+      "max_speed": 4
     },
-    {
+    "iznik_night":{
       "name": "Iznik Night",
-      "max_hp": 30,
-      "neutral_speed": 3,
-      "min_speed": 2,
-      "max_speed": 4,
-      "turn": 4
+      "speed": 1,
+      "turn": 1,
+      "dmg":2,
+      "amr":1,
+
+      "palette": 3,
+      "min_speed": 2.5,
+      "max_speed": 4
     },
-    {
+    "remy":{
       "name": "Remy",
-      "max_hp": 30,
-      "neutral_speed": 3,
+      "speed": 1,
+      "turn": 2,
+      "dmg":2,
+      "amr":1,
+
+      "palette": 4,
       "min_speed": 2,
-      "max_speed": 4,
-      "turn": 4
+      "max_speed": 5
     }
-  ],
+  },
   "balloons":{
     "skymine" : {
       "max_hp":12,
       "dmg":8,
       "fric":0.06,
-      "range":48
+      "range":48,
+      "threat":0.01
     },
     "balloon":{
-      "max_hp":30,
+      "max_hp":20,
       "speed":0.7,
       "gun_turn":2,
-      "update_target_time":300
+      "update_target_time":300,
+      "threat":0.06
     },
     "zeppelin":{
-      "max_hp":80,
+      "max_hp":75,
       "speed":0.7,
       "turn":0.1,
-      "update_target_time":300
+      "update_target_time":300,
+      "threat":0.4
     }
   },
   "projectiles":{
@@ -91,7 +116,7 @@
       "shoot_rate":11,
       "accuracy":2,
       "muzzle_vel":10,
-      "dmg":2,
+      "dmg":[2,3,3.5],
       "range":[300,312],
       "muzzle_flare":"flare1"
     },
@@ -108,7 +133,7 @@
       "shoot_rate":90,
       "accuracy":1,
       "muzzle_vel":7,
-      "dmg":5,
+      "dmg":[5],
       "range":[440,480],
       "muzzle_flare":"flare1"
     },
@@ -125,7 +150,7 @@
       "shoot_rate":11,
       "accuracy":2,
       "muzzle_vel":10,
-      "dmg":2,
+      "dmg":[2],
       "range":[552,564],
       "muzzle_flare":"flare1",
       "rounds":5,
@@ -146,7 +171,7 @@
       "shoot_rate":18,
       "accuracy":1,
       "muzzle_vel":6,
-      "dmg":5,
+      "dmg":[5],
       "range":[600,624],
       "muzzle_flare":"flare1",
       "rounds":4,
@@ -165,6 +190,7 @@
       "accuracy":24,
       "muzzle_vel":6,
       "muzzle_vel_var":2,
+      "dmg":[0],
       "range":[0,0],
       "rounds":1,
       "reload_rate":90,

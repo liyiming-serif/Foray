@@ -1,9 +1,10 @@
 #define scr_plane_instantiate
-///scr_plane_instantiate(dir, model, wpn_name, is_friendly, update_target_time=-1)
+///scr_plane_instantiate(dir, model_name, wpn_name, is_friendly, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
 direction = argument[0];
-modifier = argument[1];
+var mp = ds_map_find_value(global.models, argument[1]);
+key = argument[1];
 var wpn_name = argument[2];
 if(argument_count==5){
     scr_ship_instantiate(argument[3],argument[4]);
@@ -15,15 +16,34 @@ else{
 //orient the plane
 image_angle = direction;
 
-//initallize stats
-var mp = ds_list_find_value(global.models, modifier);
+//params common to every model
+max_hp = ds_map_find_value(global.models,"max_hp");
+threat = ds_map_find_value(global.models,"threat");
 
-max_hp = ds_map_find_value(mp,"max_hp"); //displayed as: hp
-neutral_speed = ds_map_find_value(mp,"neutral_speed"); //displayed as: speed
+//primary stats. These stats represent how many stars the player sees.
+//Use the global lookup table to interpolate the in-game values these
+//stats represent.
+display_speed = ds_map_find_value(mp,"speed");
+display_turn = ds_map_find_value(mp,"turn");
+display_dmg = ds_map_find_value(mp,"dmg");
+display_amr = ds_map_find_value(mp,"amr");
+
+//translated primary stats
+turn = scr_interpolate_stat(display_turn,global.turn_tiers);
+amr = scr_interpolate_stat(display_amr,global.amr_tiers);
+neutral_speed = scr_interpolate_stat(display_speed,global.speed_tiers);
+
+debug0 = neutral_speed;
+debug1 = turn;
+debug2 = display_dmg;
+debug3 = amr;
+
+//hidden stats
 min_speed = ds_map_find_value(mp,"min_speed");
 max_speed = ds_map_find_value(mp,"max_speed");
-turn = ds_map_find_value(mp,"turn"); //displayed as: turn
+modifier = ds_map_find_value(mp,"palette");
 
+//variable fields
 hp = max_hp;
 curr_speed = neutral_speed;
 is_braking = false;
@@ -56,7 +76,7 @@ smoke_counter = global.SMOKE_RATE;
 trail_counter = global.TRAIL_RATE;
 
 //arm the plane
-gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly);
+gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly,display_dmg);
 
 //callbacks
 death_seq_cb = scr_plane_crash;
@@ -155,7 +175,10 @@ else if(curr_speed>neutral_speed){//too fast
 
 #define scr_plane_shade
 ///scr_plane_shade()
-
+draw_text(x-48,y-96,debug0);
+draw_text(x-48,y-72,debug1);
+draw_text(x-48,y-48,debug2);
+draw_text(x-48,y-24,debug3);
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if (hitstun>0){
     if (is_array(angles) && image_index%3>1.5){ //apply hit wedge flash
@@ -288,7 +311,7 @@ scr_ship_gc_wpns();
 //becomes the active player.
 
 //create player plane
-var new = scr_player_create(x,y,direction,modifier,gid.key);
+var new = scr_player_create(x,y,direction,key,gid.key);
 new.speed = speed;
 //play buckling animation for new plane
 new.sprite_index = spr_plane1_buckle;

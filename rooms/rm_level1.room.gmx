@@ -52,6 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_spawner" x="0" y="456" name="inst_45F0C7D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hud_artist" x="0" y="0" name="inst_3445FB8E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ts_sand_flora" x="312" y="480" w="192" h="96" xo="0" yo="0" id="10000001" name="inst_725C20E3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

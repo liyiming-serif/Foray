@@ -18,6 +18,7 @@ with(instance_create(xv,yv,obj_zeppelin)){
     hp = ds_map_find_value(mp, "max_hp");
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");
+    threat = ds_map_find_value(mp,"threat");
     
     dest_x = argument[2];
     dest_y = argument[3];

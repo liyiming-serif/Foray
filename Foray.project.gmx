@@ -42,14 +42,18 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_plane1</sprite>
-    <sprite>sprites\spr_plane1_shoot</sprite>
-    <sprite>sprites\spr_plane1_land</sprite>
-    <sprite>sprites\spr_plane1_buckle</sprite>
-    <sprite>sprites\spr_skymine</sprite>
-    <sprite>sprites\spr_balloon</sprite>
-    <sprite>sprites\spr_balloon_amr</sprite>
-    <sprite>sprites\spr_zeppelin</sprite>
+    <sprites name="planes">
+      <sprite>sprites\spr_plane1</sprite>
+      <sprite>sprites\spr_plane1_shoot</sprite>
+      <sprite>sprites\spr_plane1_land</sprite>
+      <sprite>sprites\spr_plane1_buckle</sprite>
+    </sprites>
+    <sprites name="ships">
+      <sprite>sprites\spr_skymine</sprite>
+      <sprite>sprites\spr_balloon</sprite>
+      <sprite>sprites\spr_balloon_amr</sprite>
+      <sprite>sprites\spr_zeppelin</sprite>
+    </sprites>
     <sprite>sprites\spr_char</sprite>
     <sprite>sprites\spr_char_back</sprite>
     <sprite>sprites\spr_bullet</sprite>
@@ -80,6 +84,9 @@
       <sprite>sprites\eff_trail_close</sprite>
       <sprite>sprites\eff_trail_far</sprite>
     </sprites>
+    <sprite>sprites\spr_hud_artist</sprite>
+    <sprite>sprites\spr_hp_gauge</sprite>
+    <sprite>sprites\spr_hp_icon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
@@ -101,6 +108,7 @@
     <script>scripts\scr_set_res.gml</script>
     <script>scripts\scr_load_level.gml</script>
     <script>scripts\scr_instance_exists.gml</script>
+    <script>scripts\scr_interpolate_stat.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
@@ -122,6 +130,7 @@
     <object>objects\obj_wpn_airtillery</object>
     <object>objects\obj_wpn_mine_layer</object>
     <object>objects\obj_control</object>
+    <object>objects\obj_hud_artist</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_ship_parent</object>
     <object>objects\obj_plane_parent</object>

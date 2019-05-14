@@ -16,6 +16,7 @@ with(instance_create(xv,yv,obj_skymine)){
     hp = ds_map_find_value(mp, "max_hp");
     dmg = ds_map_find_value(mp, "dmg");
     range = ds_map_find_value(mp, "range");
+    threat = ds_map_find_value(mp,"threat");
     
     image_speed = 0.5;
     
