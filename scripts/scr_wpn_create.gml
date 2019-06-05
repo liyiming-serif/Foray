@@ -142,9 +142,9 @@ if(is_friendly){
 else{
     b.direction = image_angle+av+random_range(-accuracy,accuracy);
 }
-b.speed = global.game_speed*(muzzle_vel + lv);
+b.curr_speed = muzzle_vel + lv;
 b.image_angle = b.direction;
-b.alarm[0] = random_range(range[0],range[1])/muzzle_vel;
+b.ttl = random_range(range[0],range[1])/muzzle_vel; //time to live
 b.dmg = dmg;
 
 //produce muzzle flare [optional]

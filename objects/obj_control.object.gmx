@@ -78,6 +78,7 @@ global.DMG_THRESHOLDS[0] = 0.61;
 global.DMG_THRESHOLDS[1] = 0.38;
 global.DMG_THRESHOLDS[2] = 0.20;
 global.MIN_DMG = 0.5;
+global.MAX_STATS = 3;
 
 //HUD constants
 global.HBAR_X = 16;

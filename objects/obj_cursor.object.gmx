@@ -3,7 +3,7 @@
   <spriteName>spr_cursor</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -129,6 +129,9 @@ else if(image_index&lt;l_bound_frame){
           <argument>
             <kind>1</kind>
             <string>///Update position
+/*x = window_view_mouse_get_x(view_current);
+y = window_view_mouse_get_y(view_current);*/
+
 if(window_get_fullscreen()){
     x = mouse_x-view_xview[0];
     y = mouse_y-view_yview[0];
@@ -137,6 +140,7 @@ else{
     x = mouse_x-view_xview[1];
     y = mouse_y-view_yview[1];
 }
+
 </string>
           </argument>
         </arguments>
@@ -236,13 +240,16 @@ else{
 }
 
 //slow down the action if on target to aid commandeering
+//TODO: lerp for smoother effect
 if(scr_instance_exists(target_plane) &amp;&amp; target_plane.on_target){
     global.game_speed = max(global.game_speed-global.SLOMO_RATE, global.SLOMO_MIN);
-    //global.game_speed = global.SLOMO_MIN;
+    if(instance_number(obj_statbox)==0){
+        scr_statbox_create(global.player_id,target_plane);
+        scr_statbox_create(target_plane,global.player_id);
+    }
 }
 else{
     global.game_speed = min(global.game_speed+global.SLOMO_RATE, 1.0);
-    //global.game_speed = 1.0
 }
 
 target_prev = target_plane;
@@ -301,27 +308,27 @@ shader_reset();
             <string>///Draw square targets
 if(scr_instance_exists(target_plane)){
     var ind, t;
-    ind = image_index mod sprite_get_number(eff_lockon);
+    ind = image_index mod sprite_get_number(spr_lockon);
     t = target_plane;
     if(t.on_target){ //lockon: green
         //top left
-        draw_sprite_ext(eff_lockon,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
+        draw_sprite_ext(spr_lockon,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
         //bottom left
-        draw_sprite_ext(eff_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
+        draw_sprite_ext(spr_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
         //bottom right
-        draw_sprite_ext(eff_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
+        draw_sprite_ext(spr_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
         //top right
-        draw_sprite_ext(eff_lockon,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
+        draw_sprite_ext(spr_lockon,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
     }
     else{ //lockon: red
         //top left
-        draw_sprite_ext(eff_lockoff,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
+        draw_sprite_ext(spr_lockoff,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
         //bottom left
-        draw_sprite_ext(eff_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
+        draw_sprite_ext(spr_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
         //bottom right
-        draw_sprite_ext(eff_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
+        draw_sprite_ext(spr_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
         //top right
-        draw_sprite_ext(eff_lockoff,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
+        draw_sprite_ext(spr_lockoff,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
     }
 }
 

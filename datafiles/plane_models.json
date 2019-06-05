@@ -22,7 +22,7 @@
     "asteroid_blues":{
       "name": "Asteroid Blues",
       "speed": 1,
-      "turn": 1,
+      "turn": 1.9,
       "dmg": 1,
       "amr": 1,
 
@@ -34,7 +34,7 @@
       "name": "Drab of the Horde",
       "speed": 1,
       "turn": 1,
-      "dmg":1,
+      "dmg":1.6,
       "amr":1,
 
       "palette": 2,

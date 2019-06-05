@@ -20,8 +20,8 @@
   <width>23</width>
   <height>23</height>
   <frames>
-    <frame index="0">images\eff_lockoff_0.png</frame>
-    <frame index="1">images\eff_lockoff_1.png</frame>
-    <frame index="2">images\eff_lockoff_2.png</frame>
+    <frame index="0">images\spr_lockon_0.png</frame>
+    <frame index="1">images\spr_lockon_1.png</frame>
+    <frame index="2">images\spr_lockon_2.png</frame>
   </frames>
 </sprite>

@@ -75,8 +75,8 @@
     <sprite>sprites\eff_boom_air</sprite>
     <sprite>sprites\eff_explosion</sprite>
     <sprite>sprites\eff_charge</sprite>
-    <sprite>sprites\eff_lockon</sprite>
-    <sprite>sprites\eff_lockoff</sprite>
+    <sprite>sprites\spr_lockon</sprite>
+    <sprite>sprites\spr_lockoff</sprite>
     <sprites name="smoke_trails">
       <sprite>sprites\eff_smoke_lt</sprite>
       <sprite>sprites\eff_smoke_dk</sprite>
@@ -87,6 +87,16 @@
     <sprite>sprites\spr_hud_artist</sprite>
     <sprite>sprites\spr_hp_gauge</sprite>
     <sprite>sprites\spr_hp_icon</sprite>
+    <sprites name="stats_ui">
+      <sprite>sprites\spr_stat</sprite>
+      <sprite>sprites\spr_stat_filled</sprite>
+      <sprite>sprites\spr_stat_better</sprite>
+      <sprite>sprites\spr_stat_worse</sprite>
+      <sprite>sprites\spr_statbox</sprite>
+      <sprite>sprites\spr_statbox_enemy</sprite>
+      <sprite>sprites\eff_bubble</sprite>
+      <sprite>sprites\eff_bubble_enemy</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_desert1</background>
@@ -109,6 +119,8 @@
     <script>scripts\scr_load_level.gml</script>
     <script>scripts\scr_instance_exists.gml</script>
     <script>scripts\scr_interpolate_stat.gml</script>
+    <script>scripts\scr_game_to_gui.gml</script>
+    <script>scripts\scr_statbox_create.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
@@ -138,6 +150,7 @@
     <object>objects\obj_wpn_parent</object>
     <object>objects\obj_cursor</object>
     <object>objects\obj_cursor_frame</object>
+    <object>objects\obj_statbox</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_test_wave</timeline>
