@@ -67,9 +67,12 @@
   "balloons":{
     "skymine" : {
       "max_hp":12,
+      "chase_vel":3,
+      "chase_freq":80,
       "dmg":8,
       "fric":0.06,
       "range":48,
+      "update_target_time":400,
       "threat":0.01
     },
     "balloon":{
@@ -116,7 +119,7 @@
       "shoot_rate":11,
       "accuracy":2,
       "muzzle_vel":10,
-      "dmg":[2,3,3.5],
+      "dmg":[2,2.5,3],
       "range":[300,312],
       "muzzle_flare":"flare1"
     },

@@ -75,6 +75,7 @@
     <sprite>sprites\eff_boom_air</sprite>
     <sprite>sprites\eff_explosion</sprite>
     <sprite>sprites\eff_charge</sprite>
+    <sprite>sprites\eff_deflect</sprite>
     <sprite>sprites\spr_lockon</sprite>
     <sprite>sprites\spr_lockoff</sprite>
     <sprites name="smoke_trails">

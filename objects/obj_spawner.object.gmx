@@ -89,14 +89,14 @@ for(var i=0; i&lt;ds_list_size(global.skymine_queue); i++){
     //spawn only if its outside the current view
     if(window_get_fullscreen()){
         if(tuple[0]&lt;view_xview[0]||tuple[0]&gt;view_wview[0]+view_xview[0]||tuple[1]&lt;view_yview[0]||tuple[1]&gt;view_hview[0]+view_yview[0]){
-            scr_skymine_create(tuple[0],tuple[1],0,0);
+            scr_skymine_create(tuple[0],tuple[1],0,0,tuple[2]);
             ds_list_delete(global.skymine_queue,i);
             i--;
         }
     }
     else{
         if(tuple[0]&lt;view_xview[1]||tuple[0]&gt;view_wview[1]+view_xview[1]||tuple[1]&lt;view_yview[1]||tuple[1]&gt;view_hview[1]+view_yview[1]){
-            scr_skymine_create(tuple[0],tuple[1],0,0);
+            scr_skymine_create(tuple[0],tuple[1],0,0,tuple[2]);
             ds_list_delete(global.skymine_queue,i);
             i--;
         }
