@@ -7,10 +7,10 @@ var mp = ds_map_find_value(global.models, argument[1]);
 key = argument[1];
 var wpn_name = argument[2];
 if(argument_count==5){
-    scr_ship_instantiate(argument[3],argument[4]);
+    scr_ship_instantiate(argument[3],global.models,argument[4]);
 }
 else{
-    scr_ship_instantiate(argument[3]);
+    scr_ship_instantiate(argument[3],global.models);
 }
 
 //orient the plane
@@ -18,7 +18,6 @@ image_angle = direction;
 
 //params common to every model
 max_hp = ds_map_find_value(global.models,"max_hp");
-threat = ds_map_find_value(global.models,"threat");
 
 //primary stats. These stats represent how many stars the player sees.
 //Use the global lookup table to interpolate the in-game values these

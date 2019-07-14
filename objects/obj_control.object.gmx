@@ -107,7 +107,7 @@ global.options_key = ord('F');
 enum mk{ //TODO: add modifiers
     TINT_GREEN = 254,
     TINT_RED = 255
-}
+};
 
 //AI ENUMS
 enum ai_states{
@@ -132,6 +132,16 @@ global.AI_SHOT_RATE_REDUC = 1.4;
 //skymine spawn deferral
 global.skymine_queue = ds_list_create();
 
+//shielding states
+enum shield_states{
+    DOWN,
+    GOING_UP,
+    ANIM_UP,
+    UP,
+    GOING_DOWN,
+    ANIM_DOWN
+};
+
 //initiallize particle system + particles
 global.partsys = part_system_create();
 
@@ -142,6 +152,10 @@ part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.3);
 global.flare1 = part_type_create();
 part_type_sprite(global.flare1, eff_flare1, true, true, false);
 part_type_life(global.flare1, room_speed*0.1, room_speed*0.15);
+
+global.deflect = part_type_create();
+part_type_sprite(global.deflect, eff_deflect, true, true, false);
+part_type_life(global.deflect, room_speed*0.25, room_speed*0.4);
 
 global.hit1 = part_type_create();
 part_type_sprite(global.hit1, eff_hit1, true, true, false);

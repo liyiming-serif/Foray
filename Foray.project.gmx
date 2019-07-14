@@ -111,9 +111,9 @@
     <script>scripts\scr_aiplane_create.gml</script>
     <script>scripts\scr_player_create.gml</script>
     <script>scripts\scr_skymine_create.gml</script>
-    <script>scripts\scr_ship_instantiate.gml</script>
     <script>scripts\scr_balloon_create.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
+    <script>scripts\scr_ship_instantiate.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
     <script>scripts\scr_projectile_create.gml</script>
     <script>scripts\scr_set_res.gml</script>
@@ -134,6 +134,7 @@
     <object>objects\obj_enemy</object>
     <object>objects\obj_skymine</object>
     <object>objects\obj_balloon</object>
+    <object>objects\obj_balloon_amr</object>
     <object>objects\obj_zeppelin</object>
     <object>objects\obj_player_avatar</object>
     <object>objects\obj_bullet</object>

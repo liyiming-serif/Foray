@@ -21,19 +21,16 @@ with(instance_create(xv,yv,obj_skymine)){
     hp = ds_map_find_value(mp, "max_hp");
     dmg = ds_map_find_value(mp, "dmg");
     range = ds_map_find_value(mp, "range");
-    threat = ds_map_find_value(mp,"threat");
     chase_player = chp;
     
     //optional behavior: chase the player like Blooper
     if(chase_player){
         chase_vel = ds_map_find_value(mp,"chase_vel");
         chase_freq = ds_map_find_value(mp,"chase_freq");
+        hp *= ds_map_find_value(mp,"chase_hp_reduc");
         alarm[0] = chase_freq;
-        scr_ship_instantiate(false,ds_map_find_value(mp, "update_target_time"));
     }
-    else{
-        scr_ship_instantiate(false);
-    }
+    scr_ship_instantiate(false,mp);
     
     image_speed = 0.5;
     

@@ -1,14 +1,28 @@
 #define scr_ship_instantiate
-///scr_ship_instantiate(is_friendly, update_target_time=-1)
+///scr_ship_instantiate(is_friendly, ds_map, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
 //hitstun and invincibility frames
 is_friendly = argument[0];
+var mp = argument[1];
+
 hitstun = 0;
 invincibility = 0;
-if(!is_friendly && argument_count==2){
+threat = ds_map_find_value(mp,"threat");
+
+//update target time
+if(!is_friendly){
+    var utt = ds_map_find_value(mp,"update_target_time");
+    if(!is_undefined(utt)){
+        update_target_time = utt;
+    }
+    else if(argument_count==3){
+        update_target_time = argument[2];
+    }
+    else{
+        return undefined;
+    }
     target_id = global.player_id;
-    update_target_time = argument[1];
     alarm[10] = update_target_time;
 }
 
@@ -20,7 +34,7 @@ hitstun = max(hitstun-global.game_speed, 0);
 invincibility = max(invincibility-global.game_speed,0);
 
 #define scr_ship_hit
-///scr_ship_hit(is_contact)
+///scr_ship_hit()
 
 //Abstract function for when a ship collides with a projectile.
 
@@ -98,7 +112,7 @@ else if(scr_instance_exists(gid)){
 }
 
 #define scr_ship_update_wpn
-///scr_ship_update_wpn(r,t,gid,rotate_img=true)
+///scr_ship_update_wpn(r,t,gid,rot_locked_by_ship=true)
 
 //Update weapon position and image angle using polar coordinates.
 //Call during the end step!

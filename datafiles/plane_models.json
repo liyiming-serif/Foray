@@ -66,24 +66,30 @@
   },
   "balloons":{
     "skymine" : {
-      "max_hp":12,
+      "max_hp":10,
       "chase_vel":3,
       "chase_freq":80,
+      "chase_hp_reduc":0.7,
       "dmg":8,
       "fric":0.06,
       "range":48,
-      "update_target_time":400,
+      "update_target_time":450,
       "threat":0.01
     },
     "balloon":{
-      "max_hp":20,
+      "max_hp":170,
       "speed":0.7,
+      "turn":0.5,
       "gun_turn":2,
       "update_target_time":300,
+      "amr_anim_time":20,
+      "amr_up_lag":40,
+      "amr_down_lag":80,
+      "range":280,
       "threat":0.06
     },
     "zeppelin":{
-      "max_hp":75,
+      "max_hp":70,
       "speed":0.7,
       "turn":0.1,
       "update_target_time":300,
@@ -197,7 +203,7 @@
       "range":[0,0],
       "rounds":1,
       "reload_rate":90,
-      "hp_reduc":0.5
+      "hp_reduc":0.6
     }
   },
 }

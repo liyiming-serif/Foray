@@ -20,13 +20,13 @@
           <argument>
             <kind>1</kind>
             <string>scr_player_create(800,500,90,"asteroid_blues","mg");
-scr_skymine_queue(160,180,true);
+/*scr_skymine_queue(160,180,true);
 scr_skymine_queue(240,900,true);
 scr_skymine_queue(1550,1080,true);
 scr_skymine_queue(2000,180,true);
 scr_skymine_queue(1850,210,true);
 scr_skymine_queue(875,550,true);
-scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon",90);
+scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon",90);*/
 </string>
           </argument>
         </arguments>
@@ -63,7 +63,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
     </event>
   </entry>
   <entry>
-    <step>360</step>
+    <step>2</step>
     <event>
       <action>
         <libid>1</libid>
@@ -81,7 +81,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_balloon_create(-24,-24,"cannon",false,20,undefined,960,1080);
+            <string>scr_balloon_create(-24,-24,"cannon",true,20,undefined,960,1080);
 </string>
           </argument>
         </arguments>
@@ -107,7 +107,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_balloon_create(672,1368,"cannon",false,20,undefined,1392,384);
+            <string>//scr_balloon_create(672,1368,"cannon",true,20,undefined,1392,384);
 </string>
           </argument>
         </arguments>
@@ -159,7 +159,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_balloon_create(-24,1224,"mg",false,20,undefined,1392,840);
+            <string>//scr_balloon_create(-24,1224,"mg",true,20,undefined,1392,840);
 </string>
           </argument>
         </arguments>
@@ -185,7 +185,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_balloon_create(2016,1272,"cannon",false,20,undefined,408,288);
+            <string>//scr_balloon_create(2016,1272,"cannon",true,20,undefined,408,288);
 </string>
           </argument>
         </arguments>
