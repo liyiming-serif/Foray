@@ -144,6 +144,7 @@ enum shield_states{
 
 //initiallize particle system + particles
 global.partsys = part_system_create();
+part_system_depth(global.partsys,-1);
 
 global.b1_miss = part_type_create();
 part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);

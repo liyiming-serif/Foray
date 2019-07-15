@@ -111,6 +111,7 @@ else if(gid[1].state == shield_states.UP && !scr_balloon_firing_in_range()){
 if(scr_instance_exists(gid[1]) && scr_balloon_amr_is_up()){
     if(is_friendly!=other.is_friendly){
         instance_destroy(other);
+        part_particles_create(global.partsys,other.x,other.y,global.deflect,1);
     }
 }
 else{

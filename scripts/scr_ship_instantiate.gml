@@ -13,7 +13,7 @@ threat = ds_map_find_value(mp,"threat");
 //update target time
 if(!is_friendly){
     var utt = ds_map_find_value(mp,"update_target_time");
-    if(!is_undefined(utt)){
+    if(utt != undefined){
         update_target_time = utt;
     }
     else if(argument_count==3){
