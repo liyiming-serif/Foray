@@ -119,8 +119,6 @@ enum ai_states{
 };
 
 //ai difficulty modifiers
-global.spawn_cap = 0.0;
-
 global.AI_TURN_REDUC = 0.65;
 global.AI_SPEED_REDUC = 1.1;
 global.AI_HP_REDUC = 0.8;
@@ -128,6 +126,9 @@ global.AI_SHOT_SP_REDUC = 0.5;
 global.AI_SHOT_RANGE_REDUC = 0.9;
 global.AI_SHOT_ACC_REDUC = 2.0;
 global.AI_SHOT_RATE_REDUC = 1.4;
+
+//shared spawn vars
+global.spawn_cap = 0.0;
 
 //skymine spawn deferral
 global.skymine_queue = ds_list_create();
@@ -463,7 +464,7 @@ tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Update gameplay global vars
+            <string>///Update spawn cap
 global.spawn_cap = 0.0;
 for(var i = 0; i &lt; instance_number(obj_ship_parent); i++)
 {

@@ -77,7 +77,7 @@
       "threat":0.01
     },
     "balloon":{
-      "max_hp":170,
+      "max_hp":17,
       "speed":0.7,
       "turn":0.5,
       "gun_turn":2,

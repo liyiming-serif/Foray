@@ -122,6 +122,11 @@
     <script>scripts\scr_interpolate_stat.gml</script>
     <script>scripts\scr_game_to_gui.gml</script>
     <script>scripts\scr_statbox_create.gml</script>
+    <script>scripts\scr_get_point_on_border.gml</script>
+    <scripts name="design_components">
+      <script>scripts\scr_spawn_static_skymine.gml</script>
+      <script>scripts\scr_spawn_plane_cmc1.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
@@ -155,7 +160,7 @@
     <object>objects\obj_statbox</object>
   </objects>
   <timelines name="timelines">
-    <timeline>timelines\tl_test_wave</timeline>
+    <timeline>timelines\tl_amorphous_wave</timeline>
     <timeline>timelines\tl_commandeer_coroutine</timeline>
   </timelines>
   <rooms name="rooms">

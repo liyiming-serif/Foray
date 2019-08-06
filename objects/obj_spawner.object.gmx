@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Start timeline
-alarm[0] = 30;
-timeline_index = tl_test_wave;
+
+timeline_index = tl_amorphous_wave;
 if !timeline_running{
     timeline_position = 0
     timeline_running = true;
@@ -36,8 +36,6 @@ if !timeline_running{
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -54,13 +52,38 @@ if !timeline_running{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///spawn replacement enemies
+            <string>///[A+] init vars
 
-if(instance_number(obj_enemy)&lt;2){
-    //scr_aiplane_create(x,y,0,"horde_drab","mg",46,240,room_speed/3,5,180,0.3);
-}
+global.spawn_max_cap = 0.0;
+global.spawn_weight = 0.0;
+global.spawn_chance = 0.02;
 
-alarm[0] = room_speed*7;
+global.seen_enemies = ds_map_create();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///[A+] cleanup
+
+ds_map_destroy(global.seen_enemies);
 </string>
           </argument>
         </arguments>
@@ -99,6 +122,59 @@ for(var i=0; i&lt;ds_list_size(global.skymine_queue); i++){
             scr_skymine_create(tuple[0],tuple[1],0,0,tuple[2]);
             ds_list_delete(global.skymine_queue,i);
             i--;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///[A+] spawn enemies loop
+
+var t = timeline_position/room_speed;
+if(t!=0){
+    //~magic difficulty curve formula~
+    global.spawn_max_cap = clamp((sin(t/6)+log2(t/5))/6,0,1);
+}
+else{
+    global.spawn_max_cap = 0;
+}
+
+if(global.spawn_cap&gt;=global.spawn_max_cap){
+    //slow the timeline to make it easier
+    timeline_speed = 0.2;
+}
+else{
+    timeline_speed = 1;
+    //okay to spawn enemies
+    if(random(1)&lt;global.spawn_chance){
+        var len, k, v;
+        len = ds_map_size(global.seen_enemies);
+        k = ds_map_find_first(global.seen_enemies);
+        for (var i = 0; i &lt; len; i++;) {
+            v = ds_map_find_value(global.seen_enemies, k);
+            if(random(global.spawn_weight)&lt;v){
+                script_execute(k);
+            }
+            if(i&lt;len-1){
+                k = ds_map_find_next(global.seen_enemeis, k);
+            }
         }
     }
 }
