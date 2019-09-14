@@ -54,17 +54,17 @@ bool inRange(vec2 pos)
 void main()
 {
     vec4 baseColor = texture2D( gm_BaseTexture, v_vTexcoord );
-    vec2 pos = (v_vTexcoord-spriteUVs.xy)*spriteUVs.zw;
-    if(inRange(pos)){
-        if(onTarget>=0.5){ //flash blue
-            gl_FragColor = vec4(0.0,0.86328125,0.60546875,baseColor.a);
-        }
-        else { //flash red
-            gl_FragColor = vec4(0.85546875,0.09375,0.26953125,baseColor.a);
-        }
+    //vec2 pos = (v_vTexcoord-spriteUVs.xy)*spriteUVs.zw;
+    //if(inRange(pos)){
+    if(onTarget>=0.5){ //flash blue
+        gl_FragColor = vec4(0.0,0.86328125,0.60546875,baseColor.a);
     }
-    else{ //normal hit flash
-        gl_FragColor = vec4(1.0,1.0,0.7265625,baseColor.a);
+    else { //flash red
+        gl_FragColor = vec4(0.85546875,0.09375,0.26953125,baseColor.a);
     }
+    //}
+    //else{ //normal hit flash
+    //    gl_FragColor = vec4(1.0,1.0,0.7265625,baseColor.a);
+    //}
 }
 

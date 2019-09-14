@@ -175,7 +175,7 @@ scr_cast_shadow();
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if (hitstun>0){
-    if (is_array(angles) && image_index%3>1.5){ //apply hit wedge flash
+    if (is_array(angles)){ //apply hit wedge flash
         angles_ref = shader_get_uniform(shader_wedge_hit_flash, "angles");
         origin_ref = shader_get_uniform(shader_wedge_hit_flash, "origin");
         sprite_uvs_ref = shader_get_uniform(shader_wedge_hit_flash, "spriteUVs");
@@ -195,8 +195,10 @@ if (hitstun>0){
         sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "spriteUVs");
         on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
     }
-    //apply hit flash
-    shader_set(shader_hit_flash);
+    else{
+        //apply hit flash
+        shader_set(shader_hit_flash);
+    }
 }
 else if (is_array(angles) && image_index%3>1.5){ //apply wedge flash
     palette_ref = shader_get_sampler_index(shader_wedge_flash, "palette");

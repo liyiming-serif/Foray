@@ -85,7 +85,7 @@
 
   "balloons":{
     "skymine" : {
-      "max_hp":8,
+      "max_hp":7.5,
       "chase_vel":3,
       "chase_freq":80,
       "chase_hp_reduc":0.7,
