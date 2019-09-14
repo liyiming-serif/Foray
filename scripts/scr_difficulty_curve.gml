@@ -12,4 +12,4 @@ return clamp(sqrt(t)/110,0,1); //clamp((1.5*sin(t/150)+log2(t/5))/12,0,1);
 var n = argument[0];
 
 //modifies the base spawn rate by a linear factor of number of design patterns
-return global.BASE_SPAWN_CHANCE * -0.1*(n-1)+1;
+return global.BASE_SPAWN_CHANCE * -0.09*(n-1)+1;
