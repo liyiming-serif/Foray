@@ -1,0 +1,14 @@
+{
+  "cb_weights":{
+    "scr_spawn_plane_cmc3":1,
+    "scr_spawn_plane_cmc4":0.9,
+    "scr_spawn_plane_cmc5":0.45,
+
+    "scr_spawn_skymine":10,
+    "scr_spawn_chasing_skymine":6,
+    "scr_spawn_skymine_cluster":3,
+    "scr_spawn_balloon":1.7,
+    "scr_spawn_amr_balloon":1,
+    "scr_spawn_zeppelin":0.08
+  }
+}

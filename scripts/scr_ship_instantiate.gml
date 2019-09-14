@@ -60,17 +60,23 @@ if(is_friendly!=other.is_friendly){
     }
     
     //flash white
-    hitstun = other.dmg*room_speed/30;
+    hitstun = log2(other.dmg+1)*2.2;
     
-    //player_hit specific code
-    //This isn't its own function because it needs to run
-    //after dmg calculation, but before dmg application.
+    //player hit specific code
     if(!other.is_friendly){
-        //TODO: apply screen shake
-        //TODO: apply screen flash
+        //TODO: apply screen shake?
+        
+        //apply screen flash
+        if(id==global.player_id){
+            global.flash_red_alpha += other.dmg/15;
+        }
         
         //DIFFICULTY MOD: scale dmg down by spawn capacity
-        other.dmg = max((1-global.spawn_cap*0.6)*other.dmg,global.MIN_DMG);
+        other.dmg = max((1-global.spawn_cap*0.3)*other.dmg,global.MIN_DMG);
+    }
+    else{ //enemy hit specific code
+        //DIFFICULY MOD: increase player's atk if outnumbered
+        other.dmg *= 1+global.spawn_cap*0.5;
     }
     
     //apply dmg + initiate death seq if hp <= 0
@@ -93,11 +99,15 @@ if(is_friendly!=other.is_friendly){
 
 //Shared shading logic across all ships
 
+//cast shadow
+scr_cast_shadow();
+
 if(hitstun>0){ //apply hit flash
     shader_set(shader_hit_flash);
 }
 draw_self();
 shader_reset();
+
 #define scr_ship_gc_wpns
 ///scr_ship_gc_wpns()
 if(is_array(gid)){

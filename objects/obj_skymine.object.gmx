@@ -98,7 +98,7 @@ scr_ship_advance_frame();
           <argument>
             <kind>1</kind>
             <string>///flash warning to player
-if(scr_instance_exists(global.player_id) &amp;&amp; distance_to_object(global.player_id)&lt;range){
+if(scr_instance_exists(global.player_id) &amp;&amp; distance_to_object(global.player_id)&lt;alert_range){
     image_blend = c_red;
 }
 else{

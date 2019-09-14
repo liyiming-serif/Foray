@@ -1,0 +1,120 @@
+{
+  "modifiers": [],
+  "stat_tiers":{
+    "speeds":[2.5, 3.25, 3.75],
+    "turns":[2.25, 4.75, 5.5],
+    "armors":[0, 2, 4]
+  },
+  "models":{
+    "max_hp": 50,
+    "threat": 0.2,
+    "red_tail":{
+      "name": "Red Tail",
+      "speed": 2,
+      "turn": 1.05,
+      "dmg":1,
+      "amr":1,
+      "palette": 0,
+      "min_speed": 2.5,
+      "max_speed": 5.2
+    },
+    "asteroid_blues":{
+      "name": "Asteroid Blues",
+      "speed": 1.05,
+      "turn": 2,
+      "dmg": 1,
+      "amr": 1,
+      "palette": 1,
+      "min_speed": 2,
+      "max_speed": 4.05,
+    },
+    "horde_drab":{
+      "name": "Drab of the Horde",
+      "speed": 1,
+      "turn": 1.05,
+      "dmg":1,
+      "amr":1,
+      "palette": 2,
+      "min_speed": 2,
+      "max_speed": 4
+    },
+    "venitas":{
+      "name": "Venitas",
+      "speed": 1,
+      "turn": 1,
+      "dmg":2,
+      "amr":1,
+      "palette": 3,
+      "min_speed": 2,
+      "max_speed": 4
+    },
+    "remy":{
+      "name": "Remy",
+      "speed": 2,
+      "turn": 1,
+      "dmg":2,
+      "amr":1,
+      "palette": 4,
+      "min_speed": 2.5,
+      "max_speed": 5.2
+    },
+    "red_baron":{
+      "name": "Red Baron",
+      "speed": 2,
+      "turn": 2,
+      "dmg":1,
+      "amr":1,
+      "palette": 5,
+      "min_speed": 2.5,
+      "max_speed": 5.2
+    }
+  },
+
+  "pilot_ai":{
+    "mg_chaser":{
+      "foresight":46,
+      "range": [240,260],
+      "accuracy": [25,15],
+      "avoid_arc": 20,
+      "max_rounds": 6,
+      "achy": [0.4,0.36],
+      "reload_speed":[180,120],
+      "update_target_time": [180,120]
+    }
+  },
+
+  "balloons":{
+    "skymine" : {
+      "max_hp":8,
+      "chase_vel":3,
+      "chase_freq":80,
+      "chase_hp_reduc":0.7,
+      "dmg":8,
+      "fric":0.06,
+      "alert_range":48,
+      "update_target_time":450,
+      "chasing_threat":0.05,
+      "threat":0.02
+    },
+    "balloon":{
+      "max_hp":30,
+      "speed":1,
+      "turn":0.5,
+      "gun_turn":2,
+      "update_target_time":300,
+      "amr_anim_time":20,
+      "amr_up_lag":40,
+      "amr_down_lag":60,
+      "alert_range":480,
+      "accuracy_coeff":27,
+      "threat":0.15
+    },
+    "zeppelin":{
+      "max_hp":150,
+      "speed":0.7,
+      "turn":0.11,
+      "update_target_time":300,
+      "threat":0.35
+    }
+  }
+}

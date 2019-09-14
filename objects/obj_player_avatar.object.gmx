@@ -82,9 +82,15 @@ if(image_index&gt;=jump_frame &amp;&amp; !has_jumped){ //begin jump
     }
     has_jumped = true;
 }
-else if(image_index&gt;=land_frame){ //landing
+else if(image_index&gt;=land_frame &amp;&amp; !has_landed){ //begin land
+    //global.flash_blue_alpha = 0.7;
     image_speed = og_image_speed;
     image_angle = 0;
+    x = target_id.x;
+    y = target_id.y;
+    has_landed = true;
+}
+else if(image_index&gt;=land_frame){ //landing
     x = target_id.x;
     y = target_id.y;
 }

@@ -32,25 +32,52 @@ if(instance_number(obj_control)&gt;1){
     instance_destroy(id,false);
 }
 
-//Load JSONs
+randomize();
+
+//LOAD JSONS
 var f, raw;
-f = file_text_open_read(working_directory + "\plane_models.json");
+
+//Ship and plane models + AI constants
+f = file_text_open_read(working_directory + "\ships_planes.json");
 raw = "";
 while(!file_text_eof(f)){
     raw += file_text_read_string(f);
     file_text_readln(f);
 }
 file_text_close(f);
-//Parse JSONs
-global.plane_models = json_decode(raw);
-global.models = ds_map_find_value(global.plane_models, "models");
-var stat_tiers = ds_map_find_value(global.plane_models, "stat_tiers");
+global.SHIPS_PLANES = json_decode(raw);
+
+//Weapon fixures and projectiles
+f = file_text_open_read(working_directory + "\wpns_bullets.json");
+raw = "";
+while(!file_text_eof(f)){
+    raw += file_text_read_string(f);
+    file_text_readln(f);
+}
+file_text_close(f);
+global.WPNS_BULLETS = json_decode(raw);
+
+//Design pattern components
+f = file_text_open_read(working_directory + "\design_patterns.json");
+raw = "";
+while(!file_text_eof(f)){
+    raw += file_text_read_string(f);
+    file_text_readln(f);
+}
+file_text_close(f);
+global.DESIGN_PATTERNS = json_decode(raw);
+
+//PARSE JSONS
+global.models = ds_map_find_value(global.SHIPS_PLANES, "models");
+global.balloons = ds_map_find_value(global.SHIPS_PLANES, "balloons");
+var stat_tiers = ds_map_find_value(global.SHIPS_PLANES, "stat_tiers");
 global.speed_tiers = ds_map_find_value(stat_tiers, "speeds");
 global.turn_tiers = ds_map_find_value(stat_tiers, "turns");
 global.amr_tiers = ds_map_find_value(stat_tiers, "armors");
-global.projectiles = ds_map_find_value(global.plane_models, "projectiles");
-global.weapons = ds_map_find_value(global.plane_models, "weapons");
-global.balloons = ds_map_find_value(global.plane_models, "balloons");
+global.pilot_ai = ds_map_find_value(global.SHIPS_PLANES, "pilot_ai");
+global.projectiles = ds_map_find_value(global.WPNS_BULLETS, "projectiles");
+global.weapons = ds_map_find_value(global.WPNS_BULLETS, "weapons");
+global.design_pattern_weights = ds_map_find_value(global.DESIGN_PATTERNS, "cb_weights");
 
 //Unintiallized level json + metadata
 global.curr_level_data = undefined;
@@ -68,21 +95,34 @@ global.BRAKE_SPEED = 0.05;
 global.AIR_FRIC = 0.01;
 global.DRIFT = 1.25;
 global.ACC_DAMPENER = 1.25; //how little acc reduces turn
-global.ACHY_VARIANCE = 0.05;
 global.SPAWN_INVINCIBILITY = room_speed*2; //invincibility after swapping planes
 global.JUMP_SPEED = 6;
 global.C_RECOVERY = room_speed*0.18;
 global.SMOKE_RATE = room_speed*0.3;
 global.TRAIL_RATE = room_speed*0.25;
-global.DMG_THRESHOLDS[0] = 0.61;
-global.DMG_THRESHOLDS[1] = 0.38;
-global.DMG_THRESHOLDS[2] = 0.20;
+global.DMG_THRESHOLDS[0] = 0.75;
+global.DMG_THRESHOLDS[1] = 0.50;
+global.DMG_THRESHOLDS[2] = 0.25;
+global.CONTACT_DMG = 2;
 global.MIN_DMG = 0.5;
 global.MAX_STATS = 3;
 
 //HUD constants
 global.HBAR_X = 16;
 global.HBAR_Y = 24;
+
+//drawing shadows
+global.VANISH_X = room_width/2;
+global.VANISH_Y = -576;
+global.SHADOW_DIST = 16;
+
+//SCREEN FLASH CONSTS
+global.C_FLASH_BLUE = make_colour_rgb(37,76,232);
+global.C_FLASH_RED = make_colour_rgb(219,24,69);
+global.flash_blue_alpha = 0;
+global.flash_red_alpha = 0;
+global.FLASH_BLUE_ALPHA_DECAY = 0.1;
+global.FLASH_RED_ALPHA_DECAY = 0.05;
 
 //Use to change movement speed while still animating at 60fps
 global.game_speed = 1.0;
@@ -119,13 +159,13 @@ enum ai_states{
 };
 
 //ai difficulty modifiers
-global.AI_TURN_REDUC = 0.65;
-global.AI_SPEED_REDUC = 1.1;
-global.AI_HP_REDUC = 0.8;
+global.AI_TURN_REDUC = 0.55;
+global.AI_SPEED_REDUC = 1.2;
+global.AI_HP_REDUC = 1;
 global.AI_SHOT_SP_REDUC = 0.5;
 global.AI_SHOT_RANGE_REDUC = 0.9;
 global.AI_SHOT_ACC_REDUC = 2.0;
-global.AI_SHOT_RATE_REDUC = 1.4;
+global.AI_SHOT_RATE_REDUC = 1.6;
 
 //shared spawn vars
 global.spawn_cap = 0.0;
@@ -233,10 +273,14 @@ scr_set_level("level1");
             <kind>1</kind>
             <string>///garbage collection
 
+//particles
 part_system_destroy(global.partsys);
 part_type_destroy(global.b1_miss);
 
-ds_map_destroy(global.plane_models);
+//top level data structures
+ds_map_destroy(global.SHIPS_PLANES);
+ds_map_destroy(global.WPNS_BULLETS);
+ds_map_destroy(global.DESIGN_PATTERNS);
 if(global.curr_level_name!=""){
     ds_map_destroy(global.curr_level_data);
 }
@@ -381,8 +425,8 @@ if(scr_instance_exists(global.player_id) &amp;&amp; global.next_level == ""){
     with(global.player_id){
         if(object_index==obj_player){
             d = curr_speed-neutral_speed;
-            cam_x = x+lengthdir_x(global.MAX_CAM_FOLLOW_DIST-8*sign(d)*sqr(d),direction);
-            cam_y = y+lengthdir_y(global.MAX_CAM_FOLLOW_DIST-8*sign(d)*sqr(d),direction);
+            cam_x = x+lengthdir_x(global.MAX_CAM_FOLLOW_DIST-16*sign(d)*sqr(d),direction);
+            cam_y = y+lengthdir_y(global.MAX_CAM_FOLLOW_DIST-16*sign(d)*sqr(d),direction);
         }
         else{
             cam_x = x+lengthdir_x(global.MAX_CAM_FOLLOW_DIST,direction);
@@ -464,14 +508,20 @@ tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Update spawn cap
+            <string>///Update spawn cap; loop through enemies
 global.spawn_cap = 0.0;
-for(var i = 0; i &lt; instance_number(obj_ship_parent); i++)
-{
+for(var i = 0; i &lt; instance_number(obj_ship_parent); i++){
     var s = instance_find(obj_ship_parent,i);
-    var t = variable_instance_get(s,"threat");
-    if(t!=undefined){
-        global.spawn_cap+=t;
+    if(!s.is_friendly){
+        var t = variable_instance_get(s,"threat");
+        if(t!=undefined){
+            global.spawn_cap+=t;
+        }
+        
+        //debuff enemy accuracy based on spawn cap
+        if(variable_instance_exists(s,"accuracy")){
+            s.accuracy = s.og_accuracy*(1+global.spawn_cap);
+        }
     }
 }
 </string>

@@ -1,22 +1,32 @@
 #define scr_aiplane_create
-///scr_aiplane_create(x, y, dir, model_name, wpn_name, foresight, nimbus, reflexes, max_rounds, update_target_time, achy)
+///scr_aiplane_create(x, y, dir, model_name, wpn_name, ai_name, skill)
 var xv = argument[0];
 var yv = argument[1];
 var dir = argument[2];
 var model_name = argument[3];
 var wpn_name = argument[4];
+var mp = ds_map_find_value(global.pilot_ai,argument[5]);
+var skill = argument[6]-1;
+
+//AI name not found, returning null id
+if(mp==undefined){
+    return 0;
+}
 
 //CONSTRUCTOR:
 with(instance_create(xv,yv,obj_enemy)){
-    scr_plane_instantiate(dir,model_name,wpn_name,false,argument[9]);
-    
+    //Load AI constants from JSON 
     //TODO: (1) refactor foresight, nimbus, and reflexes to a 'skill' arg
-    //      (2) refactor foresight, reflexes to consider speed and turn
-    //      (3) refactor nimbus and max_rounds to wpn properties
-    foresight = argument[5]; //how far plane looks for avoiding obstacles
-    nimbus = argument[6]; //distance before plane opens fire
-    reflexes = argument[7]; //how fast plane switches out of AVOID state
-    max_rounds = argument[8]; //rounds plane fires before reloading
+    //      (2) refactor foresight, avoid_arc to consider speed and turn
+    foresight = ds_map_find_value(mp,"foresight"); //how far plane looks for avoiding obstacles
+    range = ds_list_find_value(ds_map_find_value(mp,"range"),skill); //distance before plane opens fire
+    og_accuracy = ds_list_find_value(ds_map_find_value(mp,"accuracy"),skill); //angle diff before plane opens fire
+    accuracy = og_accuracy;
+    avoid_arc = ds_map_find_value(mp,"avoid_arc"); //how fast plane switches out of AVOID state
+    max_rounds = ds_map_find_value(mp,"max_rounds"); //rounds plane fires before reloading
+    reload_speed = ds_list_find_value(ds_map_find_value(mp,"reload_speed"),skill); //how long plane spends in RELOAD state
+    var utt = ds_map_find_value(mp,"update_target_time"); //update_target_time
+    scr_plane_instantiate(dir,model_name,wpn_name,false,ds_list_find_value(utt,skill));
     
     //Handicap AI
     turn *= global.AI_TURN_REDUC;
@@ -25,8 +35,7 @@ with(instance_create(xv,yv,obj_enemy)){
     max_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
     max_hp = ceil(max_hp*global.AI_HP_REDUC);
-    achy = ceil(argument[10]*max_hp); //hp threshold for commandeering
-    achy += random_range(-achy*global.ACHY_VARIANCE,achy*global.ACHY_VARIANCE);
+    achy = ceil(ds_list_find_value(ds_map_find_value(mp,"achy"),skill)*max_hp); //hp threshold for commandeering
     hp = max_hp;
     
     //entry point for AI FSM
@@ -69,7 +78,7 @@ if(i!=noone){
     ay = lengthdir_y(foresight,adir);
     state = ai_states.AVOIDING;
     if(!alarm[0]){
-        alarm[0] = reflexes;
+        alarm[0] = avoid_arc;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }
@@ -92,7 +101,7 @@ if(state==ai_states.FIRING && scr_plane_shoot("pressed")!=undefined){
         rounds_left = max_rounds;
         state = ai_states.RELOADING;
         if(!alarm[1]){
-            alarm[1] = room_speed*3;
+            alarm[1] = reload_speed;
         }
     }
 }
@@ -102,11 +111,11 @@ if(state==ai_states.FIRING && scr_plane_shoot("pressed")!=undefined){
 
 ///check player is within nimbus
 var pd = point_distance(target_id.x,target_id.y,x,y);
-if(pd<=nimbus){
+if(pd<=range){
     //check player is within shooting range
     var pa = point_direction(x,y,target_id.x,target_id.y);
     var da = abs(angle_difference(pa,direction));
-    if(da <= 40){
+    if(da <= accuracy){
         state = ai_states.FIRING;
     }
 }

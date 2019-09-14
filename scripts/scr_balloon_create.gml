@@ -1,5 +1,5 @@
 #define scr_balloon_create
-///scr_balloon_create(x,y,wpn_name,is_armored,sweep_angle,path,dest_x=x,dest_y=y)
+///scr_balloon_create(x,y,wpn_name,is_armored,path,dest_x=x,dest_y=y)
 var xv = argument[0];
 var yv = argument[1];
 var wpn_name = argument[2];
@@ -8,18 +8,19 @@ with(instance_create(xv,yv,obj_balloon)){
     //initiallize stats
     var mp = ds_map_find_value(global.balloons, "balloon");
     
+    scr_ship_instantiate(false,mp);
+    
     hp = ds_map_find_value(mp, "max_hp");
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");
     gun_turn = ds_map_find_value(mp, "gun_turn");
-    range = ds_map_find_value(mp, "range");
+    alert_range = ds_map_find_value(mp, "alert_range");
     
     is_armored = argument[3];
-    sweep_angle = argument[4];
-    future_path = argument[5];
-    if(argument_count>6){
-        dest_x = argument[6];
-        dest_y = argument[7];
+    future_path = argument[4]; //TODO: scripted balloons can follow predetermined paths
+    if(argument_count>5){
+        dest_x = argument[5];
+        dest_y = argument[6];
         in_position = false;
     }
     else{
@@ -32,6 +33,8 @@ with(instance_create(xv,yv,obj_balloon)){
     if(scr_instance_exists(gid[0])){
         gun_turn -= gun_turn*(1-7/gid[0].recoil);
         gid[0].image_angle = 270;
+        og_accuracy = ds_map_find_value(mp,"accuracy_coeff")*gid[0].accuracy;
+        accuracy = og_accuracy;
     }
     if(is_armored){
         //create armor
@@ -48,8 +51,6 @@ with(instance_create(xv,yv,obj_balloon)){
     
     image_speed = 0.4;
     
-    scr_ship_instantiate(false,mp);
-    
     debug = "";
     return id;
 }
@@ -60,6 +61,7 @@ with(instance_create(xv,yv,obj_balloon)){
 ///scr_balloon_navigate()
 
 if(scr_instance_exists(gid[1]) && gid[1].visible){
+    //hiding behind armor
     speed = 0;
 }
 else if(!in_position){
@@ -73,7 +75,7 @@ else{
     speed = 0;
 }
 
-//TODO: scripted balloons can fallow pre-determined paths
+//TODO: scripted balloons can fallow predetermined paths
 
 #define scr_balloon_aim
 ///scr_balloon_aim()
@@ -87,13 +89,15 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<gid[0].range[
     gid[0].image_angle += global.game_speed*ta*sign(da);
     
     //shoot if within angle
-    if(abs(da) <= sweep_angle){
+    if(abs(da) <= accuracy){
         scr_ship_shoot(gid[0],"pressed");
     }
 }
 
 #define scr_balloon_guard
 ///scr_balloon_guard()
+
+//TODO: change logic to put up shield friendly bullet is within range
 
 if(gid[1].state == shield_states.DOWN && scr_balloon_firing_in_range()){
     //raise armor if target is firing in range
@@ -143,7 +147,7 @@ scr_ship_shade();
 ///scr_balloon_firing_in_range()
 
 if(scr_instance_exists(target_id) &&
-    distance_to_object(target_id)<range &&
+    distance_to_object(target_id)<alert_range &&
     mouse_check_button(mb_left)){
     
     return true;

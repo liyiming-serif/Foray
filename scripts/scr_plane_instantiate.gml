@@ -170,6 +170,9 @@ else if(curr_speed>neutral_speed){//too fast
 #define scr_plane_shade
 ///scr_plane_shade()
 
+//cast shadow
+scr_cast_shadow();
+
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if (hitstun>0){
     if (is_array(angles) && image_index%3>1.5){ //apply hit wedge flash
@@ -284,7 +287,7 @@ r_bound_frame = image_number+1;
 image_speed = 0.2;
 
 //set crash course
-direction += 2*random_range(-other.dmg, other.dmg);
+direction += random_range(-10, 10);
 
 //stop other animation seqs
 alarm[11] = -1;

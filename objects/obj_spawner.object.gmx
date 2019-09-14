@@ -29,7 +29,7 @@
 
 timeline_index = tl_amorphous_wave;
 if !timeline_running{
-    timeline_position = 0
+    timeline_position = 0;
     timeline_running = true;
 }
 </string>
@@ -55,10 +55,10 @@ if !timeline_running{
             <string>///[A+] init vars
 
 global.spawn_max_cap = 0.0;
-global.spawn_weight = 0.0;
-global.spawn_chance = 0.02;
+global.BASE_SPAWN_CHANCE = 0.33/room_speed;
 
 global.seen_enemies = ds_map_create();
+global.seen_wpns = ds_map_create();
 </string>
           </argument>
         </arguments>
@@ -147,34 +147,33 @@ for(var i=0; i&lt;ds_list_size(global.skymine_queue); i++){
             <kind>1</kind>
             <string>///[A+] spawn enemies loop
 
-var t = timeline_position/room_speed;
+var t = timeline_position;
 if(t!=0){
     //~magic difficulty curve formula~
-    global.spawn_max_cap = clamp((sin(t/6)+log2(t/5))/6,0,1);
+    global.spawn_max_cap = scr_difficulty_curve(t);
 }
 else{
-    global.spawn_max_cap = 0;
+    global.spawn_max_cap = 1;
 }
 
 if(global.spawn_cap&gt;=global.spawn_max_cap){
     //slow the timeline to make it easier
-    timeline_speed = 0.2;
+    timeline_speed = 0.66;
 }
 else{
     timeline_speed = 1;
-    //okay to spawn enemies
-    if(random(1)&lt;global.spawn_chance){
-        var len, k, v;
-        len = ds_map_size(global.seen_enemies);
-        k = ds_map_find_first(global.seen_enemies);
-        for (var i = 0; i &lt; len; i++;) {
-            v = ds_map_find_value(global.seen_enemies, k);
-            if(random(global.spawn_weight)&lt;v){
-                script_execute(k);
-            }
-            if(i&lt;len-1){
-                k = ds_map_find_next(global.seen_enemeis, k);
-            }
+    //give each design pattern a chance to run
+    var len, k, v;
+    len = ds_map_size(global.seen_enemies);
+    k = ds_map_find_first(global.seen_enemies);
+    for (var i = 0; i &lt; len; i++;) {
+        v = ds_map_find_value(global.seen_enemies, k);
+        //okay to spawn enemies
+        if(random(1)&lt;v*scr_spawn_rate_curve(len)){
+            script_execute(k);
+        }
+        if(i&lt;len-1){
+            k = ds_map_find_next(global.seen_enemies, k);
         }
     }
 }

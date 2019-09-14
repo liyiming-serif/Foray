@@ -59,7 +59,6 @@ else{
     state = ai_states.RELOADING;
 }
 
-//turn = og_turn*global.AI_TURN_REDUC;
 </string>
           </argument>
         </arguments>

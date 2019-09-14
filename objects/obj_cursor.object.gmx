@@ -182,7 +182,7 @@ else{ //key release even when out of window
 }
 
 if(keyboard_check_released(global.commandeer_key)){ //commandeer plane
-    if(scr_instance_exists(target_plane) &amp;&amp; target_plane.on_target &amp;&amp; global.player_id.object_index==obj_player){
+    if(scr_instance_exists(target_plane) &amp;&amp; target_plane.hp&gt;0 &amp;&amp; target_plane.on_target &amp;&amp; global.player_id.object_index==obj_player){
         with(global.player_id){
             scr_player_bail(other.target_plane);
         }

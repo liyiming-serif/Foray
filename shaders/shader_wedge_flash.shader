@@ -61,8 +61,8 @@ void main()
         if(isMeter>=0.5){ //hide a slice of the sprite
             gl_FragColor = vec4(0.0,0.0,0.0,0.0);
         }
-        else if(onTarget>=0.5){ //flash green
-            gl_FragColor = vec4(0.328125,0.89453125,0.0,baseColor.a);
+        else if(onTarget>=0.5){ //flash blue
+            gl_FragColor = vec4(0.0,0.86328125,0.60546875,baseColor.a);
             //gl_FragColor = texture2D(palette, vec2( baseColor.r, 0.9921875));
         }
         else { //flash red

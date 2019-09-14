@@ -20,8 +20,10 @@ with(instance_create(xv,yv,obj_skymine)){
     friction = ds_map_find_value(mp, "fric");
     hp = ds_map_find_value(mp, "max_hp");
     dmg = ds_map_find_value(mp, "dmg");
-    range = ds_map_find_value(mp, "range");
+    alert_range = ds_map_find_value(mp, "alert_range");
     chase_player = chp;
+    
+    scr_ship_instantiate(false,mp);
     
     //optional behavior: chase the player like Blooper
     if(chase_player){
@@ -29,8 +31,8 @@ with(instance_create(xv,yv,obj_skymine)){
         chase_freq = ds_map_find_value(mp,"chase_freq");
         hp *= ds_map_find_value(mp,"chase_hp_reduc");
         alarm[0] = chase_freq;
+        threat = ds_map_find_value(mp, "chasing_threat");
     }
-    scr_ship_instantiate(false,mp);
     
     image_speed = 0.5;
     
@@ -38,7 +40,7 @@ with(instance_create(xv,yv,obj_skymine)){
 }
 
 #define scr_skymine_queue
-///scr_skymine_queue(x, y)
+///scr_skymine_queue(x, y, chase_player=false)
 
 //Defer creating a skymine until (x,y) is outside the player's view.
 //Useful for scheduled waves, so mines don't appear out of thin air.

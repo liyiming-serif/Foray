@@ -40,8 +40,50 @@ with(instance_create(x,y,obj_player_avatar)){
     pid = other.id;    
     target_id = tid;
     has_jumped = false;
+    has_landed = false;
     
     if(target_id.y<y){
         sprite_index = spr_char_back;
     }
+}
+
+#define scr_player_contact_hit
+///scr_player_contact_hit()
+
+//HACK: continuous chip dmg if player is hitting an enemy ship
+
+if(hp<=0 || invincibility > 0 || other.hp<=0) return undefined;
+
+if(!other.is_friendly && !variable_instance_exists(other,"dmg")){
+    var dmg = global.CONTACT_DMG;
+    
+    //Apply armor 
+    if(variable_instance_exists(id,"amr")){
+        dmg = max(dmg-amr,global.MIN_DMG);
+    }
+    
+    //flash white
+    hitstun = log2(dmg+1)*2.2;
+    
+    //apply screen flash
+    if(id==global.player_id){
+        global.flash_red_alpha += dmg/15;
+    }
+    
+    //DIFFICULTY MOD: scale dmg down by spawn capacity
+    dmg = max((1-global.spawn_cap*0.3)*dmg,global.MIN_DMG);
+    
+    //apply dmg + initiate death seq if hp <= 0
+    hp -= dmg;
+    if(hp <= 0){
+        if(variable_instance_exists(id,"death_seq_cb")){
+            script_execute(death_seq_cb);
+        }
+        else{
+            instance_destroy();
+        }
+    }
+    
+    //apply invincibility
+    invincibility += 15;
 }

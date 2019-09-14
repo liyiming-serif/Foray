@@ -19,15 +19,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_player_create(800,500,90,"asteroid_blues","mg");
+            <string>///spawn player
+scr_player_create(800,500,90,"horde_drab","mg");
 
-/*scr_skymine_queue(160,180,true);
-scr_skymine_queue(240,900,true);
-scr_skymine_queue(1550,1080,true);
-scr_skymine_queue(2000,180,true);
-scr_skymine_queue(1850,210,true);
-scr_skymine_queue(875,550,true);
-scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon",90);*/
 </string>
           </argument>
         </arguments>
@@ -53,10 +47,20 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_spawn_static_skymine();
-//scr_aiplane_create(1250,700,90,mk.RED_TAIL,"mg",46,192,room_speed/3,5,90,0.3);
-//scr_aiplane_create(150,800,90,mk.RED_TAIL,"mg",46,192,room_speed/3,5,90,0.3);
-//scr_aiplane_create(550,200,270,mk.ASTEROID_BLUES,"mg",46,192,room_speed/3,5,90,0.3);
+            <string>///spawn first mine
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+scr_spawn_skymine();
+
 </string>
           </argument>
         </arguments>
@@ -64,7 +68,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
     </event>
   </entry>
   <entry>
-    <step>2</step>
+    <step>200</step>
     <event>
       <action>
         <libid>1</libid>
@@ -82,7 +86,11 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_balloon_create(-24,-24,"cannon",true,20,undefined,960,1080);
+            <string>///spawn first chasing skymine
+
+scr_spawn_chasing_skymine();
+scr_spawn_chasing_skymine();
+scr_spawn_chasing_skymine();
 </string>
           </argument>
         </arguments>
@@ -90,7 +98,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
     </event>
   </entry>
   <entry>
-    <step>480</step>
+    <step>300</step>
     <event>
       <action>
         <libid>1</libid>
@@ -108,7 +116,10 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_balloon_create(672,1368,"cannon",true,20,undefined,1392,384);
+            <string>///pause skymines
+
+scr_remove_design_pattern("scr_spawn_skymine");
+scr_remove_design_pattern("scr_spawn_chasing_skymine");
 </string>
           </argument>
         </arguments>
@@ -116,7 +127,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
     </event>
   </entry>
   <entry>
-    <step>540</step>
+    <step>500</step>
     <event>
       <action>
         <libid>1</libid>
@@ -134,7 +145,8 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_balloon_create(2016,-24,"cannon",false,20,undefined,640,840);
+            <string>///spawn first plane cmc3
+scr_spawn_plane_cmc3();
 </string>
           </argument>
         </arguments>
@@ -142,7 +154,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
     </event>
   </entry>
   <entry>
-    <step>600</step>
+    <step>700</step>
     <event>
       <action>
         <libid>1</libid>
@@ -160,7 +172,9 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_balloon_create(-24,1224,"mg",true,20,undefined,1392,840);
+            <string>///reintroduce skymines
+scr_spawn_skymine();
+scr_spawn_chasing_skymine();
 </string>
           </argument>
         </arguments>
@@ -168,7 +182,7 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
     </event>
   </entry>
   <entry>
-    <step>630</step>
+    <step>1400</step>
     <event>
       <action>
         <libid>1</libid>
@@ -186,7 +200,635 @@ scr_zeppelin_create(2010,1350,1080,800,"airtillery","burst_cannon","burst_cannon
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scr_balloon_create(2016,1272,"cannon",true,20,undefined,408,288);
+            <string>///pause planes
+scr_remove_design_pattern("scr_spawn_plane_cmc3");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>1500</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///introduce balloons
+
+scr_spawn_balloon("");
+scr_spawn_balloon("");
+scr_spawn_balloon("");
+
+//scr_remove_design_pattern("scr_spawn_balloon");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>2000</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///balloons + planes
+
+scr_spawn_plane_cmc3();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>2400</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///pause all non-skymine design patterns
+
+scr_remove_design_pattern("scr_spawn_plane_cmc3");
+scr_remove_design_pattern("scr_spawn_balloon");
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>2700</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///showcase skymine clusters
+
+scr_spawn_skymine_cluster(true);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>3400</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///wipe skymine patterns
+
+scr_remove_design_pattern("scr_spawn_skymine_cluster");
+scr_remove_design_pattern("scr_spawn_chasing_skymine");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>3900</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///spawn first plane cmc4
+
+scr_spawn_plane(choose("asteroid_blues","red_tail","venitas"),2);
+
+scr_remove_design_pattern("scr_spawn_plane_cmc4");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>4200</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///add balloons and planes back
+
+scr_spawn_balloon();
+scr_spawn_plane_cmc3();
+scr_spawn_plane_cmc4();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>5400</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///halt planes and balloons
+
+scr_remove_design_pattern("scr_spawn_plane_cmc3");
+scr_remove_design_pattern("scr_spawn_plane_cmc4");
+scr_remove_design_pattern("scr_spawn_balloon");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>5700</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///spawn armored balloons
+scr_spawn_amr_balloon("");
+scr_spawn_amr_balloon("");
+
+scr_remove_design_pattern("scr_spawn_amr_balloon");
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///unlock airtillery + burst cannon for balloons
+
+scr_add_seen_wpn("airtillery");
+scr_add_seen_wpn("burst_cannon");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>5800</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///reintroduce balloons
+
+scr_spawn_amr_balloon();
+scr_spawn_balloon();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>6300</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///introduce strong planes only
+
+scr_spawn_plane_cmc4();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>7200</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///reintroduce chasing skymines
+
+scr_spawn_chasing_skymine();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>7800</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///reintroduce skymine clusters
+
+scr_spawn_skymine_cluster();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>8500</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///pause all patterns except static skymines
+
+scr_remove_design_pattern("scr_spawn_chasing_skymine");
+scr_remove_design_pattern("scr_spawn_skymine_cluster");
+scr_remove_design_pattern("scr_spawn_balloon");
+scr_remove_design_pattern("scr_spawn_amr_balloon");
+scr_remove_design_pattern("scr_spawn_plane_cmc4");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>9000</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///spawn cmc5 ACE
+
+scr_spawn_plane_cmc5();
+
+scr_remove_design_pattern("scr_spawn_plane_cmc5");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>9500</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///add back cmc4 planes, regular balloons, and chasing skymines
+
+scr_spawn_plane_cmc4();
+scr_spawn_chasing_skymine();
+scr_spawn_balloon();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>10200</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///add back amr balloons and cmc5
+
+scr_spawn_amr_balloon();
+scr_spawn_plane_cmc5();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>12000</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///pause all other design patterns
+scr_remove_design_pattern("scr_spawn_skymine");
+scr_remove_design_pattern("scr_spawn_chasing_skymine");
+scr_remove_design_pattern("scr_spawn_plane_cmc3");
+scr_remove_design_pattern("scr_spawn_balloon");
+scr_remove_design_pattern("scr_spawn_amr_balloon");
+scr_remove_design_pattern("scr_spawn_plane_cmc4");
+scr_remove_design_pattern("scr_spawn_plane_cmc5");
+scr_remove_design_pattern("scr_spawn_skymine_cluster");
+scr_remove_design_pattern("scr_spawn_amr_balloon");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>12600</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///introduce the zeppelin
+
+scr_spawn_zeppelin("airtillery", "burst_cannon");
+scr_remove_design_pattern("scr_spawn_zeppelin");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>13500</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///endless mode + unlock all wpns
+scr_add_design_pattern("scr_spawn_skymine");
+scr_add_design_pattern("scr_spawn_chasing_skymine");
+scr_add_design_pattern("scr_spawn_plane_cmc3");
+scr_add_design_pattern("scr_spawn_balloon");
+scr_add_design_pattern("scr_spawn_amr_balloon");
+scr_add_design_pattern("scr_spawn_plane_cmc4");
+scr_add_design_pattern("scr_spawn_plane_cmc5");
+scr_add_design_pattern("scr_spawn_skymine_cluster");
+scr_add_design_pattern("scr_spawn_amr_balloon");
+scr_add_design_pattern("scr_spawn_zeppelin");
+scr_add_seen_wpn("mg");
 </string>
           </argument>
         </arguments>
