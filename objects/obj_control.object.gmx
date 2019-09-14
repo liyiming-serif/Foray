@@ -128,7 +128,7 @@ global.FLASH_RED_ALPHA_DECAY = 0.05;
 global.game_speed = 1.0;
 //TODO: test if lerp-ing gives smoother experience
 global.SLOMO_RATE = 0.11; //ease into slomo
-global.SLOMO_MIN = 0.087;
+global.SLOMO_MIN = 0.03;
 
 //shitty GML library doesn't move tiles by abs position
 global.tiles_x = 0;

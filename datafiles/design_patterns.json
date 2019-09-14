@@ -9,6 +9,6 @@
     "scr_spawn_skymine_cluster":3,
     "scr_spawn_balloon":1.7,
     "scr_spawn_amr_balloon":1,
-    "scr_spawn_zeppelin":0.08
+    "scr_spawn_zeppelin":0.1
   }
 }

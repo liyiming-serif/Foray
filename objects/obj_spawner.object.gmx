@@ -158,10 +158,10 @@ else{
 
 if(global.spawn_cap&gt;=global.spawn_max_cap){
     //slow the timeline to make it easier
-    timeline_speed = 0.66;
+    timeline_speed = 0.5*global.game_speed;
 }
 else{
-    timeline_speed = 1;
+    timeline_speed = global.game_speed;
     //give each design pattern a chance to run
     var len, k, v;
     len = ds_map_size(global.seen_enemies);

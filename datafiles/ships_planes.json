@@ -7,7 +7,7 @@
   },
   "models":{
     "max_hp": 50,
-    "threat": 0.2,
+    "threat": 0.3,
     "red_tail":{
       "name": "Red Tail",
       "speed": 2,
