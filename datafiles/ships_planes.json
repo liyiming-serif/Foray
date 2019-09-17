@@ -8,6 +8,7 @@
   "models":{
     "max_hp": 50,
     "threat": 0.3,
+    "score":7,
     "red_tail":{
       "name": "Red Tail",
       "speed": 2,
@@ -94,7 +95,8 @@
       "alert_range":48,
       "update_target_time":450,
       "chasing_threat":0.05,
-      "threat":0.02
+      "threat":0.02,
+      "score": 1
     },
     "balloon":{
       "max_hp":30,
@@ -107,14 +109,16 @@
       "amr_down_lag":60,
       "alert_range":480,
       "accuracy_coeff":27,
-      "threat":0.15
+      "threat":0.15,
+      "score":9
     },
     "zeppelin":{
       "max_hp":150,
       "speed":0.7,
       "turn":0.11,
       "update_target_time":300,
-      "threat":0.35
+      "threat":0.35,
+      "score":100
     }
   }
 }

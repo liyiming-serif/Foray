@@ -169,6 +169,9 @@ global.AI_SHOT_RATE_REDUC = 1.6;
 
 //shared spawn vars
 global.spawn_cap = 0.0;
+//HACK: drastically increase difficulty after endless
+//by eliminating dmg scaling
+global.is_endless = false;
 
 //skymine spawn deferral
 global.skymine_queue = ds_list_create();

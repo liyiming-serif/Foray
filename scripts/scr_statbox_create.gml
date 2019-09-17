@@ -91,7 +91,7 @@ while(fin_bdist[0]<0 && oa>45){
 
 //Can't bend the optimal angle anymore w. out blocking game elements;
 //forcefully clamp the statbox position within the screen.
-var vc = view_current;
+var vc = scr_view_current();
 x = clamp(fin_x, view_xview[vc]+sprite_xoffset, view_xview[vc]+view_wview[vc]+sprite_xoffset-sprite_width);
 y = clamp(fin_y, view_yview[vc]+sprite_yoffset, view_yview[vc]+view_hview[vc]+sprite_yoffset-sprite_height);
 
@@ -129,17 +129,17 @@ yo = argument[4];
 row = argument[5];
 
 if(i>fstat){
-    draw_sprite(spr_stat,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
+    draw_sprite(spr_stat,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
 }
 else{
     if(follow_id==global.player_id || fstat==ostat){
-        draw_sprite(spr_stat_filled,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
+        draw_sprite(spr_stat_filled,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
     }
     else if(fstat>ostat){
-        draw_sprite(spr_stat_better,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
+        draw_sprite(spr_stat_better,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
     }
     else if(fstat<ostat){
-        draw_sprite(spr_stat_worse,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
+        draw_sprite(spr_stat_worse,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
     }
 }
 
@@ -148,7 +148,7 @@ else{
 var xp, yp, top_d, bottom_d, left_d, right_d, vc;
 xp = argument[0];
 yp = argument[1];
-vc = view_current;
+vc = scr_view_current();
 left_d = (xp-sprite_xoffset)-view_xview[vc];
 right_d = (view_wview[vc]+view_xview[vc])-(xp-sprite_xoffset+sprite_width);
 top_d = (yp-sprite_yoffset)-view_yview[vc];

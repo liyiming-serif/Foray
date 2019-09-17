@@ -171,6 +171,7 @@
       <script>scripts\scr_difficulty_curve.gml</script>
       <script>scripts\scr_cast_shadow.gml</script>
     </scripts>
+    <script>scripts\scr_view_current.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>

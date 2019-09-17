@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///position the statbox
-scr_statbox_move();
+            <string>///advance frame
+scr_statbox_advance_frame();
 </string>
           </argument>
         </arguments>
@@ -47,8 +47,8 @@ scr_statbox_move();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///advance frame
-scr_statbox_advance_frame();
+            <string>///position the statbox
+scr_statbox_move();
 </string>
           </argument>
         </arguments>

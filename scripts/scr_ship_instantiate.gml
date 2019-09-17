@@ -10,6 +10,9 @@ hitstun = 0;
 invincibility = 0;
 threat = ds_map_find_value(mp,"threat");
 
+//HACK
+points = ds_map_find_value(mp, "score");
+
 //update target time
 if(!is_friendly){
     var utt = ds_map_find_value(mp,"update_target_time");
@@ -72,7 +75,9 @@ if(is_friendly!=other.is_friendly){
         }
         
         //DIFFICULTY MOD: scale dmg down by spawn capacity
-        other.dmg = max((1-global.spawn_cap*0.3)*other.dmg,global.MIN_DMG);
+        if(!global.is_endless){
+            other.dmg = max((1-global.spawn_cap*0.3)*other.dmg,global.MIN_DMG);
+        }
     }
     else{ //enemy hit specific code
         //DIFFICULY MOD: increase player's atk if outnumbered
@@ -110,6 +115,10 @@ shader_reset();
 
 #define scr_ship_gc_wpns
 ///scr_ship_gc_wpns()
+if(!variable_instance_exists(id,"gid")){
+    return undefined;
+}
+
 if(is_array(gid)){
     for(i=0; i<array_length_1d(gid); i++){
         if(scr_instance_exists(gid[i])){
@@ -163,3 +172,16 @@ with(g){
     }
 }
 return ret;
+#define scr_ship_explode_large
+///scr_ship_explode_large()
+
+//death cb
+part_particles_create(global.partsys,x,y,global.explosion,1);
+instance_destroy();
+
+#define scr_ship_explode_small
+///scr_ship_explode_small()
+
+//death cb
+part_particles_create(global.partsys,x,y,global.boom_air,1);
+instance_destroy();

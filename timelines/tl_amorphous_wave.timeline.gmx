@@ -20,7 +20,7 @@
           <argument>
             <kind>1</kind>
             <string>///spawn player
-scr_player_create(800,500,90,"horde_drab","mg");
+scr_player_create(800,500,90,"red_baron","mg");
 
 </string>
           </argument>
@@ -817,7 +817,7 @@ scr_remove_design_pattern("scr_spawn_zeppelin");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///endless mode + unlock all wpns
+            <string>///unlease all patterns; unlock all wpns
 scr_add_design_pattern("scr_spawn_skymine");
 scr_add_design_pattern("scr_spawn_chasing_skymine");
 scr_add_design_pattern("scr_spawn_plane_cmc3");
@@ -829,6 +829,33 @@ scr_add_design_pattern("scr_spawn_skymine_cluster");
 scr_add_design_pattern("scr_spawn_amr_balloon");
 scr_add_design_pattern("scr_spawn_zeppelin");
 scr_add_seen_wpn("mg");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>15000</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///endless mode
+global.is_endless = true;
 </string>
           </argument>
         </arguments>

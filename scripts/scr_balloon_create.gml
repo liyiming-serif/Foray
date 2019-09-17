@@ -51,6 +51,9 @@ with(instance_create(xv,yv,obj_balloon)){
     
     image_speed = 0.4;
     
+    //callbacks
+    death_seq_cb = scr_ship_explode_small;
+    
     debug = "";
     return id;
 }

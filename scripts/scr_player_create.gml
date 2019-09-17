@@ -71,7 +71,9 @@ if(!other.is_friendly && !variable_instance_exists(other,"dmg")){
     }
     
     //DIFFICULTY MOD: scale dmg down by spawn capacity
-    dmg = max((1-global.spawn_cap*0.3)*dmg,global.MIN_DMG);
+    if(!global.is_endless){
+        dmg = max((1-global.spawn_cap*0.3)*dmg,global.MIN_DMG);
+    }
     
     //apply dmg + initiate death seq if hp <= 0
     hp -= dmg;
