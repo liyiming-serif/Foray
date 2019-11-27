@@ -326,7 +326,7 @@ new.hp = hp;
 if(object_index==obj_enemy) {
     new.invincibility = global.SPAWN_INVINCIBILITY;
     new.timeline_position = 0;
-    new.hp = max(hp+max_hp*0.5, max_hp);
+    new.hp = min(hp+max_hp*0.75, max_hp);
 }
 
 //destroy old commandeered plane

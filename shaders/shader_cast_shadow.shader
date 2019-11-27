@@ -19,7 +19,7 @@ void main()
 }
 
 //######################_==_YOYO_SHADER_MARKER_==_######################@~//
-// Simple passthrough fragment shader
+// Convert all color to a dark blue and decrease alpha
 //
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;

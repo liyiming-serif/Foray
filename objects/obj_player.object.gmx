@@ -61,11 +61,11 @@ if(sprite_index==spr_plane1_buckle){
     return undefined;
 }
 
-//accelerating and braking
+//boosting and braking
 if(keyboard_check(global.brake_key)){
     scr_plane_brake();
 }
-else if(keyboard_check(global.acc_key)){
+else if(keyboard_check(global.boost_key)){
     scr_plane_boost();
 }
 else{

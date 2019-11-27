@@ -3,7 +3,58 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="8" name="datafiles">
+  <datafiles number="27" name="datafiles">
+    <datafile>
+      <name>Westington.ttf</name>
+      <exists>-1</exists>
+      <size>49360</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Westington.ttf</filename>
+    </datafile>
+    <datafile>
+      <name>aztech.ttf</name>
+      <exists>-1</exists>
+      <size>11396</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>aztech.ttf</filename>
+    </datafile>
+    <datafile>
+      <name>Deltoid-sans.ttf</name>
+      <exists>-1</exists>
+      <size>28492</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Deltoid-sans.ttf</filename>
+    </datafile>
     <datafile>
       <name>design_patterns.json</name>
       <exists>-1</exists>
@@ -122,6 +173,7 @@
     <sprite>sprites\spr_hud_artist</sprite>
     <sprite>sprites\spr_hp_gauge</sprite>
     <sprite>sprites\spr_hp_icon</sprite>
+    <sprite>sprites\spr_tutorial_key</sprite>
     <sprites name="stats_ui">
       <sprite>sprites\spr_stat</sprite>
       <sprite>sprites\spr_stat_filled</sprite>
@@ -161,6 +213,7 @@
     </scripts>
     <scripts name="UI">
       <script>scripts\scr_statbox_create.gml</script>
+      <script>scripts\scr_tutorial_key_create.gml</script>
     </scripts>
     <scripts name="helpers">
       <script>scripts\scr_instance_exists.gml</script>
@@ -170,8 +223,8 @@
       <script>scripts\scr_add_design_pattern.gml</script>
       <script>scripts\scr_difficulty_curve.gml</script>
       <script>scripts\scr_cast_shadow.gml</script>
+      <script>scripts\scr_view_current.gml</script>
     </scripts>
-    <script>scripts\scr_view_current.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
@@ -197,6 +250,7 @@
     <object>objects\obj_control</object>
     <object>objects\obj_hud_artist</object>
     <object>objects\obj_spawner</object>
+    <object>objects\obj_tutorial_agent</object>
     <object>objects\obj_ship_parent</object>
     <object>objects\obj_plane_parent</object>
     <object>objects\obj_projectile_parent</object>
@@ -204,10 +258,13 @@
     <object>objects\obj_cursor</object>
     <object>objects\obj_cursor_frame</object>
     <object>objects\obj_statbox</object>
+    <object>objects\obj_tutorial_key</object>
+    <object>objects\obj_tutorial_mouse</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_amorphous_wave</timeline>
     <timeline>timelines\tl_commandeer_coroutine</timeline>
+    <timeline>timelines\tl_tutorial_schedule</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\_rm_loading</room>

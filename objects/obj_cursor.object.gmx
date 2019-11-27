@@ -28,7 +28,7 @@
             <string>///Constructor
 
 //there can only be one.
-if(instance_number(obj_control)&gt;1){
+if(instance_number(obj_cursor)&gt;1){
     instance_destroy(id,false);
 }
 
@@ -129,17 +129,9 @@ else if(image_index&lt;l_bound_frame){
           <argument>
             <kind>1</kind>
             <string>///Update position
-/*x = window_view_mouse_get_x(view_current);
-y = window_view_mouse_get_y(view_current);*/
 
-if(window_get_fullscreen()){
-    x = mouse_x-view_xview[0];
-    y = mouse_y-view_yview[0];
-}
-else{
-    x = mouse_x-view_xview[1];
-    y = mouse_y-view_yview[1];
-}
+x = mouse_x;
+y = mouse_y;
 
 </string>
           </argument>
@@ -278,10 +270,13 @@ target_plane = 0;
           <argument>
             <kind>1</kind>
             <string>///Draw cursor to GUI layer, applying shader
+var d_pos;
+
 shader_set(shader_pal_swap);
 texture_set_stage(palette_ref, global.palette_texture);
 shader_set_uniform_f(row_ref, rt_modifier);
-draw_self();
+d_pos = scr_game_to_gui(x,y);
+draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
 shader_reset();
 </string>
           </argument>

@@ -85,6 +85,10 @@ global.curr_level_name = "";
 global.next_level = "";
 global.changing_levels = false;
 
+//Initiallize fonts
+global.fnt_westington_s = font_add(working_directory + "\Westington.ttf",12,true,false,32,128);
+global.fnt_westington_m = font_add(working_directory + "\Westington.ttf",24,true,false,32,128);
+
 //INITIALLIZE CONSTANTS
 global.TURN_DAMPENER = 4; //how little turning reduces speed
 global.C_TURN_DAMPENER = 0.25; //dampening factor when holding [C]
@@ -103,7 +107,7 @@ global.TRAIL_RATE = room_speed*0.25;
 global.DMG_THRESHOLDS[0] = 0.75;
 global.DMG_THRESHOLDS[1] = 0.50;
 global.DMG_THRESHOLDS[2] = 0.25;
-global.CONTACT_DMG = 2;
+global.CONTACT_DMG = 3;
 global.MIN_DMG = 0.5;
 global.MAX_STATS = 3;
 
@@ -124,6 +128,12 @@ global.flash_red_alpha = 0;
 global.FLASH_BLUE_ALPHA_DECAY = 0.1;
 global.FLASH_RED_ALPHA_DECAY = 0.05;
 
+//UI CONSTANTS
+global.C_TEXT = make_colour_rgb(108,102,142);
+global.C_TEXT_SHADOW = make_colour_rgb(143,239,186);
+global.TUTORIAL_FADE_IN_RATE = 0.02;
+global.TUTORIAL_FOLLOW_DIST = 48;
+
 //Use to change movement speed while still animating at 60fps
 global.game_speed = 1.0;
 //TODO: test if lerp-ing gives smoother experience
@@ -139,7 +149,7 @@ global.player_id = 0;
 
 //controls
 global.brake_key = ord('Z');
-global.acc_key = ord('X');
+global.boost_key = ord('X');
 global.commandeer_key = ord('C');
 global.options_key = ord('F');
 
@@ -288,6 +298,9 @@ if(global.curr_level_name!=""){
     ds_map_destroy(global.curr_level_data);
 }
 ds_list_destroy(global.skymine_queue);
+
+//fonts
+font_delete(global.fnt_westington_m);
 </string>
           </argument>
         </arguments>

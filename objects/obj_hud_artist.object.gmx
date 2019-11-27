@@ -211,12 +211,33 @@ draw_set_alpha(a_prev);
             <kind>1</kind>
             <string>///Draw score
 
+var xbor = 24;
+var ybor = 16;
+var c_prev = draw_get_colour();
+
+draw_set_font(global.fnt_westington_m);
+draw_set_valign(fa_top);
+draw_set_halign(fa_right);
+
+//RGB split fx: draw shadow
+draw_set_colour(global.C_TEXT_SHADOW);
 if(window_get_fullscreen()){
-    draw_text(view_wview[0]-32,16,score);
+    draw_text(view_wview[0]-xbor+2,ybor-2,score);
 }
 else{
-    draw_text(view_wview[1]-32,16,score);
+    draw_text(view_wview[1]-xbor+2,ybor-2,score);
 }
+
+//draw actual score
+draw_set_colour(global.C_TEXT);
+if(window_get_fullscreen()){
+    draw_text(view_wview[0]-xbor,ybor,score);
+}
+else{
+    draw_text(view_wview[1]-xbor,ybor,score);
+}
+
+draw_set_colour(c_prev);
 
 </string>
           </argument>

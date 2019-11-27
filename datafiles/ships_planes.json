@@ -2,13 +2,13 @@
   "modifiers": [],
   "stat_tiers":{
     "speeds":[2.5, 3.25, 3.75],
-    "turns":[2.25, 4.75, 5.5],
+    "turns":[2.25, 4.5, 5.25],
     "armors":[0, 2, 4]
   },
   "models":{
     "max_hp": 50,
     "threat": 0.3,
-    "score":7,
+    "score":8,
     "red_tail":{
       "name": "Red Tail",
       "speed": 2,
@@ -80,7 +80,7 @@
       "max_rounds": 6,
       "achy": [0.4,0.36],
       "reload_speed":[180,120],
-      "update_target_time": [180,120]
+      "update_target_time": [480,300]
     }
   },
 
@@ -93,7 +93,7 @@
       "dmg":8,
       "fric":0.06,
       "alert_range":48,
-      "update_target_time":450,
+      "update_target_time":600,
       "chasing_threat":0.05,
       "threat":0.02,
       "score": 1
@@ -103,22 +103,22 @@
       "speed":1,
       "turn":0.5,
       "gun_turn":2,
-      "update_target_time":300,
+      "update_target_time":420,
       "amr_anim_time":20,
       "amr_up_lag":40,
       "amr_down_lag":60,
       "alert_range":480,
       "accuracy_coeff":27,
       "threat":0.15,
-      "score":9
+      "score":11
     },
     "zeppelin":{
       "max_hp":150,
       "speed":0.7,
       "turn":0.11,
-      "update_target_time":300,
+      "update_target_time":420,
       "threat":0.35,
-      "score":100
+      "score":150
     }
   }
 }
