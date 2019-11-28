@@ -159,7 +159,7 @@ if(keyboard_check(global.commandeer_key)){ //buffer-able key press
     
     if(instance_number(obj_cursor_frame)==0){
         cid = instance_create(0,0,obj_cursor_frame);
-        cid.pid = self;
+        cid.pid = id;
         sprite_index = spr_c_cursor; 
         l_bound_frame = 0;
         u_bound_frame = 9;

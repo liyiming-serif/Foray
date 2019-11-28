@@ -29,10 +29,11 @@
 
 timeline_index = tl_tutorial_schedule;
 
-if(!variable_global_exists("fire_tutorial_done")){
-    global.fire_tutorial_done = false;
+if(!variable_global_exists("shoot_tutorial_done")){
+    global.shoot_tutorial_done = false;
     global.boost_tutorial_done = false;
     global.brake_tutorial_done = false;
+    global.options_tutorial_done = false;
     global.commandeer_tutorial_done = false;
     
     timeline_position = 0;
@@ -91,12 +92,12 @@ else{
           <argument>
             <kind>1</kind>
             <string>///When a plane is damaged, press 'C' to commandeer
-if(global.brake_tutorial_done &amp;&amp; scr_instance_exists(curr_obj_following)){
+if(global.options_tutorial_done &amp;&amp; scr_instance_exists(curr_obj_following)){
     global.commandeer_tutorial_done = true;
     curr_obj_following = 0;
 }
 
-if(global.brake_tutorial_done &amp;&amp; !global.commandeer_tutorial_done){
+if(global.options_tutorial_done &amp;&amp; !global.commandeer_tutorial_done){
     for(var i = 0; i &lt; instance_number(obj_enemy); i++){
         var s = instance_find(obj_enemy,i);
         if(is_array(s.angles)){

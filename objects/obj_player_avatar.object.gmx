@@ -121,7 +121,7 @@ else if(image_index&gt;=land_frame){ //landing
 with(target_id){
     scr_plane_steal();
 }
-instance_destroy(self);
+instance_destroy();
 </string>
           </argument>
         </arguments>

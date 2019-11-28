@@ -171,7 +171,7 @@ scr_aiplane_hit();
             <kind>1</kind>
             <string>///finish death seq if out of hp
 if(hp&lt;=0){
-    instance_destroy(self);
+    instance_destroy();
     part_particles_create(global.partsys,x,y,global.boom_air,1);
 }
 </string>

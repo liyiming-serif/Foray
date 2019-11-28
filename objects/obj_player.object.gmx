@@ -144,7 +144,7 @@ if(hp&lt;=0){
         scr_set_level("level1");
     }
     else{
-        instance_destroy(self);
+        instance_destroy();
         part_particles_create(global.partsys,x,y,global.boom_air,1);
     }
 }

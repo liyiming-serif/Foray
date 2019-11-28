@@ -22,40 +22,6 @@
       <filename>Westington.ttf</filename>
     </datafile>
     <datafile>
-      <name>aztech.ttf</name>
-      <exists>-1</exists>
-      <size>11396</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>aztech.ttf</filename>
-    </datafile>
-    <datafile>
-      <name>Deltoid-sans.ttf</name>
-      <exists>-1</exists>
-      <size>28492</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>Deltoid-sans.ttf</filename>
-    </datafile>
-    <datafile>
       <name>design_patterns.json</name>
       <exists>-1</exists>
       <size>141</size>
@@ -174,6 +140,7 @@
     <sprite>sprites\spr_hp_gauge</sprite>
     <sprite>sprites\spr_hp_icon</sprite>
     <sprite>sprites\spr_tutorial_key</sprite>
+    <sprite>sprites\spr_tutorial_mouse</sprite>
     <sprites name="stats_ui">
       <sprite>sprites\spr_stat</sprite>
       <sprite>sprites\spr_stat_filled</sprite>
