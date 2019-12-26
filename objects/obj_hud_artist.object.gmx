@@ -157,6 +157,56 @@ draw_sprite(hp_icon_ref,floor(hp_ico_frame),global.HBAR_X,global.HBAR_Y+sprite_g
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Draw score
+
+var xbor = 24;
+var ybor = 16;
+var c_prev = draw_get_colour();
+
+draw_set_font(global.fnt_westington_m);
+draw_set_valign(fa_top);
+draw_set_halign(fa_right);
+
+//RGB split fx: draw shadow
+draw_set_colour(global.C_TEXT_SHADOW);
+if(window_get_fullscreen()){
+    draw_text(view_wview[0]-xbor+2,ybor-2,score);
+}
+else{
+    draw_text(view_wview[1]-xbor+2,ybor-2,score);
+}
+
+//draw actual score
+draw_set_colour(global.C_TEXT);
+if(window_get_fullscreen()){
+    draw_text(view_wview[0]-xbor,ybor,score);
+}
+else{
+    draw_text(view_wview[1]-xbor,ybor,score);
+}
+
+draw_set_colour(c_prev);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Screen Flash
 
 var c_prev = draw_get_colour();
@@ -189,56 +239,6 @@ global.flash_red_alpha = clamp(global.flash_red_alpha,0,1);
 global.flash_blue_alpha = clamp(global.flash_blue_alpha,0,1);
 draw_set_colour(c_prev);
 draw_set_alpha(a_prev);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw score
-
-var xbor = 24;
-var ybor = 16;
-var c_prev = draw_get_colour();
-
-draw_set_font(global.fnt_westington_m);
-draw_set_valign(fa_top);
-draw_set_halign(fa_right);
-
-//RGB split fx: draw shadow
-draw_set_colour(global.C_TEXT_SHADOW);
-if(window_get_fullscreen()){
-    draw_text(view_wview[0]-xbor+2,ybor-2,score);
-}
-else{
-    draw_text(view_wview[1]-xbor+2,ybor-2,score);
-}
-
-//draw actual score
-draw_set_colour(global.C_TEXT);
-if(window_get_fullscreen()){
-    draw_text(view_wview[0]-xbor,ybor,score);
-}
-else{
-    draw_text(view_wview[1]-xbor,ybor,score);
-}
-
-draw_set_colour(c_prev);
-
 </string>
           </argument>
         </arguments>

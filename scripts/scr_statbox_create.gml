@@ -164,7 +164,10 @@ return ret;
 
 #define scr_statbox_advance_frame
 ///scr_statbox_advance_frame()
-if(!scr_instance_exists(follow_id) || !scr_instance_exists(opposing_id) || global.game_speed>=1){
+if (!scr_instance_exists(follow_id) ||
+    !scr_instance_exists(opposing_id) ||
+    (!follow_id.on_target && !opposing_id.on_target)){
+    
     instance_destroy();
 }
 

@@ -83,6 +83,43 @@ if(!has_pilot &amp;&amp; instance_number(obj_player_avatar)&lt;1){
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw entry-point arrows
+
+var spr, d_pos;
+
+if(is_array(angles) &amp;&amp; hp&gt;0 &amp;&amp; scr_instance_exists(global.player_id)){
+    if(on_target){
+        spr = spr_arrowon;
+    }
+    else{
+        spr = spr_arrowoff;
+    }
+    d_pos = scr_game_to_gui(x,y);
+    draw_sprite_ext(spr,arrow_img_ind,d_pos[0],d_pos[1],1,1,radtodeg(starting_angle)+image_angle,c_white,1);
+    arrow_img_ind = (arrow_img_ind+global.ARROW_ANIM_SPEED)%sprite_get_number(spr);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>

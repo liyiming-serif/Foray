@@ -209,7 +209,7 @@ if(target_prev != target_plane){ //target changed since last frame
 }
 
 if(scr_instance_exists(target_plane)&amp;&amp;is_array(target_plane.angles)&amp;&amp;scr_instance_exists(global.player_id)){
-    var pa, da, ir;
+    /*var pa, da, ir;
     pa = point_direction(target_plane.x,target_plane.y,global.player_id.x,global.player_id.y);
     da = degtorad(angle_difference(pa,target_plane.image_angle));
     if(target_plane.angles[0]&gt;target_plane.angles[1]){
@@ -217,8 +217,8 @@ if(scr_instance_exists(target_plane)&amp;&amp;is_array(target_plane.angles)&amp;
     }
     else{
         ir = (da &gt;= target_plane.angles[0]) &amp;&amp; (da &lt; target_plane.angles[1]);
-    }
-    if(ir){
+    }*/
+    if(scr_is_obj_between_angles(global.player_id, target_plane)){
         target_plane.on_target = 1.0;
         rt_modifier = mk.TINT_GREEN/256.0;
     }

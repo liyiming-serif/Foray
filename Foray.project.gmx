@@ -129,6 +129,8 @@
     <sprite>sprites\eff_deflect</sprite>
     <sprite>sprites\spr_lockon</sprite>
     <sprite>sprites\spr_lockoff</sprite>
+    <sprite>sprites\spr_arrowon</sprite>
+    <sprite>sprites\spr_arrowoff</sprite>
     <sprites name="smoke_trails">
       <sprite>sprites\eff_smoke_lt</sprite>
       <sprite>sprites\eff_smoke_dk</sprite>
@@ -137,6 +139,7 @@
       <sprite>sprites\eff_trail_far</sprite>
     </sprites>
     <sprite>sprites\spr_hud_artist</sprite>
+    <sprite>sprites\spr_lighting_artist</sprite>
     <sprite>sprites\spr_hp_gauge</sprite>
     <sprite>sprites\spr_hp_icon</sprite>
     <sprite>sprites\spr_tutorial_key</sprite>
@@ -167,6 +170,7 @@
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_ship_instantiate.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
+    <script>scripts\scr_statbox_create.gml</script>
     <script>scripts\scr_projectile_create.gml</script>
     <scripts name="control">
       <script>scripts\scr_set_res.gml</script>
@@ -179,18 +183,18 @@
       <script>scripts\scr_spawn_zeppelin.gml</script>
     </scripts>
     <scripts name="UI">
-      <script>scripts\scr_statbox_create.gml</script>
-      <script>scripts\scr_tutorial_key_create.gml</script>
+      <script>scripts\scr_tutorial_create.gml</script>
     </scripts>
     <scripts name="helpers">
       <script>scripts\scr_instance_exists.gml</script>
-      <script>scripts\scr_get_point_on_border.gml</script>
       <script>scripts\scr_game_to_gui.gml</script>
       <script>scripts\scr_interpolate_stat.gml</script>
       <script>scripts\scr_add_design_pattern.gml</script>
+      <script>scripts\scr_get_point_on_border.gml</script>
       <script>scripts\scr_difficulty_curve.gml</script>
       <script>scripts\scr_cast_shadow.gml</script>
       <script>scripts\scr_view_current.gml</script>
+      <script>scripts\scr_is_obj_between_angles.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -216,6 +220,7 @@
     <object>objects\obj_wpn_mine_layer</object>
     <object>objects\obj_control</object>
     <object>objects\obj_hud_artist</object>
+    <object>objects\obj_lighting_artist</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_tutorial_agent</object>
     <object>objects\obj_ship_parent</object>
@@ -225,8 +230,7 @@
     <object>objects\obj_cursor</object>
     <object>objects\obj_cursor_frame</object>
     <object>objects\obj_statbox</object>
-    <object>objects\obj_tutorial_key</object>
-    <object>objects\obj_tutorial_mouse</object>
+    <object>objects\obj_tutorial</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_amorphous_wave</timeline>

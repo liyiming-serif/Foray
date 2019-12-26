@@ -58,6 +58,7 @@ palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
 row_ref = shader_get_uniform(shader_pal_swap, "row");
 
 //wedge shader
+starting_angle = 0; //mid-point of angles
 angles = -1;
 angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
 origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
@@ -68,6 +69,9 @@ on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
 //particle counters
 smoke_counter = global.SMOKE_RATE;
 trail_counter = global.TRAIL_RATE;
+
+//GUI: drawing entry-point arrows
+arrow_img_ind = 0;
 
 //arm the plane
 gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly,display_dmg);
@@ -242,9 +246,6 @@ if(is_boosting && trail_counter>=global.TRAIL_RATE){
     part_type_orientation(global.trail_far,0,0,0,0,true);
     part_type_speed(global.trail_far,speed,speed,0,0);
     part_particles_create(global.partsys,px,py,global.trail_far,1);
-    //px = x+lengthdir_x(30,image_angle-135);
-    //py = y+lengthdir_y(30,image_angle-135);
-    //part_particles_create(global.partsys,px,py,global.trail_far,1); //right
     trail_counter = 0;
 }
 
@@ -326,34 +327,35 @@ new.hp = hp;
 if(object_index==obj_enemy) {
     new.invincibility = global.SPAWN_INVINCIBILITY;
     new.timeline_position = 0;
-    new.hp = min(hp+max_hp*0.75, max_hp);
+    new.hp = min(hp+max_hp*0.7, max_hp);
 }
 
 //destroy old commandeered plane
 instance_destroy();
 
 #define scr_plane_gen_weakspot
-///scr_plane_gen_weakspot(starting_angle=random_range(-pi,pi))
+///scr_plane_gen_weakspot(starting_angle, angle_variance=0)
 
 var w;
 
 //TODO: calculate width of angles based on model quality
 w = pi;
 
-//no arguments: starting angle based on rng
-if(argument_count==0){
-    angles[0] = random_range(-pi,pi);
+starting_angle = argument[0];
+if(argument_count > 1){
+    starting_angle += random_range(-argument[1], argument[1]);
 }
-else{ //starting angle tries to face player
-    angles[0] = argument[0]-w/2;
-    if(angles[0]<-pi){
-        angles[0]+=2*pi;
-    }
+
+angles[0] = starting_angle-w/2;
+if(angles[0]<-pi){
+    angles[0]+=2*pi;
 }
+
 angles[1] = angles[0]+w;
 if(angles[1]>pi){
     angles[1]-=2*pi;
 }
+
 #define scr_plane_shoot
 ///scr_plane_shoot(cb_type)
 

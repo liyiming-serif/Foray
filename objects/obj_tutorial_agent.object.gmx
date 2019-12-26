@@ -64,7 +64,8 @@ curr_obj_following = 0;
           <argument>
             <kind>1</kind>
             <string>///Give player time to complete tutorial
-if(instance_number(obj_tutorial_key)&gt;0){
+
+if(!scr_instance_exists(global.player_id) || instance_number(obj_tutorial)&gt;0){
     timeline_running = false;
     return 0;
 }
@@ -91,18 +92,26 @@ else{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///When a plane is damaged, press 'C' to commandeer
+            <string>///Commandeer tutorials
+
+//tutorial in progress...
 if(global.options_tutorial_done &amp;&amp; scr_instance_exists(curr_obj_following)){
     global.commandeer_tutorial_done = true;
     curr_obj_following = 0;
+    global.paused = false;
 }
 
+//searching for enemy plane to commandeer...
 if(global.options_tutorial_done &amp;&amp; !global.commandeer_tutorial_done){
     for(var i = 0; i &lt; instance_number(obj_enemy); i++){
         var s = instance_find(obj_enemy,i);
-        if(is_array(s.angles)){
-            scr_tutorial_key_create(s,global.commandeer_key,"C");
+        if( point_distance(global.player_id.x,global.player_id.y,s.x,s.y)&lt;=global.C_MAX_DIST &amp;&amp;
+            is_array(s.angles) &amp;&amp;
+            scr_is_obj_between_angles(global.player_id, s)){
+            
+            scr_tutorial_create(s,scr_tutorial_has_commandeered,"C");
             curr_obj_following = s;
+            global.paused = true;
             break;
         }
     }

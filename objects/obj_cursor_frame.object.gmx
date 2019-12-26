@@ -58,12 +58,11 @@ dl_image_index = 0; //dashed line image index
             <kind>1</kind>
             <string>///update search coord
 var pd; //point direction between mouse and player
-var lw = sprite_get_width(eff_link); //link sprite width
 
-if(point_distance(global.player_id.x,global.player_id.y,mouse_x,mouse_y)&gt;lw){
+if(point_distance(global.player_id.x,global.player_id.y,mouse_x,mouse_y)&gt;global.C_MAX_DIST){
     pd = point_direction(global.player_id.x,global.player_id.y,mouse_x,mouse_y);
-    x = global.player_id.x+lengthdir_x(lw,pd);
-    y = global.player_id.y+lengthdir_y(lw,pd);
+    x = global.player_id.x+lengthdir_x(global.C_MAX_DIST,pd);
+    y = global.player_id.y+lengthdir_y(global.C_MAX_DIST,pd);
 }
 else{
     x = mouse_x;
