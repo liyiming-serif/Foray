@@ -1,17 +1,15 @@
 #define scr_tutorial_create
-///scr_tutorial_create(obj_following, conditional, display_text="")
+///scr_tutorial_create(obj_following, conditional, sprite_index, display_text="")
 
 var obj = argument[0];
 
 with(instance_create(obj.x, obj.y, obj_tutorial)){
     obj_following = obj;
     conditional = argument[1];
-    if(argument_count > 2){
-        display_text = argument[2];
-        sprite_index = spr_tutorial_key;
-    }
-    else{ //hack: if there's no text on the key, it must be a mouse cmd
-        sprite_index = spr_tutorial_mouse;
+    sprite_index = argument[2];
+    display_text = "";
+    if(argument_count > 3){
+        display_text = argument[3];
     }
 }
 

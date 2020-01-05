@@ -33,11 +33,11 @@ with(instance_create(fid.x,fid.y,obj_statbox)){
 }
 
 #define scr_statbox_move
-///scr_statbox_move()
+///scr_statbox_move(dist_following, optimal_angle)
 
-var dfp, oa, da;
-dfp = 72; //distance from plane this hud is tracking
-oa = 135; //optimal angle relative to the commandeering line
+var dfp, oa, da, ret;
+dfp = argument[0]; //distance from plane this hud is tracking
+oa = argument[1]; //optimal angle relative to the commandeering line
 pa = point_direction(follow_id.x,follow_id.y,opposing_id.x,opposing_id.y);
 
 //By default, try to position the hud at a certain angle away from the opposing plane.
@@ -92,8 +92,9 @@ while(fin_bdist[0]<0 && oa>45){
 //Can't bend the optimal angle anymore w. out blocking game elements;
 //forcefully clamp the statbox position within the screen.
 var vc = scr_view_current();
-x = clamp(fin_x, view_xview[vc]+sprite_xoffset, view_xview[vc]+view_wview[vc]+sprite_xoffset-sprite_width);
-y = clamp(fin_y, view_yview[vc]+sprite_yoffset, view_yview[vc]+view_hview[vc]+sprite_yoffset-sprite_height);
+ret[0] = clamp(fin_x, view_xview[vc]+sprite_xoffset, view_xview[vc]+view_wview[vc]+sprite_xoffset-sprite_width);
+ret[1] = clamp(fin_y, view_yview[vc]+sprite_yoffset, view_yview[vc]+view_hview[vc]+sprite_yoffset-sprite_height);
+return ret;
 
 #define scr_statbox_draw_gui
 ///scr_statbox_draw_gui()

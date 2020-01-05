@@ -22,7 +22,7 @@
             <string>///LMB to shoot
 
 if(!global.shoot_tutorial_done){
-    scr_tutorial_create(obj_cursor,scr_tutorial_has_shot);
+    scr_tutorial_create(obj_cursor,scr_tutorial_has_shot,spr_tutorial_mouse,"     to shoot");
     curr_obj_following = obj_cursor;
 }
 </string>
@@ -82,7 +82,7 @@ curr_obj_following = 0;
             <string>///'X' to boost
 
 if(!global.boost_tutorial_done){
-    scr_tutorial_create(global.player_id,scr_tutorial_has_boosted,"X");
+    scr_tutorial_create(global.player_id,scr_tutorial_has_boosted,spr_tutorial_key,"X   to boost");
     curr_obj_following = global.player_id;
 }
 </string>
@@ -144,7 +144,7 @@ if(scr_instance_exists(curr_obj_following)){
             <string>///'Z' to brake
 
 if(!global.brake_tutorial_done){
-    scr_tutorial_create(global.player_id,scr_tutorial_has_braked,"Z");
+    scr_tutorial_create(global.player_id,scr_tutorial_has_braked,spr_tutorial_key,"Z   to brake");
     curr_obj_following = global.player_id;
 }
 </string>
@@ -206,7 +206,7 @@ if(scr_instance_exists(curr_obj_following)){
             <string>///'F' for windowed mode
 
 if(!global.options_tutorial_done){
-    scr_tutorial_create(global.player_id,scr_tutorial_has_paused,"F");
+    scr_tutorial_create(global.player_id,scr_tutorial_has_paused,spr_tutorial_key,"F   toggles fullscreen");
     curr_obj_following = global.player_id;
 }
 </string>

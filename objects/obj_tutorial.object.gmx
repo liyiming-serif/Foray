@@ -61,7 +61,7 @@ if(!scr_instance_exists(obj_following)){
 }
 
 vc = scr_view_current();
-td = point_direction(obj_following.x, obj_following.y, view_xview[vc]+view_wview[vc]/3, view_yview[vc]+view_hview[vc]/3);
+td = point_direction(obj_following.x, obj_following.y, view_xview[vc]+view_wview[vc]*global.TUTORIAL_SCREEN_POS, view_yview[vc]+view_hview[vc]*global.TUTORIAL_SCREEN_POS);
 
 x = obj_following.x+lengthdir_x(global.TUTORIAL_FOLLOW_DIST, td);
 y = obj_following.y+lengthdir_y(global.TUTORIAL_FOLLOW_DIST, td);
@@ -167,16 +167,24 @@ if(script_execute(conditional)){
 var d_pos = scr_game_to_gui(x,y);
 var c_prev = draw_get_colour();
 var a_prev = draw_get_alpha();
+var df = global.fnt_westington_s;
 
 draw_set_alpha(image_alpha);
-draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
-
-draw_set_color(global.C_TEXT);
-draw_set_font(global.fnt_westington_s);
+if(global.paused){
+    draw_set_color(global.C_TEXT_LIGHT);
+}
+else{
+    draw_set_color(global.C_TEXT);
+}
+draw_set_font(df);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 if(variable_instance_exists(id, "display_text")){
-    draw_text(d_pos[0]+1,d_pos[1]+1,display_text);
+    draw_sprite(sprite_index,image_index,d_pos[0]-string_width(display_text)/2+font_get_size(df)/2,d_pos[1]);
+    draw_text(d_pos[0],d_pos[1],display_text);
+}
+else{
+    draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
 }
 
 draw_set_colour(c_prev);

@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -40,6 +40,9 @@ if(!variable_global_exists("shoot_tutorial_done")){
     timeline_running = true;
 }
 
+show_verbose_tutorials = false;
+verbose_text_pos[0] = 0;
+verbose_text_pos[1] = 0;
 curr_obj_following = 0;
 </string>
           </argument>
@@ -99,6 +102,7 @@ if(global.options_tutorial_done &amp;&amp; scr_instance_exists(curr_obj_followin
     global.commandeer_tutorial_done = true;
     curr_obj_following = 0;
     global.paused = false;
+    show_verbose_tutorials = false;
 }
 
 //searching for enemy plane to commandeer...
@@ -109,12 +113,68 @@ if(global.options_tutorial_done &amp;&amp; !global.commandeer_tutorial_done){
             is_array(s.angles) &amp;&amp;
             scr_is_obj_between_angles(global.player_id, s)){
             
-            scr_tutorial_create(s,scr_tutorial_has_commandeered,"C");
+            scr_tutorial_create(s,scr_tutorial_has_commandeered,spr_tutorial_mouse_right,"     to steal");
             curr_obj_following = s;
             global.paused = true;
+            show_verbose_tutorials = true;
+            
+            var ang, vc;
+            ang = point_direction(s.x,s.y,global.player_id.x,global.player_id.y);
+            verbose_text_pos[0] = global.player_id.x+lengthdir_x(96,ang);
+            verbose_text_pos[1] = global.player_id.y+lengthdir_y(96,ang);
+            vc = scr_view_current();
+            verbose_text_pos[0] = clamp(verbose_text_pos[0], view_xview[vc]+120, view_xview[vc]+view_wview[vc]-120);
+            verbose_text_pos[1] = clamp(verbose_text_pos[1], view_yview[vc]+24, view_yview[vc]+view_hview[vc]-24);
+            verbose_text_pos = scr_game_to_gui(verbose_text_pos[0], verbose_text_pos[1]);
             break;
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Show more commandeer tutorials
+
+if(show_verbose_tutorials){
+    var c_prev = draw_get_colour();
+    var a_prev = draw_get_alpha();
+    var df = global.fnt_westington_s;
+    
+    draw_set_alpha(1.0);
+    
+    draw_set_color(global.C_TEXT_LIGHT);
+    draw_set_font(df);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    
+    draw_text(verbose_text_pos[0], verbose_text_pos[1]-string_height(" "), "When a plane flashes");
+    draw_set_color(global.C_FLASH_RED);
+    draw_text(verbose_text_pos[0], verbose_text_pos[1], "Red,");
+    
+    draw_set_color(global.C_TEXT_LIGHT);
+    draw_text(verbose_text_pos[0], verbose_text_pos[1]+string_height(" "), "Fly next to arrow");
+    
+    draw_set_colour(c_prev);
+    draw_set_alpha(a_prev);
 }
 </string>
           </argument>

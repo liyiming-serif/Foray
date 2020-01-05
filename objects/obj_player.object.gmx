@@ -73,7 +73,7 @@ else{
 }
 
 //commandeering dampens turns and disables firing
-if(keyboard_check(global.commandeer_key)){
+if(mouse_check_button(mb_right)){
     scr_plane_point_turn(mouse_x, mouse_y, false,global.C_TURN_DAMPENER);
     return undefined;
 }

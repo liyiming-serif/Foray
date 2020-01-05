@@ -144,6 +144,7 @@
     <sprite>sprites\spr_hp_icon</sprite>
     <sprite>sprites\spr_tutorial_key</sprite>
     <sprite>sprites\spr_tutorial_mouse</sprite>
+    <sprite>sprites\spr_tutorial_mouse_right</sprite>
     <sprites name="stats_ui">
       <sprite>sprites\spr_stat</sprite>
       <sprite>sprites\spr_stat_filled</sprite>

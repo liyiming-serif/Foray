@@ -48,7 +48,10 @@ scr_statbox_advance_frame();
           <argument>
             <kind>1</kind>
             <string>///position the statbox
-scr_statbox_move();
+
+var pos = scr_statbox_move(72, 135);
+x = pos[0];
+y = pos[1];
 </string>
           </argument>
         </arguments>

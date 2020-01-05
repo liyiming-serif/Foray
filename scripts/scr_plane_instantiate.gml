@@ -108,7 +108,7 @@ var da = angle_difference(pa,direction);
 var ta = min(abs(da),tm);
 direction += global.game_speed*ta*sign(da);
 
-//slow down based on turn angle
+//actually move the plane based on turn angle
 speed = global.game_speed*curr_speed*(1-ta/(turn*global.TURN_DAMPENER));
 
 //drifting, affecting image_angle
