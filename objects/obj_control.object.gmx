@@ -86,6 +86,7 @@ global.next_level = "";
 global.changing_levels = false;
 
 //Initiallize fonts
+global.fnt_4mini = font_add(working_directory + "\4mini.ttf",8,false,false,32,128);
 global.fnt_westington_s = font_add(working_directory + "\Westington.ttf",12,true,false,32,128);
 global.fnt_westington_m = font_add(working_directory + "\Westington.ttf",24,true,false,32,128);
 
@@ -143,9 +144,9 @@ global.paused_prev = global.paused;
 //Use to change movement speed while still animating at 60fps
 global.game_speed = 1.0;
 global.game_speed_prev = global.game_speed;
-//TODO: test if lerp-ing gives smoother experience
+//SLOMO during stealing
 global.SLOMO_RATE = 0.11; //ease into slomo
-global.SLOMO_MIN = 0.03;
+global.SLOMO_MIN = 0;
 
 //shitty GML library doesn't move tiles by abs position
 global.tiles_x = 0;

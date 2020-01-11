@@ -49,7 +49,7 @@ scr_statbox_advance_frame();
             <kind>1</kind>
             <string>///position the statbox
 
-var pos = scr_statbox_move(72, 135);
+var pos = scr_statbox_move(78, 135);
 x = pos[0];
 y = pos[1];
 </string>

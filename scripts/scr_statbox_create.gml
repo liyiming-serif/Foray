@@ -99,14 +99,30 @@ return ret;
 #define scr_statbox_draw_gui
 ///scr_statbox_draw_gui()
 
+var c_prev = draw_get_colour();
+
 //Draw self
-var d_pos, ds_pos;
+var d_pos, ds_pos, dt_pos;
 d_pos = scr_game_to_gui(x,y);
-ds_pos = scr_game_to_gui(x-13,y-13);
+ds_pos = scr_game_to_gui(x-8,y-13);
+dt_pos = scr_game_to_gui(x-8,y-13);
+draw_set_font(global.fnt_4mini);
+draw_set_color(global.C_TEXT_LIGHT);
+draw_set_valign(fa_middle);
+draw_set_halign(fa_right);
 draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
 
 //Draw stats
 if(display_stats){
+    //draw "SP"
+    draw_text(dt_pos[0],dt_pos[1]+sprite_get_height(spr_stat)*0,"SP");
+    
+    //draw "TURN"
+    draw_text(dt_pos[0],dt_pos[1]+sprite_get_height(spr_stat)*1,"TURN");
+    
+    //draw "DMG"
+    draw_text(dt_pos[0],dt_pos[1]+sprite_get_height(spr_stat)*2,"DMG");
+    
     for(var i=1; i<=global.MAX_STATS; i++){
         //draw speed
         scr_stat_draw_gui(i,stat_speed,opp_stat_speed,ds_pos[0],ds_pos[1],0);
@@ -119,6 +135,8 @@ if(display_stats){
     }
 }
 
+draw_set_colour(c_prev);
+
 #define scr_stat_draw_gui
 ///scr_stat_draw_gui(i, follow_stat, opposing_stat, x_anchor, y_anchor, row)
 var i, fstat, ostat, xo, yo, row;
@@ -130,17 +148,17 @@ yo = argument[4];
 row = argument[5];
 
 if(i>fstat){
-    draw_sprite(spr_stat,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
+    draw_sprite(spr_stat,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
 }
 else{
     if(follow_id==global.player_id || fstat==ostat){
-        draw_sprite(spr_stat_filled,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
+        draw_sprite(spr_stat_filled,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
     }
     else if(fstat>ostat){
-        draw_sprite(spr_stat_better,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
+        draw_sprite(spr_stat_better,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
     }
     else if(fstat<ostat){
-        draw_sprite(spr_stat_worse,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*(sprite_get_height(spr_stat)-1));
+        draw_sprite(spr_stat_worse,stat_index,xo+i*sprite_get_width(spr_stat),yo+row*sprite_get_height(spr_stat));
     }
 }
 

@@ -120,11 +120,11 @@ if(global.options_tutorial_done &amp;&amp; !global.commandeer_tutorial_done){
             
             var ang, vc;
             ang = point_direction(s.x,s.y,global.player_id.x,global.player_id.y);
-            verbose_text_pos[0] = global.player_id.x+lengthdir_x(96,ang);
-            verbose_text_pos[1] = global.player_id.y+lengthdir_y(96,ang);
+            verbose_text_pos[0] = global.player_id.x+lengthdir_x(144,ang);
+            verbose_text_pos[1] = global.player_id.y+lengthdir_y(144,ang);
             vc = scr_view_current();
             verbose_text_pos[0] = clamp(verbose_text_pos[0], view_xview[vc]+120, view_xview[vc]+view_wview[vc]-120);
-            verbose_text_pos[1] = clamp(verbose_text_pos[1], view_yview[vc]+24, view_yview[vc]+view_hview[vc]-24);
+            verbose_text_pos[1] = clamp(verbose_text_pos[1], view_yview[vc]+48, view_yview[vc]+view_hview[vc]-48);
             verbose_text_pos = scr_game_to_gui(verbose_text_pos[0], verbose_text_pos[1]);
             break;
         }
@@ -164,14 +164,15 @@ if(show_verbose_tutorials){
     draw_set_color(global.C_TEXT_LIGHT);
     draw_set_font(df);
     draw_set_halign(fa_center);
-    draw_set_valign(fa_middle);
+    draw_set_valign(fa_bottom);
     
     draw_text(verbose_text_pos[0], verbose_text_pos[1]-string_height(" "), "When a plane flashes");
     draw_set_color(global.C_FLASH_RED);
     draw_text(verbose_text_pos[0], verbose_text_pos[1], "Red,");
     
+    draw_set_valign(fa_top);
     draw_set_color(global.C_TEXT_LIGHT);
-    draw_text(verbose_text_pos[0], verbose_text_pos[1]+string_height(" "), "Fly next to arrow");
+    draw_text(verbose_text_pos[0], verbose_text_pos[1], "Fly to where the#arrow's pointing");
     
     draw_set_colour(c_prev);
     draw_set_alpha(a_prev);
