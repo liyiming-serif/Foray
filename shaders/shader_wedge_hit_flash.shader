@@ -57,7 +57,7 @@ void main()
     //vec2 pos = (v_vTexcoord-spriteUVs.xy)*spriteUVs.zw;
     //if(inRange(pos)){
     if(onTarget>=0.5){ //flash blue
-        gl_FragColor = vec4(0.0,0.86328125,0.60546875,baseColor.a);
+        gl_FragColor = vec4(0.30078125,0.93359375,0.69140625,baseColor.a);
     }
     else { //flash red
         gl_FragColor = vec4(0.85546875,0.09375,0.26953125,baseColor.a);

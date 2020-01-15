@@ -250,7 +250,7 @@
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_amorphous_wave</timeline>
-    <timeline>timelines\tl_commandeer_coroutine</timeline>
+    <timeline>timelines\tl_steal_coroutine</timeline>
     <timeline>timelines\tl_tutorial_schedule</timeline>
   </timelines>
   <rooms name="rooms">

@@ -20,7 +20,7 @@
           <argument>
             <kind>1</kind>
             <string>///spawn player
-scr_player_create(800,500,90,"horde_drab","mg");
+scr_player_create(800,500,90,"al_awaidh","mg");
 
 </string>
           </argument>
@@ -380,7 +380,7 @@ scr_remove_design_pattern("scr_spawn_chasing_skymine");
             <kind>1</kind>
             <string>///spawn first plane cmc4
 
-scr_spawn_plane(choose("asteroid_blues","red_tail","venitas"),2);
+scr_spawn_plane(choose("asteroid_blues","jenny","camel"),2);
 
 scr_remove_design_pattern("scr_spawn_plane_cmc4");
 </string>

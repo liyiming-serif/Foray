@@ -2,68 +2,68 @@
   "modifiers": [],
   "stat_tiers":{
     "speeds":[2.5, 3.25, 3.75],
-    "turns":[2.25, 4.5, 5.25],
+    "turns":[2, 3.5, 4.25],
     "armors":[0, 2, 4]
   },
   "models":{
     "max_hp": 50,
     "threat": 0.3,
     "score":8,
-    "red_tail":{
-      "name": "Red Tail",
-      "speed": 2,
-      "turn": 1.05,
+    "al_awaidh":{
+      "name": "Al-Awaidh",
+      "speed": 1,
+      "turn": 1,
       "dmg":1,
       "amr":1,
       "palette": 0,
-      "min_speed": 2.5,
-      "max_speed": 5.2
+      "min_speed": 2,
+      "max_speed": 4
     },
-    "asteroid_blues":{
-      "name": "Asteroid Blues",
-      "speed": 1.05,
-      "turn": 2,
+    "jenny":{
+      "name": "Jenny JN-5",
+      "speed": 2,
+      "turn": 1,
       "dmg": 1,
       "amr": 1,
       "palette": 1,
-      "min_speed": 2,
-      "max_speed": 4.05,
+      "min_speed": 2.5,
+      "max_speed": 5.2,
     },
-    "horde_drab":{
-      "name": "Drab of the Horde",
+    "asteroid_blues":{
+      "name": "Asteroid Blues",
       "speed": 1,
-      "turn": 1.05,
+      "turn": 2,
       "dmg":1,
       "amr":1,
       "palette": 2,
       "min_speed": 2,
-      "max_speed": 4
+      "max_speed": 4.05
     },
-    "venitas":{
-      "name": "Venitas",
+    "camel":{
+      "name": "Camel",
       "speed": 1,
       "turn": 1,
       "dmg":2,
       "amr":1,
       "palette": 3,
       "min_speed": 2,
-      "max_speed": 4
+      "max_speed": 4.05
     },
-    "remy":{
-      "name": "Remy",
+    "red_baroness":{
+      "name": "Red Baroness",
       "speed": 2,
-      "turn": 1,
-      "dmg":2,
+      "turn": 2,
+      "dmg":1,
       "amr":1,
       "palette": 4,
       "min_speed": 2.5,
       "max_speed": 5.2
     },
-    "red_baron":{
-      "name": "Red Baron",
+    "nushaba":{
+      "name": "Nushaba",
       "speed": 2,
-      "turn": 2,
-      "dmg":1,
+      "turn": 1,
+      "dmg":2,
       "amr":1,
       "palette": 5,
       "min_speed": 2.5,

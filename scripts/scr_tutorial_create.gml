@@ -28,8 +28,8 @@ return keyboard_check_released(global.brake_key);
 
 return mouse_check_button_released(mb_left);
 
-#define scr_tutorial_has_commandeered
-///scr_tutorial_has_commandeered()
+#define scr_tutorial_has_stolen
+///scr_tutorial_has_stolen()
 
 var res;
 

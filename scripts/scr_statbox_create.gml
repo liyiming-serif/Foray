@@ -36,8 +36,15 @@ with(instance_create(fid.x,fid.y,obj_statbox)){
 ///scr_statbox_move(dist_following, optimal_angle)
 
 var dfp, oa, da, ret;
+if (!scr_instance_exists(follow_id) ||
+    !scr_instance_exists(opposing_id)){
+    //statbox going to be destroyed next frame, return bogus value in meantime
+    ret[0] = 0;
+    ret[1] = 0;
+    return ret;
+}
 dfp = argument[0]; //distance from plane this hud is tracking
-oa = argument[1]; //optimal angle relative to the commandeering line
+oa = argument[1]; //optimal angle relative to stealing line
 pa = point_direction(follow_id.x,follow_id.y,opposing_id.x,opposing_id.y);
 
 //By default, try to position the hud at a certain angle away from the opposing plane.
@@ -105,7 +112,7 @@ var c_prev = draw_get_colour();
 var d_pos, ds_pos, dt_pos;
 d_pos = scr_game_to_gui(x,y);
 ds_pos = scr_game_to_gui(x-8,y-13);
-dt_pos = scr_game_to_gui(x-8,y-13);
+dt_pos = scr_game_to_gui(x-7,y-13);
 draw_set_font(global.fnt_4mini);
 draw_set_color(global.C_TEXT_LIGHT);
 draw_set_valign(fa_middle);

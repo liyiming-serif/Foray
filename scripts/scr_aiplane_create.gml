@@ -35,7 +35,7 @@ with(instance_create(xv,yv,obj_enemy)){
     max_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
     max_hp = ceil(max_hp*global.AI_HP_REDUC);
-    achy = ceil(ds_list_find_value(ds_map_find_value(mp,"achy"),skill)*max_hp); //hp threshold for commandeering
+    achy = ceil(ds_list_find_value(ds_map_find_value(mp,"achy"),skill)*max_hp); //hp threshold for stealing
     hp = max_hp;
     
     //entry point for AI FSM

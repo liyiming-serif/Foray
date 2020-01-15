@@ -316,7 +316,7 @@ new.image_index = 0;
 new.l_bound_frame = 0;
 new.r_bound_frame = image_number;
 //start tint green coroutine
-new.timeline_index = tl_commandeer_coroutine;
+new.timeline_index = tl_steal_coroutine;
 new.timeline_position = 24;
 new.timeline_running = true;
 //invincibility during recovery frames
@@ -330,7 +330,7 @@ if(object_index==obj_enemy) {
     new.hp = min(hp+max_hp*0.7, max_hp);
 }
 
-//destroy old commandeered plane
+//destroy old stolen plane
 instance_destroy();
 
 #define scr_plane_gen_weakspot

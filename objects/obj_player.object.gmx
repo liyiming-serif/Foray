@@ -72,7 +72,7 @@ else{
     scr_plane_neutral();
 }
 
-//commandeering dampens turns and disables firing
+//stealing dampens turns and disables firing
 if(mouse_check_button(mb_right)){
     scr_plane_point_turn(mouse_x, mouse_y, false,global.C_TURN_DAMPENER);
     return undefined;

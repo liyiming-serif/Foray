@@ -62,7 +62,7 @@ void main()
             gl_FragColor = vec4(0.0,0.0,0.0,0.0);
         }
         else if(onTarget>=0.5){ //flash blue
-            gl_FragColor = vec4(0.0,0.86328125,0.60546875,baseColor.a);
+            gl_FragColor = vec4(0.30078125,0.93359375,0.69140625,baseColor.a);
             //gl_FragColor = texture2D(palette, vec2( baseColor.r, 0.9921875));
         }
         else { //flash red

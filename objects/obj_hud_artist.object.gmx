@@ -31,8 +31,8 @@ hp_gauge_ref = spr_hp_gauge;
 hp_icon_ref = spr_hp_icon;
 
 //frame trackers for animated HUD elements
-hp_ico_frame = 0;
-hp_ico_img_speed = 0.25;
+//hp_ico_frame = 0;
+//hp_ico_img_speed = 0.25;
 
 //hp values to track
 max_hp = ds_map_find_value(global.models,"max_hp");
@@ -100,10 +100,10 @@ else{
           <argument>
             <kind>1</kind>
             <string>///advance frame for animated UI
-hp_ico_frame += hp_ico_img_speed;
-if(hp_ico_frame&gt;=sprite_get_number(hp_icon_ref)){
-    hp_ico_frame = 0;
-}
+//hp_ico_frame += hp_ico_img_speed;
+//if(hp_ico_frame&gt;=sprite_get_number(hp_icon_ref)){
+//    hp_ico_frame = 0;
+//}
 
 </string>
           </argument>
@@ -130,13 +130,13 @@ if(hp_ico_frame&gt;=sprite_get_number(hp_icon_ref)){
             <string>///Draw health bar
 //actual bar
 var amt = 100*hp/max_hp;
-draw_healthbar(global.HBAR_X,global.HBAR_Y,global.HBAR_X+sprite_get_width(hp_gauge_ref)-5,global.HBAR_Y+sprite_get_height(hp_gauge_ref)-8,amt,c_black,c_purple,c_aqua,3,false,false);
+draw_healthbar(global.HBAR_X,global.HBAR_Y,global.HBAR_X+sprite_get_width(hp_gauge_ref)-5,global.HBAR_Y+sprite_get_height(hp_gauge_ref)-8,amt,c_black,global.C_MIN_BAR,global.C_MAX_BAR,3,false,false);
 
 //gauge overlay
 draw_sprite(hp_gauge_ref,0,global.HBAR_X,global.HBAR_Y);
 
 //heart icon
-draw_sprite(hp_icon_ref,floor(hp_ico_frame),global.HBAR_X,global.HBAR_Y+sprite_get_height(hp_gauge_ref));
+draw_sprite(hp_icon_ref,0,global.HBAR_X,global.HBAR_Y+sprite_get_height(hp_gauge_ref));
 </string>
           </argument>
         </arguments>
@@ -212,7 +212,6 @@ draw_set_colour(c_prev);
 var c_prev = draw_get_colour();
 var a_prev = draw_get_alpha();
 global.flash_red_alpha = clamp(global.flash_red_alpha,0,1);
-global.flash_blue_alpha = clamp(global.flash_blue_alpha,0,1);
 
 //draw red for hit dmg
 draw_set_colour(global.C_FLASH_RED);
@@ -224,19 +223,8 @@ else{
     draw_rectangle(0,0,view_wview[1],view_hview[1],false);
 }
 global.flash_red_alpha -= global.FLASH_RED_ALPHA_DECAY;
-//draw blue for commandeering
-draw_set_colour(global.C_FLASH_BLUE);
-draw_set_alpha(global.flash_blue_alpha);
-if(window_get_fullscreen()){
-    draw_rectangle(0,0,view_wview[0],view_hview[0],false);
-}
-else{
-    draw_rectangle(0,0,view_wview[1],view_hview[1],false);
-}
-global.flash_blue_alpha -= global.FLASH_BLUE_ALPHA_DECAY;
 
 global.flash_red_alpha = clamp(global.flash_red_alpha,0,1);
-global.flash_blue_alpha = clamp(global.flash_blue_alpha,0,1);
 draw_set_colour(c_prev);
 draw_set_alpha(a_prev);
 </string>
