@@ -1,24 +1,22 @@
 list of sounds:
--engine
-  -drifting (louder and higher pitched)
++engine
+  -drifting (gradually shifting down)
   -volume and pitch based on speed
--boosting
--braking
--crashing
--small explosion
--skymine hitting player
--large explosion (balloon, plane)
--shooting machineguns
--shooting cannon
--charging
--hitting
--deflecting
--spawning skymines
--grapple out
--grapple locked on
--stats showing
--jumping out of plane
--landing on plane
--balloon propeller (balloon, skymine)
++boosting
++braking
++crashing
++small explosion
++large explosion (balloon, plane)
++skymine hitting player
++shooting machineguns
++shooting cannon
++charging
++hitting
++deflecting
++spawning skymines
++time slomo
++jumping out of plane
++landing on plane
++balloon propeller (balloon, skymine)
   -pitch shift down, volume up for blimp
--amr on/amr off(?)
++wind blowing
