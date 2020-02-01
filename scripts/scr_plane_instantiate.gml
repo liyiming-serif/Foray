@@ -321,7 +321,7 @@ scr_ship_gc_wpns();
 
 //switch to crashing sound
 audio_stop_sound(engine_sound);
-scr_play_sound(snd_explosion_s);
+scr_play_sound(snd_explosion_s,x,y);
 engine_sound = audio_play_sound_on(sound_emitter,snd_falling,false,0);
 
 
@@ -396,7 +396,7 @@ return ret;
 #define scr_plane_gc
 //scr_plane_gc
 
-scr_play_sound(snd_explosion_m);
+scr_play_sound(snd_explosion_m,x,y);
 
 //clean up all sounds under emitter
 audio_stop_sound(engine_sound);

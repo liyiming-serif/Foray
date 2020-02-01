@@ -48,3 +48,14 @@ s = audio_play_sound(sound_id,0,false);
 audio_sound_gain(s,1-random(global.SOUND_GAIN_VARIANCE),0);
 audio_sound_pitch(s,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
 return s;
+
+#define scr_play_sound_metallic
+///scr_play_sound_metallic(sound_id,x,y);
+
+var sound_id = argument[0];
+var px = argument[1];
+var py = argument[2];
+
+var s = scr_play_sound(sound_id, px, py);
+audio_sound_pitch(s,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
+audio_sound_pitch(s,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));

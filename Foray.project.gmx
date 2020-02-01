@@ -114,7 +114,6 @@
     <sound>sound\snd_plane_engine</sound>
     <sound>sound\snd_plane_propeller</sound>
     <sound>sound\snd_balloon_propeller</sound>
-    <sound>sound\snd_zeppelin_engine</sound>
     <sounds name="mg">
       <sound>sound\snd_mg0</sound>
       <sound>sound\snd_mg1</sound>
