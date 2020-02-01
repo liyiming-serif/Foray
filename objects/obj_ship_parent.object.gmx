@@ -25,13 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///gc wpn mounts
-scr_ship_gc_wpns();
-
-//HACK: add score system to discourage player from running away
-if(!is_friendly){
-    score += points;
-}
+            <string>///generic garbage collection
+scr_ship_gc();
 </string>
           </argument>
         </arguments>

@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>///Explode
 part_particles_create(global.partsys,x,y,global.explosion,1);
+
+//audio only if skymine was successfully shot down
+if(hp&lt;=0){
+    scr_play_sound(snd_explosion_s,x,y);
+}
 </string>
           </argument>
         </arguments>
@@ -177,6 +182,7 @@ scr_skymine_hit();
 
 if(other.is_friendly != is_friendly){
     points = 0;
+    scr_play_sound(snd_detonation,x,y,);
     with(other){
         scr_ship_hit();
     }

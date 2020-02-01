@@ -79,6 +79,14 @@ gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly,display_dmg);
 //callbacks
 death_seq_cb = scr_plane_crash;
 
+//audio
+if(is_friendly){
+    engine_sound = audio_play_sound_on(sound_emitter,snd_plane_propeller,true,0);
+}
+else{
+    engine_sound = audio_play_sound_on(sound_emitter,snd_plane_engine,true,0);
+}
+
 
 #define scr_plane_point_turn
 ///scr_plane_point_turn(xtarget, ytarget, away, turn_modifier=1)
@@ -139,6 +147,14 @@ else{ //neutral
     u_bound_frame = right_frame;
 }
 
+//update sound emitter for doppler effect
+audio_emitter_position(sound_emitter,x,y,0);
+audio_emitter_velocity(sound_emitter,hspeed,vspeed,0);
+var pitch = 1+(curr_speed/neutral_speed-1)*global.SOUND_PITCH_DAMPENER;
+var gain = (1-(max_speed-curr_speed)/max_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
+audio_emitter_gain(sound_emitter, gain);
+audio_emitter_pitch(sound_emitter, pitch);
+
 #define scr_plane_idle
 ///scr_plane_idle()
 //maybe refactor this, idk. copy-pasted from point_turn
@@ -146,6 +162,7 @@ var da2 = angle_difference(direction,image_angle);
 var ta2 = min(abs(da2),turn);
 image_angle += global.game_speed*ta2*sign(da2);
 speed = global.game_speed*curr_speed;
+audio_stop_sound(engine_sound);
 
 #define scr_plane_boost
 ///scr_plane_boost()
@@ -159,6 +176,7 @@ curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,max_speed);
 is_braking = true;
 is_boosting = false;
 curr_speed = clamp(curr_speed-global.BRAKE_SPEED,min_speed,max_speed);
+
 
 #define scr_plane_neutral
 ///scr_plane_neutral()
@@ -298,8 +316,14 @@ alarm[11] = -1;
 //create explosion particle
 part_particles_create(global.partsys,x,y,global.boom_air,1);
 
-//gc wpn
+//gc wpn only
 scr_ship_gc_wpns();
+
+//switch to crashing sound
+audio_stop_sound(engine_sound);
+scr_play_sound(snd_explosion_s);
+engine_sound = audio_play_sound_on(sound_emitter,snd_falling,false,0);
+
 
 #define scr_plane_steal
 ///scr_plane_steal()
@@ -369,3 +393,13 @@ if(ret!=undefined){
     alarm[11] = gid.recoil;
 }
 return ret;
+#define scr_plane_gc
+//scr_plane_gc
+
+scr_play_sound(snd_explosion_m);
+
+//clean up all sounds under emitter
+audio_stop_sound(engine_sound);
+
+//dispose function for all ships
+scr_ship_gc();

@@ -108,7 +108,31 @@
     </datafile>
   </datafiles>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_boost</sound>
+    <sound>sound\snd_brake</sound>
+    <sound>sound\snd_plane_engine</sound>
+    <sound>sound\snd_plane_propeller</sound>
+    <sound>sound\snd_balloon_propeller</sound>
+    <sound>sound\snd_zeppelin_engine</sound>
+    <sounds name="mg">
+      <sound>sound\snd_mg0</sound>
+      <sound>sound\snd_mg1</sound>
+      <sound>sound\snd_mg2</sound>
+      <sound>sound\snd_mg3</sound>
+      <sound>sound\snd_mg4</sound>
+      <sound>sound\snd_mg5</sound>
+      <sound>sound\snd_mg6</sound>
+    </sounds>
+    <sound>sound\snd_cannon</sound>
+    <sound>sound\snd_falling</sound>
+    <sound>sound\snd_explosion_s</sound>
+    <sound>sound\snd_explosion_m</sound>
+    <sound>sound\snd_detonation</sound>
+    <sound>sound\snd_hitting</sound>
+    <sound>sound\snd_deflect</sound>
+    <sound>sound\mus_wind</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="planes">
       <sprite>sprites\spr_plane1</sprite>
@@ -187,6 +211,9 @@
     <script>scripts\scr_ship_instantiate.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
     <script>scripts\scr_projectile_create.gml</script>
+    <scripts name="audio">
+      <script>scripts\scr_play_sound.gml</script>
+    </scripts>
     <scripts name="control">
       <script>scripts\scr_set_res.gml</script>
       <script>scripts\scr_load_level.gml</script>

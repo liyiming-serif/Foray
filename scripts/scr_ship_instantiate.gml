@@ -29,6 +29,13 @@ if(!is_friendly){
     alarm[10] = update_target_time;
 }
 
+//audio
+sound_emitter = audio_emitter_create();
+audio_emitter_falloff(sound_emitter,
+    global.SOUND_FALLOFF_REF_DIST,
+    global.SOUND_FALLOFF_MAX_DIST,
+    global.SOUND_FALLOFF_FACTOR);
+
 #define scr_ship_advance_frame
 ///scr_ship_advance_frame()
 
@@ -47,6 +54,7 @@ if(is_friendly!=other.is_friendly){
 
     if(invincibility>0){ //destroy bullet and exit early
         instance_destroy(other);
+        scr_play_sound(snd_deflect,x,y);
         return undefined;
     }    
 
@@ -95,6 +103,9 @@ if(is_friendly!=other.is_friendly){
         }
     }
     
+    //audio
+    scr_play_sound(snd_hitting,x,y);
+    
     //destroy bullet
     instance_destroy(other);
 }
@@ -112,6 +123,19 @@ if(hitstun>0){ //apply hit flash
 }
 draw_self();
 shader_reset();
+
+#define scr_ship_gc
+///scr_ship_gc()
+scr_ship_gc_wpns();
+
+//HACK: add score system to discourage player from running away
+//TODO: delete this
+if(!is_friendly){
+    score += points;
+}
+
+//gc audio
+audio_emitter_free(sound_emitter);
 
 #define scr_ship_gc_wpns
 ///scr_ship_gc_wpns()
@@ -177,6 +201,7 @@ return ret;
 
 //death cb
 part_particles_create(global.partsys,x,y,global.explosion,1);
+scr_play_sound(snd_explosion_m,x,y);
 instance_destroy();
 
 #define scr_ship_explode_small
@@ -184,4 +209,5 @@ instance_destroy();
 
 //death cb
 part_particles_create(global.partsys,x,y,global.boom_air,1);
+scr_play_sound(snd_explosion_m,x,y);
 instance_destroy();

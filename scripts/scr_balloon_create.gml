@@ -119,6 +119,8 @@ if(scr_instance_exists(gid[1]) && scr_balloon_amr_is_up()){
     if(is_friendly!=other.is_friendly){
         instance_destroy(other);
         part_particles_create(global.partsys,other.x,other.y,global.deflect,1);
+        //deflected
+        scr_play_sound(snd_deflect,x,y);
     }
 }
 else{

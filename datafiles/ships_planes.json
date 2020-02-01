@@ -1,7 +1,7 @@
 {
   "modifiers": [],
   "stat_tiers":{
-    "speeds":[2.5, 3.25, 3.75],
+    "speeds":[2.25, 3, 3.25],
     "turns":[2, 3.5, 4.25],
     "armors":[0, 2, 4]
   },
@@ -16,8 +16,8 @@
       "dmg":1,
       "amr":1,
       "palette": 0,
-      "min_speed": 2,
-      "max_speed": 4
+      "min_speed": 1.8,
+      "max_speed": 3.6
     },
     "jenny":{
       "name": "Jenny JN-5",
@@ -26,8 +26,8 @@
       "dmg": 1,
       "amr": 1,
       "palette": 1,
-      "min_speed": 2.5,
-      "max_speed": 5.2,
+      "min_speed": 2.1,
+      "max_speed": 4.7,
     },
     "asteroid_blues":{
       "name": "Asteroid Blues",
@@ -36,8 +36,8 @@
       "dmg":1,
       "amr":1,
       "palette": 2,
-      "min_speed": 2,
-      "max_speed": 4.05
+      "min_speed": 1.8,
+      "max_speed": 3.7
     },
     "camel":{
       "name": "Camel",
@@ -46,8 +46,8 @@
       "dmg":2,
       "amr":1,
       "palette": 3,
-      "min_speed": 2,
-      "max_speed": 4.05
+      "min_speed": 1.8,
+      "max_speed": 3.7
     },
     "red_baroness":{
       "name": "Red Baroness",
@@ -56,18 +56,18 @@
       "dmg":1,
       "amr":1,
       "palette": 4,
-      "min_speed": 2.5,
-      "max_speed": 5.2
+      "min_speed": 2.2,
+      "max_speed": 4.8,
     },
     "nushaba":{
-      "name": "Nushaba",
+      "name": "Nushaba G2-S",
       "speed": 2,
       "turn": 1,
       "dmg":2,
       "amr":1,
       "palette": 5,
-      "min_speed": 2.5,
-      "max_speed": 5.2
+      "min_speed": 2.2,
+      "max_speed": 4.8
     }
   },
 
