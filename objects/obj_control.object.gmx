@@ -91,7 +91,7 @@ global.fnt_westington_s = font_add(working_directory + "\Westington.ttf",12,true
 global.fnt_westington_m = font_add(working_directory + "\Westington.ttf",24,true,false,32,128);
 
 //INITIALLIZE CONSTANTS
-global.TURN_DAMPENER = 8; //how little turning reduces speed
+global.TURN_DAMPENER = 9; //how little turning reduces speed
 global.C_TURN_DAMPENER = 0.25; //dampening factor when holding [C]
 global.C_MAX_DIST = sprite_get_width(eff_link);
 global.MAX_CAM_FOLLOW_DIST = 120;
@@ -138,13 +138,18 @@ global.SHADOW_DIST = 20;
 global.C_SHADOW = make_colour_rgb(3,61,84);
 
 //Audio Constants
-global.SOUND_FALLOFF_REF_DIST = 96; //these variables are bullshit
-global.SOUND_FALLOFF_MAX_DIST = 312;
+audio_falloff_set_model(audio_falloff_linear_distance_clamped);
+global.SOUND_FALLOFF_REF_DIST = 216; //these variables are bullshit
+global.SOUND_FALLOFF_MAX_DIST = 888;
 global.SOUND_FALLOFF_FACTOR = 1;
 global.SOUND_PITCH_VARIANCE = 0.05;
 global.SOUND_GAIN_VARIANCE = 0.2;
 global.SOUND_PITCH_DAMPENER = 0.8;
-global.SOUND_GAIN_DAMPENER = 0.5;
+global.SOUND_GAIN_DAMPENER = 0.25;
+global.SOUND_BALLOON_PITCH_SHIFT = 2.2;
+global.SOUND_BALLOON_GAIN_SHIFT = 0.4;
+global.SOUND_SKYMINE_FALLOFF_REF_DIST = 120;
+global.SOUND_SKYMINE_FALLOFF_MAX_DIST = 312;
 
 //Pause
 global.paused = false;

@@ -28,34 +28,17 @@
             <string>///Explode
 part_particles_create(global.partsys,x,y,global.explosion,1);
 
+//clean up all sounds under emitter
+if(chase_player){
+    audio_stop_sound(engine_sound);
+}
+
 //audio only if skymine was successfully shot down
 if(hp&lt;=0){
     scr_play_sound(snd_explosion_s,x,y);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Hack: add score
-if(points &gt; 0){
-    score += points;
-}
+
+scr_ship_gc();
 </string>
           </argument>
         </arguments>
@@ -105,6 +88,11 @@ scr_skymine_chase();
             <string>///Advance frame
 
 scr_ship_advance_frame();
+
+if(chase_player){
+    var gain = (1-(chase_vel-speed)/chase_vel)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
+    audio_emitter_gain(sound_emitter, gain*global.SOUND_BALLOON_GAIN_SHIFT);
+}
 </string>
           </argument>
         </arguments>

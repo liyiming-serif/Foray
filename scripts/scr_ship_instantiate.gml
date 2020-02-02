@@ -43,6 +43,10 @@ audio_emitter_falloff(sound_emitter,
 hitstun = max(hitstun-global.game_speed, 0);
 invincibility = max(invincibility-global.game_speed,0);
 
+//update emitter
+audio_emitter_position(sound_emitter,x,y,0);
+audio_emitter_velocity(sound_emitter,hspeed,vspeed,0);
+
 #define scr_ship_hit
 ///scr_ship_hit()
 
@@ -202,6 +206,9 @@ return ret;
 //death cb
 part_particles_create(global.partsys,x,y,global.explosion,1);
 scr_play_sound(snd_explosion_m,x,y);
+//clean up all sounds under emitter
+audio_stop_sound(engine_sound);
+
 instance_destroy();
 
 #define scr_ship_explode_small
@@ -210,4 +217,7 @@ instance_destroy();
 //death cb
 part_particles_create(global.partsys,x,y,global.boom_air,1);
 scr_play_sound(snd_explosion_m,x,y);
+//clean up all sounds under emitter
+audio_stop_sound(engine_sound);
+
 instance_destroy();

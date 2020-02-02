@@ -125,6 +125,8 @@
     </sounds>
     <sound>sound\snd_cannon</sound>
     <sound>sound\snd_falling</sound>
+    <sound>sound\snd_jump</sound>
+    <sound>sound\snd_land</sound>
     <sound>sound\snd_explosion_s</sound>
     <sound>sound\snd_explosion_m</sound>
     <sound>sound\snd_detonation</sound>

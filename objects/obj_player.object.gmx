@@ -67,9 +67,6 @@ if(keyboard_check(global.brake_key)){
 }
 else if(keyboard_check(global.boost_key)){
     scr_plane_boost();
-    if(keyboard_check_pressed(global.boost_key) &amp;&amp; !audio_is_playing(snd_boost)){
-        scr_play_sound(snd_boost,x,y);
-    }
 }
 else{
     scr_plane_neutral();

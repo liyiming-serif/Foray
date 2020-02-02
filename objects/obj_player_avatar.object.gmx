@@ -80,6 +80,8 @@ if(image_index&gt;=jump_frame &amp;&amp; !has_jumped){ //begin jump
     else{
         image_angle -= 90;
     }
+    
+    scr_play_sound(snd_jump,x,y);
     has_jumped = true;
 }
 else if(image_index&gt;=land_frame &amp;&amp; !has_landed){ //begin land
@@ -87,6 +89,7 @@ else if(image_index&gt;=land_frame &amp;&amp; !has_landed){ //begin land
     image_angle = 0;
     x = target_id.x;
     y = target_id.y;
+    scr_play_sound(snd_land,x,y);
     has_landed = true;
 }
 else if(image_index&gt;=land_frame){ //landing

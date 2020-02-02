@@ -2,7 +2,7 @@
   "modifiers": [],
   "stat_tiers":{
     "speeds":[2.25, 3, 3.25],
-    "turns":[2, 3.5, 4.25],
+    "turns":[1.9, 3.25, 4],
     "armors":[0, 2, 4]
   },
   "models":{

@@ -49,7 +49,8 @@ with(instance_create(xv,yv,obj_zeppelin)){
     //callbacks
     death_seq_cb = scr_ship_explode_large;
     
-    debug = "";
+    engine_sound = audio_play_sound_on(sound_emitter,snd_balloon_propeller,true,0);
+    audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
     return id;
 }
 
@@ -118,6 +119,9 @@ var ta = min(abs(da),turn);
 direction += global.game_speed*ta*sign(da);
 image_angle = direction;
 speed = global.game_speed*curr_speed;
+
+var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
+audio_emitter_gain(sound_emitter, gain);
 
 #define scr_zeppelin_navigate
 ///scr_zeppelin_navigate()

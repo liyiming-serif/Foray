@@ -53,8 +53,11 @@ with(instance_create(xv,yv,obj_balloon)){
     
     //callbacks
     death_seq_cb = scr_ship_explode_small;
-    
-    debug = "";
+
+    engine_sound = audio_play_sound_on(sound_emitter,snd_balloon_propeller,true,0);
+    audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
+    audio_emitter_gain(sound_emitter, global.SOUND_BALLOON_GAIN_SHIFT);
+    audio_emitter_pitch(sound_emitter, global.SOUND_BALLOON_PITCH_SHIFT);
     return id;
 }
 
@@ -77,6 +80,8 @@ else if(!in_position){
 else{
     speed = 0;
 }
+var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
+audio_emitter_gain(sound_emitter, gain*global.SOUND_BALLOON_GAIN_SHIFT);
 
 //TODO: scripted balloons can fallow predetermined paths
 
@@ -120,7 +125,7 @@ if(scr_instance_exists(gid[1]) && scr_balloon_amr_is_up()){
         instance_destroy(other);
         part_particles_create(global.partsys,other.x,other.y,global.deflect,1);
         //deflected
-        scr_play_sound(snd_deflect,x,y);
+        scr_play_sound_metallic(snd_deflect,x,y);
     }
 }
 else{
@@ -143,10 +148,6 @@ if(scr_instance_exists(gid[1]) && gid[1].visible){
         gid[1].image_index = image_index;
     }
 }
-
-#define scr_balloon_debug
-draw_text(x-120,y-64,debug);
-scr_ship_shade();
 
 #define scr_balloon_firing_in_range
 ///scr_balloon_firing_in_range()

@@ -86,6 +86,7 @@ if(is_friendly){
 else{
     engine_sound = audio_play_sound_on(sound_emitter,snd_plane_engine,true,0);
 }
+audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
 
 
 #define scr_plane_point_turn
@@ -148,8 +149,6 @@ else{ //neutral
 }
 
 //update sound emitter for doppler effect
-audio_emitter_position(sound_emitter,x,y,0);
-audio_emitter_velocity(sound_emitter,hspeed,vspeed,0);
 var pitch = 1+(curr_speed/neutral_speed-1)*global.SOUND_PITCH_DAMPENER;
 var gain = (1-(max_speed-curr_speed)/max_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
 audio_emitter_gain(sound_emitter, gain);
@@ -322,7 +321,7 @@ scr_ship_gc_wpns();
 //switch to crashing sound
 audio_stop_sound(engine_sound);
 scr_play_sound(snd_explosion_s,x,y);
-engine_sound = audio_play_sound_on(sound_emitter,snd_falling,false,0);
+crashing_sound = scr_play_sound(snd_falling,x,y);
 
 
 #define scr_plane_steal
@@ -400,6 +399,9 @@ scr_play_sound(snd_explosion_m,x,y);
 
 //clean up all sounds under emitter
 audio_stop_sound(engine_sound);
+if(variable_instance_exists(id,"crashing_sound")){
+    audio_stop_sound(crashing_sound);
+}
 
 //dispose function for all ships
 scr_ship_gc();
