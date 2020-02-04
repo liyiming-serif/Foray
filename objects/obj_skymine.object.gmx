@@ -30,7 +30,7 @@ part_particles_create(global.partsys,x,y,global.explosion,1);
 
 //clean up all sounds under emitter
 if(chase_player){
-    audio_stop_sound(engine_sound);
+    //audio_stop_sound(engine_sound);
 }
 
 //audio only if skymine was successfully shot down

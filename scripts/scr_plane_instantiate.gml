@@ -81,7 +81,7 @@ death_seq_cb = scr_plane_crash;
 
 //audio
 if(is_friendly){
-    engine_sound = audio_play_sound_on(sound_emitter,snd_plane_propeller,true,0);
+    engine_sound = audio_play_sound_on(sound_emitter,snd_player_engine,true,0);
 }
 else{
     engine_sound = audio_play_sound_on(sound_emitter,snd_plane_engine,true,0);
@@ -149,10 +149,13 @@ else{ //neutral
 }
 
 //update sound emitter for doppler effect
-var pitch = 1+(curr_speed/neutral_speed-1)*global.SOUND_PITCH_DAMPENER;
+if(is_friendly){
+    var pitch = 1-((max_speed-curr_speed)/max_speed)*global.SOUND_PITCH_DAMPENER;
+    audio_emitter_pitch(sound_emitter, pitch);
+}
 var gain = (1-(max_speed-curr_speed)/max_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
 audio_emitter_gain(sound_emitter, gain);
-audio_emitter_pitch(sound_emitter, pitch);
+
 
 #define scr_plane_idle
 ///scr_plane_idle()
@@ -320,7 +323,7 @@ scr_ship_gc_wpns();
 
 //switch to crashing sound
 audio_stop_sound(engine_sound);
-scr_play_sound(snd_explosion_s,x,y);
+scr_play_sound(snd_explosion_m,x,y);
 crashing_sound = scr_play_sound(snd_falling,x,y);
 
 
