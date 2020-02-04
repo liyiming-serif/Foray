@@ -1,8 +1,8 @@
 {
   "modifiers": [],
   "stat_tiers":{
-    "speeds":[2.25, 3, 3.25],
-    "turns":[1.9, 3.25, 4],
+    "speeds":[2.25, 3.1, 3.25],
+    "turns":[1.9, 3, 4],
     "armors":[0, 2, 4]
   },
   "models":{
@@ -27,7 +27,7 @@
       "amr": 1,
       "palette": 1,
       "min_speed": 2.1,
-      "max_speed": 4.7,
+      "max_speed": 4.8,
     },
     "asteroid_blues":{
       "name": "Asteroid Blues",
@@ -57,7 +57,7 @@
       "amr":1,
       "palette": 4,
       "min_speed": 2.2,
-      "max_speed": 4.8,
+      "max_speed": 4.9,
     },
     "nushaba":{
       "name": "Nushaba G2-S",
@@ -67,7 +67,7 @@
       "amr":1,
       "palette": 5,
       "min_speed": 2.2,
-      "max_speed": 4.8
+      "max_speed": 4.9
     }
   },
 
