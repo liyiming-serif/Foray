@@ -205,9 +205,9 @@ return ret;
 
 //death cb
 part_particles_create(global.partsys,x,y,global.explosion,1);
-scr_play_sound(snd_explosion_m,x,y);
+scr_play_sound(snd_detonation,x,y);
 //clean up all sounds under emitter
-audio_stop_sound(engine_sound);
+//audio_stop_sound(engine_sound);
 
 instance_destroy();
 
@@ -218,6 +218,6 @@ instance_destroy();
 part_particles_create(global.partsys,x,y,global.boom_air,1);
 scr_play_sound(snd_explosion_m,x,y);
 //clean up all sounds under emitter
-audio_stop_sound(engine_sound);
+//audio_stop_sound(engine_sound);
 
 instance_destroy();

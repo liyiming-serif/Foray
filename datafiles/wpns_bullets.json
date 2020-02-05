@@ -1,7 +1,8 @@
 {
   "weapons": {
     "mg":{
-      "obj_ind":"obj_wpn_mg",
+      "obj_ind":"obj_wpn_parent",
+      "spr_ind":"spr_wpn_mg",
       "on_click_cb":"scr_do_nothing",
       "pressed_cb":"scr_shoot",
       "on_release_cb":"scr_do_nothing",
@@ -18,7 +19,8 @@
       "muzzle_flare":"flare1"
     },
     "cannon":{
-      "obj_ind":"obj_wpn_cannon",
+      "obj_ind":"obj_wpn_parent",
+      "spr_ind":"spr_wpn_bomb",
       "on_click_cb":"scr_do_nothing",
       "pressed_cb":"scr_cannon_shoot",
       "on_release_cb":"scr_do_nothing",
@@ -35,7 +37,8 @@
       "muzzle_flare":"flare1"
     },
     "airtillery":{
-      "obj_ind":"obj_wpn_airtillery",
+      "obj_ind":"obj_charge_wpn_parent",
+      "spr_ind":"spr_wpn_airtillery",
       "on_click_cb":"scr_do_nothing",
       "pressed_cb":"scr_charge_shoot",
       "on_release_cb":"scr_charge_scatter",
@@ -56,7 +59,8 @@
       "sweep_angle":90
     },
     "burst_cannon":{
-      "obj_ind":"obj_wpn_cannon",
+      "obj_ind":"obj_charge_wpn_parent",
+      "spr_ind":"spr_wpn_bomb",
       "on_click_cb":"scr_do_nothing",
       "pressed_cb":"scr_charge_shoot",
       "on_release_cb":"scr_charge_scatter",
@@ -77,7 +81,7 @@
       "sweep_angle":135
     },
     "mine_layer":{
-      "obj_ind":"obj_wpn_mine_layer",
+      "obj_ind":"obj_wpn_parent",
       "on_click_cb":"scr_do_nothing",
       "pressed_cb":"scr_charge_shoot",
       "on_release_cb":"scr_lay_mine",

@@ -133,7 +133,8 @@
     <sound>sound\snd_detonation</sound>
     <sound>sound\snd_hitting</sound>
     <sound>sound\snd_deflect</sound>
-    <sound>sound\mus_wind</sound>
+    <sound>sound\snd_charging</sound>
+    <sound>sound\snd_spawn_skymine</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="planes">
@@ -259,10 +260,6 @@
     <object>objects\obj_player_avatar</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
-    <object>objects\obj_wpn_mg</object>
-    <object>objects\obj_wpn_cannon</object>
-    <object>objects\obj_wpn_airtillery</object>
-    <object>objects\obj_wpn_mine_layer</object>
     <object>objects\obj_control</object>
     <object>objects\obj_hud_artist</object>
     <object>objects\obj_lighting_artist</object>
@@ -271,6 +268,7 @@
     <object>objects\obj_ship_parent</object>
     <object>objects\obj_plane_parent</object>
     <object>objects\obj_projectile_parent</object>
+    <object>objects\obj_charge_wpn_parent</object>
     <object>objects\obj_wpn_parent</object>
     <object>objects\obj_cursor</object>
     <object>objects\obj_cursor_frame</object>

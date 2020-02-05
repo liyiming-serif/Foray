@@ -11,6 +11,38 @@ if(mp==undefined){
 }
 
 with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(mp,"obj_ind")))){
+    //graphical
+    var v = ds_map_find_value(mp,"spr_ind");
+    if(v!=undefined){
+        sprite_index = asset_get_index(v);
+        
+        //animation
+        anim_speed = ds_map_find_value(mp,"anim_speed");
+        image_speed = anim_speed;
+        
+        shoot_frame = ds_map_find_value(mp,"shoot_frame");
+        l_bound_frame = 0;
+        u_bound_frame = shoot_frame;
+    
+        //palette swap shader
+        modifier = ds_map_find_value(mp,"palette");
+        rt_modifier = modifier/256.0;
+        palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
+        row_ref = shader_get_uniform(shader_pal_swap, "row");
+    }
+    else{
+        anim_speed = 0; 
+        
+        shoot_frame = 0;
+        l_bound_frame = 0;
+        u_bound_frame = 0;
+        
+        modifier = 0;
+        rt_modifier = 0;
+        palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
+        row_ref = shader_get_uniform(shader_pal_swap, "row");
+    }
+
     key = argument[3];
     is_friendly = argument[4];
     image_angle = argument[2];
@@ -56,25 +88,8 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     pressed_cb = asset_get_index(ds_map_find_value(mp,"pressed_cb"));
     on_release_cb = asset_get_index(ds_map_find_value(mp,"on_release_cb"));
     
-    //animation
-    anim_speed = ds_map_find_value(mp,"anim_speed");
-    if(anim_speed!=undefined){
-        image_speed = anim_speed;
-    }
-    shoot_frame = ds_map_find_value(mp,"shoot_frame");
-    l_bound_frame = 0;
-    u_bound_frame = shoot_frame;
-    
-    //palette swap shader
-    modifier = ds_map_find_value(mp,"palette");
-    if(modifier!=undefined){
-        rt_modifier = modifier/256.0;
-    }
-    palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
-    row_ref = shader_get_uniform(shader_pal_swap, "row");
-    
     //optional parameters
-    var v = ds_map_find_value(mp,"muzzle_flare");
+    v = ds_map_find_value(mp,"muzzle_flare");
     if(v!=undefined){
         muzzle_flare = variable_global_get(v);
     }
@@ -87,6 +102,15 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     if(v!=undefined){
         reload_rate = v;
         reload_counter = reload_rate;
+        reload_counter_prev = reload_counter;
+        
+        sound_emitter = audio_emitter_create();
+        audio_emitter_falloff(sound_emitter,
+            global.SOUND_FALLOFF_REF_DIST,
+            global.SOUND_FALLOFF_MAX_DIST,
+            global.SOUND_FALLOFF_FACTOR);
+        charge_sound = audio_play_sound_on(sound_emitter, snd_charging, true, 0);
+        audio_pause_sound(charge_sound);
     }
     v = ds_map_find_value(mp,"charge_part");
     if(v!=undefined){
@@ -177,6 +201,7 @@ if(scr_instance_exists(global.player_id)){
 vel = global.game_speed*((muzzle_vel)+random_range(-muzzle_vel_var,muzzle_vel_var));
 var b = scr_skymine_create(x,y,dir,vel);
 b.hp *= hp_reduc;
+scr_play_sound(snd_spawn_skymine,x,y);
 return b;
 
 #define scr_do_nothing
@@ -188,11 +213,13 @@ return undefined;
 ///scr_wpn_shade()
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
-shader_set(shader_pal_swap);
-shader_set_uniform_f(row_ref, rt_modifier);
-texture_set_stage(palette_ref, global.palette_texture);
-draw_self();
-shader_reset();
+if(sprite_index != -1){
+    shader_set(shader_pal_swap);
+    shader_set_uniform_f(row_ref, rt_modifier);
+    texture_set_stage(palette_ref, global.palette_texture);
+    draw_self();
+    shader_reset();
+}
 
 #define scr_wpn_advance_frame
 ///scr_wpn_advance_frame()
@@ -217,6 +244,10 @@ return b;
 ///scr_charge_shoot()
 
 if(rounds<=0){
+    //update emitter
+    audio_emitter_position(sound_emitter,x,y,0);
+    audio_emitter_velocity(sound_emitter,hspeed,vspeed,0);
+    
     //reload finished
     if(reload_counter<=0){
         reload_counter = reload_rate;
@@ -272,3 +303,10 @@ var b = scr_shoot();
 
 image_angle = og_angle;
 return b;
+#define scr_wpn_end_frame
+///scr_wpn_end_framee()
+
+//update linear and angular velocity
+av = angle_difference(image_angle,image_angle_prev);
+dx = x-xprevious;
+dy = y-yprevious;

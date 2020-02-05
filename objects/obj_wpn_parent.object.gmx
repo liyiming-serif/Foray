@@ -51,9 +51,7 @@ rt_modifier = modifier/256.0;
           <argument>
             <kind>1</kind>
             <string>///update linear and angular velocity
-av = angle_difference(image_angle,image_angle_prev);
-dx = x-xprevious;
-dy = y-yprevious;
+scr_wpn_end_frame();
 </string>
           </argument>
         </arguments>
@@ -77,6 +75,7 @@ dy = y-yprevious;
           <argument>
             <kind>1</kind>
             <string>///update image_angle_prev
+
 image_angle_prev = image_angle;
 
 </string>
@@ -153,6 +152,7 @@ scr_wpn_advance_frame();
 
 l_bound_frame = 0;
 u_bound_frame = shoot_frame;
+
 </string>
           </argument>
         </arguments>

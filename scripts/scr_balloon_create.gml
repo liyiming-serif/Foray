@@ -54,10 +54,12 @@ with(instance_create(xv,yv,obj_balloon)){
     //callbacks
     death_seq_cb = scr_ship_explode_small;
 
+    /*
     engine_sound = audio_play_sound_on(sound_emitter,snd_balloon_propeller,true,0);
     audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
     audio_emitter_gain(sound_emitter, global.SOUND_BALLOON_GAIN_SHIFT);
     audio_emitter_pitch(sound_emitter, global.SOUND_BALLOON_PITCH_SHIFT);
+    */
     return id;
 }
 

@@ -49,8 +49,10 @@ with(instance_create(xv,yv,obj_zeppelin)){
     //callbacks
     death_seq_cb = scr_ship_explode_large;
     
+    /*
     engine_sound = audio_play_sound_on(sound_emitter,snd_balloon_propeller,true,0);
     audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
+    */
     return id;
 }
 
