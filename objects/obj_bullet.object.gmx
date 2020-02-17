@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Play firing sound
-scr_play_sound_randomize("snd_mg",7,x,y);
+shoot_sound = scr_play_sound_randomize("snd_mg",7,x,y);
 </string>
           </argument>
         </arguments>

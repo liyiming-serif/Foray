@@ -19,7 +19,7 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     
     //palette swap shader
     if(is_friendly){
-        //BETA: load palette based on dmg stat
+        //FUTURE: load palette based on dmg stat
         modifier = ds_map_find_value(mp,"palette1");
     }
     else{
@@ -33,6 +33,11 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     var v = ds_map_find_value(mp,"miss_part");
     if(v!=undefined){
         miss_part = variable_global_get(v);
+    }
+    
+    //audio
+    if(is_friendly && variable_instance_exists(id,"shoot_sound")){
+        audio_sound_gain(shoot_sound,0.5,0);
     }
     
     return id;

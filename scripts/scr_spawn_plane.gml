@@ -39,5 +39,5 @@ scr_spawn_plane(model_name,choose(1,2));
 
 #define scr_spawn_plane_cmc5
 ///scr_spawn_plane_cmc5()
-var model_name = choose("nushaba","red_baroness");
+var model_name = choose("fomalhaut","red_baroness");
 scr_spawn_plane(model_name,2);

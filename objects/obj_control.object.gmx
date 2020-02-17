@@ -139,6 +139,7 @@ global.C_SHADOW = make_colour_rgb(3,61,84);
 
 //Audio Constants
 audio_falloff_set_model(audio_falloff_linear_distance_clamped);
+audio_listener_orientation(0,-1,0, 0,0,-1);
 global.SOUND_FALLOFF_REF_DIST = 216; //these variables are bullshit
 global.SOUND_FALLOFF_MAX_DIST = 888;
 global.SOUND_FALLOFF_FACTOR = 1;

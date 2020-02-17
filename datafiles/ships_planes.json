@@ -59,8 +59,8 @@
       "min_speed": 2.2,
       "max_speed": 4.9,
     },
-    "nushaba":{
-      "name": "Nushaba G2-S",
+    "fomalhaut":{
+      "name": "Fomalhaut",
       "speed": 2,
       "turn": 1,
       "dmg":2,
