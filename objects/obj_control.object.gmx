@@ -95,7 +95,7 @@ global.TURN_DAMPENER = 9; //how little turning reduces speed
 global.C_TURN_DAMPENER = 0.25; //dampening factor when holding [C]
 global.C_MAX_DIST = sprite_get_width(eff_link);
 global.MAX_CAM_FOLLOW_DIST = 120;
-global.PARALLAX_FACTOR = 0.6;
+global.PARALLAX_FACTOR = 0.75;
 global.ACC_SPEED = 0.5;
 global.BRAKE_SPEED = 0.05;
 global.AIR_FRIC = 0.01;
@@ -112,6 +112,8 @@ global.DMG_THRESHOLDS[2] = 0.25;
 global.CONTACT_DMG = 3;
 global.MIN_DMG = 0.5;
 global.MAX_STATS = 3;
+global.MAX_PROGRESS_RATE = 0.003/room_speed;
+global.PROGRESS_RATE = 0.015/room_speed;
 
 //UI CONSTANTS
 global.C_TEXT = make_colour_rgb(108,102,142);
@@ -121,6 +123,7 @@ global.C_MAX_BAR = make_colour_rgb(107,255,192); //min-max colors for health bar
 global.C_MIN_BAR = make_colour_rgb(0,181,156);
 global.HBAR_X = 15;
 global.HBAR_Y = 20;
+global.PBAR_Y = 24;
 global.ARROW_ANIM_SPEED = 0.3;
 global.TUTORIAL_FADE_IN_RATE = 0.02;
 global.TUTORIAL_FOLLOW_DIST = 72;
@@ -151,6 +154,10 @@ global.SOUND_BALLOON_PITCH_SHIFT = 1.5;
 global.SOUND_BALLOON_GAIN_SHIFT = 0.4;
 global.SOUND_SKYMINE_FALLOFF_REF_DIST = 120;
 global.SOUND_SKYMINE_FALLOFF_MAX_DIST = 312;
+
+//Gun Progress
+global.max_progress = 0;
+global.progress = 0;
 
 //Pause
 global.paused = false;
@@ -248,6 +255,10 @@ part_type_life(global.boom_air, room_speed*0.5, room_speed*0.6);
 global.explosion = part_type_create();
 part_type_sprite(global.explosion, eff_explosion, true, true, false);
 part_type_life(global.explosion, room_speed*0.6, room_speed*0.8);
+
+global.explosion_ground = part_type_create();
+part_type_sprite(global.explosion_ground, eff_explosion_ground, true, true, false);
+part_type_life(global.explosion_ground, room_speed*0.5, room_speed*0.6);
 
 global.dmg_ind[0] = part_type_create();
 part_type_sprite(global.dmg_ind[0], eff_smoke_lt, true, true, false);
@@ -356,7 +367,7 @@ font_delete(global.fnt_westington_m);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Dequeue room change buffer
+            <string>///Handle signal for level change
 room_goto(asset_get_index("rm_"+global.next_level));
 global.changing_levels = true;
 </string>
@@ -600,6 +611,10 @@ else{
 
 tile_layer_shift(127, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
+
+//grounded objects
+global.grounded_apparent_x = global.tiles_x-room_width/2;
+global.grounded_apparent_y = global.tiles_y-room_height/2;
 </string>
           </argument>
         </arguments>
@@ -635,6 +650,46 @@ for(var i = 0; i &lt; instance_number(obj_ship_parent); i++){
             s.accuracy = s.og_accuracy*(1+global.spawn_cap);
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check+Update Defense Progress
+
+//If progress is &lt; 0, game over state
+if(global.progress &lt; 0){
+    scr_set_level("level1");
+}
+
+if(global.progress &lt; global.max_progress){
+    //city's been hit, so progress needs to catch up to max
+    global.progress = clamp(global.progress+global.PROGRESS_RATE*global.game_speed,
+                            0,
+                            global.max_progress);
+}
+else{
+    //move max progress along when all damage has been repaired
+    global.max_progress = clamp(global.max_progress+global.MAX_PROGRESS_RATE*global.game_speed,
+                                0,
+                                1);
+    global.progress = global.max_progress;
 }
 </string>
           </argument>

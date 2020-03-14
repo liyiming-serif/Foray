@@ -29,6 +29,8 @@
 //sprite refs
 hp_gauge_ref = spr_hp_gauge;
 hp_icon_ref = spr_hp_icon;
+progress_gauge_ref = spr_progress_gauge;
+progress_bar_ref = spr_progress_bar;
 
 //frame trackers for animated HUD elements
 //hp_ico_frame = 0;
@@ -157,6 +159,51 @@ draw_sprite(hp_icon_ref,0,global.HBAR_X,global.HBAR_Y+sprite_get_height(hp_gauge
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Draw progress bar
+
+//gauge sprite (anchor to right side of screen)
+var vc = scr_view_current();
+var xpos = view_wview[vc]-sprite_get_width(progress_gauge_ref)+sprite_get_xoffset(progress_gauge_ref);
+draw_sprite(progress_gauge_ref, 0, xpos, global.PBAR_Y);
+
+//maximum progress bar
+var prog = global.max_progress*sprite_get_width(progress_bar_ref);
+draw_sprite_part_ext(progress_bar_ref,0,0,0,prog,sprite_get_height(progress_bar_ref),xpos,global.PBAR_Y,1,1,global.C_MIN_BAR,1);
+
+//current progress bar
+prog = global.progress*sprite_get_width(progress_bar_ref);
+draw_sprite_part_ext(progress_bar_ref,0,0,0,prog,sprite_get_height(progress_bar_ref),xpos,global.PBAR_Y,1,1,global.C_MAX_BAR,1);
+
+//progress text
+var c_prev = draw_get_colour();
+
+draw_set_font(global.fnt_4mini);
+draw_set_valign(fa_top);
+draw_set_halign(fa_right);
+draw_set_colour(global.C_TEXT_LIGHT);
+draw_text(xpos-4, global.PBAR_Y-1, string(round(global.progress*100))+"%");
+
+draw_set_colour(c_prev);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Draw score
 
 var xbor = 24;
@@ -170,19 +217,19 @@ draw_set_halign(fa_right);
 //RGB split fx: draw shadow
 draw_set_colour(global.C_TEXT_SHADOW);
 if(window_get_fullscreen()){
-    draw_text(view_wview[0]-xbor+2,ybor-2,score);
+    //draw_text(view_wview[0]-xbor+2,ybor-2,score);
 }
 else{
-    draw_text(view_wview[1]-xbor+2,ybor-2,score);
+    //draw_text(view_wview[1]-xbor+2,ybor-2,score);
 }
 
 //draw actual score
 draw_set_colour(global.C_TEXT);
 if(window_get_fullscreen()){
-    draw_text(view_wview[0]-xbor,ybor,score);
+    //draw_text(view_wview[0]-xbor,ybor,score);
 }
 else{
-    draw_text(view_wview[1]-xbor,ybor,score);
+    //draw_text(view_wview[1]-xbor,ybor,score);
 }
 
 draw_set_colour(c_prev);

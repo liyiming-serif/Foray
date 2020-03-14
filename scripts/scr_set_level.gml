@@ -1,8 +1,39 @@
+#define scr_set_level
+///scr_set_level(name)
+//Entry point for switching levels
+//Note: because of how GM handles tiles, we wait 2 frames before actually changing
+//rooms. This script only resets level variables and signals to obj_control to
+//change levels.
+ 
+global.next_level = argument0;
+
+//reset room views
+view_xview[0]=0;
+view_yview[0]=0;
+view_xview[1]=0;
+view_yview[1]=0;
+
+//Reset parallax
+global.tile_x = 0;
+global.tile_y = 0;
+
+//reset skymine spawn queues
+ds_list_clear(global.skymine_queue);
+
+//reset score and progress
+global.progress = 0.0;
+global.max_progress = 0.0;
+score = 0;
+
+//Signal: Wait 2 frames before actually changing rooms
+obj_control.alarm[0] = 2;
+
 #define scr_load_level
 ///scr_load_level(name)
-//Call only after you're at the level you want
+//Called by obj_control when it receives a signal to change levels
 
 var name = argument0;
+
 global.next_level = "";
 global.changing_levels = false;
 
@@ -48,27 +79,3 @@ else{
     view_yview[1]=clamp(cam_y,0,rm_h-view_hview[1]);
 }
 
-
-#define scr_set_level
-///scr_set_level(name)
-//Buffer a level change
-global.next_level = argument0;
-
-//reset room views?
-view_xview[0]=0;
-view_yview[0]=0;
-view_xview[1]=0;
-view_yview[1]=0;
-
-//Reset parallax
-global.tile_x = 0;
-global.tile_y = 0;
-
-//reset skymine spawn queues
-ds_list_clear(global.skymine_queue);
-
-//reset score
-score = 0;
-
-//magic number that has to do with tile refresh rate
-obj_control.alarm[0] = 2;

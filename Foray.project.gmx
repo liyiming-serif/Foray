@@ -149,22 +149,19 @@
     <sprite>sprites\spr_char_back</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_cannonball</sprite>
+    <sprite>sprites\spr_drop_bomb</sprite>
     <sprite>sprites\spr_wpn_mg</sprite>
     <sprite>sprites\spr_wpn_bomb</sprite>
     <sprite>sprites\spr_wpn_airtillery</sprite>
-    <sprites name="cursors">
-      <sprite>sprites\spr_cursor</sprite>
-      <sprite>sprites\spr_c_cursor</sprite>
-      <sprite>sprites\spr_cf_cursor</sprite>
-      <sprite>sprites\spr_meter</sprite>
-      <sprite>sprites\eff_link</sprite>
-    </sprites>
+    <sprite>sprites\spr_wpn_antiair_gun</sprite>
+    <sprite>sprites\spr_city</sprite>
     <sprite>sprites\eff_b1_miss</sprite>
     <sprite>sprites\eff_flare1</sprite>
     <sprite>sprites\eff_flare2</sprite>
     <sprite>sprites\eff_hit1</sprite>
     <sprite>sprites\eff_boom_air</sprite>
     <sprite>sprites\eff_explosion</sprite>
+    <sprite>sprites\eff_explosion_ground</sprite>
     <sprite>sprites\eff_charge</sprite>
     <sprite>sprites\eff_deflect</sprite>
     <sprite>sprites\spr_lockon</sprite>
@@ -178,10 +175,19 @@
       <sprite>sprites\eff_trail_close</sprite>
       <sprite>sprites\eff_trail_far</sprite>
     </sprites>
+    <sprites name="cursors">
+      <sprite>sprites\spr_cursor</sprite>
+      <sprite>sprites\spr_c_cursor</sprite>
+      <sprite>sprites\spr_cf_cursor</sprite>
+      <sprite>sprites\spr_meter</sprite>
+      <sprite>sprites\eff_link</sprite>
+    </sprites>
     <sprite>sprites\spr_hud_artist</sprite>
     <sprite>sprites\spr_lighting_artist</sprite>
     <sprite>sprites\spr_hp_gauge</sprite>
     <sprite>sprites\spr_hp_icon</sprite>
+    <sprite>sprites\spr_progress_gauge</sprite>
+    <sprite>sprites\spr_progress_bar</sprite>
     <sprite>sprites\spr_tutorial_key</sprite>
     <sprite>sprites\spr_tutorial_mouse</sprite>
     <sprite>sprites\spr_tutorial_mouse_right</sprite>
@@ -198,6 +204,8 @@
     <background>background\bg_palette</background>
     <background>background\ts_sand_flora</background>
     <background>background\ts_rock_crater</background>
+    <background>background\ts_city</background>
+    <background>background\ts_temp</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -215,7 +223,7 @@
     </scripts>
     <scripts name="control">
       <script>scripts\scr_set_res.gml</script>
-      <script>scripts\scr_load_level.gml</script>
+      <script>scripts\scr_set_level.gml</script>
     </scripts>
     <scripts name="design_patterns">
       <script>scripts\scr_spawn_plane.gml</script>
@@ -256,6 +264,9 @@
     <object>objects\obj_player_avatar</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
+    <object>objects\obj_drop_bomb</object>
+    <object>objects\obj_wpn_antiair_gun</object>
+    <object>objects\obj_city</object>
     <object>objects\obj_control</object>
     <object>objects\obj_hud_artist</object>
     <object>objects\obj_lighting_artist</object>
@@ -266,6 +277,7 @@
     <object>objects\obj_projectile_parent</object>
     <object>objects\obj_charge_wpn_parent</object>
     <object>objects\obj_wpn_parent</object>
+    <object>objects\obj_grounded_parent</object>
     <object>objects\obj_cursor</object>
     <object>objects\obj_cursor_frame</object>
     <object>objects\obj_statbox</object>
