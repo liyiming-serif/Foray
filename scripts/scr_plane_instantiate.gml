@@ -81,7 +81,7 @@ death_seq_cb = scr_plane_crash;
 
 //audio
 if(is_friendly){
-    engine_sound = audio_play_sound_on(sound_emitter,snd_player_engine,true,0);
+    engine_sound = audio_play_sound_on(sound_emitter,snd_ambience,true,0);
 }
 else{
     engine_sound = audio_play_sound_on(sound_emitter,snd_plane_engine,true,0);

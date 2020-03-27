@@ -110,7 +110,7 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_plane_engine</sound>
-    <sound>sound\snd_player_engine</sound>
+    <sound>sound\snd_ambience</sound>
     <sounds name="mg">
       <sound>sound\snd_mg0</sound>
       <sound>sound\snd_mg1</sound>
@@ -218,6 +218,7 @@
     <script>scripts\scr_ship_instantiate.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
     <script>scripts\scr_projectile_create.gml</script>
+    <script>scripts\scr_grounded_create.gml</script>
     <scripts name="audio">
       <script>scripts\scr_play_sound.gml</script>
     </scripts>

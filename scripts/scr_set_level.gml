@@ -78,4 +78,3 @@ else{
     view_xview[1]=clamp(cam_x,0,rm_w-view_wview[1]);
     view_yview[1]=clamp(cam_y,0,rm_h-view_hview[1]);
 }
-

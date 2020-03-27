@@ -55,6 +55,7 @@
     <instance objName="obj_spawner" x="0" y="48" name="inst_64AD7B49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_lighting_artist" x="48" y="48" name="inst_605FEA09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tutorial_agent" x="48" y="0" name="inst_81F4D399" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_city" x="757" y="499" name="inst_6E9B3142" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ts_sand_flora" x="0" y="0" w="192" h="96" xo="0" yo="0" id="10001131" name="inst_B6120700" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -572,7 +573,6 @@
     <tile bgName="ts_rock_crater" x="168" y="528" w="48" h="48" xo="72" yo="24" id="10001163" name="inst_15C7F49F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="144" y="600" w="48" h="48" xo="72" yo="24" id="10001164" name="inst_0C6BAA16" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="984" y="624" w="24" h="24" xo="72" yo="0" id="10001178" name="inst_AEFDB9E1" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_city" x="670" y="420" w="168" h="168" xo="0" yo="0" id="10001687" name="inst_18BAEB8A" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1008" y="480" w="96" h="96" xo="96" yo="72" id="10001847" name="inst_A2DDCBC5" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1032" y="672" w="48" h="48" xo="120" yo="24" id="10001848" name="inst_538A1C1F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="984" y="744" w="24" h="24" xo="96" yo="0" id="10001850" name="inst_4BCC9202" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -597,7 +597,6 @@
     <tile bgName="ts_rock_crater" x="240" y="960" w="24" h="24" xo="72" yo="0" id="10001889" name="inst_EF90499E" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1104" y="912" w="48" h="48" xo="72" yo="24" id="10002071" name="inst_A652DB91" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1320" y="768" w="48" h="48" xo="72" yo="24" id="10002072" name="inst_9E5444D0" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_temp" x="659" y="401" w="192" h="216" xo="0" yo="0" id="10002073" name="inst_299C0094" depth="125" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

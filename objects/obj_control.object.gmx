@@ -612,9 +612,6 @@ else{
 tile_layer_shift(127, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 
-//grounded objects
-global.grounded_apparent_x = global.tiles_x-room_width/2;
-global.grounded_apparent_y = global.tiles_y-room_height/2;
 </string>
           </argument>
         </arguments>
