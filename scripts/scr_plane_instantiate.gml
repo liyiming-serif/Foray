@@ -28,13 +28,13 @@ display_dmg = clamp(ds_map_find_value(mp,"dmg"),1,global.MAX_STATS);
 display_amr = clamp(ds_map_find_value(mp,"amr"),1,global.MAX_STATS);
 
 //translated primary stats
+neutral_speed = scr_interpolate_stat(display_speed,global.speed_tiers);
 turn = scr_interpolate_stat(display_turn,global.turn_tiers);
 amr = scr_interpolate_stat(display_amr,global.amr_tiers);
-neutral_speed = scr_interpolate_stat(display_speed,global.speed_tiers);
 
 //hidden stats
-min_speed = ds_map_find_value(mp,"min_speed");
-max_speed = ds_map_find_value(mp,"max_speed");
+min_speed = scr_interpolate_stat(display_speed,global.min_speed_tiers);
+max_speed = scr_interpolate_stat(display_speed,global.max_speed_tiers);
 modifier = ds_map_find_value(mp,"palette");
 
 //variable fields
@@ -81,16 +81,16 @@ death_seq_cb = scr_plane_crash;
 
 //audio
 if(is_friendly){
-    engine_sound = audio_play_sound_on(sound_emitter,snd_ambience,true,0);
+    engine_sound = audio_play_sound_on(engine_sound_emitter,snd_ambience,true,0);
 }
 else{
-    engine_sound = audio_play_sound_on(sound_emitter,snd_plane_engine,true,0);
+    engine_sound = audio_play_sound_on(engine_sound_emitter,snd_plane_engine,true,0);
 }
 audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
 
 
-#define scr_plane_point_turn
-///scr_plane_point_turn(xtarget, ytarget, away, turn_modifier=1)
+#define scr_plane_turn
+///scr_plane_turn(xtarget, ytarget, away, turn_modifier=1)
 
 //Turn the plane towards a target.
 //Probably the most important script of the game.
@@ -151,10 +151,10 @@ else{ //neutral
 //update sound emitter for doppler effect
 if(is_friendly){
     var pitch = 1-((max_speed-curr_speed)/max_speed)*global.SOUND_PITCH_DAMPENER;
-    audio_emitter_pitch(sound_emitter, pitch);
+    audio_emitter_pitch(engine_sound_emitter, pitch);
 }
 var gain = (1-(max_speed-curr_speed)/max_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
-audio_emitter_gain(sound_emitter, gain);
+audio_emitter_gain(engine_sound_emitter, gain);
 
 
 #define scr_plane_idle

@@ -33,11 +33,11 @@ with(instance_create(xv,yv,obj_skymine)){
         alarm[0] = chase_freq;
         threat = ds_map_find_value(mp, "chasing_threat");
         
-        //audio_emitter_falloff(sound_emitter,
+        //audio_emitter_falloff(engine_sound_emitter,
             //global.SOUND_SKYMINE_FALLOFF_REF_DIST,
             //global.SOUND_SKYMINE_FALLOFF_MAX_DIST,
             //global.SOUND_FALLOFF_FACTOR);
-        //engine_sound = audio_play_sound_on(sound_emitter,snd_skymine_engine,true,0);
+        //engine_sound = audio_play_sound_on(engine_sound_emitter,snd_skymine_engine,true,0);
         //audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
     }
     

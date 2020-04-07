@@ -57,7 +57,7 @@ if(hp&lt;=0 || !has_pilot || id!=global.player_id) {
 
 //buckling dampens turning and disables keyboard+firing
 if(sprite_index==spr_plane1_buckle){
-    scr_plane_point_turn(mouse_x, mouse_y, false,global.C_TURN_DAMPENER);
+    scr_plane_turn(mouse_x, mouse_y, false,global.C_TURN_DAMPENER);
     return undefined;
 }
 
@@ -74,12 +74,12 @@ else{
 
 //stealing dampens turns and disables firing
 if(mouse_check_button(mb_right)){
-    scr_plane_point_turn(mouse_x, mouse_y, false,global.C_TURN_DAMPENER);
+    scr_plane_turn(mouse_x, mouse_y, false,global.C_TURN_DAMPENER);
     return undefined;
 }
 
 //turn towards mouse pointer
-scr_plane_point_turn(mouse_x, mouse_y, false);
+scr_plane_turn(mouse_x, mouse_y, false);
 
 //'LMB' to shoot
 if(mouse_check_button_pressed(mb_left)){

@@ -104,12 +104,12 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
         reload_counter = reload_rate;
         reload_counter_prev = reload_counter;
         
-        sound_emitter = audio_emitter_create();
-        audio_emitter_falloff(sound_emitter,
+        wpn_sound_emitter = audio_emitter_create();
+        audio_emitter_falloff(wpn_sound_emitter,
             global.SOUND_FALLOFF_REF_DIST,
             global.SOUND_FALLOFF_MAX_DIST,
             global.SOUND_FALLOFF_FACTOR);
-        charge_sound = audio_play_sound_on(sound_emitter, snd_charging, true, 0);
+        charge_sound = audio_play_sound_on(wpn_sound_emitter, snd_charging, true, 0);
         audio_pause_sound(charge_sound);
     }
     v = ds_map_find_value(mp,"charge_part");
@@ -245,8 +245,8 @@ return b;
 
 if(rounds<=0){
     //update emitter
-    audio_emitter_position(sound_emitter,x,y,0);
-    audio_emitter_velocity(sound_emitter,hspeed,vspeed,0);
+    audio_emitter_position(wpn_sound_emitter,x,y,0);
+    audio_emitter_velocity(wpn_sound_emitter,hspeed,vspeed,0);
     
     //reload finished
     if(reload_counter<=0){

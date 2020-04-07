@@ -91,7 +91,7 @@ scr_ship_advance_frame();
 
 if(chase_player){
     var gain = (1-(chase_vel-speed)/chase_vel)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
-    audio_emitter_gain(sound_emitter, gain*global.SOUND_BALLOON_GAIN_SHIFT);
+    audio_emitter_gain(engine_sound_emitter, gain*global.SOUND_BALLOON_GAIN_SHIFT);
 }
 </string>
           </argument>

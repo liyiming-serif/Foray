@@ -6,29 +6,21 @@ var dir = argument[2];
 var model_name = argument[3];
 var wpn_name = argument[4];
 var mp = ds_map_find_value(global.pilot_ai,argument[5]);
-var skill = argument[6]-1;
-
-//AI name not found, returning null id
-if(mp==undefined){
-    return 0;
-}
 
 //CONSTRUCTOR:
 with(instance_create(xv,yv,obj_enemy)){
     //Load AI constants from JSON 
-    //TODO: (1) refactor foresight, nimbus, and reflexes to a 'skill' arg
-    //      (2) refactor foresight, avoid_arc to consider speed and turn
-    foresight = ds_map_find_value(mp,"foresight"); //how far plane looks for avoiding obstacles
+    skill = argument[6]-1;
     range = ds_list_find_value(ds_map_find_value(mp,"range"),skill); //distance before plane opens fire
     og_accuracy = ds_list_find_value(ds_map_find_value(mp,"accuracy"),skill); //angle diff before plane opens fire
     accuracy = og_accuracy;
-    avoid_arc = ds_map_find_value(mp,"avoid_arc"); //how fast plane switches out of AVOID state
-    max_rounds = ds_map_find_value(mp,"max_rounds"); //rounds plane fires before reloading
+    max_rounds = ds_list_find_value(ds_map_find_value(mp,"max_rounds"),skill); //rounds plane fires before reloading
     reload_speed = ds_list_find_value(ds_map_find_value(mp,"reload_speed"),skill); //how long plane spends in RELOAD state
     var utt = ds_map_find_value(mp,"update_target_time"); //update_target_time
     scr_plane_instantiate(dir,model_name,wpn_name,false,ds_list_find_value(utt,skill));
     
     //Handicap AI
+    og_turn = turn;
     turn *= global.AI_TURN_REDUC;
     neutral_speed *= global.AI_SPEED_REDUC;
     min_speed *= global.AI_SPEED_REDUC;
@@ -39,29 +31,34 @@ with(instance_create(xv,yv,obj_enemy)){
     hp = max_hp;
     
     //entry point for AI FSM
-    ax = 0;
-    ay = 0;
-    sx = lengthdir_x(speed*foresight,direction);
-    sy = lengthdir_y(speed*foresight,direction);
     state = ai_states.CHASING;
     rounds_left = max_rounds;
+    scr_set_avoidance(neutral_speed, turn);
     
     return id;
 }
 
 #define scr_aiplane_navigate
-///scr_aiplane_avoid(xtarget, ytarget, away)
+///scr_aiplane_navigate(xtarget, ytarget, away)
 
 //CALCULATES TRAJECTORY FOR AVOIDING OBSTACLES, THEN TURNS THE PLANE
+//NEEDS: AI states, axy, foresight, turn, turn func, avoid_arc, skill, is_friendly
+
+var xtarget = argument[0];
+var ytarget = argument[1];
+var away = argument[2];
+var sx, sy, i, adir, adiff, pa, da;
 
 //sensing obstacles
-var i, adir;
+sx = lengthdir_x(speed*foresight,direction);
+sy = lengthdir_y(speed*foresight,direction);
 i = collision_line(x,y,sx+x,sy+y,obj_ship_parent,false,true);
-//don't dodge if obstacle is moving away too fast
+//don't dodge if obstacle is 1)moving away 2)too fast 3)not imminently close
 if(i!=noone){
-    if(i.speed>speed*0.5 && abs(angle_difference(i.direction,direction))<60.0){
+    adiff = abs(angle_difference(i.direction,direction));
+    if(i.speed>speed*0.5 && adiff<60.0){
         var l = distance_to_object(i);
-        if(l>foresight*0.3){
+        if(l>foresight*0.4){
             i = noone;
         }
     }
@@ -73,23 +70,42 @@ if(state != ai_states.AVOIDING){
 
 //avoiding obstacles
 if(i!=noone){
-    adir = point_direction(i.x-x,i.y-y,sx,sy);
+    //calculate avoidance trajectory
+    adiff = angle_difference(direction,i.direction);
+    if(i.speed<speed*0.5 || adiff==0 || adiff==180 || adiff==-180){
+        //position-based
+        pa = point_direction(x,y,i.x,i.y);
+        da = angle_difference(pa,direction);
+        adir = direction-sign(da)*90;
+        //adir = point_direction(i.x-x,i.y-y,sx,sy);
+    }
+    else{
+        //velocity-based
+        //NOTE: skilled enemies will lean INTO oncoming player,
+        //to give it the appearance of leading their shot
+        if(skill>0 && i.is_friendly!=is_friendly){
+            adir = direction-sign(adiff)*90;
+        }
+        else{
+            adir = direction+sign(adiff)*90;
+        }
+    }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = ai_states.AVOIDING;
-    if(!alarm[0]){
-        alarm[0] = avoid_arc;
+    if(!alarm[global.AVOID_STATE_ALARM]){
+        alarm[global.AVOID_STATE_ALARM] = avoid_arc;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }
 if(state == ai_states.AVOIDING){
-    argument0 = x;
-    argument1 = y;
+    //swerving
+    scr_plane_turn(x+ax, y+ay, away, global.SWERVE_TURN_MOD);
 }
-
-scr_plane_point_turn(argument0+ax,argument1+ay,argument2);
-sx = lengthdir_x(speed*foresight,direction);
-sy = lengthdir_y(speed*foresight,direction);
+else{
+    //normal flying
+    scr_plane_turn(xtarget, ytarget, away);
+}
 
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
@@ -129,5 +145,5 @@ if(hp<=achy && php>achy){
     var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
     scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));
     //make it easier to aim
-    turn *= global.AI_TURN_REDUC;
+    //turn *= global.AI_TURN_REDUC;
 }

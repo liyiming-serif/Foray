@@ -40,9 +40,5 @@
     <frame index="17">images\spr_char_17.png</frame>
     <frame index="18">images\spr_char_18.png</frame>
     <frame index="19">images\spr_char_19.png</frame>
-    <frame index="20">images\spr_char_20.png</frame>
-    <frame index="21">images\spr_char_21.png</frame>
-    <frame index="22">images\spr_char_22.png</frame>
-    <frame index="23">images\spr_char_23.png</frame>
   </frames>
 </sprite>

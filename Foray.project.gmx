@@ -205,7 +205,6 @@
     <background>background\ts_sand_flora</background>
     <background>background\ts_rock_crater</background>
     <background>background\ts_city</background>
-    <background>background\ts_temp</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

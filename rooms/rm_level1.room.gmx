@@ -55,7 +55,7 @@
     <instance objName="obj_spawner" x="0" y="48" name="inst_64AD7B49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_lighting_artist" x="48" y="48" name="inst_605FEA09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_tutorial_agent" x="48" y="0" name="inst_81F4D399" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_city" x="757" y="499" name="inst_6E9B3142" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_city" x="168" y="504" name="inst_4F036ACB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ts_sand_flora" x="0" y="0" w="192" h="96" xo="0" yo="0" id="10001131" name="inst_B6120700" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -79,24 +79,10 @@
     <tile bgName="ts_sand_flora" x="1008" y="48" w="48" h="48" xo="96" yo="144" id="10001221" name="inst_29EA3380" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1056" y="0" w="24" h="48" xo="96" yo="144" id="10001222" name="inst_1E2FA279" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1056" y="48" w="24" h="48" xo="96" yo="144" id="10001223" name="inst_03532526" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="768" y="96" w="48" h="48" xo="48" yo="192" id="10001225" name="inst_89C7372E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="816" y="96" w="48" h="48" xo="48" yo="192" id="10001226" name="inst_4C0E07E1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="864" y="96" w="48" h="48" xo="48" yo="192" id="10001227" name="inst_418C8A57" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="912" y="96" w="48" h="48" xo="48" yo="192" id="10001228" name="inst_1A21A930" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="960" y="96" w="48" h="48" xo="48" yo="192" id="10001229" name="inst_B38B2090" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1008" y="96" w="48" h="48" xo="48" yo="192" id="10001230" name="inst_EC4A3BEC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="864" y="0" w="48" h="48" xo="144" yo="144" id="10001231" name="inst_FC775BB1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="864" y="48" w="48" h="48" xo="144" yo="144" id="10001232" name="inst_6957CA3C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="912" y="0" w="48" h="48" xo="0" yo="144" id="10001233" name="inst_6D951AF0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="912" y="48" w="48" h="48" xo="0" yo="144" id="10001234" name="inst_01F7647B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="720" y="0" w="48" h="48" xo="0" yo="144" id="10001235" name="inst_AFF7F274" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="720" y="48" w="48" h="48" xo="0" yo="144" id="10001236" name="inst_B8426053" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="720" y="96" w="48" h="48" xo="0" yo="192" id="10001237" name="inst_9430F699" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="624" y="168" w="48" h="48" xo="96" yo="144" id="10001253" name="inst_CF0FD69B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="672" y="168" w="48" h="48" xo="144" yo="144" id="10001254" name="inst_EAB29A5E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="576" y="168" w="48" h="48" xo="0" yo="144" id="10001256" name="inst_D9A8ED15" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="624" y="120" w="48" h="48" xo="48" yo="96" id="10001257" name="inst_8B7F3178" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="624" y="216" w="48" h="48" xo="48" yo="192" id="10001258" name="inst_A5B1216A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="720" y="312" w="24" h="24" xo="120" yo="216" id="10001260" name="inst_8C5703A8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="792" y="288" w="24" h="24" xo="120" yo="216" id="10001261" name="inst_129AFBFB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="960" y="288" w="24" h="24" xo="120" yo="216" id="10001262" name="inst_13A8AB6E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -107,16 +93,6 @@
     <tile bgName="ts_sand_flora" x="672" y="144" w="24" h="24" xo="120" yo="216" id="10001270" name="inst_AF13FFC8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="528" y="144" w="48" h="24" xo="96" yo="192" id="10001272" name="inst_83CDBFBD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="648" y="48" w="48" h="24" xo="96" yo="192" id="10001273" name="inst_6FB93B5F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="816" y="48" w="48" h="48" xo="48" yo="144" id="10001274" name="inst_FFF6302C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="768" y="48" w="48" h="48" xo="48" yo="144" id="10001275" name="inst_5C2D140A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="768" y="0" w="48" h="48" xo="48" yo="144" id="10001276" name="inst_02D16DD1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="816" y="0" w="48" h="48" xo="48" yo="144" id="10001277" name="inst_32E3F78D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="480" y="48" w="48" h="48" xo="48" yo="144" id="10001278" name="inst_CE6705C0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="528" y="48" w="48" h="48" xo="48" yo="144" id="10001279" name="inst_5156BBA9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="576" y="48" w="48" h="48" xo="144" yo="144" id="10001280" name="inst_A464393C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="432" y="48" w="48" h="48" xo="0" yo="144" id="10001281" name="inst_068DCE9B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="480" y="96" w="48" h="48" xo="48" yo="192" id="10001282" name="inst_CE9200A9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="528" y="96" w="48" h="48" xo="48" yo="192" id="10001283" name="inst_1B05DAAC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="576" y="96" w="48" h="24" xo="96" yo="96" id="10001286" name="inst_C591D7E1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1032" y="144" w="24" h="24" xo="120" yo="120" id="10001287" name="inst_ECB0CDEC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="864" y="144" w="24" h="24" xo="120" yo="120" id="10001288" name="inst_41060D9C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -129,100 +105,6 @@
     <tile bgName="ts_sand_flora" x="960" y="312" w="48" h="24" xo="96" yo="192" id="10001295" name="inst_B6090998" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="648" y="336" w="48" h="24" xo="96" yo="192" id="10001296" name="inst_797807DF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="912" y="312" w="24" h="24" xo="120" yo="120" id="10001299" name="inst_1B7CDE6D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="312" y="384" w="48" h="48" xo="48" yo="144" id="10001300" name="inst_107B9C30" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="360" y="384" w="48" h="48" xo="48" yo="144" id="10001301" name="inst_F75A3595" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="408" y="384" w="48" h="48" xo="48" yo="144" id="10001302" name="inst_B3F6E6B9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="312" y="432" w="48" h="48" xo="48" yo="144" id="10001307" name="inst_5A13CCE8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="360" y="432" w="48" h="48" xo="48" yo="144" id="10001308" name="inst_C7FCFDC2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="408" y="432" w="48" h="48" xo="48" yo="144" id="10001309" name="inst_6373F3B2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="360" y="336" w="48" h="48" xo="48" yo="144" id="10001310" name="inst_723F542E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="360" y="288" w="48" h="48" xo="48" yo="96" id="10001311" name="inst_D2652A6C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="264" y="408" w="48" h="48" xo="0" yo="144" id="10001312" name="inst_8AA3FF0B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="312" y="480" w="48" h="48" xo="48" yo="192" id="10001313" name="inst_288EE6F2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="408" y="480" w="48" h="48" xo="48" yo="192" id="10001314" name="inst_A4D217E1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="360" y="480" w="48" h="48" xo="48" yo="192" id="10001315" name="inst_39CD71EB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="696" w="24" h="24" xo="24" yo="24" id="10001316" name="inst_8510A7BD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="672" w="24" h="24" xo="24" yo="24" id="10001317" name="inst_C36EC815" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="648" w="24" h="24" xo="24" yo="24" id="10001318" name="inst_713E6025" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="624" w="24" h="24" xo="24" yo="24" id="10001319" name="inst_1F1D32AF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="600" w="24" h="24" xo="24" yo="24" id="10001320" name="inst_56D318B5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="576" w="24" h="24" xo="24" yo="24" id="10001321" name="inst_2B210ADF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="552" w="24" h="24" xo="24" yo="24" id="10001322" name="inst_84A3F76D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="528" w="24" h="24" xo="24" yo="24" id="10001323" name="inst_6D2A884D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="504" w="24" h="24" xo="24" yo="24" id="10001324" name="inst_2634A4E2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="504" w="24" h="24" xo="24" yo="24" id="10001325" name="inst_4421B000" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="528" w="24" h="24" xo="24" yo="24" id="10001327" name="inst_23DD32B7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="528" w="24" h="24" xo="24" yo="24" id="10001328" name="inst_235549E2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="552" w="24" h="24" xo="24" yo="24" id="10001329" name="inst_B0F25ADC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="552" w="24" h="24" xo="24" yo="24" id="10001330" name="inst_DBC391F6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="576" w="24" h="24" xo="24" yo="24" id="10001331" name="inst_4F7A2ACA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="576" w="24" h="24" xo="24" yo="24" id="10001332" name="inst_960CEE23" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="600" w="24" h="24" xo="24" yo="24" id="10001333" name="inst_E4DA23D6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="624" w="24" h="24" xo="24" yo="24" id="10001334" name="inst_B802EA4F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="648" w="24" h="24" xo="24" yo="24" id="10001335" name="inst_6629BEAB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="672" w="24" h="24" xo="24" yo="24" id="10001336" name="inst_6042D2F1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="696" w="24" h="24" xo="24" yo="24" id="10001337" name="inst_457F1DBD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="696" w="24" h="24" xo="24" yo="24" id="10001338" name="inst_2FFF3027" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="672" w="24" h="24" xo="24" yo="24" id="10001339" name="inst_8C29B001" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="648" w="24" h="24" xo="24" yo="24" id="10001340" name="inst_CCA98ED9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="624" w="24" h="24" xo="24" yo="24" id="10001341" name="inst_6A871C05" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="600" w="24" h="24" xo="24" yo="24" id="10001342" name="inst_269CB922" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="600" w="24" h="24" xo="24" yo="24" id="10001343" name="inst_67090D42" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="624" w="24" h="24" xo="24" yo="24" id="10001344" name="inst_5A07A93A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="648" w="24" h="24" xo="24" yo="24" id="10001345" name="inst_A4174E60" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="672" w="24" h="24" xo="24" yo="24" id="10001346" name="inst_4B6B8BDA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="696" w="24" h="24" xo="24" yo="24" id="10001347" name="inst_0146250F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="96" y="696" w="24" h="24" xo="24" yo="24" id="10001348" name="inst_8517B99E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="96" y="672" w="24" h="24" xo="24" yo="24" id="10001349" name="inst_420A22A2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="96" y="648" w="24" h="24" xo="24" yo="24" id="10001350" name="inst_2802FF12" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="96" y="624" w="24" h="24" xo="24" yo="24" id="10001351" name="inst_1ED9CE7B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="120" y="672" w="24" h="24" xo="24" yo="24" id="10001356" name="inst_B43BFE64" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="120" y="696" w="24" h="24" xo="24" yo="24" id="10001357" name="inst_9B7F2CD6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="696" w="24" h="24" xo="24" yo="24" id="10001358" name="inst_4B05EFC6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="696" w="24" h="24" xo="24" yo="24" id="10001359" name="inst_FC5022F0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="192" y="696" w="24" h="24" xo="24" yo="24" id="10001360" name="inst_D4F107D6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="696" w="24" h="24" xo="24" yo="24" id="10001361" name="inst_364C38FB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="696" w="24" h="24" xo="24" yo="24" id="10001362" name="inst_A0E28C62" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="696" w="24" h="24" xo="24" yo="24" id="10001363" name="inst_F1B58DE0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="192" y="672" w="24" h="24" xo="24" yo="24" id="10001367" name="inst_BCE0CAF5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="672" w="24" h="24" xo="24" yo="24" id="10001368" name="inst_F4151783" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="672" w="24" h="24" xo="24" yo="24" id="10001369" name="inst_D2AF2C27" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="120" y="648" w="24" h="24" xo="24" yo="24" id="10001371" name="inst_F9052C54" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="648" w="24" h="24" xo="24" yo="24" id="10001372" name="inst_A8C8CA39" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="648" w="24" h="24" xo="24" yo="24" id="10001373" name="inst_0779D4A9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="192" y="648" w="24" h="24" xo="24" yo="24" id="10001374" name="inst_8EB676E0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="648" w="24" h="24" xo="24" yo="24" id="10001375" name="inst_2A6E026A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="648" w="24" h="24" xo="24" yo="24" id="10001376" name="inst_DA32F58C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="624" w="24" h="24" xo="24" yo="24" id="10001378" name="inst_4A6FD673" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="600" w="24" h="24" xo="24" yo="24" id="10001379" name="inst_192A462A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="600" w="24" h="24" xo="24" yo="24" id="10001383" name="inst_2FD3EF90" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="600" w="24" h="24" xo="24" yo="24" id="10001384" name="inst_8870623A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="624" w="24" h="24" xo="24" yo="24" id="10001387" name="inst_41183AD6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="624" w="24" h="24" xo="24" yo="24" id="10001388" name="inst_DDF6B6E6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="192" y="624" w="24" h="24" xo="24" yo="24" id="10001389" name="inst_76FCDB74" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="624" w="24" h="24" xo="24" yo="24" id="10001390" name="inst_7310F64A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="600" w="24" h="24" xo="24" yo="24" id="10001393" name="inst_5C15D4DF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="192" y="600" w="24" h="24" xo="24" yo="24" id="10001394" name="inst_6C3BA67C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="192" y="576" w="24" h="24" xo="24" yo="24" id="10001395" name="inst_4C0390C5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="576" w="24" h="24" xo="24" yo="24" id="10001396" name="inst_72BA8B14" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="576" w="24" h="24" xo="24" yo="24" id="10001397" name="inst_3A963AE6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="120" y="576" w="24" h="24" xo="24" yo="24" id="10001398" name="inst_767AAF6C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="624" w="24" h="24" xo="24" yo="24" id="10001399" name="inst_7975B07B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="600" w="24" h="24" xo="24" yo="24" id="10001400" name="inst_392CF8F8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="576" w="24" h="24" xo="24" yo="24" id="10001401" name="inst_063C0960" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="96" y="576" w="24" h="24" xo="24" yo="24" id="10001402" name="inst_0CC7631C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="576" w="24" h="24" xo="24" yo="24" id="10001403" name="inst_B2FBD30D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="552" w="24" h="24" xo="24" yo="24" id="10001412" name="inst_C195287C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="336" y="600" w="24" h="24" xo="24" yo="24" id="10001424" name="inst_913C726A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="360" y="600" w="24" h="24" xo="24" yo="24" id="10001425" name="inst_A1C51223" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="624" w="24" h="24" xo="24" yo="24" id="10001427" name="inst_EB3712EE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="648" w="24" h="24" xo="24" yo="24" id="10001428" name="inst_4785FC4F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="648" w="24" h="24" xo="24" yo="24" id="10001429" name="inst_3897011B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="624" w="24" h="24" xo="24" yo="24" id="10001430" name="inst_CBC64893" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="600" w="24" h="24" xo="24" yo="24" id="10001431" name="inst_4051E8E7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="600" w="24" h="24" xo="24" yo="24" id="10001432" name="inst_C592DA37" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="600" w="24" h="24" xo="24" yo="24" id="10001433" name="inst_EE48C644" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="360" y="624" w="24" h="24" xo="24" yo="24" id="10001434" name="inst_4F8059B0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="912" y="696" w="24" h="24" xo="24" yo="24" id="10001435" name="inst_B1A23849" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="936" y="696" w="24" h="24" xo="24" yo="24" id="10001436" name="inst_44B98137" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="960" y="696" w="24" h="24" xo="24" yo="24" id="10001437" name="inst_F0C5CFDD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -233,41 +115,17 @@
     <tile bgName="ts_rock_crater" x="1008" y="648" w="24" h="24" xo="24" yo="24" id="10001448" name="inst_606A3444" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="984" y="552" w="24" h="24" xo="24" yo="24" id="10001453" name="inst_9A51BFF7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1008" y="552" w="24" h="24" xo="24" yo="24" id="10001454" name="inst_E263F387" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="600" w="24" h="24" xo="24" yo="24" id="10001464" name="inst_FAC88EE2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="600" w="24" h="24" xo="24" yo="24" id="10001465" name="inst_BC6AF346" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="600" w="24" h="24" xo="24" yo="24" id="10001466" name="inst_68E5DE7E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="480" y="696" w="24" h="24" xo="24" yo="24" id="10001469" name="inst_98215232" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="504" y="696" w="24" h="24" xo="24" yo="24" id="10001470" name="inst_020C6285" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="528" y="696" w="24" h="24" xo="24" yo="24" id="10001471" name="inst_7FAFF3BB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="696" w="24" h="24" xo="24" yo="24" id="10001472" name="inst_2B004ED1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="528" y="672" w="24" h="24" xo="24" yo="24" id="10001473" name="inst_161742C8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="672" w="24" h="24" xo="24" yo="24" id="10001474" name="inst_ABAE7E93" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="576" y="672" w="24" h="24" xo="24" yo="24" id="10001475" name="inst_96BAE72B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="600" y="672" w="24" h="24" xo="24" yo="24" id="10001476" name="inst_28B3C626" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="552" y="648" w="24" h="24" xo="24" yo="24" id="10001477" name="inst_AB1DD8CB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="552" y="624" w="24" h="24" xo="24" yo="24" id="10001478" name="inst_698F5385" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="528" y="624" w="24" h="24" xo="24" yo="24" id="10001479" name="inst_82E71727" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="456" w="24" h="24" xo="24" yo="24" id="10001481" name="inst_DA5A1EA5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="480" w="24" h="24" xo="24" yo="24" id="10001482" name="inst_33051A07" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="480" w="24" h="24" xo="24" yo="24" id="10001483" name="inst_4B69B7DC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="480" w="24" h="24" xo="24" yo="24" id="10001486" name="inst_CB06E0CC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="504" y="480" w="24" h="24" xo="24" yo="24" id="10001487" name="inst_89B45E0F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1032" y="192" w="24" h="24" xo="24" yo="24" id="10001521" name="inst_A05A6D35" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="120" y="624" w="24" h="24" xo="24" yo="0" id="10001525" name="inst_FA3A4B05" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="576" w="24" h="24" xo="48" yo="24" id="10001529" name="inst_1A4FF86E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="288" y="600" w="24" h="24" xo="48" yo="24" id="10001530" name="inst_87624691" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="288" y="624" w="24" h="24" xo="48" yo="24" id="10001531" name="inst_6EBDFAD7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="648" w="24" h="24" xo="48" yo="24" id="10001532" name="inst_C6E1DCC4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="672" w="24" h="24" xo="48" yo="24" id="10001533" name="inst_48C43A45" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="288" y="696" w="24" h="24" xo="48" yo="24" id="10001534" name="inst_0D5DB36E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="600" w="24" h="24" xo="48" yo="24" id="10001535" name="inst_942AA054" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="624" w="24" h="24" xo="48" yo="24" id="10001536" name="inst_884A5C14" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="648" w="24" h="24" xo="48" yo="24" id="10001537" name="inst_CD807BFF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="576" y="648" w="24" h="24" xo="48" yo="24" id="10001541" name="inst_D39CCA21" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="696" w="24" h="24" xo="48" yo="24" id="10001543" name="inst_C1BF27ED" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="480" w="24" h="24" xo="0" yo="24" id="10001559" name="inst_AD39BBCC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="456" w="24" h="24" xo="0" yo="24" id="10001566" name="inst_D81586D2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="480" w="24" h="24" xo="0" yo="24" id="10001567" name="inst_88D6AD53" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1008" y="192" w="24" h="24" xo="0" yo="24" id="10001578" name="inst_775174A5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="984" y="648" w="24" h="24" xo="0" yo="24" id="10001579" name="inst_6124C191" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="888" y="696" w="24" h="24" xo="0" yo="24" id="10001580" name="inst_D7BDADEA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -275,66 +133,30 @@
     <tile bgName="ts_rock_crater" x="504" y="600" w="24" h="24" xo="0" yo="24" id="10001584" name="inst_BDD787F3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="528" y="648" w="24" h="24" xo="0" yo="24" id="10001585" name="inst_371C5001" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="456" y="696" w="24" h="24" xo="0" yo="24" id="10001587" name="inst_85A7617B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="336" y="624" w="24" h="24" xo="0" yo="24" id="10001590" name="inst_7C98BAAE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="312" y="600" w="24" h="24" xo="0" yo="24" id="10001591" name="inst_284E34FF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="576" w="24" h="24" xo="24" yo="0" id="10001592" name="inst_D2D27B52" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="576" w="24" h="24" xo="24" yo="0" id="10001593" name="inst_AB34F01D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="576" w="24" h="24" xo="24" yo="0" id="10001594" name="inst_AD41B9EE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="360" y="576" w="24" h="24" xo="24" yo="0" id="10001595" name="inst_B8ED2A7F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="336" y="576" w="24" h="24" xo="24" yo="0" id="10001596" name="inst_F91AB0E4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="576" w="24" h="24" xo="48" yo="0" id="10001597" name="inst_C457DE49" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="312" y="576" w="24" h="24" xo="0" yo="0" id="10001598" name="inst_CC595EB4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="576" w="24" h="24" xo="24" yo="0" id="10001601" name="inst_1610F4D7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="576" w="24" h="24" xo="24" yo="0" id="10001602" name="inst_DBCA6C96" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="576" w="24" h="24" xo="24" yo="0" id="10001603" name="inst_73677D01" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="504" y="576" w="24" h="24" xo="24" yo="0" id="10001604" name="inst_B3512763" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1008" y="624" w="24" h="24" xo="24" yo="0" id="10001608" name="inst_4A754964" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1008" y="672" w="24" h="24" xo="24" yo="0" id="10001612" name="inst_5618C688" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="936" y="672" w="24" h="24" xo="24" yo="0" id="10001613" name="inst_3B76FA4D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="912" y="672" w="24" h="24" xo="24" yo="0" id="10001614" name="inst_06F78294" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1032" y="168" w="24" h="24" xo="24" yo="0" id="10001619" name="inst_51FC1EB4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="432" w="24" h="24" xo="24" yo="0" id="10001623" name="inst_1303A704" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="504" y="456" w="24" h="24" xo="24" yo="0" id="10001626" name="inst_EEE6D965" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="456" w="24" h="24" xo="24" yo="0" id="10001627" name="inst_ABA633A9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="672" w="24" h="24" xo="24" yo="48" id="10001628" name="inst_29D55E11" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="672" w="24" h="24" xo="48" yo="48" id="10001632" name="inst_020C4ACC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="360" y="648" w="24" h="24" xo="0" yo="48" id="10001636" name="inst_D6337FCF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="744" y="696" w="24" h="24" xo="24" yo="48" id="10001639" name="inst_6CF6E837" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="720" y="696" w="24" h="24" xo="24" yo="48" id="10001640" name="inst_18A3B286" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="504" y="504" w="24" h="24" xo="24" yo="48" id="10001641" name="inst_E03BED3D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="504" w="24" h="24" xo="24" yo="48" id="10001642" name="inst_B7704505" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="504" w="24" h="24" xo="24" yo="48" id="10001643" name="inst_E46D5C01" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1008" y="576" w="24" h="24" xo="24" yo="48" id="10001659" name="inst_1941D608" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="984" y="576" w="24" h="24" xo="24" yo="48" id="10001660" name="inst_502D43D1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1032" y="216" w="24" h="24" xo="24" yo="48" id="10001674" name="inst_EBAA412D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1056" y="192" w="24" h="24" xo="48" yo="24" id="10001675" name="inst_84B16857" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1056" y="216" w="24" h="24" xo="48" yo="48" id="10001676" name="inst_706F8BB3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1056" y="168" w="24" h="24" xo="48" yo="0" id="10001677" name="inst_939E931B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="504" w="24" h="24" xo="0" yo="48" id="10001678" name="inst_2121B79A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="504" y="648" w="24" h="24" xo="24" yo="48" id="10001679" name="inst_845E482F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="480" y="648" w="24" h="24" xo="0" yo="48" id="10001680" name="inst_F218F171" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="456" y="408" w="48" h="48" xo="144" yo="144" id="10001681" name="inst_60294C93" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="264" y="456" w="48" h="48" xo="0" yo="144" id="10001684" name="inst_AE8BC449" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="" x="528" y="336" w="16" h="16" xo="0" yo="0" id="10001686" name="inst_B4F3AAA7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1440" y="936" w="48" h="24" xo="96" yo="192" id="10001693" name="inst_AB5E537A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1320" y="0" w="192" h="96" xo="0" yo="0" id="10001707" name="inst_527AD0B1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1128" y="0" w="192" h="96" xo="0" yo="0" id="10001708" name="inst_58204EC2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="192" y="192" w="48" h="48" xo="48" yo="144" id="10001709" name="inst_A87E41A1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="120" y="240" w="48" h="48" xo="144" yo="96" id="10001710" name="inst_CDD4BE09" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="240" y="192" w="48" h="48" xo="144" yo="96" id="10001711" name="inst_D3309BFC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="120" y="336" w="48" h="48" xo="48" yo="144" id="10001712" name="inst_034D3391" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="168" y="336" w="48" h="48" xo="48" yo="144" id="10001713" name="inst_376C3890" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="72" y="336" w="48" h="48" xo="48" yo="144" id="10001714" name="inst_2977A046" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="120" y="288" w="48" h="48" xo="96" yo="144" id="10001715" name="inst_1E402F1C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="120" y="384" w="48" h="48" xo="48" yo="192" id="10001716" name="inst_2AFB2A75" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="168" y="384" w="48" h="48" xo="144" yo="192" id="10001717" name="inst_590F4F65" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="72" y="384" w="48" h="48" xo="0" yo="192" id="10001718" name="inst_3F0CCC3D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="216" y="336" w="48" h="48" xo="144" yo="144" id="10001719" name="inst_BF8B2EB8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="600" y="480" w="24" h="24" xo="48" yo="24" id="10001720" name="inst_207878E3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="456" w="24" h="24" xo="48" yo="24" id="10001721" name="inst_13A35A51" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="600" y="600" w="24" h="24" xo="48" yo="24" id="10001722" name="inst_7617488D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="624" y="672" w="24" h="24" xo="48" yo="24" id="10001723" name="inst_B30276A0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="600" y="576" w="24" h="24" xo="48" yo="0" id="10001725" name="inst_DF617087" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="720" y="672" w="24" h="24" xo="24" yo="0" id="10001728" name="inst_705ABE91" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="744" y="672" w="24" h="24" xo="24" yo="0" id="10001729" name="inst_2E656BB0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="768" y="696" w="24" h="24" xo="48" yo="24" id="10001730" name="inst_55372834" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -343,7 +165,6 @@
     <tile bgName="ts_rock_crater" x="744" y="720" w="24" h="24" xo="24" yo="48" id="10001733" name="inst_5DB50EA6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="720" y="720" w="24" h="24" xo="0" yo="48" id="10001734" name="inst_42CE7BBA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="696" y="696" w="24" h="24" xo="0" yo="24" id="10001735" name="inst_0BB6CDD1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="504" w="24" h="24" xo="48" yo="24" id="10001736" name="inst_12E715FA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1080" y="696" w="24" h="24" xo="48" yo="24" id="10001737" name="inst_F166676E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1080" y="720" w="24" h="24" xo="48" yo="48" id="10001740" name="inst_4A28E43C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1056" y="720" w="24" h="24" xo="0" yo="48" id="10001741" name="inst_D7E31F7B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -356,8 +177,6 @@
     <tile bgName="ts_sand_flora" x="576" y="552" w="24" h="24" xo="96" yo="96" id="10001758" name="inst_1A76A3CD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="504" y="672" w="24" h="24" xo="96" yo="96" id="10001759" name="inst_F79AC4B5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="576" y="528" w="24" h="24" xo="96" yo="120" id="10001760" name="inst_EF48BC18" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="552" y="744" w="24" h="24" xo="96" yo="120" id="10001761" name="inst_DAFB38EB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="624" y="840" w="24" h="24" xo="96" yo="120" id="10001762" name="inst_52C67D39" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="768" y="840" w="24" h="24" xo="120" yo="120" id="10001764" name="inst_C8648102" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="480" y="600" w="24" h="24" xo="120" yo="120" id="10001765" name="inst_1804A6DB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="504" y="624" w="24" h="24" xo="120" yo="120" id="10001766" name="inst_DAF8F01F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -382,26 +201,12 @@
     <tile bgName="ts_sand_flora" x="1416" y="144" w="48" h="48" xo="96" yo="144" id="10001786" name="inst_63D0FD7A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1368" y="144" w="48" h="48" xo="96" yo="144" id="10001787" name="inst_6162AB90" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1464" y="192" w="48" h="48" xo="96" yo="144" id="10001788" name="inst_9D37A17E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1464" y="240" w="48" h="48" xo="96" yo="144" id="10001789" name="inst_2E479ACD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1272" y="96" w="48" h="48" xo="96" yo="144" id="10001790" name="inst_9E1F54AF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1320" y="144" w="48" h="48" xo="96" yo="144" id="10001791" name="inst_381F5305" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1416" y="192" w="48" h="48" xo="96" yo="144" id="10001792" name="inst_A890596E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1416" y="240" w="48" h="48" xo="96" yo="144" id="10001793" name="inst_2E780DAE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1464" y="288" w="48" h="48" xo="96" yo="144" id="10001794" name="inst_7FEB0062" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1464" y="336" w="48" h="48" xo="96" yo="144" id="10001795" name="inst_E2AF771C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1320" y="192" w="48" h="48" xo="96" yo="144" id="10001796" name="inst_B7BEEDE9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1320" y="240" w="48" h="48" xo="96" yo="144" id="10001797" name="inst_01BE73BF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1320" y="288" w="48" h="48" xo="96" yo="144" id="10001800" name="inst_EA74EC74" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1272" y="144" w="48" h="48" xo="96" yo="144" id="10001802" name="inst_2C81A7F4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1224" y="96" w="48" h="48" xo="96" yo="144" id="10001803" name="inst_53DC6D88" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1176" y="96" w="48" h="48" xo="96" yo="144" id="10001804" name="inst_0F7AB022" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1320" y="336" w="48" h="48" xo="48" yo="144" id="10001805" name="inst_10D46651" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1464" y="384" w="48" h="48" xo="48" yo="144" id="10001806" name="inst_5C05A17B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1464" y="432" w="48" h="48" xo="48" yo="144" id="10001807" name="inst_2A53EDF5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1416" y="288" w="48" h="48" xo="48" yo="144" id="10001808" name="inst_621FC111" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1368" y="192" w="48" h="48" xo="48" yo="144" id="10001809" name="inst_D0CC8922" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1224" y="144" w="48" h="48" xo="48" yo="144" id="10001810" name="inst_D68705D8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1272" y="192" w="48" h="48" xo="48" yo="144" id="10001811" name="inst_E1A03D94" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1128" y="96" w="48" h="48" xo="48" yo="144" id="10001812" name="inst_5079F5ED" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1080" y="0" w="24" h="48" xo="168" yo="144" id="10001813" name="inst_B2A9EA0D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1080" y="48" w="24" h="48" xo="120" yo="144" id="10001815" name="inst_D2C2E1A3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -410,21 +215,12 @@
     <tile bgName="ts_sand_flora" x="1080" y="240" w="24" h="24" xo="120" yo="192" id="10001822" name="inst_286CEEE7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1056" y="336" w="24" h="24" xo="120" yo="216" id="10001825" name="inst_A2930755" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1056" y="408" w="24" h="24" xo="96" yo="192" id="10001826" name="inst_2856C04A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1272" y="240" w="48" h="48" xo="0" yo="144" id="10001830" name="inst_91571475" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1272" y="288" w="48" h="48" xo="0" yo="144" id="10001831" name="inst_E6156B1C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1272" y="336" w="48" h="48" xo="0" yo="192" id="10001832" name="inst_9BD30B74" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1176" y="144" w="48" h="48" xo="0" yo="192" id="10001833" name="inst_74BA1A1D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1368" y="240" w="48" h="48" xo="0" yo="192" id="10001834" name="inst_6AC3BC0A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1416" y="336" w="48" h="48" xo="0" yo="192" id="10001835" name="inst_15D0F222" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1416" y="432" w="48" h="48" xo="0" yo="192" id="10001836" name="inst_6207EF6E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1464" y="480" w="48" h="48" xo="48" yo="192" id="10001837" name="inst_E8D07DDE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1320" y="384" w="48" h="48" xo="48" yo="192" id="10001838" name="inst_DBFDCD0A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="936" y="720" w="24" h="24" xo="96" yo="96" id="10001840" name="inst_B9261916" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="1008" y="768" w="24" h="24" xo="96" yo="96" id="10001841" name="inst_B5550C7A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="912" y="816" w="24" h="24" xo="96" yo="96" id="10001842" name="inst_8A04D114" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="864" y="864" w="48" h="24" xo="96" yo="192" id="10001843" name="inst_3FFFEB9B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="888" y="984" w="48" h="24" xo="96" yo="192" id="10001844" name="inst_86D486FA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_sand_flora" x="1488" y="984" w="24" h="24" xo="96" yo="192" id="10001845" name="inst_AC0DC06D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_sand_flora" x="912" y="960" w="24" h="24" xo="120" yo="216" id="10001846" name="inst_25E43E80" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="960" y="720" w="24" h="24" xo="24" yo="48" id="10001854" name="inst_EA013099" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="912" y="720" w="24" h="24" xo="0" yo="48" id="10001855" name="inst_46C594E3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -433,110 +229,8 @@
     <tile bgName="ts_rock_crater" x="984" y="768" w="24" h="24" xo="48" yo="24" id="10001858" name="inst_A942A477" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="936" y="768" w="24" h="24" xo="0" yo="24" id="10001860" name="inst_91A92789" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="936" y="792" w="24" h="24" xo="0" yo="48" id="10001861" name="inst_7E502B90" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="720" w="24" h="24" xo="24" yo="24" id="10001890" name="inst_0FE2B587" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="720" w="24" h="24" xo="24" yo="24" id="10001891" name="inst_2C4BDCDB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="288" y="744" w="24" h="24" xo="24" yo="24" id="10001893" name="inst_D0058F18" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="288" y="768" w="24" h="24" xo="24" yo="24" id="10001894" name="inst_ADE2FAA3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="768" w="24" h="24" xo="24" yo="24" id="10001895" name="inst_29DC49C9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="792" w="24" h="24" xo="24" yo="24" id="10001896" name="inst_A8758CBA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="744" w="24" h="24" xo="24" yo="24" id="10001897" name="inst_F66A0B3E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="744" w="24" h="24" xo="24" yo="24" id="10001898" name="inst_90E97C38" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="744" w="24" h="24" xo="24" yo="24" id="10001899" name="inst_AB740919" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="192" y="744" w="24" h="24" xo="24" yo="24" id="10001900" name="inst_379DA36C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="744" w="24" h="24" xo="24" yo="24" id="10001901" name="inst_FFCE3998" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="768" w="24" h="24" xo="24" yo="24" id="10001902" name="inst_00E9AEC0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="768" w="24" h="24" xo="24" yo="24" id="10001903" name="inst_4866B018" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="480" y="720" w="24" h="24" xo="24" yo="24" id="10001904" name="inst_5259A724" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="720" w="24" h="24" xo="24" yo="24" id="10001905" name="inst_2EAFE6FA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="744" w="24" h="24" xo="24" yo="24" id="10001906" name="inst_8CCB4773" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="744" w="24" h="24" xo="24" yo="24" id="10001907" name="inst_750751C6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="744" w="24" h="24" xo="24" yo="24" id="10001908" name="inst_C2FB12CE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="744" w="24" h="24" xo="24" yo="24" id="10001909" name="inst_29BD617D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="360" y="744" w="24" h="24" xo="24" yo="24" id="10001910" name="inst_B7F50CA7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="336" y="744" w="24" h="24" xo="24" yo="24" id="10001911" name="inst_710A15B0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="336" y="768" w="24" h="24" xo="24" yo="24" id="10001914" name="inst_AA3793D8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="360" y="768" w="24" h="24" xo="24" yo="24" id="10001915" name="inst_8C53089C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="768" w="24" h="24" xo="24" yo="24" id="10001916" name="inst_6467C740" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="768" w="24" h="24" xo="24" yo="24" id="10001917" name="inst_F6FB9F84" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="768" w="24" h="24" xo="24" yo="24" id="10001918" name="inst_A0761D80" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="768" w="24" h="24" xo="24" yo="24" id="10001919" name="inst_85FF3378" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="792" w="24" h="24" xo="24" yo="24" id="10001921" name="inst_D0C457C0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="792" w="24" h="24" xo="24" yo="24" id="10001922" name="inst_94466CE0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="816" w="24" h="24" xo="24" yo="24" id="10001925" name="inst_6BC591A3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="840" w="24" h="24" xo="24" yo="24" id="10001930" name="inst_C236015B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="840" w="24" h="24" xo="24" yo="24" id="10001931" name="inst_19333CCF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="504" y="840" w="24" h="24" xo="24" yo="24" id="10001932" name="inst_3C4D8E3B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="840" w="24" h="24" xo="24" yo="24" id="10001933" name="inst_BE864C43" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="840" w="24" h="24" xo="24" yo="24" id="10001934" name="inst_3B9CFD76" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="840" w="24" h="24" xo="24" yo="24" id="10001935" name="inst_66187C93" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="840" w="24" h="24" xo="24" yo="24" id="10001936" name="inst_ADB8EB31" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="840" w="24" h="24" xo="24" yo="24" id="10001937" name="inst_664019DB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="360" y="816" w="24" h="24" xo="24" yo="24" id="10001939" name="inst_3160F521" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="816" w="24" h="24" xo="24" yo="24" id="10001940" name="inst_6EC44201" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="816" w="24" h="24" xo="24" yo="24" id="10001941" name="inst_129D7C23" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="816" w="24" h="24" xo="24" yo="24" id="10001942" name="inst_AD0F8662" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="792" w="24" h="24" xo="24" yo="24" id="10001943" name="inst_CAB2E6F1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="792" w="24" h="24" xo="24" yo="24" id="10001944" name="inst_02BB2AC2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="792" w="24" h="24" xo="24" yo="24" id="10001945" name="inst_C488F652" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="864" w="24" h="24" xo="24" yo="24" id="10001946" name="inst_D2B2DC05" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="504" y="864" w="24" h="24" xo="24" yo="24" id="10001947" name="inst_F426D0EA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="864" w="24" h="24" xo="24" yo="24" id="10001948" name="inst_4F09D2F0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="864" w="24" h="24" xo="24" yo="24" id="10001949" name="inst_AD1807E6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="864" w="24" h="24" xo="24" yo="24" id="10001950" name="inst_78136FC9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="408" y="888" w="24" h="24" xo="24" yo="24" id="10001952" name="inst_4264C198" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="888" w="24" h="24" xo="24" yo="24" id="10001953" name="inst_43B5121D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="888" w="24" h="24" xo="24" yo="24" id="10001954" name="inst_FEE5B36C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="504" y="888" w="24" h="24" xo="24" yo="24" id="10001955" name="inst_A9B30664" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="504" y="912" w="24" h="24" xo="24" yo="24" id="10001956" name="inst_F8C7BFB6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="456" y="912" w="24" h="24" xo="24" yo="24" id="10001958" name="inst_469AB1D9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="480" y="912" w="24" h="24" xo="24" yo="24" id="10001959" name="inst_9FC7198E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="912" w="24" h="24" xo="24" yo="24" id="10001960" name="inst_214BABC1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="912" w="24" h="24" xo="24" yo="24" id="10001961" name="inst_8E91C369" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="912" w="24" h="24" xo="24" yo="24" id="10001962" name="inst_CF3EEEFF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="600" y="912" w="24" h="24" xo="24" yo="24" id="10001963" name="inst_54E7AA60" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="624" y="912" w="24" h="24" xo="24" yo="24" id="10001964" name="inst_B69764C4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="648" y="912" w="24" h="24" xo="24" yo="24" id="10001965" name="inst_7F2F1302" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="648" y="792" w="24" h="24" xo="24" yo="24" id="10001966" name="inst_0B91F218" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="624" y="792" w="24" h="24" xo="24" yo="24" id="10001967" name="inst_A0FACA3E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="792" w="24" h="24" xo="24" yo="24" id="10001969" name="inst_EEB555A9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="600" y="792" w="24" h="24" xo="24" yo="24" id="10001970" name="inst_15466AA1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="648" y="768" w="24" h="24" xo="24" yo="24" id="10001972" name="inst_D94FEC56" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="624" y="768" w="24" h="24" xo="24" yo="24" id="10001973" name="inst_F7B17917" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="600" y="768" w="24" h="24" xo="24" yo="24" id="10001974" name="inst_5123FA68" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="576" y="768" w="24" h="24" xo="24" yo="24" id="10001975" name="inst_CDA54EAF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="552" y="792" w="24" h="24" xo="24" yo="24" id="10001976" name="inst_E84997D4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="528" y="792" w="24" h="24" xo="24" yo="24" id="10001977" name="inst_92F6999C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1200" y="696" w="24" h="24" xo="24" yo="24" id="10002001" name="inst_4FD82B42" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1224" y="696" w="24" h="24" xo="24" yo="24" id="10002002" name="inst_285337EA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1224" y="720" w="24" h="24" xo="24" yo="24" id="10002003" name="inst_64F2FBF1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1224" y="744" w="24" h="24" xo="24" yo="24" id="10002004" name="inst_7B033C37" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1248" y="744" w="24" h="24" xo="24" yo="24" id="10002005" name="inst_52E38671" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1248" y="768" w="24" h="24" xo="24" yo="24" id="10002006" name="inst_7709A1E7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1224" y="768" w="24" h="24" xo="24" yo="24" id="10002007" name="inst_2E994768" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1200" y="792" w="24" h="24" xo="24" yo="24" id="10002008" name="inst_F54D6CB6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1152" y="816" w="24" h="24" xo="24" yo="24" id="10002009" name="inst_172907EC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1176" y="840" w="24" h="24" xo="24" yo="24" id="10002013" name="inst_A3CF9E1F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1152" y="840" w="24" h="24" xo="24" yo="24" id="10002014" name="inst_A92CCABB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1104" y="840" w="24" h="24" xo="24" yo="24" id="10002015" name="inst_C2BE5DF5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1080" y="864" w="24" h="24" xo="24" yo="24" id="10002016" name="inst_68932814" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1104" y="864" w="24" h="24" xo="24" yo="24" id="10002017" name="inst_11782C92" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1128" y="864" w="24" h="24" xo="24" yo="24" id="10002018" name="inst_C29C54F3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1152" y="864" w="24" h="24" xo="24" yo="24" id="10002019" name="inst_7ED5EDE4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1176" y="864" w="24" h="24" xo="24" yo="24" id="10002020" name="inst_7D40F460" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1200" y="888" w="24" h="24" xo="24" yo="24" id="10002021" name="inst_BCD05946" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1224" y="888" w="24" h="24" xo="24" yo="24" id="10002022" name="inst_C63EF96E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1272" y="888" w="24" h="24" xo="24" yo="24" id="10002024" name="inst_30412DAA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1248" y="888" w="24" h="24" xo="24" yo="24" id="10002025" name="inst_7D2F4A9A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1200" y="864" w="24" h="24" xo="24" yo="24" id="10002026" name="inst_FDC397FF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1200" y="840" w="24" h="24" xo="24" yo="24" id="10002027" name="inst_5C135F64" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1224" y="840" w="24" h="24" xo="24" yo="24" id="10002028" name="inst_47C2BCD1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1248" y="840" w="24" h="24" xo="24" yo="24" id="10002029" name="inst_C04E4D5F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1272" y="840" w="24" h="24" xo="24" yo="24" id="10002030" name="inst_A0DB0E76" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1320" y="840" w="24" h="24" xo="24" yo="24" id="10002032" name="inst_305A8D6B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1296" y="840" w="24" h="24" xo="24" yo="24" id="10002033" name="inst_4D179746" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1224" y="864" w="24" h="24" xo="24" yo="24" id="10002035" name="inst_B6C50C86" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1248" y="864" w="24" h="24" xo="24" yo="24" id="10002036" name="inst_D9C92E24" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1272" y="864" w="24" h="24" xo="24" yo="24" id="10002037" name="inst_FA665F7D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1296" y="600" w="24" h="24" xo="24" yo="24" id="10002043" name="inst_7F6809BD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1344" y="600" w="24" h="24" xo="24" yo="24" id="10002045" name="inst_392D8766" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1320" y="600" w="24" h="24" xo="24" yo="24" id="10002046" name="inst_133B98C5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -560,43 +254,338 @@
     <tile bgName="ts_rock_crater" x="1296" y="696" w="24" h="24" xo="24" yo="24" id="10002067" name="inst_3D41FB82" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1272" y="696" w="24" h="24" xo="24" yo="24" id="10002068" name="inst_90572464" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1248" y="696" w="24" h="24" xo="24" yo="24" id="10002069" name="inst_10EF0960" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1248" y="720" w="24" h="24" xo="24" yo="24" id="10002070" name="inst_0F2825A4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_city" x="96" y="408" w="168" h="168" xo="0" yo="0" id="10002074" name="inst_C3A8C3C6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="480" y="456" w="24" h="24" xo="120" yo="192" id="10002075" name="inst_210E38A0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="384" y="528" w="24" h="24" xo="120" yo="216" id="10002076" name="inst_ABDECB25" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="360" y="528" w="24" h="24" xo="96" yo="192" id="10002078" name="inst_BE6C3D87" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="456" y="456" w="24" h="24" xo="120" yo="216" id="10002079" name="inst_2BE098F0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="312" y="408" w="24" h="24" xo="96" yo="192" id="10002080" name="inst_988CEB72" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="336" y="432" w="24" h="24" xo="120" yo="216" id="10002081" name="inst_5DE158AB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="552" y="408" w="24" h="24" xo="120" yo="120" id="10002082" name="inst_4A736913" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="600" y="384" w="24" h="24" xo="120" yo="120" id="10002083" name="inst_39EBFA5A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="576" y="360" w="24" h="24" xo="96" yo="96" id="10002084" name="inst_C3CEDB4D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="552" y="456" w="24" h="24" xo="120" yo="96" id="10002086" name="inst_B94C18C4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="384" y="0" w="192" h="96" xo="0" yo="0" id="10002088" name="inst_D75E8640" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="936" w="192" h="72" xo="0" yo="0" id="10002090" name="inst_98DFB71D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="192" y="936" w="192" h="72" xo="0" yo="0" id="10002091" name="inst_AF0D3730" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="384" y="936" w="192" h="72" xo="0" yo="0" id="10002092" name="inst_1AEEBF9E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="576" y="936" w="192" h="72" xo="0" yo="0" id="10002093" name="inst_06605BA6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="840" w="48" h="96" xo="144" yo="0" id="10002094" name="inst_62F75AE5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="744" w="48" h="96" xo="144" yo="0" id="10002095" name="inst_9897DB12" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="48" y="840" w="192" h="96" xo="0" yo="0" id="10002097" name="inst_F5079022" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="288" w="72" h="96" xo="120" yo="0" id="10002099" name="inst_42D0D92B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="648" w="120" h="96" xo="72" yo="0" id="10002101" name="inst_C41FFE11" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1416" y="936" w="96" h="72" xo="0" yo="0" id="10002103" name="inst_0F1B5034" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1224" y="936" w="192" h="72" xo="0" yo="0" id="10002104" name="inst_871C0E62" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1416" y="840" w="96" h="96" xo="0" yo="0" id="10002105" name="inst_B8EF612E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1320" y="744" w="192" h="96" xo="0" yo="0" id="10002106" name="inst_A091BAC2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="384" w="48" h="48" xo="96" yo="144" id="10002108" name="inst_BA7593A9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="552" w="48" h="48" xo="96" yo="144" id="10002111" name="inst_B9674247" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="600" w="48" h="48" xo="96" yo="144" id="10002112" name="inst_0DB1F484" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="528" w="48" h="48" xo="48" yo="144" id="10002114" name="inst_850A16F3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="504" w="48" h="48" xo="144" yo="96" id="10002115" name="inst_41EBC1F4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="0" y="432" w="48" h="48" xo="144" yo="192" id="10002116" name="inst_0BB879CF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="240" y="144" w="48" h="48" xo="96" yo="144" id="10002117" name="inst_E9EDD7A6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="288" y="96" w="48" h="48" xo="96" yo="144" id="10002118" name="inst_A7F7721B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="336" y="96" w="48" h="48" xo="96" yo="144" id="10002120" name="inst_922744CD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="384" y="96" w="48" h="48" xo="96" yo="144" id="10002121" name="inst_FDC1DD41" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="48" y="744" w="48" h="48" xo="96" yo="144" id="10002128" name="inst_DFCF7711" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="96" y="744" w="48" h="48" xo="96" yo="144" id="10002129" name="inst_6CE4D53A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="144" y="744" w="48" h="48" xo="96" yo="144" id="10002130" name="inst_334B5B0A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="48" y="792" w="48" h="48" xo="96" yo="144" id="10002131" name="inst_98B35DE7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="96" y="792" w="48" h="48" xo="96" yo="144" id="10002132" name="inst_655F37A1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="240" y="888" w="48" h="48" xo="96" yo="144" id="10002137" name="inst_CBEC9BF3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="288" y="888" w="48" h="48" xo="96" yo="144" id="10002138" name="inst_FF57C371" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="336" y="888" w="48" h="48" xo="96" yo="144" id="10002139" name="inst_F8937A70" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="384" y="888" w="48" h="48" xo="96" yo="144" id="10002140" name="inst_7238FF91" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="240" y="840" w="48" h="48" xo="96" yo="144" id="10002141" name="inst_D7DF544A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="288" y="840" w="48" h="48" xo="96" yo="144" id="10002142" name="inst_43934196" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="144" y="792" w="48" h="48" xo="48" yo="144" id="10002145" name="inst_E813EEBF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="192" y="792" w="48" h="48" xo="48" yo="144" id="10002146" name="inst_24B3D715" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="432" y="888" w="48" h="48" xo="48" yo="144" id="10002147" name="inst_F41666C0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="480" y="888" w="48" h="48" xo="48" yo="144" id="10002148" name="inst_AC4D425B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="528" y="888" w="48" h="48" xo="48" yo="144" id="10002149" name="inst_2EEA2A57" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="336" y="840" w="48" h="48" xo="48" yo="144" id="10002150" name="inst_9AC1CDD8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="384" y="840" w="48" h="48" xo="48" yo="144" id="10002151" name="inst_CE89CF5B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="432" y="840" w="48" h="48" xo="48" yo="144" id="10002152" name="inst_80115D35" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="360" y="288" w="48" h="48" xo="144" yo="144" id="10002153" name="inst_48C0C7A3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="432" y="96" w="48" h="48" xo="144" yo="144" id="10002154" name="inst_A562943B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="408" y="192" w="48" h="48" xo="48" yo="144" id="10002155" name="inst_50C105C9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="360" y="192" w="48" h="48" xo="0" yo="144" id="10002156" name="inst_C6666703" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="456" y="192" w="48" h="48" xo="144" yo="144" id="10002157" name="inst_F4438C86" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="72" y="288" w="192" h="96" xo="0" yo="0" id="10002159" name="inst_D0F9ED66" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="120" y="648" w="192" h="96" xo="0" yo="0" id="10002161" name="inst_71C5302C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="264" y="288" w="48" h="48" xo="96" yo="144" id="10002162" name="inst_02C94B23" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="312" y="288" w="48" h="48" xo="48" yo="144" id="10002163" name="inst_99573C36" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="312" y="648" w="48" h="48" xo="144" yo="96" id="10002165" name="inst_39F6D93D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="192" y="744" w="48" h="48" xo="144" yo="192" id="10002166" name="inst_58B2AECF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="240" y="792" w="48" h="48" xo="144" yo="144" id="10002167" name="inst_3DA2B288" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="48" y="600" w="48" h="48" xo="48" yo="144" id="10002169" name="inst_4EDD4B73" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="96" y="600" w="48" h="48" xo="48" yo="144" id="10002170" name="inst_3EDDED38" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="48" y="384" w="48" h="48" xo="144" yo="144" id="10002173" name="inst_74B76AF3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="144" y="600" w="48" h="48" xo="144" yo="96" id="10002175" name="inst_12B9E825" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1464" y="240" w="48" h="48" xo="96" yo="144" id="10002176" name="inst_2E01F941" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1416" y="240" w="48" h="48" xo="96" yo="144" id="10002182" name="inst_F6836BFB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1368" y="240" w="48" h="48" xo="96" yo="144" id="10002186" name="inst_E03034EE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1320" y="240" w="48" h="48" xo="96" yo="144" id="10002187" name="inst_EAF94CD8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1224" y="240" w="48" h="48" xo="48" yo="144" id="10002190" name="inst_AAAF9219" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1272" y="240" w="48" h="48" xo="48" yo="144" id="10002191" name="inst_B331FD97" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1176" y="240" w="48" h="48" xo="0" yo="144" id="10002192" name="inst_DE38F635" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1368" y="192" w="48" h="48" xo="0" yo="144" id="10002193" name="inst_0BF1A134" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1272" y="792" w="48" h="48" xo="96" yo="144" id="10002196" name="inst_2AA1D721" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1224" y="792" w="48" h="48" xo="96" yo="144" id="10002198" name="inst_1BAC5CD6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1176" y="792" w="48" h="48" xo="96" yo="144" id="10002199" name="inst_023C180D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1368" y="840" w="48" h="48" xo="96" yo="144" id="10002200" name="inst_9019659E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1320" y="840" w="48" h="48" xo="96" yo="144" id="10002201" name="inst_736EC274" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1368" y="888" w="48" h="48" xo="96" yo="144" id="10002202" name="inst_835A407E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1176" y="960" w="48" h="48" xo="96" yo="144" id="10002203" name="inst_FA0335CA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1128" y="792" w="48" h="48" xo="48" yo="144" id="10002204" name="inst_1EDFA8BE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1320" y="888" w="48" h="48" xo="48" yo="144" id="10002205" name="inst_69B6807E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1128" y="960" w="48" h="48" xo="48" yo="144" id="10002206" name="inst_AF169FD5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1080" y="792" w="48" h="48" xo="0" yo="96" id="10002207" name="inst_51ABCC47" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1272" y="888" w="48" h="48" xo="0" yo="96" id="10002208" name="inst_91FD7985" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1080" y="960" w="48" h="48" xo="0" yo="192" id="10002209" name="inst_B6981C12" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1464" y="696" w="48" h="48" xo="48" yo="96" id="10002210" name="inst_98A34BE1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1416" y="696" w="48" h="48" xo="48" yo="96" id="10002211" name="inst_290AFFBE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_sand_flora" x="1368" y="696" w="48" h="48" xo="0" yo="96" id="10002213" name="inst_F193FF3B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="792" w="24" h="24" xo="24" yo="24" id="10002214" name="inst_4309887C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="768" y="792" w="24" h="24" xo="24" yo="24" id="10002215" name="inst_9516D019" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="792" y="792" w="24" h="24" xo="24" yo="24" id="10002216" name="inst_4B2F1772" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="768" y="768" w="24" h="24" xo="24" yo="24" id="10002217" name="inst_22A42711" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="504" y="744" w="24" h="24" xo="24" yo="24" id="10002218" name="inst_0FAFEEEA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="528" y="744" w="24" h="24" xo="24" yo="24" id="10002219" name="inst_237C29FA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="552" y="744" w="24" h="24" xo="24" yo="24" id="10002220" name="inst_C68802FD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="456" y="768" w="24" h="24" xo="24" yo="24" id="10002221" name="inst_4DEF4904" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="456" y="792" w="24" h="24" xo="24" yo="24" id="10002222" name="inst_AD51B851" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="480" y="792" w="24" h="24" xo="24" yo="24" id="10002223" name="inst_5C022D8E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="504" y="792" w="24" h="24" xo="24" yo="24" id="10002224" name="inst_72EE6F8B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="792" y="840" w="24" h="24" xo="24" yo="24" id="10002228" name="inst_6244676D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="768" y="816" w="24" h="24" xo="24" yo="24" id="10002229" name="inst_8EE86CAC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="840" w="24" h="24" xo="24" yo="24" id="10002230" name="inst_E25B61C3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="840" w="24" h="24" xo="24" yo="24" id="10002231" name="inst_03C9485F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="840" w="24" h="24" xo="24" yo="24" id="10002232" name="inst_C3B54334" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="840" y="912" w="24" h="24" xo="24" yo="24" id="10002233" name="inst_E9681648" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="864" y="912" w="24" h="24" xo="24" yo="24" id="10002234" name="inst_4A1F7C0D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="888" y="912" w="24" h="24" xo="24" yo="24" id="10002235" name="inst_769FB274" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="888" y="936" w="24" h="24" xo="24" yo="24" id="10002236" name="inst_44E452C2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="864" y="936" w="24" h="24" xo="24" yo="24" id="10002237" name="inst_9C0B51F2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="864" y="960" w="24" h="24" xo="24" yo="24" id="10002238" name="inst_AED72048" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="888" y="960" w="24" h="24" xo="24" yo="24" id="10002239" name="inst_07474716" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="936" y="984" w="24" h="24" xo="24" yo="24" id="10002240" name="inst_7005B98A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="48" w="24" h="24" xo="24" yo="24" id="10002241" name="inst_1F063D98" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="72" w="24" h="24" xo="24" yo="24" id="10002242" name="inst_2DC26B4B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="768" y="72" w="24" h="24" xo="24" yo="24" id="10002243" name="inst_2D930DD1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="792" y="72" w="24" h="24" xo="24" yo="24" id="10002244" name="inst_39BE36A7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="48" w="24" h="24" xo="24" yo="24" id="10002246" name="inst_C96405EE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="792" y="48" w="24" h="24" xo="24" yo="24" id="10002247" name="inst_2635BEDA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="768" y="48" w="24" h="24" xo="24" yo="24" id="10002248" name="inst_C48D5038" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="72" w="24" h="24" xo="24" yo="24" id="10002249" name="inst_72462925" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="696" y="72" w="24" h="24" xo="24" yo="24" id="10002250" name="inst_2D7463E8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="696" y="96" w="24" h="24" xo="24" yo="24" id="10002251" name="inst_930169E7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="96" w="24" h="24" xo="24" yo="24" id="10002252" name="inst_23F58DBF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="96" w="24" h="24" xo="24" yo="24" id="10002253" name="inst_81347CAE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="120" w="24" h="24" xo="24" yo="24" id="10002254" name="inst_BE02BE67" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="624" y="0" w="24" h="24" xo="24" yo="24" id="10002255" name="inst_137ADE59" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="648" y="0" w="24" h="24" xo="24" yo="24" id="10002256" name="inst_B06C522E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="672" y="0" w="24" h="24" xo="24" yo="24" id="10002257" name="inst_1B790FA9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="672" y="24" w="24" h="24" xo="24" yo="24" id="10002258" name="inst_01852058" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="0" w="24" h="24" xo="24" yo="24" id="10002259" name="inst_37CBB506" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="0" w="24" h="24" xo="24" yo="24" id="10002260" name="inst_C7098387" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="24" w="24" h="24" xo="24" yo="24" id="10002261" name="inst_6C754941" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="168" w="24" h="24" xo="24" yo="24" id="10002262" name="inst_0A3F7BD3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="168" w="24" h="24" xo="24" yo="24" id="10002263" name="inst_BF4BB9F1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="192" w="24" h="24" xo="24" yo="24" id="10002264" name="inst_F4264BF8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="720" y="216" w="24" h="24" xo="24" yo="24" id="10002265" name="inst_9894F0D2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="216" w="24" h="24" xo="24" yo="24" id="10002266" name="inst_29B484C7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="240" w="24" h="24" xo="24" yo="24" id="10002267" name="inst_B5850DA5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="744" y="192" w="24" h="24" xo="24" yo="24" id="10002268" name="inst_09B85F14" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="792" y="240" w="24" h="24" xo="24" yo="24" id="10002269" name="inst_1F4ABF45" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="792" y="216" w="24" h="24" xo="24" yo="24" id="10002270" name="inst_40354345" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="768" y="216" w="24" h="24" xo="24" yo="24" id="10002271" name="inst_6EC48A7D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="744" w="24" h="24" xo="24" yo="24" id="10002272" name="inst_D3EBFCBF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="720" w="24" h="24" xo="24" yo="24" id="10002273" name="inst_3FD24CBF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="696" w="24" h="24" xo="24" yo="24" id="10002274" name="inst_245D440E" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="360" w="24" h="24" xo="24" yo="24" id="10002275" name="inst_55573499" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="384" w="24" h="24" xo="24" yo="24" id="10002276" name="inst_BA5AA7DA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="408" w="24" h="24" xo="24" yo="24" id="10002277" name="inst_3FFEB7D7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="432" w="24" h="24" xo="24" yo="24" id="10002278" name="inst_3D43DA98" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="480" w="24" h="24" xo="24" yo="24" id="10002281" name="inst_47000389" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="456" w="24" h="24" xo="24" yo="24" id="10002289" name="inst_431CD72D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="480" w="24" h="24" xo="24" yo="24" id="10002290" name="inst_40AAEC4F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="504" w="24" h="24" xo="24" yo="24" id="10002291" name="inst_8822BA26" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="528" w="24" h="24" xo="24" yo="24" id="10002292" name="inst_FF9EDD67" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="552" w="24" h="24" xo="24" yo="24" id="10002293" name="inst_708967C3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="600" w="24" h="24" xo="24" yo="24" id="10002295" name="inst_FD30B31F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1488" y="576" w="24" h="24" xo="24" yo="24" id="10002296" name="inst_3E446851" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="528" w="24" h="24" xo="24" yo="24" id="10002298" name="inst_0FC2CACE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="504" w="24" h="24" xo="24" yo="24" id="10002299" name="inst_8D806221" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="456" w="24" h="24" xo="24" yo="24" id="10002304" name="inst_306CAFAA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="456" w="24" h="24" xo="24" yo="24" id="10002308" name="inst_BF764727" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="456" w="24" h="24" xo="24" yo="24" id="10002309" name="inst_28CF76B8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="432" w="24" h="24" xo="24" yo="24" id="10002313" name="inst_69AAF9BF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="432" w="24" h="24" xo="24" yo="24" id="10002314" name="inst_3E013E78" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="408" w="24" h="24" xo="24" yo="24" id="10002315" name="inst_446B3398" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="408" w="24" h="24" xo="24" yo="24" id="10002316" name="inst_88327046" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="384" w="24" h="24" xo="24" yo="24" id="10002317" name="inst_0C185E50" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="384" w="24" h="24" xo="24" yo="24" id="10002318" name="inst_76C9CF44" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="312" w="24" h="24" xo="24" yo="24" id="10002319" name="inst_928991D6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="312" w="24" h="24" xo="24" yo="24" id="10002320" name="inst_95B096A6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="312" w="24" h="24" xo="24" yo="24" id="10002321" name="inst_7BE93BF6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="336" w="24" h="24" xo="24" yo="24" id="10002322" name="inst_DAB67201" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="336" w="24" h="24" xo="24" yo="24" id="10002323" name="inst_7B99ED8C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="336" w="24" h="24" xo="24" yo="24" id="10002324" name="inst_061A97F6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="624" w="24" h="24" xo="24" yo="24" id="10002325" name="inst_22BA8C2A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="624" w="24" h="24" xo="24" yo="24" id="10002326" name="inst_ECF0CCBC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="432" w="24" h="24" xo="24" yo="24" id="10002328" name="inst_4A2E78E6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="408" w="24" h="24" xo="24" yo="24" id="10002330" name="inst_BD229126" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="432" w="24" h="24" xo="24" yo="24" id="10002331" name="inst_6304E37A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="456" w="24" h="24" xo="24" yo="24" id="10002332" name="inst_7A6FA8C3" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="456" w="24" h="24" xo="24" yo="24" id="10002333" name="inst_9D11864F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="480" w="24" h="24" xo="24" yo="24" id="10002334" name="inst_991FFD1B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="480" w="24" h="24" xo="24" yo="24" id="10002335" name="inst_DEB54150" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="504" w="24" h="24" xo="24" yo="24" id="10002337" name="inst_1FDA37B6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="504" w="24" h="24" xo="24" yo="24" id="10002340" name="inst_C6EB2742" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="552" w="24" h="24" xo="24" yo="24" id="10002342" name="inst_BB40F7C0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="552" w="24" h="24" xo="24" yo="24" id="10002343" name="inst_3DB1008A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="528" w="24" h="24" xo="24" yo="24" id="10002344" name="inst_ADE47933" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="504" w="24" h="24" xo="24" yo="24" id="10002345" name="inst_3AE80A7C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="504" w="24" h="24" xo="24" yo="24" id="10002346" name="inst_19BCF3E8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="480" w="24" h="24" xo="24" yo="24" id="10002347" name="inst_070210AB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="480" w="24" h="24" xo="24" yo="24" id="10002348" name="inst_16662DBA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="480" w="24" h="24" xo="24" yo="24" id="10002349" name="inst_199DB174" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="480" w="24" h="24" xo="24" yo="24" id="10002351" name="inst_B2A333DE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="480" w="24" h="24" xo="24" yo="24" id="10002352" name="inst_5D0F26DD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="408" w="24" h="24" xo="24" yo="24" id="10002359" name="inst_6B56F0D6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="408" w="24" h="24" xo="24" yo="24" id="10002361" name="inst_66C863B9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="432" w="24" h="24" xo="24" yo="24" id="10002362" name="inst_867C2E78" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="432" w="24" h="24" xo="24" yo="24" id="10002364" name="inst_4F1EC6E5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="432" w="24" h="24" xo="24" yo="24" id="10002365" name="inst_A27B9B2C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="432" w="24" h="24" xo="24" yo="24" id="10002368" name="inst_5191B113" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="432" w="24" h="24" xo="24" yo="24" id="10002369" name="inst_D3D3CBBC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="432" w="24" h="24" xo="24" yo="24" id="10002370" name="inst_263E3866" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="456" w="24" h="24" xo="24" yo="24" id="10002371" name="inst_26CB3805" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="456" w="24" h="24" xo="24" yo="24" id="10002372" name="inst_BFDCCCE8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="456" w="24" h="24" xo="24" yo="24" id="10002374" name="inst_066C90F7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="456" w="24" h="24" xo="24" yo="24" id="10002375" name="inst_39D41B47" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="408" w="24" h="24" xo="24" yo="24" id="10002380" name="inst_F078C8A9" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="408" w="24" h="24" xo="24" yo="24" id="10002381" name="inst_44A09271" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="384" w="24" h="24" xo="24" yo="24" id="10002384" name="inst_85657E9F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="360" w="24" h="24" xo="24" yo="24" id="10002388" name="inst_75D0C1CC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="360" w="24" h="24" xo="24" yo="24" id="10002390" name="inst_134B1E03" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="408" w="24" h="24" xo="24" yo="24" id="10002394" name="inst_B43B6C2F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="408" w="24" h="24" xo="24" yo="24" id="10002395" name="inst_5E37A8B4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1392" y="384" w="24" h="24" xo="24" yo="24" id="10002397" name="inst_46AC2214" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="384" w="24" h="24" xo="24" yo="24" id="10002398" name="inst_BEF3F801" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="384" w="24" h="24" xo="24" yo="24" id="10002399" name="inst_CE0A7413" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="384" w="24" h="24" xo="24" yo="24" id="10002400" name="inst_F47FCFF0" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="384" w="24" h="24" xo="24" yo="24" id="10002401" name="inst_08CFFDE6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="360" w="24" h="24" xo="24" yo="24" id="10002405" name="inst_DF101E07" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="312" w="24" h="24" xo="24" yo="24" id="10002408" name="inst_BBBBC547" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="312" w="24" h="24" xo="24" yo="24" id="10002409" name="inst_5B7A9B75" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="336" w="24" h="24" xo="24" yo="24" id="10002410" name="inst_4DDE6B06" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="336" w="24" h="24" xo="24" yo="24" id="10002411" name="inst_6774170D" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="336" w="24" h="24" xo="24" yo="24" id="10002412" name="inst_CE68196B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="336" w="24" h="24" xo="24" yo="24" id="10002413" name="inst_1DFCB640" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="336" w="24" h="24" xo="24" yo="24" id="10002414" name="inst_720E07D2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="360" w="24" h="24" xo="24" yo="24" id="10002415" name="inst_CD31F727" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="360" w="24" h="24" xo="24" yo="24" id="10002416" name="inst_9CDC6402" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="384" w="24" h="24" xo="24" yo="24" id="10002417" name="inst_3B58C35C" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="384" w="24" h="24" xo="24" yo="24" id="10002418" name="inst_3233AC1F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="408" w="24" h="24" xo="24" yo="24" id="10002420" name="inst_16100283" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="408" w="24" h="24" xo="24" yo="24" id="10002421" name="inst_15E6E307" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="456" w="24" h="24" xo="24" yo="24" id="10002423" name="inst_C381F160" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="456" w="24" h="24" xo="24" yo="24" id="10002424" name="inst_B5080CCA" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="480" w="24" h="24" xo="24" yo="24" id="10002428" name="inst_AEB2C6FE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="480" w="24" h="24" xo="24" yo="24" id="10002430" name="inst_C3D0ADD1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="480" w="24" h="24" xo="24" yo="24" id="10002431" name="inst_52CF2CC7" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="504" w="24" h="24" xo="24" yo="24" id="10002435" name="inst_B614C250" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="528" w="24" h="24" xo="24" yo="24" id="10002437" name="inst_A5DCC20F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="528" w="24" h="24" xo="24" yo="24" id="10002438" name="inst_8F6EA320" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="528" w="24" h="24" xo="24" yo="24" id="10002439" name="inst_93732382" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="528" w="24" h="24" xo="24" yo="24" id="10002441" name="inst_D0A99BD5" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="504" w="24" h="24" xo="24" yo="24" id="10002444" name="inst_B4A52189" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="504" w="24" h="24" xo="24" yo="24" id="10002445" name="inst_341FAA2A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="504" w="24" h="24" xo="24" yo="24" id="10002446" name="inst_89D9BE23" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="528" w="24" h="24" xo="24" yo="24" id="10002447" name="inst_0552661F" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="528" w="24" h="24" xo="24" yo="24" id="10002448" name="inst_16544AA2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="552" w="24" h="24" xo="24" yo="24" id="10002450" name="inst_75DE61A2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="552" w="24" h="24" xo="24" yo="24" id="10002451" name="inst_A90533EC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="552" w="24" h="24" xo="24" yo="24" id="10002454" name="inst_844C54CE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="552" w="24" h="24" xo="24" yo="24" id="10002455" name="inst_16E08389" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="504" w="24" h="24" xo="24" yo="24" id="10002461" name="inst_CC2DEC87" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="504" w="24" h="24" xo="24" yo="24" id="10002462" name="inst_33DDD912" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="504" w="24" h="24" xo="24" yo="24" id="10002463" name="inst_FBA1BCE4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="480" w="24" h="24" xo="24" yo="24" id="10002464" name="inst_B073557A" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1152" y="480" w="24" h="24" xo="24" yo="24" id="10002465" name="inst_88F7030B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1152" y="456" w="24" h="24" xo="24" yo="24" id="10002466" name="inst_20BA1C7B" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="432" w="24" h="24" xo="24" yo="24" id="10002470" name="inst_1B1426D6" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="432" w="24" h="24" xo="24" yo="24" id="10002471" name="inst_63639FA1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="432" w="24" h="24" xo="24" yo="24" id="10002472" name="inst_572352FE" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="456" w="24" h="24" xo="24" yo="24" id="10002473" name="inst_EEED4719" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="456" w="24" h="24" xo="24" yo="24" id="10002474" name="inst_88C9A8DC" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="480" w="24" h="24" xo="24" yo="24" id="10002475" name="inst_CC48AFE2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="504" w="24" h="24" xo="24" yo="24" id="10002476" name="inst_D69F67C1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="528" w="24" h="24" xo="24" yo="24" id="10002478" name="inst_6C989913" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="528" w="24" h="24" xo="24" yo="24" id="10002479" name="inst_497D7C28" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="552" w="24" h="24" xo="24" yo="24" id="10002480" name="inst_1E3F4C20" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="552" w="24" h="24" xo="24" yo="24" id="10002481" name="inst_E3C37CAF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="576" w="24" h="24" xo="24" yo="24" id="10002486" name="inst_3C96ECA1" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="576" w="24" h="24" xo="24" yo="24" id="10002487" name="inst_04FD5CCD" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1224" y="576" w="24" h="24" xo="24" yo="24" id="10002488" name="inst_335B5892" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1104" y="696" w="24" h="24" xo="48" yo="24" id="10002493" name="inst_FF0CBCB4" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="696" w="24" h="24" xo="48" yo="24" id="10002494" name="inst_DBE25936" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="696" w="24" h="24" xo="0" yo="24" id="10002495" name="inst_56A66ADB" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="552" y="264" w="24" h="24" xo="24" yo="24" id="10002543" name="inst_4C2F7F18" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="576" y="264" w="24" h="24" xo="24" yo="24" id="10002544" name="inst_850E82E8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="600" y="264" w="24" h="24" xo="24" yo="24" id="10002545" name="inst_A5716331" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="504" y="240" w="24" h="24" xo="24" yo="24" id="10002546" name="inst_AFB85DAF" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="528" y="240" w="24" h="24" xo="24" yo="24" id="10002547" name="inst_37F32823" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="552" y="240" w="24" h="24" xo="24" yo="24" id="10002548" name="inst_7BEBFCC8" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="576" y="240" w="24" h="24" xo="24" yo="24" id="10002549" name="inst_D4F3B156" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="1056" y="192" w="24" h="24" xo="72" yo="0" id="10001055" name="inst_8173F7BE" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1008" y="336" w="48" h="48" xo="120" yo="24" id="10001152" name="inst_5C33700C" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="840" y="240" w="96" h="96" xo="96" yo="72" id="10001153" name="inst_C0C4516F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="912" w="96" h="96" xo="0" yo="72" id="10001157" name="inst_4FB2808E" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="120" y="816" w="96" h="96" xo="0" yo="72" id="10001158" name="inst_128CA185" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="696" w="24" h="24" xo="72" yo="0" id="10001159" name="inst_409BA64F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="0" y="552" w="24" h="24" xo="72" yo="0" id="10001160" name="inst_A543334B" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="24" y="504" w="24" h="24" xo="72" yo="0" id="10001161" name="inst_CEAA9597" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="528" w="24" h="24" xo="72" yo="0" id="10001162" name="inst_EF8E481D" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="528" w="48" h="48" xo="72" yo="24" id="10001163" name="inst_15C7F49F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="144" y="600" w="48" h="48" xo="72" yo="24" id="10001164" name="inst_0C6BAA16" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="984" y="624" w="24" h="24" xo="72" yo="0" id="10001178" name="inst_AEFDB9E1" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1008" y="480" w="96" h="96" xo="96" yo="72" id="10001847" name="inst_A2DDCBC5" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1032" y="672" w="48" h="48" xo="120" yo="24" id="10001848" name="inst_538A1C1F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="984" y="744" w="24" h="24" xo="96" yo="0" id="10001850" name="inst_4BCC9202" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="912" y="480" w="24" h="24" xo="96" yo="0" id="10001851" name="inst_ED2F353F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="960" y="552" w="24" h="24" xo="96" yo="0" id="10001852" name="inst_0CCB8DB2" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="912" y="696" w="24" h="24" xo="96" yo="0" id="10001853" name="inst_425DC91E" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1488" y="936" w="24" h="48" xo="120" yo="24" id="10001871" name="inst_71869D50" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="840" y="984" w="48" h="24" xo="120" yo="24" id="10001872" name="inst_E06A82D5" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="840" y="744" w="96" h="96" xo="96" yo="72" id="10001874" name="inst_A95D0BC8" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="72" y="744" w="48" h="48" xo="72" yo="24" id="10001875" name="inst_44BDC11D" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="264" y="888" w="48" h="48" xo="72" yo="24" id="10001876" name="inst_11FDBDE8" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="168" y="936" w="48" h="48" xo="72" yo="24" id="10001877" name="inst_9FD3D475" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="288" y="960" w="96" h="48" xo="0" yo="72" id="10001880" name="inst_E99E9A64" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="336" y="792" w="24" h="24" xo="72" yo="0" id="10001881" name="inst_B4FD81C6" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="384" y="744" w="24" h="24" xo="72" yo="0" id="10001882" name="inst_387F16D1" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="528" y="744" w="24" h="24" xo="72" yo="0" id="10001883" name="inst_A190541E" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_rock_crater" x="456" y="792" w="24" h="24" xo="72" yo="0" id="10001884" name="inst_BACC9372" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="600" y="864" w="24" h="24" xo="72" yo="0" id="10001885" name="inst_A8EB815E" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="432" y="864" w="24" h="24" xo="72" yo="0" id="10001886" name="inst_B13240A9" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="216" y="792" w="24" h="24" xo="72" yo="0" id="10001887" name="inst_D8F247E6" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="48" y="816" w="24" h="24" xo="72" yo="0" id="10001888" name="inst_FFDDE6B5" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="240" y="960" w="24" h="24" xo="72" yo="0" id="10001889" name="inst_EF90499E" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1104" y="912" w="48" h="48" xo="72" yo="24" id="10002071" name="inst_A652DB91" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_rock_crater" x="1320" y="768" w="48" h="48" xo="72" yo="24" id="10002072" name="inst_9E5444D0" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="576" y="312" w="96" h="96" xo="96" yo="72" id="10002496" name="inst_6CC9A24A" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="480" y="480" w="96" h="96" xo="96" yo="72" id="10002497" name="inst_F6E4A47F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="576" y="672" w="96" h="96" xo="96" yo="72" id="10002499" name="inst_C32854F4" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="432" w="96" h="96" xo="0" yo="72" id="10002501" name="inst_58685B71" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="912" y="336" w="96" h="96" xo="0" yo="72" id="10002502" name="inst_015E2D4F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="960" y="624" w="96" h="96" xo="0" yo="72" id="10002503" name="inst_F853AAF9" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="552" w="48" h="96" xo="0" yo="72" id="10002505" name="inst_EA32E36D" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="528" y="408" w="24" h="24" xo="96" yo="0" id="10002506" name="inst_EBBD172C" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="456" y="552" w="24" h="24" xo="96" yo="0" id="10002507" name="inst_B9DB49FE" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="576" y="648" w="24" h="24" xo="96" yo="0" id="10002509" name="inst_887D6D78" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="552" y="696" w="24" h="24" xo="96" yo="0" id="10002510" name="inst_6577B5A6" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="648" y="648" w="24" h="24" xo="96" yo="0" id="10002511" name="inst_3B5806CA" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="600" y="408" w="24" h="24" xo="96" yo="0" id="10002512" name="inst_5C4A84A9" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="288" y="504" w="48" h="48" xo="120" yo="24" id="10002514" name="inst_FC71451B" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="432" y="480" w="48" h="48" xo="120" yo="24" id="10002516" name="inst_B4230802" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="360" y="456" w="48" h="48" xo="120" yo="24" id="10002517" name="inst_6C1D77BE" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="336" y="480" w="24" h="24" xo="96" yo="0" id="10002518" name="inst_9A9F2750" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="408" y="480" w="24" h="24" xo="96" yo="0" id="10002519" name="inst_088241ED" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1368" y="432" w="48" h="48" xo="72" yo="24" id="10002520" name="inst_F1D3FAFF" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1296" y="384" w="48" h="48" xo="72" yo="24" id="10002521" name="inst_F87F9E72" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1008" y="336" w="48" h="48" xo="72" yo="24" id="10002522" name="inst_083AA086" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1416" y="624" w="48" h="48" xo="72" yo="24" id="10002523" name="inst_69DE37CB" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1440" y="576" w="24" h="24" xo="72" yo="0" id="10002524" name="inst_C276021D" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="648" w="24" h="24" xo="72" yo="0" id="10002525" name="inst_70B5771D" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1344" y="528" w="24" h="24" xo="72" yo="0" id="10002526" name="inst_060A38E1" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1320" y="552" w="24" h="24" xo="72" yo="0" id="10002527" name="inst_595631AD" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1248" y="576" w="24" h="24" xo="72" yo="0" id="10002528" name="inst_32229243" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1128" y="504" w="24" h="24" xo="72" yo="0" id="10002529" name="inst_99F3288A" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1200" y="384" w="24" h="24" xo="72" yo="0" id="10002530" name="inst_E37E4D54" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1056" y="624" w="24" h="24" xo="72" yo="0" id="10002531" name="inst_803C29FE" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1080" y="648" w="24" h="24" xo="72" yo="0" id="10002532" name="inst_26A6DEF7" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1176" y="648" w="24" h="24" xo="72" yo="0" id="10002533" name="inst_8C0C2341" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1464" y="288" w="24" h="24" xo="72" yo="0" id="10002534" name="inst_554D170F" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="1272" y="744" w="24" h="24" xo="72" yo="0" id="10002535" name="inst_41B7BDB2" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="888" w="24" h="24" xo="72" yo="0" id="10002536" name="inst_59762451" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="816" w="24" h="24" xo="72" yo="0" id="10002537" name="inst_5642287C" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="816" y="960" w="24" h="24" xo="72" yo="0" id="10002538" name="inst_9E3C9EE4" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="768" y="168" w="24" h="24" xo="72" yo="0" id="10002539" name="inst_AB5A766D" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="792" y="24" w="24" h="24" xo="72" yo="0" id="10002540" name="inst_57886AC0" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="576" y="72" w="24" h="24" xo="72" yo="0" id="10002541" name="inst_781B0149" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_rock_crater" x="552" y="120" w="24" h="24" xo="72" yo="0" id="10002542" name="inst_C9823251" depth="126" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

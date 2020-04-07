@@ -28,7 +28,7 @@
             <string>///clean up audio
 
 audio_stop_sound(charge_sound);
-audio_emitter_free(sound_emitter);
+audio_emitter_free(wpn_sound_emitter);
 </string>
           </argument>
         </arguments>

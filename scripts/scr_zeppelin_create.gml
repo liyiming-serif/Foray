@@ -1,14 +1,14 @@
 #define scr_zeppelin_create
-///scr_zeppelin_create(x,y,dest_x,dest_y,front_wpn,left_wpn,right_wpn,dir_offset=0)
+///scr_zeppelin_create(x,y,front_wpn,left_wpn,right_wpn,dir_offset=0)
 
 var xv = argument[0];
 var yv = argument[1];
-var front_wpn = argument[4];
-var left_wpn = argument[5];
-var right_wpn = argument[6];
+var front_wpn = argument[2];
+var left_wpn = argument[3];
+var right_wpn = argument[4];
 var d_o = 0;
-if(argument_count<7){
-    var d_o = argument[7];
+if(argument_count<5){
+    var d_o = argument[5];
 }
 
 with(instance_create(xv,yv,obj_zeppelin)){
@@ -19,12 +19,8 @@ with(instance_create(xv,yv,obj_zeppelin)){
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");
     
-    dest_x = argument[2];
-    dest_y = argument[3];
-    
-    //set course
-    //TODO: Drift?!
-    direction = point_direction(x,y,dest_x,dest_y)+d_o;
+    //set initial course
+    direction = d_o;
     image_angle = direction;
     
     //mount wpns
@@ -50,7 +46,7 @@ with(instance_create(xv,yv,obj_zeppelin)){
     death_seq_cb = scr_ship_explode_large;
     
     /*
-    engine_sound = audio_play_sound_on(sound_emitter,snd_balloon_propeller,true,0);
+    engine_sound = audio_play_sound_on(engine_sound_emitter,snd_balloon_propeller,true,0);
     audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
     */
     return id;
@@ -114,16 +110,13 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<min_range){
 ///scr_zeppelin_turn()
 
 //Turn the blimp towards dest
-var pa = point_direction(x,y,dest_x,dest_y);
-var da = angle_difference(pa,direction);
-var ta = min(abs(da),turn);
+if(scr_instance_exists(global.city_id)){
+    scr_ship_turn(global.city_id.x, global.city_id.y, true);
+}
+else{
+    scr_ship_turn(room_width/2, room_width/2, true);
+}
 
-direction += global.game_speed*ta*sign(da);
-image_angle = direction;
-speed = global.game_speed*curr_speed;
-
-var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
-audio_emitter_gain(sound_emitter, gain);
 
 #define scr_zeppelin_navigate
 ///scr_zeppelin_navigate()

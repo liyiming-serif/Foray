@@ -1,12 +1,14 @@
 {
   "modifiers": [],
   "stat_tiers":{
-    "speeds":[2.25, 3.1, 3.25],
-    "turns":[1.9, 3, 4],
+    "speeds":[2.5, 2.9, 3.3],
+    "min_speeds":[1.8, 2, 2.2],
+    "max_speeds":[3.7, 4.5, 5.2],
+    "turns":[2, 2.75, 3.25],
     "armors":[0, 2, 4]
   },
   "models":{
-    "max_hp": 50,
+    "max_hp": 400,
     "threat": 0.3,
     "score":8,
     "al_awaidh":{
@@ -15,29 +17,23 @@
       "turn": 1,
       "dmg":1,
       "amr":1,
-      "palette": 0,
-      "min_speed": 1.8,
-      "max_speed": 3.6
+      "palette": 0
     },
     "jenny":{
       "name": "Jenny JN-5",
-      "speed": 2,
+      "speed": 3,
       "turn": 1,
       "dmg": 1,
       "amr": 1,
-      "palette": 1,
-      "min_speed": 2.1,
-      "max_speed": 4.8,
+      "palette": 1
     },
     "asteroid_blues":{
       "name": "Asteroid Blues",
       "speed": 1,
-      "turn": 2,
+      "turn": 3,
       "dmg":1,
       "amr":1,
-      "palette": 2,
-      "min_speed": 1.8,
-      "max_speed": 3.7
+      "palette": 2
     },
     "camel":{
       "name": "Camel",
@@ -45,9 +41,7 @@
       "turn": 1,
       "dmg":2,
       "amr":1,
-      "palette": 3,
-      "min_speed": 1.8,
-      "max_speed": 3.7
+      "palette": 3
     },
     "red_baroness":{
       "name": "Red Baroness",
@@ -55,9 +49,7 @@
       "turn": 2,
       "dmg":1,
       "amr":1,
-      "palette": 4,
-      "min_speed": 2.2,
-      "max_speed": 4.9,
+      "palette": 4
     },
     "fomalhaut":{
       "name": "Fomalhaut",
@@ -65,32 +57,30 @@
       "turn": 1,
       "dmg":2,
       "amr":1,
-      "palette": 5,
-      "min_speed": 2.2,
-      "max_speed": 4.9
+      "palette": 5
     }
   },
 
   "pilot_ai":{
     "mg_chaser":{
-      "foresight":46,
+      "foresight": 96,
       "range": [240,260],
       "accuracy": [25,15],
-      "avoid_arc": 20,
-      "max_rounds": 6,
-      "achy": [0.4,0.36],
-      "reload_speed":[180,120],
+      "avoid_arc": 30,
+      "max_rounds": [5,8],
+      "achy": [0.33,0.25],
+      "reload_speed":[1,1],
       "update_target_time": [480,300]
     }
   },
 
   "balloons":{
     "skymine" : {
-      "max_hp":7.5,
+      "max_hp":10,
       "chase_vel":3,
       "chase_freq":80,
       "chase_hp_reduc":0.7,
-      "dmg":8,
+      "dmg":5,
       "fric":0.06,
       "alert_range":48,
       "update_target_time":600,
@@ -107,18 +97,22 @@
       "amr_anim_time":20,
       "amr_up_lag":40,
       "amr_down_lag":60,
-      "alert_range":480,
+      "alert_range":384,
       "accuracy_coeff":27,
+      "aggro_chance":0.25,
+      "aggro_checks_per_sec":2,
       "threat":0.15,
-      "score":11
+      "score":11,
+      "_comment":"range determined by wpn. should balloon ai constants go here?"
     },
     "zeppelin":{
-      "max_hp":150,
+      "max_hp":200,
       "speed":0.7,
       "turn":0.11,
       "update_target_time":420,
       "threat":0.35,
-      "score":150
+      "score":150,
+      "_comment":"range determined by wpns"
     }
   }
 }

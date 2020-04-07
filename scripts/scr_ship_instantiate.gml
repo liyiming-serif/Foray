@@ -10,11 +10,12 @@ hitstun = 0;
 invincibility = 0;
 threat = ds_map_find_value(mp,"threat");
 
-//HACK
+//TODO: remove scoring
 points = ds_map_find_value(mp, "score");
 
-//update target time
+//Enemies: locate targets
 if(!is_friendly){
+    //player
     var utt = ds_map_find_value(mp,"update_target_time");
     if(utt != undefined){
         update_target_time = utt;
@@ -22,16 +23,15 @@ if(!is_friendly){
     else if(argument_count==3){
         update_target_time = argument[2];
     }
-    else{
-        return undefined;
+    if(variable_instance_exists(id,"update_target_time")){
+        target_id = global.player_id;
+        alarm[10] = update_target_time;
     }
-    target_id = global.player_id;
-    alarm[10] = update_target_time;
 }
 
 //audio
-sound_emitter = audio_emitter_create();
-audio_emitter_falloff(sound_emitter,
+engine_sound_emitter = audio_emitter_create();
+audio_emitter_falloff(engine_sound_emitter,
     global.SOUND_FALLOFF_REF_DIST,
     global.SOUND_FALLOFF_MAX_DIST,
     global.SOUND_FALLOFF_FACTOR);
@@ -44,8 +44,38 @@ hitstun = max(hitstun-global.game_speed, 0);
 invincibility = max(invincibility-global.game_speed,0);
 
 //update emitter
-audio_emitter_position(sound_emitter,x,y,0);
-audio_emitter_velocity(sound_emitter,hspeed,vspeed,0);
+audio_emitter_position(engine_sound_emitter,x,y,0);
+audio_emitter_velocity(engine_sound_emitter,hspeed,vspeed,0);
+
+#define scr_ship_turn
+///scr_ship_turn(x, y, should_face_dir, turn_modifier=1)
+
+//Generic script for turning ships towards a point,
+//and whether to change image_angle to match dir
+//Req inst variables: curr_speed, turn
+
+var tx = argument[0];
+var ty = argument[1];
+var should_face_dir = argument[2];
+var tm = turn;
+//Optional: apply a modifier w/out affecting 'turn' property.
+if(argument_count==4){
+    tm *= argument[3];
+}
+
+var pa = point_direction(x,y,tx,ty);
+var da = angle_difference(pa,direction);
+var ta = min(abs(da),tm);
+
+direction += global.game_speed*ta*sign(da);
+speed = global.game_speed*curr_speed;
+if(should_face_dir){
+    image_angle = direction;
+}
+
+//sound
+var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
+audio_emitter_gain(engine_sound_emitter, gain);
 
 #define scr_ship_hit
 ///scr_ship_hit()
@@ -139,7 +169,7 @@ if(!is_friendly){
 }
 
 //gc audio
-audio_emitter_free(sound_emitter);
+audio_emitter_free(engine_sound_emitter);
 
 #define scr_ship_gc_wpns
 ///scr_ship_gc_wpns()
@@ -221,3 +251,17 @@ scr_play_sound(snd_explosion_m,x,y);
 //audio_stop_sound(engine_sound);
 
 instance_destroy();
+#define scr_set_avoidance
+///scr_set_avoidance(speed, turn)
+
+//set foresight and avoid_arc based on speed and turn stats of the ship
+//ADDS: foresight, avoid_arc, axy
+var sp = argument[0];
+var tn = argument[1]*global.SWERVE_TURN_MOD;
+
+ax = 0;
+ay = 0;
+//time it takes to turn a certain angle
+avoid_arc = ceil(67.5/tn);
+//distance covered by one avoid arc
+foresight = 0.4*avoid_arc*sp;
