@@ -34,7 +34,7 @@ else if(distance_to_object(target_id)&gt;alert_range){
         is_aggro = false;
     }
 }
-else if(player_noticed){
+else if(player_noticed &amp;&amp; scr_instance_exists(gid[0])){
     if(random(1) &lt; aggro_chance){
         is_aggro = true;
     }

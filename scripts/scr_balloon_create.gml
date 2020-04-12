@@ -71,7 +71,7 @@ with(instance_create(xv,yv,obj_balloon)){
 //(target_id, alert_range can be refactored out)
 //TODO: make both avoid functions generic if more ship ai reuses logic
 
-var ctid = argument[1];
+var ctid = argument[0];
 var pd, dd, sx, sy, i, adir, adiff, pa, da;
 
 //check if should chase player because they're nearby

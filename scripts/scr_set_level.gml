@@ -14,8 +14,8 @@ view_xview[1]=0;
 view_yview[1]=0;
 
 //Reset parallax
-global.tile_x = 0;
-global.tile_y = 0;
+global.tiles_x = 0;
+global.tiles_y = 0;
 
 //reset skymine spawn queues
 ds_list_clear(global.skymine_queue);

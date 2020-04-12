@@ -11,7 +11,7 @@
       "projectile":"bullet",
       "recoil":7,
       "palette":192,
-      "shoot_rate":9,
+      "shoot_rate":10,
       "accuracy":2,
       "muzzle_vel":12,
       "dmg":[2, 2.85, 3.25],
@@ -112,6 +112,13 @@
       "anim_speed":0.5,
       "hit_part":"hit1",
       "palette1":128
+    }
+  },
+
+  "midflights":{
+    "drop_bomb":{
+      "dmg":5,
+      "airtime":50
     }
   }
 }

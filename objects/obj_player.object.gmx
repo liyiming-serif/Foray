@@ -145,7 +145,7 @@ if(hp&lt;=0){
     }
     else{
         instance_destroy();
-        part_particles_create(global.partsys,x,y,global.boom_air,1);
+        scr_ground_particle_create(x, y, global.boom_air);
     }
 }
 else if(sprite_index==spr_plane1_buckle){

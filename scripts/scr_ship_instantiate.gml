@@ -58,6 +58,12 @@ var tx = argument[0];
 var ty = argument[1];
 var should_face_dir = argument[2];
 var tm = turn;
+
+//Apply a flat turn multiplier so ships spend less time off-screen
+if(scr_is_obj_outside_room()){
+    tm *= global.TURN_OUTSIDE_ROOM_COEFF;
+}
+
 //Optional: apply a modifier w/out affecting 'turn' property.
 if(argument_count==4){
     tm *= argument[3];

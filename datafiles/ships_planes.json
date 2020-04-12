@@ -8,7 +8,7 @@
     "armors":[0, 2, 4]
   },
   "models":{
-    "max_hp": 400,
+    "max_hp": 40,
     "threat": 0.3,
     "score":8,
     "al_awaidh":{
@@ -21,7 +21,7 @@
     },
     "jenny":{
       "name": "Jenny JN-5",
-      "speed": 3,
+      "speed": 2,
       "turn": 1,
       "dmg": 1,
       "amr": 1,
@@ -30,7 +30,7 @@
     "asteroid_blues":{
       "name": "Asteroid Blues",
       "speed": 1,
-      "turn": 3,
+      "turn": 2,
       "dmg":1,
       "amr":1,
       "palette": 2
@@ -69,14 +69,14 @@
       "avoid_arc": 30,
       "max_rounds": [5,8],
       "achy": [0.33,0.25],
-      "reload_speed":[1,1],
+      "reload_speed":[120,60],
       "update_target_time": [480,300]
     }
   },
 
   "balloons":{
     "skymine" : {
-      "max_hp":10,
+      "max_hp":8,
       "chase_vel":3,
       "chase_freq":80,
       "chase_hp_reduc":0.7,
@@ -89,21 +89,21 @@
       "score": 1
     },
     "balloon":{
-      "max_hp":30,
-      "speed":1,
-      "turn":0.5,
+      "max_hp":25,
+      "speed":1.2,
+      "turn":0.7,
       "gun_turn":2,
       "update_target_time":420,
       "amr_anim_time":20,
       "amr_up_lag":40,
       "amr_down_lag":60,
+      "amr_hp_reduc":0.7,
       "alert_range":384,
       "accuracy_coeff":27,
       "aggro_chance":0.25,
       "aggro_checks_per_sec":2,
       "threat":0.15,
-      "score":11,
-      "_comment":"range determined by wpn. should balloon ai constants go here?"
+      "score":11
     },
     "zeppelin":{
       "max_hp":200,
@@ -111,8 +111,7 @@
       "turn":0.11,
       "update_target_time":420,
       "threat":0.35,
-      "score":150,
-      "_comment":"range determined by wpns"
+      "score":150
     }
   }
 }

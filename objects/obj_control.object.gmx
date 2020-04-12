@@ -79,6 +79,7 @@ global.amr_tiers = ds_map_find_value(stat_tiers, "armors");
 global.pilot_ai = ds_map_find_value(global.SHIPS_PLANES, "pilot_ai");
 global.projectiles = ds_map_find_value(global.WPNS_BULLETS, "projectiles");
 global.weapons = ds_map_find_value(global.WPNS_BULLETS, "weapons");
+global.midflights = ds_map_find_value(global.WPNS_BULLETS, "midflights");
 global.design_pattern_weights = ds_map_find_value(global.DESIGN_PATTERNS, "cb_weights");
 
 //Unintiallized level json + metadata
@@ -103,6 +104,7 @@ global.BRAKE_SPEED = 0.05;
 global.AIR_FRIC = 0.01;
 global.DRIFT = 1.25;
 global.ACC_DAMPENER = 1.25; //how little acc reduces turn
+global.TURN_OUTSIDE_ROOM_COEFF = 2.5;
 global.SPAWN_INVINCIBILITY = room_speed*1.5; //invincibility after swapping planes
 global.JUMP_SPEED = 6;
 global.C_RECOVERY = room_speed*0.18;
@@ -234,6 +236,8 @@ global.AVOID_STATE_ALARM = 0;
 //initiallize particle system + particles
 global.partsys = part_system_create();
 part_system_depth(global.partsys,-1);
+global.partsys_ground = part_system_create();
+part_system_depth(global.partsys_ground,9);
 
 global.b1_miss = part_type_create();
 part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);
@@ -265,7 +269,7 @@ part_type_life(global.explosion, room_speed*0.6, room_speed*0.8);
 
 global.explosion_ground = part_type_create();
 part_type_sprite(global.explosion_ground, eff_explosion_ground, true, true, false);
-part_type_life(global.explosion_ground, room_speed*0.5, room_speed*0.6);
+part_type_life(global.explosion_ground, room_speed, room_speed*1.2);
 
 global.dmg_ind[0] = part_type_create();
 part_type_sprite(global.dmg_ind[0], eff_smoke_lt, true, true, false);
@@ -327,6 +331,7 @@ scr_set_level("level1");
 
 //particles
 part_system_destroy(global.partsys);
+part_system_destroy(global.partsys_ground);
 part_type_destroy(global.b1_miss);
 part_type_destroy(global.flare1);
 part_type_destroy(global.deflect);
@@ -615,6 +620,9 @@ else{
     global.tiles_x = lerp(0,room_width*(1-global.PARALLAX_FACTOR),view_xview[1]/(room_width-view_wview[1]));
     global.tiles_y = lerp(0,room_height*(1-global.PARALLAX_FACTOR),view_yview[1]/(room_height-view_hview[1]));
 }
+
+//grounded particle system
+part_system_position(global.partsys_ground, global.tiles_x, global.tiles_y);
 
 tile_layer_shift(127, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);

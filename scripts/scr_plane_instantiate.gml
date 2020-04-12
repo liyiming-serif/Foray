@@ -107,6 +107,11 @@ else{
     var pa = point_direction(x,y,argument[0],argument[1]);
 }
 
+//Apply a flat multiplier so planes spend less time off-screen
+if(scr_is_obj_outside_room()){
+    tm *= global.TURN_OUTSIDE_ROOM_COEFF;
+}
+
 //Optional: apply a modifier w/out affecting 'turn' property.
 if(argument_count==4){
     tm *= argument[3];

@@ -27,11 +27,7 @@
             <kind>1</kind>
             <string>///Check how obj was created
 
-if(!variable_instance_exists(id,"is_dynamically_created")){
-    //created via room editor; move to true pos
-    x = x/global.PARALLAX_FACTOR;
-    y = y/global.PARALLAX_FACTOR;
-}
+scr_grounded_on_create();
 </string>
           </argument>
         </arguments>
