@@ -30,7 +30,7 @@
 //calc apparent position
 var apx = x*lerp(global.PARALLAX_FACTOR, 1, z) + lerp(0, global.tiles_x, z);
 var apy = y*lerp(global.PARALLAX_FACTOR, 1, z) + lerp(0, global.tiles_y, z);
-draw_sprite(sprite_index,image_index,apx,apy);
+draw_sprite(sprite_index,image_index,x,y);
 </string>
           </argument>
         </arguments>

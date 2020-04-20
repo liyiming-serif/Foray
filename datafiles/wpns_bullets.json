@@ -117,8 +117,11 @@
 
   "midflights":{
     "drop_bomb":{
-      "dmg":5,
-      "airtime":50
+      "dmg":0,
+      "airtime":50,
+      "y_speed":1,
+      "screen_shake_dist": 4,
+      "screen_shake_time": 30
     }
   }
 }

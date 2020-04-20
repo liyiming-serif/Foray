@@ -20,13 +20,13 @@
           <argument>
             <kind>1</kind>
             <string>///spawn player
-scr_player_create(800,500,90,"asteroid_blues","mg");
+scr_player_create(800,500,90,"al_awaidh","mg");
 scr_balloon_create(1008,760,"",false);
 scr_balloon_create(924,648,"cannon",false);
 scr_skymine_create(924,840,0,0);
 scr_skymine_create(288,1080,0,0);
 scr_skymine_create(1080,288,0,0);
-scr_spawn_plane_cmc3();
+//scr_spawn_plane_cmc3();
 timeline_running = false;
 </string>
           </argument>

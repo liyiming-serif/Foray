@@ -15,6 +15,8 @@ with(instance_create(xv,yv,obj_balloon)){
     turn = ds_map_find_value(mp, "turn");
     gun_turn = ds_map_find_value(mp, "gun_turn");
     alert_range = ds_map_find_value(mp, "alert_range");
+    drop_bomb_reload_speed = ds_map_find_value(mp, "drop_bomb_reload_speed");
+    drop_bomb_reload_counter = 0;
     is_armored = argument[3];
     
     //mount weapons
@@ -64,14 +66,23 @@ with(instance_create(xv,yv,obj_balloon)){
 
 
 #define scr_balloon_navigate
-///scr_balloon_navigate(chase_target_id)
+///scr_balloon_navigate(x, y, turn_modifier=1, speed_modifier=1)
 
 //STATELESS AVOIDANCE FUNCTION
 //NEEDS: axy, foresight, turn func, avoid_arc
 //(target_id, alert_range can be refactored out)
 //TODO: make both avoid functions generic if more ship ai reuses logic
 
-var ctid = argument[0];
+var tx = argument[0];
+var ty = argument[1];
+var tm = 1;
+if(argument_count > 2){
+    tm = argument[2];
+}
+var sm = 1;
+if(argument_count > 3){
+    sm = argument[3];
+}
 var pd, dd, sx, sy, i, adir, adiff, pa, da;
 
 //check if should chase player because they're nearby
@@ -86,10 +97,6 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<alert_range*0
 //hiding behind armor; don't move
 if(scr_instance_exists(gid[1]) && gid[1].visible){
     speed = 0;
-    return undefined;
-}
-
-if(!scr_instance_exists(ctid)){
     return undefined;
 }
 
@@ -133,11 +140,11 @@ if(i!=noone){
 }
 if(alarm[global.AVOID_STATE_ALARM]){
     //swerving
-    scr_ship_turn(x+ax, y+ay, false, global.SWERVE_TURN_MOD);
+    scr_ship_turn(x+ax, y+ay, false, global.SWERVE_TURN_MOD*tm, sm);
 }
 else{
     //normal flying
-    scr_ship_turn(ctid.x, ctid.y, false);
+    scr_ship_turn(tx, ty, false, tm, sm);
 }
 
 
@@ -224,3 +231,10 @@ else{
 
 //gid[1] must be instantiated
 return gid[1].state == shield_states.UP || gid[1].state == shield_states.GOING_DOWN;
+#define scr_balloon_advance_frame
+///scr_balloon_advance_frame()
+
+drop_bomb_reload_counter = min(drop_bomb_reload_counter+global.game_speed,
+    drop_bomb_reload_speed);
+
+scr_ship_advance_frame();

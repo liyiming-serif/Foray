@@ -29,6 +29,11 @@
 var mp = ds_map_find_value(global.midflights, "drop_bomb");
 dmg = ds_map_find_value(mp, "dmg");
 airtime = ds_map_find_value(mp, "airtime");
+speedy = ds_map_find_value(mp, "y_speed");
+shake_dist = ds_map_find_value(mp, "screen_shake_dist");
+shake_time = ds_map_find_value(mp, "screen_shake_time");
+direction = 270;
+z = 1;
 </string>
           </argument>
         </arguments>
@@ -53,7 +58,8 @@ airtime = ds_map_find_value(mp, "airtime");
             <kind>1</kind>
             <string>///advance frame
 z = 1-image_index/image_number;
-image_speed = global.game_speed*image_number/ds_map_find_value(mp, "dmg");
+image_speed = global.game_speed*image_number/airtime;
+speed = global.game_speed*speedy;
 </string>
           </argument>
         </arguments>
@@ -81,6 +87,8 @@ image_speed = global.game_speed*image_number/ds_map_find_value(mp, "dmg");
 instance_destroy();
 scr_ground_particle_create(x, y, global.explosion_ground);
 global.progress -= dmg;
+global.screen_shake_dist += shake_dist;
+global.screen_shake_time = shake_time;
 </string>
           </argument>
         </arguments>

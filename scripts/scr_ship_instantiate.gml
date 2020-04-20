@@ -48,7 +48,7 @@ audio_emitter_position(engine_sound_emitter,x,y,0);
 audio_emitter_velocity(engine_sound_emitter,hspeed,vspeed,0);
 
 #define scr_ship_turn
-///scr_ship_turn(x, y, should_face_dir, turn_modifier=1)
+///scr_ship_turn(x, y, should_face_dir, turn_modifier=1, speed_modifier=1)
 
 //Generic script for turning ships towards a point,
 //and whether to change image_angle to match dir
@@ -58,6 +58,7 @@ var tx = argument[0];
 var ty = argument[1];
 var should_face_dir = argument[2];
 var tm = turn;
+var sm = curr_speed;
 
 //Apply a flat turn multiplier so ships spend less time off-screen
 if(scr_is_obj_outside_room()){
@@ -65,8 +66,12 @@ if(scr_is_obj_outside_room()){
 }
 
 //Optional: apply a modifier w/out affecting 'turn' property.
-if(argument_count==4){
+if(argument_count > 3){
     tm *= argument[3];
+}
+//Optional: apply a modifier w/out affecting 'speed' property.
+if(argument_count > 4){
+    sm *= argument[4];
 }
 
 var pa = point_direction(x,y,tx,ty);
@@ -74,14 +79,14 @@ var da = angle_difference(pa,direction);
 var ta = min(abs(da),tm);
 
 direction += global.game_speed*ta*sign(da);
-speed = global.game_speed*curr_speed;
+speed = global.game_speed*sm;
 if(should_face_dir){
     image_angle = direction;
 }
 
 //sound
 var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
-audio_emitter_gain(engine_sound_emitter, gain);
+audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
 
 #define scr_ship_hit
 ///scr_ship_hit()

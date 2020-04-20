@@ -114,7 +114,7 @@ scr_balloon_update_wpns();
             <kind>1</kind>
             <string>///Advance frame
 
-scr_ship_advance_frame();
+scr_balloon_advance_frame();
 </string>
           </argument>
         </arguments>
@@ -137,11 +137,11 @@ scr_ship_advance_frame();
             <kind>1</kind>
             <string>///Navigate balloon towards target
 
-if(is_aggro){
-    scr_balloon_navigate(target_id);
+if(is_aggro &amp;&amp; scr_instance_exists(target_id)){
+    scr_balloon_navigate(target_id.x, target_id.y);
 }
-else{
-    scr_balloon_navigate(global.city_id);
+else if(scr_instance_exists(global.city_id)){
+    scr_balloon_navigate(global.city_id.x, global.city_id.y-36, 0.5, 0.5);
 }
 </string>
           </argument>
@@ -170,6 +170,13 @@ if(scr_instance_exists(gid[0])){
 if(scr_instance_exists(gid[1])){
     scr_balloon_guard();
 }
+
+//drop bombs on city
+if(position_meeting(x,y,obj_city) &amp;&amp; drop_bomb_reload_counter&gt;=drop_bomb_reload_speed){
+    instance_create(x, y, obj_drop_bomb);
+    drop_bomb_reload_counter = 0;
+}
+
 </string>
           </argument>
         </arguments>

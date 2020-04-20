@@ -65,16 +65,13 @@ rm_h = ds_map_find_value(global.curr_level_data,"height");
 //TODO: decode and generate level time line
 
 //Reset camera position...
-var cam_x, cam_y, coords;
+var cam_x, cam_y, coords, vc;
 coords = ds_map_find_value(global.curr_level_data,"cam_coords");
 cam_x = ds_list_find_value(coords,0);
 cam_y = ds_list_find_value(coords,1);
 //...and clamp to room
-if(window_get_fullscreen()){
-    view_xview[0]=clamp(cam_x,0,rm_w-view_wview[0]);
-    view_yview[0]=clamp(cam_y,0,rm_h-view_hview[0]);
-}
-else{
-    view_xview[1]=clamp(cam_x,0,rm_w-view_wview[1]);
-    view_yview[1]=clamp(cam_y,0,rm_h-view_hview[1]);
-}
+vc = scr_view_current();
+view_xview[vc]=clamp(cam_x,0,rm_w-view_wview[vc]);
+view_yview[vc]=clamp(cam_y,0,rm_h-view_hview[vc]);
+view_xprev = view_xview[vc];
+view_yprev = view_yview[vc];

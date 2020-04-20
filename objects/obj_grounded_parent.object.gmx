@@ -56,6 +56,7 @@ scr_grounded_on_create();
 var apx = x*global.PARALLAX_FACTOR + global.tiles_x;
 var apy = y*global.PARALLAX_FACTOR + global.tiles_y;
 draw_sprite(sprite_index,image_index,apx,apy);
+//draw_sprite(sprite_index,image_index,x,y);
 </string>
           </argument>
         </arguments>

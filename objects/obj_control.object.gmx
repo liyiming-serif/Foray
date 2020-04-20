@@ -139,6 +139,10 @@ global.C_FLASH_RED = make_colour_rgb(219,24,69);
 global.flash_red_alpha = 0;
 global.FLASH_RED_ALPHA_DECAY = 0.05;
 
+//SCREEN SHAKE CONSTS
+global.screen_shake_dist = 0;
+global.screen_shake_time = 0;
+
 //drawing shadows
 global.VANISH_X = room_width/2;
 global.VANISH_Y = -576;
@@ -468,35 +472,6 @@ if(global.changing_levels){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Update previous view positions
-if(window_get_fullscreen()){
-    view_xprev = view_xview[0];
-    view_yprev = view_yview[0];
-}
-else{
-    view_xprev = view_xview[1];
-    view_yprev = view_yview[1];
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///'F' to toggle fullscreen
 if(keyboard_check_pressed(global.options_key)){
     if(window_get_fullscreen()){
@@ -526,12 +501,13 @@ if(keyboard_check_pressed(global.options_key)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Update Follow Camera
+            <string>///Update Follow Camera + Screen Shake
 
+var vc = scr_view_current();
+
+// Remain in front of the player object
 if(scr_instance_exists(global.player_id) &amp;&amp; global.next_level == ""){
-    var d, cam_x, cam_y;
-    
-    // Remain in front of the player object
+    var d, cam_x, cam_y,;
     with(global.player_id){
         if(object_index==obj_player){
             d = curr_speed-neutral_speed;
@@ -544,25 +520,28 @@ if(scr_instance_exists(global.player_id) &amp;&amp; global.next_level == ""){
         }
     }
     
-    if(window_get_fullscreen()){
-        //Center on camera
-        view_xview[0]=lerp(view_xprev,cam_x-view_wview[0]/2,0.05);
-        view_yview[0]=lerp(view_yprev,cam_y-view_hview[0]/2,0.05);
-        
-        //clamp to room
-        view_xview[0]=clamp(view_xview[0],0,room_width-view_wview[0]);
-        view_yview[0]=clamp(view_yview[0],0,room_height-view_hview[0]);
-    }
-    else{
-        //Center on camera
-        view_xview[1]=lerp(view_xprev,cam_x-view_wview[1]/2,0.05);
-        view_yview[1]=lerp(view_yprev,cam_y-view_hview[1]/2,0.05);
-        
-        //clamp to room
-        view_xview[1]=clamp(view_xview[1],0,room_width-view_wview[1]);
-        view_yview[1]=clamp(view_yview[1],0,room_height-view_hview[1]);
-    }
+    //Center on camera
+    view_xview[vc]=lerp(view_xprev,cam_x-view_wview[vc]/2,0.05);
+    view_yview[vc]=lerp(view_yprev,cam_y-view_hview[vc]/2,0.05);
+    
+    //clamp to room
+    view_xview[vc]=clamp(view_xview[vc],0,room_width-view_wview[vc]);
+    view_yview[vc]=clamp(view_yview[vc],0,room_height-view_hview[vc]);
 }
+
+//update prev cam pos
+view_xprev = view_xview[vc];
+view_yprev = view_yview[vc];
+
+//apply screen shake
+if(global.screen_shake_time &gt; 0){
+    view_xview[vc] += random_range(-global.screen_shake_dist, global.screen_shake_dist);
+    view_yview[vc] += random_range(-global.screen_shake_dist, global.screen_shake_dist);
+}
+else{
+    global.screen_shake_dist = 0;
+}
+global.screen_shake_time = max(global.screen_shake_time-1, 0);
 </string>
           </argument>
         </arguments>
@@ -609,23 +588,21 @@ if(scr_instance_exists(global.player_id)){
           <argument>
             <kind>1</kind>
             <string>///Lerp-parallax
-var tiles_xprev = global.tiles_x;
-var tiles_yprev = global.tiles_y;
 
-if(window_get_fullscreen()){
-    global.tiles_x = lerp(0,room_width*(1-global.PARALLAX_FACTOR),view_xview[0]/(room_width-view_wview[0]));
-    global.tiles_y = lerp(0,room_height*(1-global.PARALLAX_FACTOR),view_yview[0]/(room_height-view_hview[0]));
-}
-else{
-    global.tiles_x = lerp(0,room_width*(1-global.PARALLAX_FACTOR),view_xview[1]/(room_width-view_wview[1]));
-    global.tiles_y = lerp(0,room_height*(1-global.PARALLAX_FACTOR),view_yview[1]/(room_height-view_hview[1]));
-}
+var tiles_xprev, tiles_yprev, vc;
 
-//grounded particle system
-part_system_position(global.partsys_ground, global.tiles_x, global.tiles_y);
+tiles_xprev = global.tiles_x;
+tiles_yprev = global.tiles_y;
+
+vc = scr_view_current();
+global.tiles_x = lerp(0,room_width*(1-global.PARALLAX_FACTOR),view_xview[vc]/(room_width-view_wview[vc]));
+global.tiles_y = lerp(0,room_height*(1-global.PARALLAX_FACTOR),view_yview[vc]/(room_height-view_hview[vc]));
 
 tile_layer_shift(127, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
+
+//grounded particle system
+part_system_position(global.partsys_ground, global.tiles_x, global.tiles_y);
 
 </string>
           </argument>
