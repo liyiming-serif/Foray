@@ -273,7 +273,7 @@ part_type_life(global.explosion, room_speed*0.6, room_speed*0.8);
 
 global.explosion_ground = part_type_create();
 part_type_sprite(global.explosion_ground, eff_explosion_ground, true, true, false);
-part_type_life(global.explosion_ground, room_speed, room_speed*1.2);
+part_type_life(global.explosion_ground, room_speed*0.5, room_speed*0.6);
 
 global.dmg_ind[0] = part_type_create();
 part_type_sprite(global.dmg_ind[0], eff_smoke_lt, true, true, false);

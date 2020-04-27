@@ -120,8 +120,8 @@
       "dmg":0,
       "airtime":50,
       "y_speed":1,
-      "screen_shake_dist": 4,
-      "screen_shake_time": 30
+      "screen_shake_dist": 5,
+      "screen_shake_time": 20
     }
   }
 }
