@@ -29,15 +29,15 @@ scr_add_design_pattern(cb);
 
 #define scr_spawn_plane_cmc3
 ///scr_spawn_plane_cmc3()
-var model_name = choose("al_awaidh");
+var model_name = choose("altair");
 scr_spawn_plane(model_name,1);
 
 #define scr_spawn_plane_cmc4
 ///scr_spawn_plane_cmc4()
-var model_name = choose("jenny","asteroid_blues","camel");
+var model_name = choose("bessie","asteroid_blues","camel");
 scr_spawn_plane(model_name,choose(1,2));
 
 #define scr_spawn_plane_cmc5
 ///scr_spawn_plane_cmc5()
-var model_name = choose("fomalhaut","red_baroness");
+var model_name = choose("deneb","red_baroness");
 scr_spawn_plane(model_name,2);

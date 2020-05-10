@@ -126,6 +126,7 @@ global.C_TEXT_SHADOW = make_colour_rgb(143,239,186);
 global.C_TEXT_LIGHT = make_colour_rgb(235,255,140);
 global.C_MAX_BAR = make_colour_rgb(107,255,192); //min-max colors for health bars
 global.C_MIN_BAR = make_colour_rgb(0,181,156);
+global.C_D_SMOKE = make_colour_rgb(64,64,134);
 global.HBAR_X = 15;
 global.HBAR_Y = 20;
 global.PBAR_Y = 24;
@@ -133,11 +134,16 @@ global.ARROW_ANIM_SPEED = 0.3;
 global.TUTORIAL_FADE_IN_RATE = 0.02;
 global.TUTORIAL_FOLLOW_DIST = 72;
 global.TUTORIAL_SCREEN_POS = 2/5;
+global.CITY_WARNING_DURATION = room_speed*1.6;
+global.CITY_WARNING_SENSITIVITY = 24;
+global.CITY_WARNING_BORDER = 12;
 
 //SCREEN FLASH CONSTS
 global.C_FLASH_RED = make_colour_rgb(219,24,69);
 global.flash_red_alpha = 0;
 global.FLASH_RED_ALPHA_DECAY = 0.05;
+global.flash_explosion_alpha = 0;
+global.FLASH_EXPLOSION_ALPHA_DECAY = 0.02;
 
 //SCREEN SHAKE CONSTS
 global.screen_shake_dist = 0;

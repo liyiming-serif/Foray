@@ -131,6 +131,8 @@
     <sound>sound\snd_deflect</sound>
     <sound>sound\snd_charging</sound>
     <sound>sound\snd_spawn_skymine</sound>
+    <sound>sound\snd_drop_bomb</sound>
+    <sound>sound\snd_ground_explosion</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="planes">
@@ -235,6 +237,7 @@
     <scripts name="UI">
       <script>scripts\scr_tutorial_create.gml</script>
       <script>scripts\scr_statbox_create.gml</script>
+      <script>scripts\scr_city_warning_create.gml</script>
     </scripts>
     <scripts name="helpers">
       <script>scripts\scr_instance_exists.gml</script>
@@ -248,6 +251,7 @@
       <script>scripts\scr_is_obj_between_angles.gml</script>
       <script>scripts\scr_is_obj_outside_room.gml</script>
       <script>scripts\scr_ground_particle_create.gml</script>
+      <script>scripts\scr_line_rect_intersect.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

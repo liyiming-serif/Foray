@@ -2,7 +2,7 @@
 ///scr_play_sound(sound_id, x, y)
 
 //plays a positional sound fx once
-//randomizes the pitch, track-position(?), and gain to keep the sound from going stale
+//randomizes the pitch and gain to keep the sound from going stale
 //TODO: can one falloff setting fit all?
 var sound_id = argument[0];
 var px = argument[1];
@@ -40,7 +40,7 @@ return s;
 ///scr_play_sound_ui(sound_id)
 
 //plays a sound fx once, regardless of position
-//randomizes the pitch, track-position(?), and gain to keep the sound from going stale
+//randomizes the pitch and gain to keep the sound from going stale
 var sound_id = argument[0];
 
 var s;

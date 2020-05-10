@@ -11,16 +11,16 @@
     "max_hp": 40,
     "threat": 0.3,
     "score":8,
-    "al_awaidh":{
-      "name": "Al-Awaidh",
+    "altair":{
+      "name": "Altair",
       "speed": 1,
       "turn": 1.3,
       "dmg":1,
       "amr":1,
       "palette": 0
     },
-    "jenny":{
-      "name": "Jenny JN-5",
+    "bessie":{
+      "name": "BC-4 Bessie",
       "speed": 2,
       "turn": 1,
       "dmg": 1,
@@ -51,8 +51,8 @@
       "amr":1,
       "palette": 4
     },
-    "fomalhaut":{
-      "name": "Fomalhaut",
+    "deneb":{
+      "name": "Deneb",
       "speed": 2,
       "turn": 1,
       "dmg":2,

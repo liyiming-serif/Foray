@@ -31,10 +31,13 @@ hp_gauge_ref = spr_hp_gauge;
 hp_icon_ref = spr_hp_icon;
 progress_gauge_ref = spr_progress_gauge;
 progress_bar_ref = spr_progress_bar;
+city_warning_ref = spr_city_warning;
 
 //frame trackers for animated HUD elements
-//hp_ico_frame = 0;
-//hp_ico_img_speed = 0.25;
+warning_frame = 0;
+warning_img_speed = 0.6;
+warning_pos = -1;
+warning_alarm = 0;
 
 //hp values to track
 max_hp = ds_map_find_value(global.models,"max_hp");
@@ -101,12 +104,19 @@ else{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///advance frame for animated UI
-//hp_ico_frame += hp_ico_img_speed;
-//if(hp_ico_frame&gt;=sprite_get_number(hp_icon_ref)){
-//    hp_ico_frame = 0;
-//}
+            <string>///advance frame for city warning
 
+if(warning_alarm &gt; 0){
+    warning_alarm--;
+    
+    warning_pos = scr_city_warning_move(city_warning_ref);
+    if(is_array(warning_pos)){
+        warning_frame += warning_img_speed;
+        if(warning_frame&gt;=sprite_get_number(city_warning_ref)){
+            warning_frame = 0;
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -274,6 +284,31 @@ global.flash_red_alpha -= global.FLASH_RED_ALPHA_DECAY;
 global.flash_red_alpha = clamp(global.flash_red_alpha,0,1);
 draw_set_colour(c_prev);
 draw_set_alpha(a_prev);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw city's under attack warning
+
+if(warning_alarm &gt; 0 &amp;&amp; is_array(warning_pos)){
+    draw_sprite(city_warning_ref, warning_frame, warning_pos[0], warning_pos[1]);
+}
 </string>
           </argument>
         </arguments>

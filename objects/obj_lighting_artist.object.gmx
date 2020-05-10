@@ -3,7 +3,7 @@
   <spriteName>spr_lighting_artist</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>10</depth>
+  <depth>11</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -32,6 +32,14 @@ var a_prev = draw_get_alpha();
 
 var vc = scr_view_current();
 
+//flash darken screen to highlight exlosions/fx
+draw_set_colour(global.C_D_SMOKE);
+draw_set_alpha(global.flash_explosion_alpha);
+draw_rectangle(view_xview[vc],view_yview[vc],view_xview[vc]+view_wview[vc],view_yview[vc]+view_hview[vc],false);
+global.flash_explosion_alpha -= global.FLASH_EXPLOSION_ALPHA_DECAY;
+global.flash_explosion_alpha = clamp(global.flash_explosion_alpha,0,1);
+
+//darken screen when paused
 if(global.paused){
     draw_set_colour(global.C_SHADOW);
     draw_set_alpha(0.375);
