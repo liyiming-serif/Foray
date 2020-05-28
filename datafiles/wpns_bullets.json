@@ -96,6 +96,34 @@
       "rounds":1,
       "reload_rate":90,
       "hp_reduc":0.7
+    },
+    "player_missile_gun":{
+      "obj_ind":"obj_wpn_parent",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_charge_shoot",
+      "on_release_cb":"scr_fire_missile",
+      "dmg":[8],
+      "projectile":"player_missile",
+      "recoil":1,
+      "muzzle_vel":0,
+      "shoot_rate":60,
+      "accuracy":0,
+      "range":[1200,1248],
+      "rounds":2,
+      "reload_rate":360
+    },
+    "city_missile_gun":{
+      "obj_ind":"obj_wpn_parent",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_fire_missile",
+      "on_release_cb":"scr_do_nothing",
+      "dmg":[0],
+      "projectile":"city_missile",
+      "recoil":1,
+      "muzzle_vel":0,
+      "accuracy":0,
+      "shoot_rate":300,
+      "range":[2000,2048],
     }
   },
 
@@ -119,9 +147,7 @@
     "drop_bomb":{
       "dmg":0,
       "airtime":50,
-      "y_speed":1,
-      "screen_shake_dist": 5,
-      "screen_shake_time": 20
+      "y_speed":1
     }
   }
 }

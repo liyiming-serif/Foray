@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="28" name="datafiles">
+  <datafiles number="29" name="datafiles">
     <datafile>
       <name>Westington.ttf</name>
       <exists>-1</exists>
@@ -56,9 +56,9 @@
       <filename>4mini.ttf</filename>
     </datafile>
     <datafile>
-      <name>ships_planes.json</name>
+      <name>ships.json</name>
       <exists>-1</exists>
-      <size>1804</size>
+      <size>2812</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -70,7 +70,7 @@
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
-      <filename>ships_planes.json</filename>
+      <filename>ships.json</filename>
     </datafile>
     <datafile>
       <name>wpns_bullets.json</name>
@@ -144,13 +144,19 @@
     <sprites name="ships">
       <sprite>sprites\spr_skymine</sprite>
       <sprite>sprites\spr_balloon</sprite>
+      <sprite>sprites\spr_subballoon</sprite>
       <sprite>sprites\spr_balloon_amr</sprite>
+      <sprite>sprites\spr_blimp</sprite>
       <sprite>sprites\spr_zeppelin</sprite>
     </sprites>
     <sprite>sprites\spr_char</sprite>
     <sprite>sprites\spr_char_back</sprite>
-    <sprite>sprites\spr_bullet</sprite>
-    <sprite>sprites\spr_cannonball</sprite>
+    <sprites name="projectiles">
+      <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_cannonball</sprite>
+      <sprite>sprites\spr_player_missle</sprite>
+      <sprite>sprites\spr_city_missile</sprite>
+    </sprites>
     <sprite>sprites\spr_drop_bomb</sprite>
     <sprite>sprites\spr_wpn_mg</sprite>
     <sprite>sprites\spr_wpn_bomb</sprite>
@@ -170,6 +176,8 @@
     <sprite>sprites\spr_lockoff</sprite>
     <sprite>sprites\spr_arrowon</sprite>
     <sprite>sprites\spr_arrowoff</sprite>
+    <sprite>sprites\spr_player_missile_target</sprite>
+    <sprite>sprites\spr_city_missile_target</sprite>
     <sprites name="smoke_trails">
       <sprite>sprites\eff_smoke_lt</sprite>
       <sprite>sprites\eff_smoke_dk</sprite>
@@ -194,6 +202,7 @@
     <sprite>sprites\spr_tutorial_mouse</sprite>
     <sprite>sprites\spr_tutorial_mouse_right</sprite>
     <sprite>sprites\spr_city_warning</sprite>
+    <sprite>sprites\spr_city_missile_warning</sprite>
     <sprites name="stats_ui">
       <sprite>sprites\spr_stat</sprite>
       <sprite>sprites\spr_stat_filled</sprite>
@@ -216,11 +225,18 @@
     <script>scripts\scr_player_create.gml</script>
     <script>scripts\scr_skymine_create.gml</script>
     <script>scripts\scr_balloon_create.gml</script>
+    <script>scripts\scr_subballoon_create.gml</script>
+    <script>scripts\scr_blimp_create.gml</script>
     <script>scripts\scr_zeppelin_create.gml</script>
     <script>scripts\scr_ship_instantiate.gml</script>
+    <script>scripts\scr_city_hit.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
     <script>scripts\scr_projectile_create.gml</script>
+    <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
+    <scripts name="wpn_cbs">
+      <script>scripts\scr_fire_missile.gml</script>
+    </scripts>
     <scripts name="audio">
       <script>scripts\scr_play_sound.gml</script>
     </scripts>
@@ -266,20 +282,27 @@
     <object>objects\obj_enemy</object>
     <object>objects\obj_skymine</object>
     <object>objects\obj_balloon</object>
+    <object>objects\obj_subballoon</object>
     <object>objects\obj_balloon_amr</object>
+    <object>objects\obj_blimp</object>
     <object>objects\obj_zeppelin</object>
     <object>objects\obj_player_avatar</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
+    <object>objects\obj_player_missile</object>
+    <object>objects\obj_city_missile</object>
     <object>objects\obj_drop_bomb</object>
     <object>objects\obj_wpn_antiair_gun</object>
     <object>objects\obj_city</object>
-    <object>objects\obj_control</object>
-    <object>objects\obj_hud_artist</object>
-    <object>objects\obj_lighting_artist</object>
-    <object>objects\obj_spawner</object>
-    <object>objects\obj_tutorial_agent</object>
+    <objects name="control">
+      <object>objects\obj_control</object>
+      <object>objects\obj_hud_artist</object>
+      <object>objects\obj_lighting_artist</object>
+      <object>objects\obj_spawner</object>
+      <object>objects\obj_tutorial_agent</object>
+    </objects>
     <object>objects\obj_ship_parent</object>
+    <object>objects\obj_fireship_parent</object>
     <object>objects\obj_plane_parent</object>
     <object>objects\obj_projectile_parent</object>
     <object>objects\obj_charge_wpn_parent</object>

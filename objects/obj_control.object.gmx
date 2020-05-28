@@ -38,14 +38,14 @@ randomize();
 var f, raw;
 
 //Ship and plane models + AI constants
-f = file_text_open_read(working_directory + "\ships_planes.json");
+f = file_text_open_read(working_directory + "\ships.json");
 raw = "";
 while(!file_text_eof(f)){
     raw += file_text_read_string(f);
     file_text_readln(f);
 }
 file_text_close(f);
-global.SHIPS_PLANES = json_decode(raw);
+global.SHIPS = json_decode(raw);
 
 //Weapon fixures and projectiles
 f = file_text_open_read(working_directory + "\wpns_bullets.json");
@@ -68,15 +68,17 @@ file_text_close(f);
 global.DESIGN_PATTERNS = json_decode(raw);
 
 //PARSE JSONS
-global.models = ds_map_find_value(global.SHIPS_PLANES, "models");
-global.balloons = ds_map_find_value(global.SHIPS_PLANES, "balloons");
-var stat_tiers = ds_map_find_value(global.SHIPS_PLANES, "stat_tiers");
+global.planes = ds_map_find_value(global.SHIPS, "planes");
+global.balloons = ds_map_find_value(global.SHIPS, "balloons");
+global.projectilesque = ds_map_find_value(global.SHIPS, "projectilesque");
+global.models = ds_map_find_value(global.planes, "models");
+var stat_tiers = ds_map_find_value(global.planes, "stat_tiers");
 global.speed_tiers = ds_map_find_value(stat_tiers, "speeds");
 global.min_speed_tiers = ds_map_find_value(stat_tiers, "min_speeds");
 global.max_speed_tiers = ds_map_find_value(stat_tiers, "max_speeds");
 global.turn_tiers = ds_map_find_value(stat_tiers, "turns");
 global.amr_tiers = ds_map_find_value(stat_tiers, "armors");
-global.pilot_ai = ds_map_find_value(global.SHIPS_PLANES, "pilot_ai");
+global.pilot_ai = ds_map_find_value(global.planes, "pilot_ai");
 global.projectiles = ds_map_find_value(global.WPNS_BULLETS, "projectiles");
 global.weapons = ds_map_find_value(global.WPNS_BULLETS, "weapons");
 global.midflights = ds_map_find_value(global.WPNS_BULLETS, "midflights");
@@ -124,7 +126,7 @@ global.SWERVE_TURN_MOD = 1.5; //turning boost for AI avoiding obstacles
 global.C_TEXT = make_colour_rgb(108,102,142);
 global.C_TEXT_SHADOW = make_colour_rgb(143,239,186);
 global.C_TEXT_LIGHT = make_colour_rgb(235,255,140);
-global.C_MAX_BAR = make_colour_rgb(107,255,192); //min-max colors for health bars
+global.C_MAX_BAR = make_colour_rgb(132,255,177); //min-max colors for health bars
 global.C_MIN_BAR = make_colour_rgb(0,181,156);
 global.C_D_SMOKE = make_colour_rgb(64,64,134);
 global.HBAR_X = 15;
@@ -134,9 +136,16 @@ global.ARROW_ANIM_SPEED = 0.3;
 global.TUTORIAL_FADE_IN_RATE = 0.02;
 global.TUTORIAL_FOLLOW_DIST = 72;
 global.TUTORIAL_SCREEN_POS = 2/5;
+global.CITY_HIT_FLASH_ALPHA = 0.4;
+global.CITY_HIT_SHAKE_DIST = 5;
+global.CITY_HIT_SHAKE_TIME = 20;
 global.CITY_WARNING_DURATION = room_speed*1.6;
 global.CITY_WARNING_SENSITIVITY = 24;
 global.CITY_WARNING_BORDER = 12;
+global.C_ENEMY_MAX_HBAR = make_colour_rgb(255,0,0);
+global.C_ENEMY_MIN_HBAR = make_colour_rgb(255,0,0);
+global.C_ENEMY_BACK_HBAR = make_colour_rgb(87,107,112);
+global.ENEMY_HBAR_THICKNESS = 2;
 
 //SCREEN FLASH CONSTS
 global.C_FLASH_RED = make_colour_rgb(219,24,69);
@@ -355,7 +364,7 @@ part_type_destroy(global.dmg_ind[2]);
 part_type_destroy(global.trail_far);
 
 //top level data structures
-ds_map_destroy(global.SHIPS_PLANES);
+ds_map_destroy(global.SHIPS);
 ds_map_destroy(global.WPNS_BULLETS);
 ds_map_destroy(global.DESIGN_PATTERNS);
 if(global.curr_level_name!=""){

@@ -18,7 +18,6 @@ with(instance_create(xv,yv,obj_skymine)){
     var mp = ds_map_find_value(global.balloons, "skymine");
     
     friction = ds_map_find_value(mp, "fric");
-    hp = ds_map_find_value(mp, "max_hp");
     dmg = ds_map_find_value(mp, "dmg");
     alert_range = ds_map_find_value(mp, "alert_range");
     chase_player = chp;

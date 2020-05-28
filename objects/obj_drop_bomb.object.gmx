@@ -86,12 +86,8 @@ speed = global.game_speed*speedy;
             <string>///detonate!
 
 instance_destroy();
-scr_city_warning_create();
 scr_ground_particle_create(x, y, global.explosion_ground);
-global.flash_explosion_alpha = 0.4;
-global.progress -= dmg;
-global.screen_shake_dist += shake_dist;
-global.screen_shake_time = shake_time;
+scr_city_hit(dmg);
 audio_stop_sound(whistle_sound);
 scr_play_sound_ui(snd_ground_explosion);
 </string>

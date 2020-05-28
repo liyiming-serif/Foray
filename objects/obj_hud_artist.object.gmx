@@ -40,7 +40,7 @@ warning_pos = -1;
 warning_alarm = 0;
 
 //hp values to track
-max_hp = ds_map_find_value(global.models,"max_hp");
+max_hp = ds_map_find_value(global.planes,"max_hp");
 hp = max_hp;
 target_hp = hp;
 </string>

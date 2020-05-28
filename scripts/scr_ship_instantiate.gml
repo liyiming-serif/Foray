@@ -6,8 +6,22 @@
 is_friendly = argument[0];
 var mp = argument[1];
 
+//common: hp
+max_hp = ds_map_find_value(mp, "max_hp");
+hp = max_hp;
+hp_bar_width = ds_map_find_value(mp,"hp_bar_width");
+if(hp_bar_width==undefined){
+    hp_bar_width = sprite_width;
+}
+//common: callbacks
+var dsn = ds_map_find_value(mp,"death_seq_cb");
+if(dsn != undefined){
+    death_seq_cb = asset_get_index(dsn);
+}
+//common: collision
 hitstun = 0;
 invincibility = 0;
+//common: spawning
 threat = ds_map_find_value(mp,"threat");
 
 //TODO: remove scoring
@@ -89,13 +103,17 @@ var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*globa
 audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
 
 #define scr_ship_hit
-///scr_ship_hit()
+///scr_ship_hit(friendly_fire=false)
 
 //Abstract function for when a ship collides with a projectile.
 
 if(hp<=0) return undefined;
 
-if(is_friendly!=other.is_friendly){
+var ff = false;
+if(argument_count==1){
+    ff = argument[0];
+}
+if(is_friendly!=other.is_friendly || !ff){
 
     if(invincibility>0){ //destroy bullet and exit early
         instance_destroy(other);
@@ -119,7 +137,7 @@ if(is_friendly!=other.is_friendly){
     hitstun = log2(other.dmg+1)*2.2;
     
     //player hit specific code
-    if(!other.is_friendly){
+    if(is_friendly){
         //TODO: apply screen shake?
         
         //apply screen flash
@@ -276,3 +294,19 @@ ay = 0;
 avoid_arc = ceil(67.5/tn);
 //distance covered by one avoid arc
 foresight = 0.4*avoid_arc*sp;
+#define scr_ship_draw_ui
+///scr_ship_draw_ui()
+
+//draw any ui attached to the ship
+
+//draw hp bar
+if(hp<max_hp){
+    var amt, w, h, px, py, uipos;
+    amt = 100*hp/max_hp;
+    w = hp_bar_width;
+    h = global.ENEMY_HBAR_THICKNESS;
+    px = x-w/2;
+    py = y-sprite_yoffset-h;
+    uipos = scr_game_to_gui(px,py);
+    draw_healthbar(uipos[0],uipos[1],uipos[0]+w,uipos[1]+h,amt,global.C_ENEMY_BACK_HBAR,global.C_ENEMY_MIN_HBAR,global.C_ENEMY_MAX_HBAR,0,true,false);
+}

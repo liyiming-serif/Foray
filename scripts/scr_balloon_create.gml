@@ -10,7 +10,6 @@ with(instance_create(xv,yv,obj_balloon)){
     
     scr_ship_instantiate(false,mp);
     
-    hp = ds_map_find_value(mp, "max_hp");
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");
     gun_turn = ds_map_find_value(mp, "gun_turn");
@@ -50,9 +49,6 @@ with(instance_create(xv,yv,obj_balloon)){
     scr_set_avoidance(curr_speed, turn);
     
     image_speed = 0.4;
-    
-    //callbacks
-    death_seq_cb = scr_ship_explode_small;
 
     /*
     engine_sound = audio_play_sound_on(engine_sound_emitter,snd_balloon_propeller,true,0);

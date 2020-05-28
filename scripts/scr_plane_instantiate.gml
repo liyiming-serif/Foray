@@ -7,17 +7,17 @@ var mp = ds_map_find_value(global.models, argument[1]);
 key = argument[1];
 var wpn_name = argument[2];
 if(argument_count==5){
-    scr_ship_instantiate(argument[3],global.models,argument[4]);
+    scr_ship_instantiate(argument[3],global.planes,argument[4]);
 }
 else{
-    scr_ship_instantiate(argument[3],global.models);
+    scr_ship_instantiate(argument[3],global.planes);
 }
 
 //orient the plane
 image_angle = direction;
 
 //params common to every model
-max_hp = ds_map_find_value(global.models,"max_hp");
+max_hp = ds_map_find_value(global.planes,"max_hp");
 
 //primary stats. These stats represent how many stars the player sees.
 //Use the global lookup table to interpolate the in-game values these
@@ -75,9 +75,6 @@ arrow_img_ind = 0;
 
 //arm the plane
 gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly,display_dmg);
-
-//callbacks
-death_seq_cb = scr_plane_crash;
 
 //audio
 if(is_friendly){

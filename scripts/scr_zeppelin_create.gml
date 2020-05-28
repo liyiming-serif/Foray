@@ -15,7 +15,6 @@ with(instance_create(xv,yv,obj_zeppelin)){
     //initiallize stats
     var mp = ds_map_find_value(global.balloons, "zeppelin");
     
-    hp = ds_map_find_value(mp, "max_hp");
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");
     
@@ -41,9 +40,6 @@ with(instance_create(xv,yv,obj_zeppelin)){
     min_range += sprite_width; //offset the zeppelin's own size
     
     scr_ship_instantiate(false,mp);
-    
-    //callbacks
-    death_seq_cb = scr_ship_explode_large;
     
     /*
     engine_sound = audio_play_sound_on(engine_sound_emitter,snd_balloon_propeller,true,0);
