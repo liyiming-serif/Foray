@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///on death supplements
 
-//fireship shot down
+//missile shot down
 if(hp&lt;=0){
     if(variable_instance_exists(id,"miss_part")){
         part_type_direction(miss_part,direction,direction,0,0);

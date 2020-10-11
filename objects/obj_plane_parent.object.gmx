@@ -139,6 +139,8 @@ if(is_array(angles) &amp;&amp; hp&gt;0 &amp;&amp; scr_instance_exists(global.pla
     draw_sprite_ext(spr,arrow_img_ind,d_pos[0],d_pos[1],1,1,radtodeg(starting_angle)+image_angle,c_white,1);
     arrow_img_ind = (arrow_img_ind+global.ARROW_ANIM_SPEED)%sprite_get_number(spr);
 }
+
+scr_ship_draw_ui();
 </string>
           </argument>
         </arguments>

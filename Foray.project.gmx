@@ -302,7 +302,7 @@
       <object>objects\obj_tutorial_agent</object>
     </objects>
     <object>objects\obj_ship_parent</object>
-    <object>objects\obj_fireship_parent</object>
+    <object>objects\obj_missile_parent</object>
     <object>objects\obj_plane_parent</object>
     <object>objects\obj_projectile_parent</object>
     <object>objects\obj_charge_wpn_parent</object>

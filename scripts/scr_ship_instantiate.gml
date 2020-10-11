@@ -113,7 +113,7 @@ var ff = false;
 if(argument_count==1){
     ff = argument[0];
 }
-if(is_friendly!=other.is_friendly || !ff){
+if(is_friendly!=other.is_friendly || ff){
 
     if(invincibility>0){ //destroy bullet and exit early
         instance_destroy(other);
@@ -300,7 +300,7 @@ foresight = 0.4*avoid_arc*sp;
 //draw any ui attached to the ship
 
 //draw hp bar
-if(hp<max_hp){
+if(hp<max_hp && global.player_id != id){
     var amt, w, h, px, py, uipos;
     amt = 100*hp/max_hp;
     w = hp_bar_width;
