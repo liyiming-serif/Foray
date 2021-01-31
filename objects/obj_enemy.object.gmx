@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Reset state from RELOADING
 if(!alarm[global.AVOID_STATE_ALARM]){
-    state = ai_states.CHASING;
+    state = plane_ai_states.CHASING;
 }
 </string>
           </argument>
@@ -53,10 +53,10 @@ if(!alarm[global.AVOID_STATE_ALARM]){
             <kind>1</kind>
             <string>///Reset state from AVOIDING
 if(!alarm[1]){
-    state = ai_states.CHASING;
+    state = plane_ai_states.CHASING;
 }
 else{
-    state = ai_states.RELOADING;
+    state = plane_ai_states.RELOADING;
 }
 
 </string>
@@ -111,15 +111,15 @@ if(hp&lt;=0 || !has_pilot || !scr_instance_exists(target_id)){
 }
 
 switch(state){
-    case ai_states.CHASING:
+    case plane_ai_states.CHASING:
         scr_aiplane_aim();
-    case ai_states.FIRING:
+    case plane_ai_states.FIRING:
         scr_aiplane_shoot();
-    case ai_states.AVOIDING:
+    case plane_ai_states.AVOIDING:
         scr_aiplane_navigate(target_id.x,target_id.y,false);
         break;
-    case ai_states.FLEEING:
-    case ai_states.RELOADING:
+    case plane_ai_states.FLEEING:
+    case plane_ai_states.RELOADING:
         scr_aiplane_navigate(target_id.x,target_id.y,true);
         break;
 }

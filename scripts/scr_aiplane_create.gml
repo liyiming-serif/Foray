@@ -31,7 +31,7 @@ with(instance_create(xv,yv,obj_enemy)){
     hp = max_hp;
     
     //entry point for AI FSM
-    state = ai_states.CHASING;
+    state = plane_ai_states.CHASING;
     rounds_left = max_rounds;
     scr_set_avoidance(neutral_speed, turn);
     
@@ -63,7 +63,7 @@ if(i!=noone){
         }
     }
 }
-if(state != ai_states.AVOIDING){
+if(state != plane_ai_states.AVOIDING){
     ax = 0;
     ay = 0;
 }
@@ -92,13 +92,13 @@ if(i!=noone){
     }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    state = ai_states.AVOIDING;
+    state = plane_ai_states.AVOIDING;
     if(!alarm[global.AVOID_STATE_ALARM]){
         alarm[global.AVOID_STATE_ALARM] = avoid_arc;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }
-if(state == ai_states.AVOIDING){
+if(state == plane_ai_states.AVOIDING){
     //swerving
     scr_plane_turn(x+ax, y+ay, away, global.SWERVE_TURN_MOD);
 }
@@ -110,12 +110,12 @@ else{
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
 
-if(state==ai_states.FIRING && scr_plane_shoot("pressed")!=undefined){
+if(state==plane_ai_states.FIRING && scr_plane_shoot("pressed")!=undefined){
     //Decide to transition AI to 'reloading'
     rounds_left--;
     if(rounds_left<=0){
         rounds_left = max_rounds;
-        state = ai_states.RELOADING;
+        state = plane_ai_states.RELOADING;
         if(!alarm[1]){
             alarm[1] = reload_speed;
         }
@@ -132,7 +132,7 @@ if(pd<=range){
     var pa = point_direction(x,y,target_id.x,target_id.y);
     var da = abs(angle_difference(pa,direction));
     if(da <= accuracy){
-        state = ai_states.FIRING;
+        state = plane_ai_states.FIRING;
     }
 }
 

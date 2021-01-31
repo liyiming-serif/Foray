@@ -55,6 +55,7 @@ apparent_y = y;
           <argument>
             <kind>1</kind>
             <string>///calculate apparent position
+/*
 apparent_x = true_x*global.PARALLAX_FACTOR + global.tiles_x;
 apparent_y = true_y*global.PARALLAX_FACTOR + global.tiles_y;
 if(scr_is_obj_outside_view(apparent_x, apparent_y) &amp;&amp; scr_is_obj_outside_view(true_x, true_y)){
@@ -64,7 +65,7 @@ if(scr_is_obj_outside_view(apparent_x, apparent_y) &amp;&amp; scr_is_obj_outside
 else{
     x = apparent_x;
     y = apparent_y;
-}
+}*/
 </string>
           </argument>
         </arguments>

@@ -213,12 +213,19 @@ enum mk{ //TODO: add modifiers
 };
 
 //Plane AI ENUMS
-enum ai_states{
+enum plane_ai_states{
     CHASING,
     FIRING,
     FLEEING,
     AVOIDING,
     RELOADING
+};
+//Blimp AI ENUMS
+enum blimp_ai_states{
+    POSITIONING,
+    TARGETING_CITY,
+    TARGETING_PLAYER,
+    FLEEING
 };
 
 //ai difficulty modifiers

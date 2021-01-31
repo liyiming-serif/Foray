@@ -149,18 +149,22 @@
       <sprite>sprites\spr_blimp</sprite>
       <sprite>sprites\spr_zeppelin</sprite>
     </sprites>
-    <sprite>sprites\spr_char</sprite>
-    <sprite>sprites\spr_char_back</sprite>
+    <sprites name="chars">
+      <sprite>sprites\spr_char</sprite>
+      <sprite>sprites\spr_char_back</sprite>
+    </sprites>
     <sprites name="projectiles">
       <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_cannonball</sprite>
       <sprite>sprites\spr_player_missle</sprite>
       <sprite>sprites\spr_city_missile</sprite>
+      <sprite>sprites\spr_drop_bomb</sprite>
     </sprites>
-    <sprite>sprites\spr_drop_bomb</sprite>
-    <sprite>sprites\spr_wpn_mg</sprite>
-    <sprite>sprites\spr_wpn_bomb</sprite>
     <sprite>sprites\spr_wpn_airtillery</sprite>
+    <sprites name="weapons">
+      <sprite>sprites\spr_wpn_mg</sprite>
+      <sprite>sprites\spr_wpn_bomb</sprite>
+    </sprites>
     <sprite>sprites\spr_wpn_antiair_gun</sprite>
     <sprite>sprites\spr_city</sprite>
     <sprite>sprites\eff_b1_miss</sprite>
@@ -214,9 +218,10 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_palette</background>
-    <background>background\ts_sand_flora</background>
-    <background>background\ts_rock_crater</background>
-    <background>background\ts_city</background>
+    <background>background\ts_sand</background>
+    <background>background\ts_rock</background>
+    <background>background\ts_flora</background>
+    <background>background\ts_plateau</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

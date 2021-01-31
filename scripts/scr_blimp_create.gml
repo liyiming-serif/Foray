@@ -25,23 +25,31 @@ with(instance_create(xv,yv,obj_blimp)){
     scr_set_avoidance(curr_speed, turn);
     player_noticed = false;
     is_fleeing = false;
+    state = blimp_ai_states.POSITIONING;
     
     return id;
 }
 
-#define scr_blimp_turn
-///scr_blimp_turn
+#define scr_blimp_position
+///scr_blimp_position()
 
 //control blimp movement
 
-#define scr_blimp_aim
-///scr_blimp_aim()
+#define scr_blimp_flee
+///scr_blimp_flee()
+
+#define scr_blimp_aim_city
+///scr_blimp_aim_city()
 
 //control blimp firing
 
 
+#define scr_blimp_aim_player
+///scr_blimp_aim_player()
+
+
 #define scr_blimp_update_wpns
-///scr_zeppelin_update_wpns()
+///scr_blimp_update_wpns()
 
 //Update weapon position and image angle. Call during the end step.
 var r, t;
@@ -63,3 +71,5 @@ if(scr_instance_exists(gid[2])){
     t = image_angle-90;
     scr_ship_update_wpn(r,t,gid[2]);
 }
+#define scr_blimp_idle
+///scr_blimp_idle()
