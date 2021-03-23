@@ -34,10 +34,10 @@ scr_spawn_plane(model_name,1);
 
 #define scr_spawn_plane_cmc4
 ///scr_spawn_plane_cmc4()
-var model_name = choose("bessie","asteroid_blues","camel");
+var model_name = choose("bessie","firnas","camel");
 scr_spawn_plane(model_name,choose(1,2));
 
 #define scr_spawn_plane_cmc5
 ///scr_spawn_plane_cmc5()
-var model_name = choose("deneb","red_baroness");
+var model_name = choose("deneb","earl");
 scr_spawn_plane(model_name,2);

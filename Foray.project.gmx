@@ -222,6 +222,9 @@
     <background>background\ts_rock</background>
     <background>background\ts_flora</background>
     <background>background\ts_plateau</background>
+    <background>background\ts_plateau_shadow</background>
+    <background>background\ts_pillars</background>
+    <background>background\ts_skyblocks</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

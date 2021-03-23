@@ -385,7 +385,7 @@ scr_remove_design_pattern("scr_spawn_chasing_skymine");
             <kind>1</kind>
             <string>///spawn first plane cmc4
 
-scr_spawn_plane(choose("asteroid_blues","bessie","camel"),2);
+scr_spawn_plane(choose("firnas","bessie","camel"),2);
 
 scr_remove_design_pattern("scr_spawn_plane_cmc4");
 </string>

@@ -18,7 +18,7 @@
         "turn": 1.3,
         "dmg":1,
         "amr":1,
-        "palette": 0
+        "palette": 4
       },
       "bessie":{
         "name": "BC-4 Bessie",
@@ -28,8 +28,8 @@
         "amr": 1,
         "palette": 1
       },
-      "asteroid_blues":{
-        "name": "Asteroid Blues",
+      "firnas":{
+        "name": "IB-N Firnas",
         "speed": 1,
         "turn": 2,
         "dmg":1,
@@ -44,8 +44,8 @@
         "amr":1,
         "palette": 3
       },
-      "red_baroness":{
-        "name": "Red Baroness",
+      "earl":{
+        "name": "Red Baron",
         "speed": 2,
         "turn": 2,
         "dmg":1,

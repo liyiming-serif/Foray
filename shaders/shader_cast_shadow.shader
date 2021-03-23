@@ -20,6 +20,7 @@ void main()
 
 //######################_==_YOYO_SHADER_MARKER_==_######################@~//
 // Convert all color to a dark blue and decrease alpha
+// RGBa = (3, 61, 84, 96)
 //
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;

@@ -30,6 +30,7 @@
 //there can only be one.
 if(instance_number(obj_control)&gt;1){
     instance_destroy(id,false);
+    exit;
 }
 
 randomize();
@@ -622,6 +623,8 @@ global.tiles_y = lerp(0,room_height*(1-global.PARALLAX_FACTOR),view_yview[vc]/(r
 
 tile_layer_shift(127, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
+tile_layer_shift(125, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
+tile_layer_shift(124, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 
 //grounded particle system
 part_system_position(global.partsys_ground, global.tiles_x, global.tiles_y);
