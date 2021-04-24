@@ -27,11 +27,11 @@
             <kind>1</kind>
             <string>///mark as attack target
 global.city_id = id;
-scr_grounded_on_create();
-true_x = x;
-true_y = y;
-apparent_x = x;
-apparent_y = y;
+//scr_grounded_on_create();
+//true_x = x;
+//true_y = y;
+//apparent_x = x;
+//apparent_y = y;
 </string>
           </argument>
         </arguments>
