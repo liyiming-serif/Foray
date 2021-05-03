@@ -226,6 +226,7 @@
     <background>background\ts_pillars</background>
     <background>background\ts_skyblocks</background>
     <background>background\ts_railroad</background>
+    <background>background\ts_buildings</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
