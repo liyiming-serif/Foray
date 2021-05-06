@@ -178,10 +178,6 @@
     </sprites>
     <sprite>sprites\eff_charge</sprite>
     <sprite>sprites\eff_deflect</sprite>
-    <sprite>sprites\spr_lockon</sprite>
-    <sprite>sprites\spr_lockoff</sprite>
-    <sprite>sprites\spr_arrowon</sprite>
-    <sprite>sprites\spr_arrowoff</sprite>
     <sprite>sprites\spr_player_missile_target</sprite>
     <sprite>sprites\spr_city_missile_target</sprite>
     <sprites name="smoke_trails">
@@ -198,24 +194,30 @@
       <sprite>sprites\spr_meter</sprite>
       <sprite>sprites\eff_link</sprite>
     </sprites>
-    <sprite>sprites\spr_hud_artist</sprite>
-    <sprite>sprites\spr_lighting_artist</sprite>
-    <sprite>sprites\spr_hp_gauge</sprite>
-    <sprite>sprites\spr_hp_icon</sprite>
-    <sprite>sprites\spr_progress_gauge</sprite>
-    <sprite>sprites\spr_progress_bar</sprite>
-    <sprite>sprites\spr_tutorial_key</sprite>
-    <sprite>sprites\spr_tutorial_mouse</sprite>
-    <sprite>sprites\spr_tutorial_mouse_right</sprite>
-    <sprite>sprites\spr_city_warning</sprite>
-    <sprite>sprites\spr_city_missile_warning</sprite>
-    <sprites name="stats_ui">
-      <sprite>sprites\spr_stat</sprite>
-      <sprite>sprites\spr_stat_filled</sprite>
-      <sprite>sprites\spr_stat_better</sprite>
-      <sprite>sprites\spr_stat_worse</sprite>
-      <sprite>sprites\spr_statbox</sprite>
-      <sprite>sprites\spr_statbox_enemy</sprite>
+    <sprites name="ui">
+      <sprite>sprites\spr_hud_artist</sprite>
+      <sprite>sprites\spr_hp_icon</sprite>
+      <sprite>sprites\spr_lighting_artist</sprite>
+      <sprite>sprites\spr_hp_gauge</sprite>
+      <sprite>sprites\spr_progress_gauge</sprite>
+      <sprite>sprites\spr_progress_bar</sprite>
+      <sprite>sprites\spr_tutorial_key</sprite>
+      <sprite>sprites\spr_tutorial_mouse</sprite>
+      <sprite>sprites\spr_tutorial_mouse_right</sprite>
+      <sprite>sprites\spr_city_warning</sprite>
+      <sprite>sprites\spr_city_missile_warning</sprite>
+      <sprites name="stats_ui">
+        <sprite>sprites\spr_stat</sprite>
+        <sprite>sprites\spr_stat_filled</sprite>
+        <sprite>sprites\spr_stat_better</sprite>
+        <sprite>sprites\spr_stat_worse</sprite>
+        <sprite>sprites\spr_statbox</sprite>
+        <sprite>sprites\spr_statbox_enemy</sprite>
+      </sprites>
+      <sprite>sprites\spr_lockon</sprite>
+      <sprite>sprites\spr_lockoff</sprite>
+      <sprite>sprites\spr_arrowon</sprite>
+      <sprite>sprites\spr_arrowoff</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
