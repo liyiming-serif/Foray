@@ -171,9 +171,11 @@
     <sprite>sprites\eff_flare1</sprite>
     <sprite>sprites\eff_flare2</sprite>
     <sprite>sprites\eff_hit1</sprite>
-    <sprite>sprites\eff_boom_air</sprite>
-    <sprite>sprites\eff_explosion</sprite>
-    <sprite>sprites\eff_explosion_ground</sprite>
+    <sprites name="explosions">
+      <sprite>sprites\eff_explosion_ground</sprite>
+      <sprite>sprites\eff_boom_air</sprite>
+      <sprite>sprites\eff_explosion</sprite>
+    </sprites>
     <sprite>sprites\eff_charge</sprite>
     <sprite>sprites\eff_deflect</sprite>
     <sprite>sprites\spr_lockon</sprite>
