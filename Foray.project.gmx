@@ -167,33 +167,28 @@
     </sprites>
     <sprite>sprites\spr_wpn_antiair_gun</sprite>
     <sprite>sprites\spr_city</sprite>
-    <sprite>sprites\eff_b1_miss</sprite>
-    <sprite>sprites\eff_flare1</sprite>
-    <sprite>sprites\eff_flare2</sprite>
     <sprite>sprites\eff_hit1</sprite>
-    <sprites name="explosions">
-      <sprite>sprites\eff_explosion_ground</sprite>
-      <sprite>sprites\eff_boom_air</sprite>
-      <sprite>sprites\eff_explosion</sprite>
+    <sprites name="particles">
+      <sprite>sprites\eff_b1_miss</sprite>
+      <sprite>sprites\eff_flare1</sprite>
+      <sprite>sprites\eff_flare2</sprite>
+      <sprite>sprites\eff_charge</sprite>
+      <sprite>sprites\eff_deflect</sprite>
+      <sprites name="explosions">
+        <sprite>sprites\eff_explosion_ground</sprite>
+        <sprite>sprites\eff_boom_air</sprite>
+        <sprite>sprites\eff_explosion</sprite>
+      </sprites>
+      <sprites name="smoke_trails">
+        <sprite>sprites\eff_smoke_lt</sprite>
+        <sprite>sprites\eff_smoke_dk</sprite>
+        <sprite>sprites\eff_smoke_fire</sprite>
+        <sprite>sprites\eff_trail_close</sprite>
+        <sprite>sprites\eff_trail_far</sprite>
+      </sprites>
     </sprites>
-    <sprite>sprites\eff_charge</sprite>
-    <sprite>sprites\eff_deflect</sprite>
     <sprite>sprites\spr_player_missile_target</sprite>
     <sprite>sprites\spr_city_missile_target</sprite>
-    <sprites name="smoke_trails">
-      <sprite>sprites\eff_smoke_lt</sprite>
-      <sprite>sprites\eff_smoke_dk</sprite>
-      <sprite>sprites\eff_smoke_fire</sprite>
-      <sprite>sprites\eff_trail_close</sprite>
-      <sprite>sprites\eff_trail_far</sprite>
-    </sprites>
-    <sprites name="cursors">
-      <sprite>sprites\spr_cursor</sprite>
-      <sprite>sprites\spr_c_cursor</sprite>
-      <sprite>sprites\spr_cf_cursor</sprite>
-      <sprite>sprites\spr_meter</sprite>
-      <sprite>sprites\eff_link</sprite>
-    </sprites>
     <sprites name="ui">
       <sprite>sprites\spr_hud_artist</sprite>
       <sprite>sprites\spr_hp_icon</sprite>
@@ -218,6 +213,13 @@
       <sprite>sprites\spr_lockoff</sprite>
       <sprite>sprites\spr_arrowon</sprite>
       <sprite>sprites\spr_arrowoff</sprite>
+      <sprites name="cursors">
+        <sprite>sprites\spr_cursor</sprite>
+        <sprite>sprites\spr_c_cursor</sprite>
+        <sprite>sprites\spr_cf_cursor</sprite>
+        <sprite>sprites\spr_meter</sprite>
+        <sprite>sprites\eff_link</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
