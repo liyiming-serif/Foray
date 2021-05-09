@@ -28,7 +28,6 @@
             <string>///variables for drawing HUD
 //sprite refs
 hp_gauge_ref = spr_hp_gauge;
-hp_icon_ref = spr_hp_icon;
 progress_gauge_ref = spr_progress_gauge;
 progress_bar_ref = spr_progress_bar;
 city_warning_ref = spr_city_warning;
@@ -142,13 +141,10 @@ if(warning_alarm &gt; 0){
             <string>///Draw health bar
 //actual bar
 var amt = 100*hp/max_hp;
-draw_healthbar(global.HBAR_X,global.HBAR_Y,global.HBAR_X+sprite_get_width(hp_gauge_ref)-5,global.HBAR_Y+sprite_get_height(hp_gauge_ref)-8,amt,c_black,global.C_MIN_BAR,global.C_MAX_BAR,3,false,false);
+draw_healthbar(global.HBAR_X,global.HBAR_Y,global.HBAR_X+sprite_get_width(hp_gauge_ref)-5,global.HBAR_Y+sprite_get_height(hp_gauge_ref)-24,amt,c_black,global.C_MIN_BAR,global.C_MAX_BAR,3,false,false);
 
 //gauge overlay
 draw_sprite(hp_gauge_ref,0,global.HBAR_X,global.HBAR_Y);
-
-//heart icon
-draw_sprite(hp_icon_ref,0,global.HBAR_X,global.HBAR_Y+sprite_get_height(hp_gauge_ref));
 </string>
           </argument>
         </arguments>
