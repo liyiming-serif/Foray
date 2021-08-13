@@ -164,6 +164,7 @@
     <sprites name="weapons">
       <sprite>sprites\spr_wpn_mg</sprite>
       <sprite>sprites\spr_wpn_bomb</sprite>
+      <sprite>sprites\spr_wpn_flame</sprite>
     </sprites>
     <sprite>sprites\spr_wpn_antiair_gun</sprite>
     <sprite>sprites\spr_city</sprite>
@@ -191,7 +192,6 @@
     <sprite>sprites\spr_city_missile_target</sprite>
     <sprites name="ui">
       <sprite>sprites\spr_hud_artist</sprite>
-      <sprite>sprites\spr_hp_icon</sprite>
       <sprite>sprites\spr_lighting_artist</sprite>
       <sprite>sprites\spr_hp_gauge</sprite>
       <sprite>sprites\spr_progress_gauge</sprite>
