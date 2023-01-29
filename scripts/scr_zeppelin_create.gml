@@ -13,7 +13,7 @@ if(argument_count<5){
 
 with(instance_create(xv,yv,obj_zeppelin)){
     //initiallize stats
-    var mp = ds_map_find_value(global.balloons, "zeppelin");
+    var mp = ds_map_find_value(global.airships, "zeppelin");
     
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");

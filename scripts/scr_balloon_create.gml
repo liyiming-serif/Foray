@@ -6,7 +6,7 @@ var wpn_name = argument[2];
 
 with(instance_create(xv,yv,obj_balloon)){
     //initiallize stats
-    var mp = ds_map_find_value(global.balloons, "balloon");
+    var mp = ds_map_find_value(global.airships, "balloon");
     
     scr_ship_instantiate(false,mp);
     
@@ -46,7 +46,7 @@ with(instance_create(xv,yv,obj_balloon)){
     player_noticed = false;
     is_aggro = false;
     alarm[1] = aggro_interval;
-    scr_set_avoidance(curr_speed, turn);
+    scr_set_avoidance(curr_speed, turn, 0);
     
     image_speed = 0.4;
 
@@ -82,7 +82,9 @@ if(argument_count > 3){
 var pd, dd, sx, sy, i, adir, adiff, pa, da;
 
 //check if should chase player because they're nearby
-if(scr_instance_exists(target_id) && distance_to_object(target_id)<alert_range*0.6){
+if(scr_instance_exists(target_id) &&
+    distance_to_point(target_id.x,target_id.y)<alert_range*0.6){
+    
     pd = point_direction(x,y,target_id.x,target_id.y);
     dd = abs(angle_difference(direction,pd));
     if(dd < 60){
@@ -109,7 +111,7 @@ if(i!=noone){
         }
     }
 }
-if(!alarm[global.AVOID_STATE_ALARM]){
+if(!alarm[avoid_state_alarm]){
     ax = 0;
     ay = 0;
 }
@@ -130,11 +132,11 @@ if(i!=noone){
     }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    if(!alarm[global.AVOID_STATE_ALARM]){
-        alarm[global.AVOID_STATE_ALARM] = avoid_arc;
+    if(!alarm[avoid_state_alarm]){
+        alarm[avoid_state_alarm] = avoid_arc;
     }
 }
-if(alarm[global.AVOID_STATE_ALARM]){
+if(alarm[avoid_state_alarm]){
     //swerving
     scr_ship_turn(x+ax, y+ay, false, global.SWERVE_TURN_MOD*tm, sm);
 }

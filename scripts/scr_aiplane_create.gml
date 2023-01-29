@@ -1,5 +1,5 @@
 #define scr_aiplane_create
-///scr_aiplane_create(x, y, dir, model_name, wpn_name, ai_name, skill)
+ ///scr_aiplane_create(x, y, dir, model_name, wpn_name, ai_name, skill)
 var xv = argument[0];
 var yv = argument[1];
 var dir = argument[2];
@@ -33,7 +33,7 @@ with(instance_create(xv,yv,obj_enemy)){
     //entry point for AI FSM
     state = plane_ai_states.CHASING;
     rounds_left = max_rounds;
-    scr_set_avoidance(neutral_speed, turn);
+    scr_set_avoidance(neutral_speed, turn, 0);
     
     return id;
 }
@@ -93,8 +93,8 @@ if(i!=noone){
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = plane_ai_states.AVOIDING;
-    if(!alarm[global.AVOID_STATE_ALARM]){
-        alarm[global.AVOID_STATE_ALARM] = avoid_arc;
+    if(!alarm[avoid_state_alarm]){
+        alarm[avoid_state_alarm] = avoid_arc;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }

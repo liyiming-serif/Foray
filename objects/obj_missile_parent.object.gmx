@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_ship_parent</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="1" enumb="0">
@@ -25,22 +25,33 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///on death supplements
+            <string>///scr_missile_destroy()
 
-//missile shot down
-if(hp&lt;=0){
-    if(variable_instance_exists(id,"miss_part")){
-        part_type_direction(miss_part,direction,direction,0,0);
-        part_type_orientation(miss_part,0,0,0,0,true);
-        part_particles_create(global.partsys,x,y,miss_part,1);
-    }
-    scr_play_sound(snd_explosion_m,x,y);
-}
-else if(ttl!=undefined &amp;&amp; ttl&lt;=0){ //out of range
-    scr_play_sound(snd_explosion_m,x,y);
-}
+scr_missile_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset state from AVOIDING
 
-scr_ship_gc();
 </string>
           </argument>
         </arguments>
@@ -63,41 +74,8 @@ scr_ship_gc();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///projectile + ship step
-
-scr_projectile_step();
-scr_ship_advance_frame();
-scr_missile_turn();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_ship_parent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///death: collided with ship
-
-points = 0;
-scr_play_sound(snd_detonation,x,y);
-with(other){
-    //spawn hit particle, and destroy self
-    scr_ship_hit(true);
-}
+            <string>///scr_missile_step()
+scr_missile_step();
 </string>
           </argument>
         </arguments>

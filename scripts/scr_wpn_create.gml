@@ -59,14 +59,27 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     
     //scr_shoot attributes
     bullet_type = ds_map_find_value(mp,"projectile");
-    shoot_rate = ds_map_find_value(mp,"shoot_rate");
     shoot_counter = 0;
     recoil = ds_map_find_value(mp,"recoil"); //num frames gun and plane flash from firing
     accuracy = ds_map_find_value(mp,"accuracy");
-    muzzle_vel = ds_map_find_value(mp,"muzzle_vel");
     dmg = scr_interpolate_stat(display_dmg, ds_map_find_value(mp,"dmg"));
-    range[0] = ds_list_find_value(ds_map_find_value(mp,"range"),0);
-    range[1] = ds_list_find_value(ds_map_find_value(mp,"range"),1);
+    
+    var sr = ds_map_find_value(mp,"shoot_rate");
+    if(sr!=undefined){
+        shoot_rate = sr;
+    }
+    
+    var m = ds_map_find_value(mp,"muzzle_vel");
+    if(m!=undefined){
+        muzzle_vel = m;
+    }
+    
+    var r = ds_map_find_value(mp,"range");
+    if(r!=undefined){
+        range[0] = ds_list_find_value(ds_map_find_value(mp,"range"),0);
+        range[1] = ds_list_find_value(ds_map_find_value(mp,"range"),1);
+    }
+
     if(ds_map_exists(mp,"barrel_len")){
         barrel_len = ds_map_find_value(mp,"barrel_len");
     }
@@ -79,8 +92,10 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
         muzzle_vel *= global.AI_SHOT_SP_REDUC;
         accuracy *= global.AI_SHOT_ACC_REDUC;
         shoot_rate *= global.AI_SHOT_RATE_REDUC;
-        range[0] *= global.AI_SHOT_RANGE_REDUC;
-        range[1] *= global.AI_SHOT_RANGE_REDUC;
+        if(r!=undefined){
+            range[0] *= global.AI_SHOT_RANGE_REDUC;
+            range[1] *= global.AI_SHOT_RANGE_REDUC;
+        }
     }
     
     //callbacks

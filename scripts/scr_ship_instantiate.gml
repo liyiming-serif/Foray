@@ -102,6 +102,47 @@ if(should_face_dir){
 var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
 audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
 
+#define scr_ship_turn_away
+///scr_ship_turn_away(x, y, should_face_dir, turn_modifier=1, speed_modifier=1)
+
+//Generic script for turning ships away from a point,
+//and whether to change image_angle to match dir
+//Req inst variables: curr_speed, turn
+
+var tx = argument[0];
+var ty = argument[1];
+var should_face_dir = argument[2];
+var tm = turn;
+var sm = curr_speed;
+
+//Apply a flat turn multiplier so ships spend less time off-screen
+if(scr_is_obj_outside_room()){
+    tm *= global.TURN_OUTSIDE_ROOM_COEFF;
+}
+
+//Optional: apply a modifier w/out affecting 'turn' property.
+if(argument_count > 3){
+    tm *= argument[3];
+}
+//Optional: apply a modifier w/out affecting 'speed' property.
+if(argument_count > 4){
+    sm *= argument[4];
+}
+
+var pa = point_direction(tx,ty,x,y);
+var da = angle_difference(pa,direction);
+var ta = min(abs(da),tm);
+
+direction += global.game_speed*ta*sign(da);
+speed = global.game_speed*sm;
+if(should_face_dir){
+    image_angle = direction;
+}
+
+//sound
+var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
+audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
+
 #define scr_ship_hit
 ///scr_ship_hit(friendly_fire=false)
 
@@ -116,8 +157,11 @@ if(argument_count==1){
 if(is_friendly!=other.is_friendly || ff){
 
     if(invincibility>0){ //destroy bullet and exit early
-        instance_destroy(other);
-        scr_play_sound(snd_deflect,x,y);
+        if(!variable_instance_exists(other,"piercing_invincibility")){
+            instance_destroy(other);
+            scr_play_sound(snd_deflect,x,y);
+        }
+
         return undefined;
     }    
 
@@ -169,8 +213,13 @@ if(is_friendly!=other.is_friendly || ff){
     //audio
     scr_play_sound(snd_hitting,x,y);
     
-    //destroy bullet
-    instance_destroy(other);
+    //destroy bullet, or set piercing
+    if(variable_instance_exists(other,"piercing_invincibility")){
+        invincibility = other.piercing_invincibility;
+    }
+    else{
+        instance_destroy(other);
+    } 
 }
 
 #define scr_ship_shade
@@ -244,6 +293,7 @@ g.y = y+lengthdir_y(r,t);
 var g, cb, ret;
 g = argument[0];
 cb = argument[1];
+ret = -1;
 
 with(g){
     switch(cb){
@@ -258,7 +308,9 @@ with(g){
             break;
     }
 }
+
 return ret;
+
 #define scr_ship_explode_large
 ///scr_ship_explode_large()
 
@@ -280,20 +332,6 @@ scr_play_sound(snd_explosion_m,x,y);
 //audio_stop_sound(engine_sound);
 
 instance_destroy();
-#define scr_set_avoidance
-///scr_set_avoidance(speed, turn)
-
-//set foresight and avoid_arc based on speed and turn stats of the ship
-//ADDS: foresight, avoid_arc, axy
-var sp = argument[0];
-var tn = argument[1]*global.SWERVE_TURN_MOD;
-
-ax = 0;
-ay = 0;
-//time it takes to turn a certain angle
-avoid_arc = ceil(67.5/tn);
-//distance covered by one avoid arc
-foresight = 0.4*avoid_arc*sp;
 #define scr_ship_draw_ui
 ///scr_ship_draw_ui()
 

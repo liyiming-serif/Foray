@@ -156,6 +156,7 @@
     <sprites name="projectiles">
       <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_cannonball</sprite>
+      <sprite>sprites\spr_flame_plume</sprite>
       <sprite>sprites\spr_player_missle</sprite>
       <sprite>sprites\spr_city_missile</sprite>
       <sprite>sprites\spr_drop_bomb</sprite>
@@ -164,7 +165,7 @@
     <sprites name="weapons">
       <sprite>sprites\spr_wpn_mg</sprite>
       <sprite>sprites\spr_wpn_bomb</sprite>
-      <sprite>sprites\spr_wpn_flame</sprite>
+      <sprite>sprites\spr_wpn_flamethrower</sprite>
     </sprites>
     <sprite>sprites\spr_wpn_antiair_gun</sprite>
     <sprite>sprites\spr_city</sprite>
@@ -247,11 +248,18 @@
     <script>scripts\scr_ship_instantiate.gml</script>
     <script>scripts\scr_city_hit.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
+    <script>scripts\scr_flamethrower_step.gml</script>
     <script>scripts\scr_projectile_create.gml</script>
+    <script>scripts\scr_flame_plume_create.gml</script>
     <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
+    <scripts name="pathfinding">
+      <script>scripts\scr_set_avoidance.gml</script>
+    </scripts>
     <scripts name="wpn_cbs">
       <script>scripts\scr_fire_missile.gml</script>
+      <script>scripts\scr_ignite.gml</script>
+      <script>scripts\scr_missile_target_city.gml</script>
     </scripts>
     <scripts name="audio">
       <script>scripts\scr_play_sound.gml</script>
@@ -305,6 +313,8 @@
     <object>objects\obj_player_avatar</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
+    <object>objects\obj_flame_plume</object>
+    <object>objects\obj_wpn_flamethrower</object>
     <object>objects\obj_player_missile</object>
     <object>objects\obj_city_missile</object>
     <object>objects\obj_drop_bomb</object>

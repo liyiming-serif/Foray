@@ -36,6 +36,20 @@
       "range":[440,480],
       "muzzle_flare":"flare1"
     },
+    "flamethrower":{
+      "obj_ind":"obj_wpn_flamethrower",
+      "spr_ind":"spr_wpn_flamethrower",
+      "on_click_cb":"scr_do_nothing",
+      "pressed_cb":"scr_ignite",
+      "on_release_cb":"scr_do_nothing",
+      "shoot_frame":0,
+      "anim_speed":0.4,
+      "projectile":"flame_plume",
+      "recoil":1,
+      "palette":198,
+      "accuracy":1,
+      "dmg":[1,1,1],
+    },
     "airtillery":{
       "obj_ind":"obj_charge_wpn_parent",
       "spr_ind":"spr_wpn_airtillery",
@@ -100,17 +114,15 @@
     "player_missile_gun":{
       "obj_ind":"obj_wpn_parent",
       "on_click_cb":"scr_do_nothing",
-      "pressed_cb":"scr_charge_shoot",
-      "on_release_cb":"scr_fire_missile",
+      "pressed_cb":"scr_fire_missile",
+      "on_release_cb":"scr_do_nothing",
       "dmg":[8],
       "projectile":"player_missile",
       "recoil":1,
       "muzzle_vel":0,
-      "shoot_rate":60,
+      "shoot_rate":300,
       "accuracy":0,
       "range":[1200,1248],
-      "rounds":2,
-      "reload_rate":360
     },
     "city_missile_gun":{
       "obj_ind":"obj_wpn_parent",
@@ -140,6 +152,38 @@
       "anim_speed":0.5,
       "hit_part":"hit1",
       "palette1":128
+    },
+    "flame_plume":{
+      "obj_ind":"obj_flame_plume",
+      "anim_speed":0.4,
+      "palette1":130,
+      "piercing_invincibility":5
+    }
+  },
+
+  "missiles":{
+    "city_missile":{
+      "turn":1,
+      "speed":2.9,
+      "targeting_cb":"scr_missile_target_city",
+      "targeting_sprite":"spr_city_missile_target",
+      "warn_range":500,
+      "airtime":50,
+      "obj_ind":"obj_city_missile",
+      "ground_hit_part":"explosion_ground",
+      "air_hit_part":"boom_air",
+      "max_hp":8,
+      "hp_bar_width":32
+    },
+    "player_missile":{
+      "turn":1,
+      "speed":3.2,
+      "targeting_cb":"scr_missile_target_player",
+      "targeting_sprite":"spr_player_missile_target",
+      "warn_range":300,
+      "obj_ind":"obj_player_missile",
+      "air_hit_part":"explosion",
+      "miss_part":"hit1"
     }
   },
 

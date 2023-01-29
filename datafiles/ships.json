@@ -63,7 +63,6 @@
     },
     "pilot_ai":{
       "mg_chaser":{
-        "foresight": 96,
         "range": [240,260],
         "accuracy": [25,15],
         "avoid_arc": 30,
@@ -75,7 +74,7 @@
     }
   },
 
-  "balloons":{
+  "airships":{
     "skymine" : {
       "max_hp":8,
       "chase_vel":3,
@@ -116,12 +115,13 @@
       }
     },
     "blimp":{
-      "max_hp":25,
-      "speed":3,
-      "turn":2,
+      "max_hp":35,
+      "speed":2.2,
+      "turn":1.5,
       "update_target_time":420,
       "city_range":[500,1200],
-      "flee_duration":60,
+      "flee_duration":20,
+      "alert_range": 50,
       "death_seq_cb":"scr_ship_explode_small",
       "threat":0.2,
       "score":15,
@@ -139,32 +139,6 @@
       "threat":0.35,
       "score":150,
       "hp_bar_width":125
-    }
-  },
-
-  "projectilesque":{
-    "city_missile":{
-      "max_hp":8,
-      "turn":1,
-      "speed":2.7,
-      "airtime":50,
-      "obj_ind":"obj_city_missile",
-      "hit_part":"explosion_ground",
-      "miss_part":"boom_air",
-      "threat":0,
-      "score":0,
-      "hp_bar_width":32
-    },
-    "player_missile":{
-      "max_hp":6,
-      "turn":1,
-      "speed":3.2,
-      "obj_ind":"obj_player_missile",
-      "hit_part":"explosion",
-      "miss_part":"hit1",
-      "threat":0,
-      "score":0,
-      "hp_bar_width":25
     }
   }
 }

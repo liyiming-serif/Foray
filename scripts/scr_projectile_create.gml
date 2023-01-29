@@ -15,8 +15,7 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     if(anim_speed!=undefined){
         image_speed = anim_speed;
     }
-    hit_part = variable_global_get(ds_map_find_value(mp,"hit_part"));
-    
+     
     //palette swap shader
     if(is_friendly){
         //FUTURE: load palette based on dmg stat
@@ -30,6 +29,11 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     row_ref = shader_get_uniform(shader_pal_swap, "row");
     
     //optional parameters
+    var h = ds_map_find_value(mp,"hit_part");
+    if(h!=undefined){
+        hit_part = variable_global_get(h);
+    }
+    
     var v = ds_map_find_value(mp,"miss_part");
     if(v!=undefined){
         miss_part = variable_global_get(v);
