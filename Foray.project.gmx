@@ -314,10 +314,10 @@
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
     <object>objects\obj_flame_plume</object>
-    <object>objects\obj_wpn_flamethrower</object>
     <object>objects\obj_player_missile</object>
     <object>objects\obj_city_missile</object>
     <object>objects\obj_drop_bomb</object>
+    <object>objects\obj_wpn_flamethrower</object>
     <object>objects\obj_wpn_antiair_gun</object>
     <object>objects\obj_city</object>
     <objects name="control">

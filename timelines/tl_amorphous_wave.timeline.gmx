@@ -20,7 +20,7 @@
           <argument>
             <kind>1</kind>
             <string>///spawn player [+PAUSE]
-scr_player_create(800,500,90,"altair","mg");
+scr_player_create(800,500,90,"altair","flamethrower");
 scr_blimp_create(924,648,30);
 //scr_balloon_create(1008,760,"",false);
 //scr_balloon_create(924,648,"cannon",false);

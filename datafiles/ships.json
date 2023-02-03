@@ -116,7 +116,7 @@
     },
     "blimp":{
       "max_hp":35,
-      "speed":2.2,
+      "speed":2,
       "turn":1.5,
       "update_target_time":420,
       "city_range":[500,1200],
