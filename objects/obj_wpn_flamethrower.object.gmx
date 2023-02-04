@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///scr_flamethrower_create()
 
-projectile_id = -1;
+projectile_id = noone;
 is_wpn_on = false;
 </string>
           </argument>
