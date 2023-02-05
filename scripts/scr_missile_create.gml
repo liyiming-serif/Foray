@@ -104,8 +104,11 @@ if(argument_count==1){
 if(is_friendly!=other.is_friendly || ff){
 
     if(invincibility>0){ //destroy bullet and exit early
-        instance_destroy(other);
-        scr_play_sound(snd_deflect,x,y);
+        if(!variable_instance_exists(other,"piercing_invincibility")){
+            instance_destroy(other);
+            scr_play_sound(snd_deflect,x,y);
+        }
+
         return undefined;
     }    
 
@@ -128,8 +131,13 @@ if(is_friendly!=other.is_friendly || ff){
     //audio
     scr_play_sound(snd_hitting,x,y);
     
-    //destroy bullet
-    instance_destroy(other);
+    //destroy bullet, or set piercing
+    if(variable_instance_exists(other,"piercing_invincibility")){
+        invincibility = other.piercing_invincibility;
+    }
+    else{
+        instance_destroy(other);
+    } 
 }
 
 #define scr_missile_step

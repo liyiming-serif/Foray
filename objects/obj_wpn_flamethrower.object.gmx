@@ -29,6 +29,7 @@
 
 projectile_id = noone;
 is_wpn_on = false;
+
 </string>
           </argument>
         </arguments>

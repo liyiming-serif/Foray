@@ -172,6 +172,7 @@
     <sprite>sprites\eff_hit1</sprite>
     <sprites name="particles">
       <sprite>sprites\eff_b1_miss</sprite>
+      <sprite>sprites\eff_flame_miss</sprite>
       <sprite>sprites\eff_flare1</sprite>
       <sprite>sprites\eff_flare2</sprite>
       <sprite>sprites\eff_charge</sprite>

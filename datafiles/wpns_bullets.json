@@ -48,7 +48,7 @@
       "recoil":1,
       "palette":198,
       "accuracy":1,
-      "dmg":[1,1,1]
+      "dmg":[1.25,1.25,1.25]
     },
     "airtillery":{
       "obj_ind":"obj_charge_wpn_parent",
@@ -157,8 +157,12 @@
       "obj_ind":"obj_flame_plume",
       "anim_speed":0.4,
       "palette1":130,
-      "piercing_invincibility":8,
-      "ttl":17
+      "optional":{
+        "piercing_invincibility":7,
+        "linger":4,
+        "smoke_frequency":8,
+        "miss_part":"flame_miss"
+      }
     }
   },
 

@@ -271,6 +271,10 @@ global.b1_miss = part_type_create();
 part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);
 part_type_life(global.b1_miss, room_speed*0.25, room_speed*0.3);
 
+global.flame_miss = part_type_create();
+part_type_sprite(global.flame_miss, eff_flame_miss, true, true, false);
+part_type_life(global.flame_miss, room_speed*0.2, room_speed*0.25);
+
 global.flare1 = part_type_create();
 part_type_sprite(global.flare1, eff_flare1, true, true, false);
 part_type_life(global.flare1, room_speed*0.1, room_speed*0.15);
