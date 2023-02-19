@@ -17,11 +17,11 @@ return b;
 
 if(!alarm[smoke_alarm]){
     if(variable_instance_exists(id,"miss_part")){
-        //part_type_direction(miss_part,direction,direction,0,0);
+        //create smoke (miss) particle
         part_type_orientation(miss_part,image_angle,image_angle,0,0,false);
         var xp, yp;
-        xp = x+lengthdir_x(150,image_angle);
-        yp = y+lengthdir_y(150,image_angle);
+        xp = x+lengthdir_x(94,image_angle);
+        yp = y+lengthdir_y(94,image_angle);
         part_particles_create(global.partsys,xp,yp,miss_part,1);
     }
     alarm[smoke_alarm] = smoke_frequency;
