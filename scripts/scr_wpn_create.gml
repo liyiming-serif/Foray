@@ -89,9 +89,15 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
     
     //AI mods
     if(!is_friendly){
-        muzzle_vel *= global.AI_SHOT_SP_REDUC;
+        if(variable_instance_exists(id, "muzzle_vel")){
+            muzzle_vel *= global.AI_SHOT_SP_REDUC;
+        }
+        
         accuracy *= global.AI_SHOT_ACC_REDUC;
-        shoot_rate *= global.AI_SHOT_RATE_REDUC;
+        if(variable_instance_exists(id, "shoot_rate")){
+            shoot_rate *= global.AI_SHOT_RATE_REDUC;
+        }
+        
         if(r!=undefined){
             range[0] *= global.AI_SHOT_RANGE_REDUC;
             range[1] *= global.AI_SHOT_RANGE_REDUC;

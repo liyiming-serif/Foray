@@ -157,6 +157,7 @@
       <sprite>sprites\spr_bullet</sprite>
       <sprite>sprites\spr_cannonball</sprite>
       <sprite>sprites\spr_flame_plume</sprite>
+      <sprite>sprites\spr_flame_flicker</sprite>
       <sprite>sprites\spr_player_missle</sprite>
       <sprite>sprites\spr_city_missile</sprite>
       <sprite>sprites\spr_drop_bomb</sprite>
@@ -254,6 +255,10 @@
     <script>scripts\scr_flame_plume_create.gml</script>
     <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
+    <scripts name="pilot_ai">
+      <script>scripts\scr_ai_mg_chaser_make.gml</script>
+      <script>scripts\scr_ai_pyro_make.gml</script>
+    </scripts>
     <scripts name="pathfinding">
       <script>scripts\scr_set_avoidance.gml</script>
     </scripts>
@@ -305,6 +310,7 @@
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_enemy</object>
+    <object>objects\obj_enemy_pyro</object>
     <object>objects\obj_skymine</object>
     <object>objects\obj_balloon</object>
     <object>objects\obj_subballoon</object>
@@ -315,6 +321,7 @@
     <object>objects\obj_bullet</object>
     <object>objects\obj_cannonball</object>
     <object>objects\obj_flame_plume</object>
+    <object>objects\obj_flame_flicker</object>
     <object>objects\obj_player_missile</object>
     <object>objects\obj_city_missile</object>
     <object>objects\obj_drop_bomb</object>

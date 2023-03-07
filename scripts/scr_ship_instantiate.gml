@@ -21,6 +21,7 @@ if(dsn != undefined){
 //common: collision
 hitstun = 0;
 invincibility = 0;
+sp_invincibility = 0;
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
 
@@ -56,6 +57,7 @@ audio_emitter_falloff(engine_sound_emitter,
 //countdown hitstun and invincibility
 hitstun = max(hitstun-global.game_speed, 0);
 invincibility = max(invincibility-global.game_speed,0);
+sp_invincibility = max(sp_invincibility-global.game_speed,0);
 
 //update emitter
 audio_emitter_position(engine_sound_emitter,x,y,0);
@@ -144,26 +146,29 @@ var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*globa
 audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
 
 #define scr_ship_hit
-///scr_ship_hit(friendly_fire=false)
+///scr_ship_hit()
 
 //Abstract function for when a ship collides with a projectile.
 
 if(hp<=0) return undefined;
 
-var ff = false;
-if(argument_count==1){
-    ff = argument[0];
-}
-if(is_friendly!=other.is_friendly || ff){
-
-    if(invincibility>0){ //destroy bullet and exit early
-        if(!variable_instance_exists(other,"piercing_invincibility")){
-            instance_destroy(other);
-            scr_play_sound(snd_deflect,x,y);
+if(is_friendly!=other.is_friendly){
+    if(other.is_sp_dmg){
+        if(sp_invincibility>0){
+            return undefined;
         }
-
-        return undefined;
-    }    
+    }
+    else{
+        //destroy bullet and exit early
+        if(invincibility>0){
+            if(!variable_instance_exists(other,"piercing_invincibility")){
+                instance_destroy(other);
+                scr_play_sound(snd_deflect,x,y);
+            }
+    
+            return undefined;
+        }
+    }
 
     //spawn projectile's hit particle
     if(variable_instance_exists(other,"hit_part")){
@@ -172,13 +177,16 @@ if(is_friendly!=other.is_friendly || ff){
         part_particles_create(global.partsys,other.x,other.y,other.hit_part,1);
     }
     
-    //Apply armor 
+    //Damage Modifier
+    var post_dmg = other.dmg;
+    
+    //apply armor 
     if(variable_instance_exists(id,"amr")){
-        other.dmg = max(other.dmg-amr,global.MIN_DMG);
+        post_dmg = max(post_dmg-amr,global.MIN_DMG);
     }
     
     //flash white
-    hitstun = log2(other.dmg+1)*2.2;
+    hitstun = log2(post_dmg+1)*2.2;
     
     //player hit specific code
     if(is_friendly){
@@ -186,21 +194,21 @@ if(is_friendly!=other.is_friendly || ff){
         
         //apply screen flash
         if(id==global.player_id){
-            global.flash_red_alpha += other.dmg/15;
+            global.flash_red_alpha += post_dmg/15;
         }
         
         //DIFFICULTY MOD: scale dmg down by spawn capacity
         if(!global.is_endless){
-            other.dmg = max((1-global.spawn_cap*0.3)*other.dmg,global.MIN_DMG);
+            post_dmg = max((1-global.spawn_cap*0.3)*post_dmg,global.MIN_DMG);
         }
     }
     else{ //enemy hit specific code
         //DIFFICULY MOD: increase player's atk if outnumbered
-        other.dmg *= 1+global.spawn_cap*0.5;
+        post_dmg *= 1+global.spawn_cap*0.5;
     }
     
     //apply dmg + initiate death seq if hp <= 0
-    hp -= other.dmg;
+    hp -= post_dmg;
     if(hp <= 0){
         if(variable_instance_exists(id,"death_seq_cb")){
             script_execute(death_seq_cb);
@@ -213,13 +221,21 @@ if(is_friendly!=other.is_friendly || ff){
     //audio
     scr_play_sound(snd_hitting,x,y);
     
-    //destroy bullet, or set piercing
-    if(variable_instance_exists(other,"piercing_invincibility")){
-        invincibility = other.piercing_invincibility;
+    
+    if(other.is_sp_dmg){
+        if(variable_instance_exists(other,"sp_invincibility")){
+            sp_invincibility = other.sp_invincibility;
+        }
     }
     else{
-        instance_destroy(other);
-    } 
+        //destroy bullet, or set piercing
+        if(variable_instance_exists(other,"piercing_invincibility")){
+            invincibility = other.piercing_invincibility;
+        }
+        else{
+            instance_destroy(other);
+        } 
+    }
 }
 
 #define scr_ship_shade

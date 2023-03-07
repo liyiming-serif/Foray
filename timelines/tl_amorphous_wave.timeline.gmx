@@ -21,6 +21,7 @@
             <kind>1</kind>
             <string>///spawn player [+PAUSE]
 scr_player_create(800,500,90,"altair","flamethrower");
+
 scr_blimp_create(924,648,30);
 scr_blimp_create(689,1122,315);
 scr_blimp_create(144,527,60);
@@ -30,7 +31,7 @@ scr_blimp_create(1427,288,225);
 scr_skymine_create(924,840,0,0);
 scr_skymine_create(288,1080,0,0);
 scr_skymine_create(1080,288,0,0);
-//scr_spawn_plane_cmc3();
+///scr_spawn_plane_cmc3("pyro");
 timeline_running = false;
 </string>
           </argument>
@@ -420,8 +421,8 @@ scr_remove_design_pattern("scr_spawn_plane_cmc4");
             <string>///add balloons and planes back
 
 scr_spawn_balloon();
-scr_spawn_plane_cmc3();
-scr_spawn_plane_cmc4();
+scr_spawn_plane_cmc3("pyro");
+scr_spawn_plane_cmc4("mg_chaser");
 </string>
           </argument>
         </arguments>
@@ -841,6 +842,7 @@ scr_add_design_pattern("scr_spawn_skymine_cluster");
 scr_add_design_pattern("scr_spawn_amr_balloon");
 scr_add_design_pattern("scr_spawn_zeppelin");
 scr_add_seen_wpn("mg");
+scr_add_seen_wpn("flamethrower");
 </string>
           </argument>
         </arguments>

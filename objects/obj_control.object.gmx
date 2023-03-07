@@ -82,6 +82,7 @@ global.pilot_ai = ds_map_find_value(global.planes, "pilot_ai");
 global.weapons = ds_map_find_value(global.WPNS_BULLETS, "weapons");
 global.projectiles = ds_map_find_value(global.WPNS_BULLETS, "projectiles");
 global.missiles = ds_map_find_value(global.WPNS_BULLETS, "missiles");
+global.sp_dmg = ds_map_find_value(global.WPNS_BULLETS, "sp_dmg");
 global.midflights = ds_map_find_value(global.WPNS_BULLETS, "midflights");
 global.design_pattern_weights = ds_map_find_value(global.DESIGN_PATTERNS, "cb_weights");
 

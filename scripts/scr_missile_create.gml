@@ -93,16 +93,11 @@ invincibility = 0;
 
 
 #define scr_city_missile_hit
-///scr_city_missile_hit(friendly_fire=false)
+///scr_city_missile_hit()
 
 if(hp<=0) return undefined;
 
-var ff = false;
-if(argument_count==1){
-    ff = argument[0];
-}
-if(is_friendly!=other.is_friendly || ff){
-
+if(is_friendly!=other.is_friendly && !other.is_sp_dmg){
     if(invincibility>0){ //destroy bullet and exit early
         if(!variable_instance_exists(other,"piercing_invincibility")){
             instance_destroy(other);

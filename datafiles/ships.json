@@ -63,13 +63,31 @@
     },
     "pilot_ai":{
       "mg_chaser":{
+        "obj_ind":"obj_enemy",
+        "wpn":"mg",
         "range": [240,260],
         "accuracy": [25,15],
         "avoid_arc": 30,
-        "max_rounds": [5,8],
         "achy": [0.33,0.25],
-        "reload_speed":[120,60],
-        "update_target_time": [480,300]
+        "update_target_time": [480,300],
+        "create_script": "scr_ai_mg_chaser_make",
+        "optional":{
+          "max_rounds": [5,8],
+          "reload_speed":[120,60]
+        }
+      },
+      "pyro":{
+        "obj_ind":"obj_enemy_pyro",
+        "wpn":"flamethrower",
+        "range": [120,80],
+        "accuracy": [30,20],
+        "achy": [0.33,0.25],
+        "update_target_time": [480,300],
+        "create_script":"scr_ai_pyro_make",
+        "optional":{
+          "fuel":[120,192],
+          "refuel_speed":[1,1.2]
+        }
       }
     }
   },

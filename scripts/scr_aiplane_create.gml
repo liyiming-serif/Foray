@@ -1,21 +1,21 @@
 #define scr_aiplane_create
- ///scr_aiplane_create(x, y, dir, model_name, wpn_name, ai_name, skill)
+ ///scr_aiplane_create(x, y, dir, model_name, ai_name, skill)
 var xv = argument[0];
 var yv = argument[1];
 var dir = argument[2];
 var model_name = argument[3];
-var wpn_name = argument[4];
-var mp = ds_map_find_value(global.pilot_ai,argument[5]);
+var mp = ds_map_find_value(global.pilot_ai,argument[4]);
+
+var obj = asset_get_index(ds_map_find_value(mp,"obj_ind"));
+var wpn_name = ds_map_find_value(mp,"wpn");
 
 //CONSTRUCTOR:
-with(instance_create(xv,yv,obj_enemy)){
+with(instance_create(xv,yv,obj)){
     //Load AI constants from JSON 
-    skill = argument[6]-1;
+    skill = argument[5]-1;
     range = ds_list_find_value(ds_map_find_value(mp,"range"),skill); //distance before plane opens fire
     og_accuracy = ds_list_find_value(ds_map_find_value(mp,"accuracy"),skill); //angle diff before plane opens fire
     accuracy = og_accuracy;
-    max_rounds = ds_list_find_value(ds_map_find_value(mp,"max_rounds"),skill); //rounds plane fires before reloading
-    reload_speed = ds_list_find_value(ds_map_find_value(mp,"reload_speed"),skill); //how long plane spends in RELOAD state
     var utt = ds_map_find_value(mp,"update_target_time"); //update_target_time
     scr_plane_instantiate(dir,model_name,wpn_name,false,ds_list_find_value(utt,skill));
     
@@ -31,8 +31,8 @@ with(instance_create(xv,yv,obj_enemy)){
     hp = max_hp;
     
     //entry point for AI FSM
-    state = plane_ai_states.CHASING;
-    rounds_left = max_rounds;
+    var create_script = asset_get_index(ds_map_find_value(mp,"create_script"));
+    script_execute(create_script, mp);
     scr_set_avoidance(neutral_speed, turn, 0);
     
     return id;
@@ -133,8 +133,10 @@ if(pd<=range){
     var da = abs(angle_difference(pa,direction));
     if(da <= accuracy){
         state = plane_ai_states.FIRING;
+        return true;
     }
 }
+return false;
 
 #define scr_aiplane_hit
 ///scr_aiplane_hit()
