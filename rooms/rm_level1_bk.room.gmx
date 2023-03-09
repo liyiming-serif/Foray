@@ -2197,6 +2197,7 @@
     <tile bgName="ts_skyblocks" x="672" y="936" w="24" h="48" xo="48" yo="0" id="10006165" name="inst_3EB402BB" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="648" y="936" w="24" h="48" xo="48" yo="0" id="10006166" name="inst_CF27FB38" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="696" y="936" w="24" h="48" xo="48" yo="0" id="10006167" name="inst_F65F2BDE" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="720" y="936" w="24" h="48" xo="48" yo="0" id="10006168" name="inst_333D51DC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="744" y="936" w="24" h="48" xo="48" yo="0" id="10006169" name="inst_6887F671" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="816" y="1032" w="24" h="48" xo="24" yo="72" id="10006172" name="inst_E2583989" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="744" y="936" w="48" h="24" xo="0" yo="48" id="10006179" name="inst_4460ADF5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2292,6 +2293,7 @@
     <tile bgName="ts_skyblocks" x="816" y="912" w="24" h="24" xo="48" yo="168" id="10006340" name="inst_89A14997" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="792" y="936" w="24" h="24" xo="48" yo="168" id="10006341" name="inst_9D228278" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="816" y="936" w="24" h="24" xo="48" yo="168" id="10006342" name="inst_7FC8EF78" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="840" y="864" w="24" h="48" xo="48" yo="120" id="10006343" name="inst_5F140999" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="816" y="864" w="24" h="48" xo="48" yo="120" id="10006344" name="inst_822FD30D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="648" y="984" w="24" h="48" xo="48" yo="192" id="10006345" name="inst_ADD46618" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="696" y="984" w="24" h="48" xo="48" yo="192" id="10006346" name="inst_B8A5F3A3" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2356,8 +2358,10 @@
     <tile bgName="ts_skyblocks" x="480" y="1056" w="24" h="48" xo="24" yo="72" id="10006650" name="inst_E1C26D9B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="504" y="1056" w="24" h="48" xo="72" yo="72" id="10006651" name="inst_13212C6F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="504" y="1032" w="24" h="24" xo="48" yo="48" id="10006652" name="inst_9E43DABB" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="480" y="792" w="72" h="72" xo="72" yo="72" id="10006653" name="inst_4FF96C0F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="384" y="1032" w="72" h="72" xo="72" yo="72" id="10006684" name="inst_ECE30493" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="456" y="1032" w="24" h="72" xo="72" yo="72" id="10006685" name="inst_B9CC6F4F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="216" y="936" w="48" h="72" xo="0" yo="216" id="10006924" name="inst_87FC7795" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="960" y="1104" w="72" h="72" xo="72" yo="72" id="10006960" name="inst_7D5EF9E2" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="1032" y="1104" w="72" h="72" xo="72" yo="72" id="10006961" name="inst_7F92B5CC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="1440" y="1080" w="72" h="72" xo="72" yo="72" id="10006962" name="inst_E9A17E2C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2366,6 +2370,7 @@
     <tile bgName="ts_railroad" x="1296" y="1032" w="24" h="72" xo="120" yo="0" id="10006965" name="inst_CE201C77" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="648" y="720" w="144" h="72" xo="72" yo="0" id="10006970" name="inst_F923D422" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="600" y="768" w="72" h="72" xo="144" yo="216" id="10006971" name="inst_095BC111" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="552" y="792" w="72" h="72" xo="72" yo="72" id="10006972" name="inst_1356F297" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="768" y="768" w="72" h="72" xo="216" yo="72" id="10006973" name="inst_3B1CD643" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="768" y="840" w="72" h="48" xo="144" yo="72" id="10006975" name="inst_00066591" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1008" y="912" w="24" h="24" xo="48" yo="168" id="10006976" name="inst_2BE05579" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2420,16 +2425,21 @@
     <tile bgName="ts_skyblocks" x="1224" y="600" w="24" h="24" xo="288" yo="48" id="10007125" name="inst_29D1170B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1176" y="600" w="24" h="24" xo="288" yo="48" id="10007126" name="inst_5591E748" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1200" y="600" w="24" h="24" xo="288" yo="48" id="10007127" name="inst_AF9455C4" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="600" y="432" w="24" h="24" xo="288" yo="48" id="10007222" name="inst_DF82664D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="576" y="432" w="24" h="24" xo="288" yo="48" id="10007224" name="inst_477C213C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="552" y="432" w="24" h="24" xo="288" yo="48" id="10007226" name="inst_93F7830C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1176" y="624" w="24" h="24" xo="288" yo="48" id="10007285" name="inst_C1E15BCC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1296" y="648" w="24" h="24" xo="288" yo="48" id="10007287" name="inst_6B77EB6E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1320" y="648" w="24" h="24" xo="288" yo="48" id="10007288" name="inst_988F673F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="528" y="456" w="24" h="24" xo="288" yo="48" id="10007322" name="inst_9CB30235" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="528" y="432" w="24" h="24" xo="288" yo="48" id="10007341" name="inst_B4E6BFFB" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="504" y="432" w="24" h="24" xo="288" yo="48" id="10007353" name="inst_92B9AEAE" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="504" y="456" w="24" h="24" xo="288" yo="48" id="10007355" name="inst_69912F2E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="480" y="432" w="24" h="24" xo="288" yo="48" id="10007363" name="inst_A3691E36" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="456" y="432" w="24" h="24" xo="288" yo="48" id="10007364" name="inst_AB909446" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="456" y="456" w="24" h="24" xo="288" yo="48" id="10007365" name="inst_AC173E3D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="480" y="456" w="24" h="24" xo="288" yo="48" id="10007370" name="inst_BEA40BFE" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="504" y="456" w="24" h="96" xo="288" yo="72" id="10007377" name="inst_E887EFC5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="576" y="456" w="24" h="96" xo="288" yo="72" id="10007377" name="inst_E887EFC5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1584" y="576" w="24" h="24" xo="288" yo="48" id="10007508" name="inst_16CBE013" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1584" y="552" w="24" h="24" xo="288" yo="48" id="10007513" name="inst_02C809CC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1464" y="312" w="24" h="24" xo="288" yo="48" id="10007523" name="inst_AD2FAB39" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2444,14 +2454,23 @@
     <tile bgName="ts_skyblocks" x="1536" y="336" w="24" h="24" xo="288" yo="48" id="10007541" name="inst_4494DBE5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="504" y="384" w="24" h="48" xo="288" yo="0" id="10007572" name="inst_A33C5D81" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="528" y="384" w="24" h="48" xo="288" yo="0" id="10007573" name="inst_1975C886" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="552" y="384" w="24" h="48" xo="288" yo="0" id="10007574" name="inst_FE0F9A09" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="624" y="408" w="24" h="24" xo="312" yo="24" id="10007591" name="inst_7CDDE403" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="552" y="456" w="24" h="24" xo="336" yo="216" id="10007602" name="inst_7F81B3ED" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="432" y="480" w="24" h="72" xo="144" yo="72" id="10007613" name="inst_8CAC70F2" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="408" y="480" w="24" h="48" xo="120" yo="72" id="10007614" name="inst_BF5D814B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="408" y="456" w="48" h="24" xo="120" yo="48" id="10007615" name="inst_0A9C1CC1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="408" y="432" w="48" h="24" xo="120" yo="48" id="10007616" name="inst_B42FBA93" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="600" y="384" w="24" h="48" xo="168" yo="0" id="10007632" name="inst_BAE6C81E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="624" y="384" w="24" h="48" xo="192" yo="0" id="10007633" name="inst_2021ED1E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="576" y="384" w="24" h="48" xo="168" yo="0" id="10007634" name="inst_EAD30119" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="432" y="384" w="24" h="48" xo="144" yo="0" id="10007635" name="inst_DA111E81" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="456" y="384" w="24" h="48" xo="168" yo="0" id="10007636" name="inst_E4072C90" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="480" y="384" w="24" h="48" xo="168" yo="0" id="10007637" name="inst_33D2EB49" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="528" y="456" w="24" h="120" xo="288" yo="72" id="10007652" name="inst_18802167" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="600" y="456" w="24" h="120" xo="288" yo="72" id="10007652" name="inst_18802167" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="552" y="480" w="24" h="96" xo="192" yo="72" id="10007653" name="inst_2A76B151" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="528" y="480" w="24" h="120" xo="168" yo="72" id="10007654" name="inst_05878F9C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="504" y="480" w="24" h="120" xo="168" yo="72" id="10007655" name="inst_4F01152D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="480" y="480" w="24" h="120" xo="168" yo="72" id="10007656" name="inst_DC36A1FC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="456" y="480" w="24" h="120" xo="168" yo="72" id="10007657" name="inst_EEA11EF0" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="432" y="552" w="24" h="24" xo="144" yo="144" id="10007658" name="inst_49F3BF65" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2485,9 +2504,9 @@
     <tile bgName="ts_skyblocks" x="1608" y="528" w="24" h="24" xo="168" yo="48" id="10007712" name="inst_0356850D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1608" y="480" w="24" h="48" xo="168" yo="0" id="10007713" name="inst_8031D3B7" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1608" y="552" w="24" h="24" xo="336" yo="216" id="10007714" name="inst_C8B8CE2A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="552" y="432" w="24" h="24" xo="312" yo="48" id="10007715" name="inst_DE2BFC4B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="552" y="456" w="48" h="96" xo="312" yo="72" id="10007716" name="inst_037E8E81" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="576" y="432" w="24" h="24" xo="336" yo="48" id="10007718" name="inst_DF9200BD" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="624" y="432" w="24" h="24" xo="312" yo="48" id="10007715" name="inst_DE2BFC4B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="624" y="456" w="48" h="96" xo="312" yo="72" id="10007716" name="inst_037E8E81" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="648" y="432" w="24" h="24" xo="336" yo="48" id="10007718" name="inst_DF9200BD" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1176" y="744" w="144" h="96" xo="240" yo="72" id="10007720" name="inst_CF1E4123" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1176" y="720" w="24" h="96" xo="264" yo="72" id="10007721" name="inst_0382C54F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1272" y="696" w="48" h="120" xo="312" yo="48" id="10007722" name="inst_AA63B98A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2518,6 +2537,12 @@
     <tile bgName="ts_skyblocks" x="1032" y="72" w="24" h="24" xo="168" yo="48" id="10007976" name="inst_467AFFF5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1056" y="72" w="24" h="24" xo="168" yo="48" id="10007977" name="inst_00A3FB01" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1080" y="72" w="24" h="24" xo="168" yo="48" id="10007981" name="inst_F1E7F7F7" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="792" y="264" w="24" h="24" xo="168" yo="48" id="10008144" name="inst_4D9B96C3" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="888" y="288" w="24" h="24" xo="168" yo="48" id="10008162" name="inst_A8226E37" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="912" y="288" w="24" h="24" xo="168" yo="48" id="10008163" name="inst_CD9E1B43" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="936" y="288" w="24" h="24" xo="168" yo="48" id="10008164" name="inst_1E3B889A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="960" y="288" w="24" h="24" xo="168" yo="48" id="10008165" name="inst_956822A6" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="984" y="288" w="24" h="24" xo="168" yo="48" id="10008166" name="inst_62ECD1A4" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="744" y="48" w="24" h="24" xo="168" yo="48" id="10008196" name="inst_E4ECD27D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="696" y="48" w="24" h="24" xo="168" yo="48" id="10008198" name="inst_4D95D39D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="720" y="48" w="24" h="24" xo="168" yo="48" id="10008199" name="inst_E4464447" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2535,6 +2560,9 @@
     <tile bgName="ts_skyblocks" x="288" y="144" w="24" h="24" xo="288" yo="48" id="10008237" name="inst_7AFFC4AF" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="312" y="120" w="24" h="24" xo="288" yo="48" id="10008239" name="inst_8725C01B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="288" y="120" w="24" h="24" xo="288" yo="48" id="10008240" name="inst_D10E95EF" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="288" y="168" w="24" h="24" xo="288" yo="48" id="10008242" name="inst_849319EC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="312" y="168" w="24" h="24" xo="288" yo="48" id="10008243" name="inst_42C60CB9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="336" y="168" w="24" h="24" xo="288" yo="48" id="10008263" name="inst_4725FFF1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="720" y="72" w="24" h="96" xo="288" yo="72" id="10008300" name="inst_6875E3FB" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="744" y="72" w="24" h="96" xo="288" yo="72" id="10008301" name="inst_29F03F30" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="888" y="72" w="24" h="96" xo="288" yo="72" id="10008306" name="inst_BA3D2ED2" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2543,6 +2571,23 @@
     <tile bgName="ts_skyblocks" x="1032" y="96" w="24" h="96" xo="288" yo="72" id="10008311" name="inst_9E22EF5A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1056" y="96" w="24" h="96" xo="288" yo="72" id="10008312" name="inst_12A3D590" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1080" y="96" w="24" h="96" xo="288" yo="72" id="10008313" name="inst_DF80F6FD" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="768" y="288" w="24" h="24" xo="288" yo="48" id="10008317" name="inst_DC177917" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="792" y="288" w="24" h="24" xo="288" yo="48" id="10008320" name="inst_5EA9B6EB" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="816" y="288" w="24" h="24" xo="288" yo="48" id="10008321" name="inst_3F0319C0" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="816" y="264" w="24" h="24" xo="288" yo="48" id="10008322" name="inst_9D53CC7C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="840" y="264" w="24" h="24" xo="288" yo="48" id="10008323" name="inst_F626FE49" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="864" y="264" w="24" h="24" xo="288" yo="48" id="10008325" name="inst_01BECFFB" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="840" y="288" w="24" h="24" xo="288" yo="48" id="10008326" name="inst_BDF8CB8A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="864" y="288" w="24" h="24" xo="288" yo="48" id="10008327" name="inst_1BAC88A9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1008" y="312" w="24" h="24" xo="288" yo="48" id="10008332" name="inst_2C2A8020" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1056" y="312" w="24" h="24" xo="288" yo="48" id="10008344" name="inst_BFCDB60F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1032" y="312" w="24" h="24" xo="288" yo="48" id="10008345" name="inst_7F271BBA" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1008" y="288" w="24" h="24" xo="288" yo="48" id="10008347" name="inst_7C5C0031" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1032" y="288" w="24" h="24" xo="288" yo="48" id="10008348" name="inst_91E2E826" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1080" y="312" w="24" h="24" xo="288" yo="48" id="10008355" name="inst_A5882065" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1104" y="312" w="24" h="24" xo="288" yo="48" id="10008356" name="inst_62AFC1EF" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1128" y="312" w="24" h="24" xo="288" yo="48" id="10008357" name="inst_28F40029" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1152" y="312" w="24" h="24" xo="288" yo="48" id="10008358" name="inst_6C276F8B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1104" y="72" w="48" h="120" xo="312" yo="48" id="10008365" name="inst_99DC6FD4" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="864" y="72" w="24" h="96" xo="264" yo="72" id="10008367" name="inst_BE4FC07C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="768" y="72" w="24" h="96" xo="312" yo="72" id="10008368" name="inst_C988EB51" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2552,6 +2597,49 @@
     <tile bgName="ts_skyblocks" x="984" y="96" w="48" h="96" xo="120" yo="72" id="10008373" name="inst_44AC578C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="984" y="72" w="24" h="96" xo="168" yo="72" id="10008374" name="inst_9C22F71E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="960" y="72" w="24" h="96" xo="168" yo="72" id="10008375" name="inst_E4CB2A57" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="792" y="216" w="24" h="48" xo="168" yo="0" id="10008377" name="inst_A4F29417" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="816" y="216" w="24" h="48" xo="168" yo="0" id="10008378" name="inst_ECD81E1B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="840" y="216" w="24" h="48" xo="168" yo="0" id="10008379" name="inst_C4CA9CE8" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="864" y="216" w="24" h="48" xo="168" yo="0" id="10008380" name="inst_A87EA15C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="888" y="216" w="24" h="48" xo="192" yo="0" id="10008382" name="inst_308507A8" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="768" y="216" w="24" h="48" xo="144" yo="0" id="10008383" name="inst_17412B29" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="912" y="240" w="24" h="48" xo="168" yo="0" id="10008387" name="inst_107A6964" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="936" y="240" w="24" h="48" xo="168" yo="0" id="10008388" name="inst_DDCE46F9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="960" y="240" w="24" h="48" xo="168" yo="0" id="10008389" name="inst_8317F70D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="984" y="240" w="24" h="48" xo="168" yo="0" id="10008390" name="inst_9B78D26B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1008" y="240" w="24" h="48" xo="168" yo="0" id="10008391" name="inst_2B2BB459" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1032" y="240" w="24" h="48" xo="168" yo="0" id="10008392" name="inst_D7CAA2A7" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1056" y="240" w="24" h="48" xo="192" yo="0" id="10008393" name="inst_1724535A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1080" y="264" w="24" h="48" xo="168" yo="0" id="10008394" name="inst_8DD30864" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1104" y="264" w="24" h="48" xo="168" yo="0" id="10008395" name="inst_9F701633" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1128" y="264" w="24" h="48" xo="168" yo="0" id="10008396" name="inst_1317066C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1152" y="264" w="24" h="48" xo="168" yo="0" id="10008397" name="inst_EB501176" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1176" y="264" w="48" h="192" xo="192" yo="0" id="10008398" name="inst_9856601C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1152" y="336" w="24" h="96" xo="288" yo="72" id="10008399" name="inst_795059DF" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1128" y="336" w="24" h="96" xo="288" yo="72" id="10008400" name="inst_6220E6A9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1104" y="336" w="24" h="96" xo="288" yo="72" id="10008401" name="inst_F15F1870" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1080" y="336" w="24" h="96" xo="288" yo="72" id="10008402" name="inst_241CB2E4" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1056" y="336" w="24" h="96" xo="288" yo="72" id="10008403" name="inst_AC703ABC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1032" y="336" w="24" h="96" xo="288" yo="72" id="10008404" name="inst_5DBABC06" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1008" y="336" w="24" h="96" xo="288" yo="72" id="10008405" name="inst_F15CE098" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="984" y="336" w="24" h="96" xo="264" yo="72" id="10008409" name="inst_BFADF43F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="960" y="312" w="24" h="96" xo="288" yo="72" id="10008410" name="inst_C7CFE53E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1056" y="288" w="24" h="24" xo="336" yo="192" id="10008411" name="inst_0B122567" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="888" y="264" w="24" h="24" xo="336" yo="192" id="10008412" name="inst_FD44B077" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="768" y="264" w="24" h="24" xo="312" yo="192" id="10008413" name="inst_0F86C68B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="984" y="312" w="24" h="24" xo="312" yo="216" id="10008414" name="inst_2124F1DE" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="936" y="312" w="24" h="96" xo="288" yo="72" id="10008415" name="inst_9EEBC47C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="912" y="336" w="24" h="96" xo="312" yo="72" id="10008416" name="inst_F61413ED" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="840" y="336" w="72" h="96" xo="240" yo="72" id="10008417" name="inst_36BCA1B6" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="840" y="312" w="24" h="96" xo="288" yo="72" id="10008420" name="inst_77DBFE2A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="816" y="312" w="24" h="96" xo="288" yo="72" id="10008421" name="inst_E1C8383D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="792" y="312" w="24" h="96" xo="288" yo="72" id="10008423" name="inst_5EF2E8B2" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="768" y="312" w="24" h="96" xo="288" yo="72" id="10008424" name="inst_C72DE823" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="720" y="288" w="48" h="120" xo="240" yo="48" id="10008426" name="inst_49345A95" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="744" y="264" w="24" h="24" xo="264" yo="24" id="10008427" name="inst_8E28EE5D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="864" y="312" w="24" h="24" xo="168" yo="48" id="10008428" name="inst_AE787AD7" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="888" y="312" w="24" h="24" xo="168" yo="48" id="10008429" name="inst_02EB82B1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="912" y="312" w="24" h="24" xo="168" yo="48" id="10008430" name="inst_46F00145" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="672" y="72" w="48" h="96" xo="264" yo="72" id="10008431" name="inst_315D3E15" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="672" y="48" w="24" h="24" xo="264" yo="24" id="10008432" name="inst_F7A88FDF" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="696" y="24" w="24" h="24" xo="264" yo="24" id="10008433" name="inst_1AFCFEE6" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2664,12 +2752,13 @@
     <tile bgName="ts_skyblocks" x="96" y="1152" w="24" h="96" xo="288" yo="72" id="10008571" name="inst_1DAC39C7" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="96" y="1080" w="24" h="24" xo="312" yo="24" id="10008572" name="inst_FFB83AC9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="72" y="1152" w="24" h="96" xo="288" yo="72" id="10008574" name="inst_5F8E2C35" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="336" y="168" w="24" h="96" xo="168" yo="72" id="10008575" name="inst_89A7ACE9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="312" y="168" w="24" h="96" xo="168" yo="72" id="10008576" name="inst_52494BF1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="336" y="192" w="24" h="96" xo="168" yo="72" id="10008575" name="inst_89A7ACE9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="312" y="192" w="24" h="96" xo="168" yo="72" id="10008576" name="inst_52494BF1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="360" y="144" w="48" h="120" xo="192" yo="48" id="10008579" name="inst_2578B396" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="384" y="96" w="48" h="120" xo="192" yo="48" id="10008582" name="inst_045196C1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="360" y="48" w="72" h="48" xo="168" yo="0" id="10008583" name="inst_9CBEFFB0" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="240" y="120" w="48" h="144" xo="120" yo="24" id="10008584" name="inst_4FC5537C" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="288" y="192" w="24" h="96" xo="144" yo="72" id="10008585" name="inst_6ADA9325" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="288" y="96" w="24" h="24" xo="144" yo="24" id="10008586" name="inst_106E4500" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="312" y="72" w="24" h="24" xo="144" yo="24" id="10008587" name="inst_85544B88" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="336" y="48" w="24" h="48" xo="168" yo="0" id="10008588" name="inst_BC63E3BD" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2794,6 +2883,10 @@
     <tile bgName="ts_skyblocks" x="936" y="624" w="24" h="24" xo="48" yo="48" id="10008896" name="inst_49FEDB69" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="936" y="648" w="24" h="24" xo="48" yo="48" id="10008897" name="inst_B4AC5AC4" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="936" y="600" w="24" h="24" xo="48" yo="48" id="10008899" name="inst_6E03FA71" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1056" y="744" w="24" h="24" xo="48" yo="168" id="10008921" name="inst_ABDB7E5E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="984" y="744" w="24" h="24" xo="48" yo="168" id="10008926" name="inst_563D02D5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1008" y="744" w="24" h="24" xo="48" yo="168" id="10008927" name="inst_827298B9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1032" y="744" w="24" h="24" xo="48" yo="168" id="10008928" name="inst_DF4B2ADC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="984" y="504" w="24" h="24" xo="48" yo="168" id="10008934" name="inst_69F4E551" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1008" y="504" w="24" h="24" xo="48" yo="168" id="10008939" name="inst_06D99B31" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1032" y="504" w="24" h="24" xo="48" yo="168" id="10008942" name="inst_5AF4541A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2823,6 +2916,17 @@
     <tile bgName="ts_skyblocks" x="744" y="528" w="24" h="24" xo="48" yo="168" id="10009002" name="inst_133D4B71" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="840" y="504" w="48" h="24" xo="72" yo="168" id="10009003" name="inst_ED9E1FAB" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="840" y="528" w="48" h="24" xo="72" yo="168" id="10009004" name="inst_CB45E510" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="960" y="768" w="48" h="48" xo="0" yo="192" id="10009006" name="inst_B4D9990E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1008" y="768" w="24" h="72" xo="48" yo="192" id="10009007" name="inst_8A41F8AD" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1032" y="768" w="24" h="72" xo="48" yo="192" id="10009008" name="inst_A84660F2" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1056" y="768" w="24" h="72" xo="48" yo="192" id="10009009" name="inst_70A772BD" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1080" y="744" w="48" h="72" xo="72" yo="168" id="10009010" name="inst_D6F8C435" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="960" y="744" w="48" h="24" xo="0" yo="168" id="10009011" name="inst_A23F3984" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="984" y="720" w="24" h="24" xo="24" yo="24" id="10009012" name="inst_022382BC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1032" y="696" w="24" h="48" xo="48" yo="0" id="10009014" name="inst_B214D015" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1008" y="696" w="24" h="48" xo="48" yo="120" id="10009015" name="inst_C83D8E4D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1056" y="696" w="24" h="48" xo="48" yo="120" id="10009016" name="inst_E6A0C470" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="1080" y="720" w="24" h="24" xo="72" yo="24" id="10009017" name="inst_55F40E4F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1032" y="576" w="24" h="48" xo="48" yo="192" id="10009018" name="inst_B990A39E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1056" y="552" w="48" h="96" xo="72" yo="168" id="10009020" name="inst_1D49CD5D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="1056" y="528" w="48" h="24" xo="72" yo="168" id="10009021" name="inst_C231C430" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2906,12 +3010,35 @@
     <tile bgName="ts_railroad" x="600" y="696" w="48" h="72" xo="0" yo="144" id="10009150" name="inst_BCC34675" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="648" y="720" w="24" h="24" xo="48" yo="168" id="10009151" name="inst_CCA5992D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="648" y="696" w="24" h="24" xo="48" yo="144" id="10009152" name="inst_E849B991" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="288" y="696" w="72" h="72" xo="144" yo="0" id="10009153" name="inst_A13FB333" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="360" y="768" w="72" h="72" xo="72" yo="216" id="10009154" name="inst_CA35F02E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="360" y="744" w="24" h="24" xo="216" yo="48" id="10009155" name="inst_457AC925" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="264" y="648" w="72" h="72" xo="144" yo="144" id="10009157" name="inst_32AB414D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_skyblocks" x="264" y="600" w="48" h="72" xo="72" yo="168" id="10009158" name="inst_5F4638B5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="336" y="720" w="72" h="72" xo="144" yo="144" id="10009159" name="inst_135D0DEC" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="336" y="696" w="24" h="24" xo="216" yo="48" id="10009160" name="inst_C564F7A5" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="432" y="816" w="48" h="48" xo="96" yo="240" id="10009162" name="inst_23704A7A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="456" y="792" w="24" h="24" xo="120" yo="216" id="10009165" name="inst_A0A2BF1F" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="408" y="768" w="24" h="24" xo="216" yo="48" id="10009166" name="inst_5D288E78" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="456" y="768" w="72" h="72" xo="72" yo="72" id="10009170" name="inst_4F2DE335" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="528" y="768" w="72" h="72" xo="72" yo="72" id="10009171" name="inst_A68447E0" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="624" y="792" w="72" h="72" xo="144" yo="0" id="10009177" name="inst_71E35E81" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="696" y="864" w="72" h="72" xo="216" yo="72" id="10009179" name="inst_A83D4EF1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="720" y="936" w="48" h="72" xo="168" yo="72" id="10009180" name="inst_13ED91DE" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="696" y="840" w="24" h="24" xo="216" yo="48" id="10009181" name="inst_A9299429" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="648" y="672" w="72" h="72" xo="72" yo="0" id="10009183" name="inst_A1C4A37D" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="600" y="624" w="72" h="72" xo="0" yo="216" id="10009186" name="inst_607DACFE" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="600" y="552" w="72" h="72" xo="0" yo="72" id="10009187" name="inst_35C57072" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="648" y="504" w="72" h="72" xo="72" yo="0" id="10009188" name="inst_39F4B545" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="432" y="792" w="24" h="24" xo="120" yo="216" id="10009189" name="inst_E2D6154A" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="408" y="792" w="24" h="48" xo="120" yo="72" id="10009192" name="inst_FBD43D9B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="432" y="768" w="24" h="48" xo="120" yo="72" id="10009193" name="inst_DF8FFD20" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="360" y="792" w="72" h="72" xo="72" yo="72" id="10009195" name="inst_FD0CC84E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="288" y="792" w="72" h="72" xo="72" yo="0" id="10009196" name="inst_711E2261" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="216" y="864" w="72" h="72" xo="0" yo="72" id="10009199" name="inst_D7927B0B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="264" y="840" w="24" h="24" xo="48" yo="48" id="10009200" name="inst_53727306" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_railroad" x="240" y="1032" w="48" h="72" xo="72" yo="216" id="10009203" name="inst_929FC925" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_skyblocks" x="240" y="1032" w="48" h="24" xo="0" yo="168" id="10009205" name="inst_377C577B" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="1080" y="504" w="72" h="72" xo="144" yo="216" id="10009206" name="inst_35C7E5F1" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="1152" y="432" w="72" h="72" xo="72" yo="0" id="10009207" name="inst_41A5D165" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="1128" y="480" w="24" h="24" xo="48" yo="48" id="10009208" name="inst_05C568A9" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2923,19 +3050,6 @@
     <tile bgName="ts_railroad" x="336" y="312" w="48" h="24" xo="0" yo="72" id="10009217" name="inst_0FE6EDE8" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="192" y="432" w="72" h="72" xo="0" yo="72" id="10009218" name="inst_B679CBCD" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_railroad" x="192" y="504" w="48" h="24" xo="0" yo="216" id="10009220" name="inst_0CB2E950" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="720" y="936" w="24" h="48" xo="48" yo="120" id="10011218" name="inst_F7D72728" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="240" y="1032" w="48" h="24" xo="0" yo="168" id="10011219" name="inst_27903565" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="" x="288" y="192" w="16" h="16" xo="0" yo="0" id="10011220" name="inst_948E80A0" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="288" y="168" w="24" h="96" xo="168" yo="72" id="10011221" name="inst_BAE84C14" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="552" y="408" w="24" h="24" xo="192" yo="24" id="10011222" name="inst_DF8CDF63" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_railroad" x="816" y="816" w="72" h="72" xo="144" yo="72" id="10011224" name="inst_9FE6E934" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_railroad" x="840" y="888" w="48" h="24" xo="168" yo="72" id="10011229" name="inst_D5985D9E" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_railroad" x="840" y="744" w="48" h="72" xo="168" yo="72" id="10011230" name="inst_D0625776" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_skyblocks" x="840" y="864" w="24" h="48" xo="48" yo="120" id="10011231" name="inst_CEDC8655" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_railroad" x="456" y="768" w="72" h="72" xo="72" yo="72" id="10011232" name="inst_55BE8116" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_railroad" x="432" y="768" w="24" h="48" xo="120" yo="72" id="10011234" name="inst_C093FCC4" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_railroad" x="360" y="744" w="24" h="24" xo="216" yo="48" id="10011235" name="inst_EA62B170" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="ts_railroad" x="288" y="696" w="72" h="72" xo="144" yo="0" id="10011236" name="inst_A19B3097" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_buildings" x="744" y="960" w="96" h="48" xo="0" yo="120" id="10006932" name="inst_941AF1AD" depth="19" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_buildings" x="720" y="960" w="24" h="48" xo="0" yo="168" id="10006933" name="inst_F9DC0852" depth="19" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="ts_buildings" x="840" y="960" w="24" h="48" xo="120" yo="168" id="10006934" name="inst_81D6B042" depth="19" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

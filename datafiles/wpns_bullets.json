@@ -42,8 +42,8 @@
       "on_click_cb":"scr_do_nothing",
       "pressed_cb":"scr_ignite",
       "on_release_cb":"scr_do_nothing",
-      "shoot_frame":0,
-      "anim_speed":0.4,
+      "shoot_frame":4,
+      "anim_speed":0.3,
       "projectile":"flame_plume",
       "recoil":1,
       "palette":198,
@@ -182,8 +182,8 @@
       "hp_bar_width":32
     },
     "player_missile":{
-      "turn":2,
-      "speed":4.2,
+      "turn":2.5,
+      "speed":3.5,
       "targeting_cb":"scr_missile_target_player",
       "targeting_sprite":"spr_player_missile_target",
       "warn_range":300,

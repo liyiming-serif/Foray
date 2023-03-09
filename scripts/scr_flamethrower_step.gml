@@ -15,6 +15,10 @@ if(!is_wpn_on){
             instance_destroy(projectile_id);
         }
     }
+    //sprite_index = spr_wpn_flamethrower_on;
+}
+else{
+    //sprite_index = spr_wpn_flamethrower;
 }
 
 is_wpn_on = false;
