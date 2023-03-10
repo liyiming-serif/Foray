@@ -19,8 +19,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///spawn player [+PAUSE]
-scr_player_create(800,500,90,"altair","flamethrower");
+            <string>///spawn player + starting enemies
+scr_player_create(800,500,90,"altair");
 
 //scr_blimp_create(924,648,30);
 //scr_blimp_create(689,1122,315);
@@ -31,8 +31,8 @@ scr_player_create(800,500,90,"altair","flamethrower");
 scr_skymine_create(924,840,0,0);
 scr_skymine_create(288,1080,0,0);
 scr_skymine_create(1080,288,0,0);
-//scr_spawn_plane_cmc3("pyro");
-timeline_running = false;
+scr_spawn_plane("firnas",1);
+//timeline_running = false;
 </string>
           </argument>
         </arguments>
@@ -80,7 +80,7 @@ scr_spawn_skymine();
     </event>
   </entry>
   <entry>
-    <step>300</step>
+    <step>180</step>
     <event>
       <action>
         <libid>1</libid>
@@ -110,7 +110,7 @@ scr_spawn_chasing_skymine();
     </event>
   </entry>
   <entry>
-    <step>700</step>
+    <step>420</step>
     <event>
       <action>
         <libid>1</libid>
@@ -139,7 +139,7 @@ scr_remove_design_pattern("scr_spawn_chasing_skymine");
     </event>
   </entry>
   <entry>
-    <step>800</step>
+    <step>500</step>
     <event>
       <action>
         <libid>1</libid>
@@ -166,7 +166,7 @@ scr_spawn_plane_cmc3();
     </event>
   </entry>
   <entry>
-    <step>1000</step>
+    <step>720</step>
     <event>
       <action>
         <libid>1</libid>
@@ -195,7 +195,7 @@ scr_spawn_chasing_skymine();
     </event>
   </entry>
   <entry>
-    <step>1700</step>
+    <step>1420</step>
     <event>
       <action>
         <libid>1</libid>
@@ -222,7 +222,7 @@ scr_remove_design_pattern("scr_spawn_plane_cmc3");
     </event>
   </entry>
   <entry>
-    <step>1800</step>
+    <step>1520</step>
     <event>
       <action>
         <libid>1</libid>
@@ -254,7 +254,7 @@ scr_spawn_balloon("");
     </event>
   </entry>
   <entry>
-    <step>2300</step>
+    <step>2020</step>
     <event>
       <action>
         <libid>1</libid>
@@ -282,7 +282,7 @@ scr_spawn_plane_cmc3();
     </event>
   </entry>
   <entry>
-    <step>2700</step>
+    <step>2420</step>
     <event>
       <action>
         <libid>1</libid>
@@ -312,7 +312,7 @@ scr_remove_design_pattern("scr_spawn_balloon");
     </event>
   </entry>
   <entry>
-    <step>3000</step>
+    <step>2720</step>
     <event>
       <action>
         <libid>1</libid>
@@ -341,7 +341,7 @@ scr_spawn_skymine_cluster(true);
     </event>
   </entry>
   <entry>
-    <step>3700</step>
+    <step>3420</step>
     <event>
       <action>
         <libid>1</libid>
@@ -370,7 +370,7 @@ scr_remove_design_pattern("scr_spawn_chasing_skymine");
     </event>
   </entry>
   <entry>
-    <step>4200</step>
+    <step>3920</step>
     <event>
       <action>
         <libid>1</libid>
@@ -400,7 +400,7 @@ scr_remove_design_pattern("scr_spawn_plane_cmc4");
     </event>
   </entry>
   <entry>
-    <step>4500</step>
+    <step>4220</step>
     <event>
       <action>
         <libid>1</libid>
@@ -421,8 +421,8 @@ scr_remove_design_pattern("scr_spawn_plane_cmc4");
             <string>///add balloons and planes back
 
 scr_spawn_balloon();
-scr_spawn_plane_cmc3("pyro");
-scr_spawn_plane_cmc4("mg_chaser");
+scr_spawn_plane_cmc3();
+scr_spawn_plane_cmc4();
 </string>
           </argument>
         </arguments>
@@ -430,7 +430,7 @@ scr_spawn_plane_cmc4("mg_chaser");
     </event>
   </entry>
   <entry>
-    <step>5700</step>
+    <step>5420</step>
     <event>
       <action>
         <libid>1</libid>
@@ -460,7 +460,7 @@ scr_remove_design_pattern("scr_spawn_balloon");
     </event>
   </entry>
   <entry>
-    <step>6000</step>
+    <step>5720</step>
     <event>
       <action>
         <libid>1</libid>
@@ -514,7 +514,7 @@ scr_add_seen_wpn("burst_cannon");
     </event>
   </entry>
   <entry>
-    <step>6100</step>
+    <step>5820</step>
     <event>
       <action>
         <libid>1</libid>
@@ -543,7 +543,7 @@ scr_spawn_balloon();
     </event>
   </entry>
   <entry>
-    <step>6600</step>
+    <step>6320</step>
     <event>
       <action>
         <libid>1</libid>
@@ -571,7 +571,7 @@ scr_spawn_plane_cmc4();
     </event>
   </entry>
   <entry>
-    <step>7500</step>
+    <step>7220</step>
     <event>
       <action>
         <libid>1</libid>
@@ -599,7 +599,7 @@ scr_spawn_chasing_skymine();
     </event>
   </entry>
   <entry>
-    <step>8100</step>
+    <step>7820</step>
     <event>
       <action>
         <libid>1</libid>
@@ -627,7 +627,7 @@ scr_spawn_skymine_cluster();
     </event>
   </entry>
   <entry>
-    <step>8800</step>
+    <step>8520</step>
     <event>
       <action>
         <libid>1</libid>
@@ -659,7 +659,7 @@ scr_remove_design_pattern("scr_spawn_plane_cmc4");
     </event>
   </entry>
   <entry>
-    <step>9300</step>
+    <step>9020</step>
     <event>
       <action>
         <libid>1</libid>
@@ -689,7 +689,7 @@ scr_remove_design_pattern("scr_spawn_plane_cmc5");
     </event>
   </entry>
   <entry>
-    <step>9800</step>
+    <step>9520</step>
     <event>
       <action>
         <libid>1</libid>
@@ -719,7 +719,7 @@ scr_spawn_balloon();
     </event>
   </entry>
   <entry>
-    <step>10500</step>
+    <step>10220</step>
     <event>
       <action>
         <libid>1</libid>
@@ -748,7 +748,7 @@ scr_spawn_plane_cmc5();
     </event>
   </entry>
   <entry>
-    <step>12300</step>
+    <step>12020</step>
     <event>
       <action>
         <libid>1</libid>
@@ -783,7 +783,7 @@ scr_remove_design_pattern("scr_spawn_amr_balloon");
     </event>
   </entry>
   <entry>
-    <step>12900</step>
+    <step>12620</step>
     <event>
       <action>
         <libid>1</libid>
@@ -812,7 +812,7 @@ scr_remove_design_pattern("scr_spawn_zeppelin");
     </event>
   </entry>
   <entry>
-    <step>13800</step>
+    <step>13520</step>
     <event>
       <action>
         <libid>1</libid>
@@ -850,7 +850,7 @@ scr_add_seen_wpn("flamethrower");
     </event>
   </entry>
   <entry>
-    <step>15900</step>
+    <step>15620</step>
     <event>
       <action>
         <libid>1</libid>

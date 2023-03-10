@@ -1,23 +1,24 @@
 #define scr_aiplane_create
- ///scr_aiplane_create(x, y, dir, model_name, ai_name, skill)
+ ///scr_aiplane_create(x, y, dir, model_name, skill)
 var xv = argument[0];
 var yv = argument[1];
 var dir = argument[2];
 var model_name = argument[3];
-var mp = ds_map_find_value(global.pilot_ai,argument[4]);
+var m_map = ds_map_find_value(global.models, model_name);
+var ai_name = ds_map_find_value(m_map, "default_pilot_ai");
 
+var mp = ds_map_find_value(global.pilot_ai,ai_name);
 var obj = asset_get_index(ds_map_find_value(mp,"obj_ind"));
-var wpn_name = ds_map_find_value(mp,"wpn");
 
 //CONSTRUCTOR:
 with(instance_create(xv,yv,obj)){
     //Load AI constants from JSON 
-    skill = argument[5]-1;
+    skill = argument[4]-1;
     range = ds_list_find_value(ds_map_find_value(mp,"range"),skill); //distance before plane opens fire
     og_accuracy = ds_list_find_value(ds_map_find_value(mp,"accuracy"),skill); //angle diff before plane opens fire
     accuracy = og_accuracy;
     var utt = ds_map_find_value(mp,"update_target_time"); //update_target_time
-    scr_plane_instantiate(dir,model_name,wpn_name,false,ds_list_find_value(utt,skill));
+    scr_plane_instantiate(dir,model_name,false,ds_list_find_value(utt,skill));
     
     //Handicap AI
     og_turn = turn;

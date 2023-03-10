@@ -1,14 +1,13 @@
 #define scr_player_create
-///scr_player_create(x, y, dir, model_name, wpn_name)
+///scr_player_create(x, y, dir, model_name)
 var xv = argument0;
 var yv = argument1;
 var dir = argument2;
 var model_name = argument3;
-var wpn_name = argument4;
 
 //PLAYER CONSTRUCTOR:
 with(instance_create(xv,yv,obj_player)){
-    scr_plane_instantiate(dir,model_name,wpn_name,true);
+    scr_plane_instantiate(dir,model_name,true);
 
     global.player_id = id;
     obj_cursor.modifier = modifier; //update cursor color palette

@@ -1,16 +1,15 @@
 #define scr_plane_instantiate
-///scr_plane_instantiate(dir, model_name, wpn_name, is_friendly, update_target_time=-1)
+///scr_plane_instantiate(dir, model_name, is_friendly, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
 direction = argument[0];
 var mp = ds_map_find_value(global.models, argument[1]);
 key = argument[1];
-var wpn_name = argument[2];
-if(argument_count==5){
-    scr_ship_instantiate(argument[3],global.planes,argument[4]);
+if(argument_count==4){
+    scr_ship_instantiate(argument[2],global.planes,argument[3]);
 }
 else{
-    scr_ship_instantiate(argument[3],global.planes);
+    scr_ship_instantiate(argument[2],global.planes);
 }
 
 //orient the plane
@@ -74,6 +73,7 @@ trail_counter = global.TRAIL_RATE;
 arrow_img_ind = 0;
 
 //arm the plane
+wpn_name = ds_map_find_value(mp,"wpn");
 gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly,display_dmg);
 
 //audio
@@ -337,7 +337,7 @@ crashing_sound = scr_play_sound(snd_falling,x,y);
 //becomes the active player.
 
 //create player plane
-var new = scr_player_create(x,y,direction,key,gid.key);
+var new = scr_player_create(x,y,direction,key);
 new.speed = speed;
 //play buckling animation for new plane
 new.sprite_index = spr_plane1_buckle;
