@@ -25,6 +25,8 @@ display_speed = clamp(ds_map_find_value(mp,"speed"),1,global.MAX_STATS);
 display_turn = clamp(ds_map_find_value(mp,"turn"),1,global.MAX_STATS);
 display_dmg = clamp(ds_map_find_value(mp,"dmg"),1,global.MAX_STATS);
 display_amr = clamp(ds_map_find_value(mp,"amr"),1,global.MAX_STATS);
+rolltime = ds_map_find_value(mp,"rolltime");
+max_roll_cooldown = ds_map_find_value(mp, "roll_cooldown");
 
 //translated primary stats
 neutral_speed = scr_interpolate_stat(display_speed,global.speed_tiers);
@@ -41,14 +43,21 @@ hp = max_hp;
 curr_speed = neutral_speed;
 is_braking = false;
 is_boosting = false;
+is_rolling = false;
 has_pilot = true;
+roll_invuln = 0;
+roll_cooldown = 0;
 
 //animation
-image_speed = 0.4;
-neutral_frame = 0; //starting frames
+idle_anim_speed = 0.4; //hardcoded values
+roll_anim_speed = 0.7;
+neutral_frame = 0;
 right_frame = 16;
 left_frame = 20;
-l_bound_frame = neutral_frame; //upper and lower frame bounds
+roll_start_frame = 5;
+roll_end_frame = 11;
+image_speed = idle_anim_speed; //in-game bounds
+l_bound_frame = neutral_frame; 
 u_bound_frame = right_frame;
 
 //palette swap shader
@@ -298,6 +307,18 @@ else if(image_index<l_bound_frame){
     image_index = l_bound_frame;
 }
 
+//draw depth
+if(is_rolling){
+    depth = -2;
+}
+else{
+    depth = 0;
+}
+
+//countdown rolling maneuver
+roll_invuln = max(0, roll_invuln-global.game_speed);
+roll_cooldown = max(0, roll_cooldown-global.game_speed);
+
 
 #define scr_plane_crash
 ///scr_plane_crash()
@@ -411,3 +432,22 @@ if(variable_instance_exists(id,"crashing_sound")){
 
 //dispose function for all ships
 scr_ship_gc();
+#define scr_plane_roll
+///scr_plane_roll()
+
+//Returns whether a new roll was started
+if(is_rolling || roll_cooldown!=0){
+    return false;
+}
+
+//Start the roll
+roll_invuln = rolltime;
+is_rolling = true;
+
+sprite_index = spr_plane1_roll;
+image_speed = roll_anim_speed;
+image_index = 0;
+u_bound_frame = roll_start_frame;
+l_bound_frame = roll_end_frame;
+
+return true;

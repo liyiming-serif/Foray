@@ -210,6 +210,7 @@ global.city_id = 0;
 //controls
 global.brake_key = ord('Z');
 global.boost_key = ord('X');
+global.roll_key = ord('C');
 global.options_key = ord('F');
 
 //Set plane palettes

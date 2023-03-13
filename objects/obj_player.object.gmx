@@ -61,6 +61,11 @@ if(sprite_index==spr_plane1_buckle){
     return undefined;
 }
 
+//rolling
+if(keyboard_check_pressed(global.roll_key)){
+    scr_plane_roll();
+}
+
 //boosting and braking
 if(keyboard_check(global.brake_key)){
     scr_plane_brake();
@@ -82,14 +87,16 @@ if(mouse_check_button(mb_right)){
 scr_plane_turn(mouse_x, mouse_y, false);
 
 //'LMB' to shoot
-if(mouse_check_button_pressed(mb_left)){
-    scr_plane_shoot("on_click");
-}
-if(mouse_check_button(mb_left)){
-    scr_plane_shoot("pressed");
-}
-if(mouse_check_button_released(mb_left)){
-    scr_plane_shoot("on_release");
+if(!is_rolling){
+    if(mouse_check_button_pressed(mb_left)){
+        scr_plane_shoot("on_click");
+    }
+    if(mouse_check_button(mb_left)){
+        scr_plane_shoot("pressed");
+    }
+    if(mouse_check_button_released(mb_left)){
+        scr_plane_shoot("on_release");
+    }
 }
 </string>
           </argument>
@@ -114,6 +121,7 @@ if(mouse_check_button_released(mb_left)){
           <argument>
             <kind>1</kind>
             <string>///Hack contact dmg
+
 scr_player_contact_hit();
 </string>
           </argument>
@@ -139,6 +147,7 @@ scr_player_contact_hit();
             <kind>1</kind>
             <string>///finish death seq if out of hp; end buckle anim
 
+event_inherited();
 if(hp&lt;=0){
     if(global.player_id==id){
         scr_set_level("level1");

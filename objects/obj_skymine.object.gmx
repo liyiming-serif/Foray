@@ -191,12 +191,15 @@ scr_skymine_hit();
           <argument>
             <kind>1</kind>
             <string>///Detonate!
+if(variable_instance_exists(other, "roll_invuln") &amp;&amp; other.roll_invuln&gt;0){
+    return undefined;
+}
 
-if(other.is_friendly != is_friendly){
+if(other.is_friendly != is_friendly ){
     points = 0;
     scr_play_sound(snd_detonation,x,y,);
     with(other){
-        scr_ship_hit();
+        scr_plane_hit();
     }
 }
 </string>

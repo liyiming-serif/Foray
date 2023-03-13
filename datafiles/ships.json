@@ -20,6 +20,8 @@
         "amr":1,
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
+        "rolltime": 30,
+        "roll_cooldown": 20,
         "palette": 0
       },
       "bessie":{
@@ -30,6 +32,8 @@
         "amr": 1,
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
+        "rolltime": 30,
+        "roll_cooldown": 20,
         "palette": 1
       },
       "camel":{
@@ -40,6 +44,8 @@
         "amr":1,
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
+        "rolltime": 30,
+        "roll_cooldown": 20,
         "palette": 3
       },
       "firnas":{
@@ -50,6 +56,8 @@
         "amr":1,
         "wpn":"flamethrower",
         "default_pilot_ai":"pyro",
+        "rolltime": 30,
+        "roll_cooldown": 20,
         "palette": 2
       },
       "earl":{
@@ -60,6 +68,8 @@
         "amr":1,
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
+        "rolltime": 30,
+        "roll_cooldown": 20,
         "palette": 4
       },
       "deneb":{
@@ -70,6 +80,8 @@
         "amr":1,
         "wpn":"flamethrower",
         "default_pilot_ai":"pyro",
+        "rolltime": 30,
+        "roll_cooldown": 20,
         "palette": 5
       }
     },

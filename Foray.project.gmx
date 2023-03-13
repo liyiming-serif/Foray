@@ -138,6 +138,7 @@
     <sprites name="planes">
       <sprite>sprites\spr_plane1</sprite>
       <sprite>sprites\spr_plane1_shoot</sprite>
+      <sprite>sprites\spr_plane1_roll</sprite>
       <sprite>sprites\spr_plane1_land</sprite>
       <sprite>sprites\spr_plane1_buckle</sprite>
     </sprites>
@@ -256,6 +257,9 @@
     <script>scripts\scr_flame_plume_create.gml</script>
     <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
+    <scripts name="plane">
+      <script>scripts\scr_plane_hit.gml</script>
+    </scripts>
     <scripts name="pilot_ai">
       <script>scripts\scr_ai_mg_chaser_make.gml</script>
       <script>scripts\scr_ai_pyro_make.gml</script>

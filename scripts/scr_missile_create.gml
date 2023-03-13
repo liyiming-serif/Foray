@@ -191,12 +191,17 @@ if(i!=noone){
     }
 }
 
-//don't dodge if obstacle is 1)moving away 2)too fast 3)not imminently close
+//don't dodge if obstacle is 1)moving away 2)too fast 3)not imminently close 4)rolling 
 if(i!=noone){
-    if(i.speed>speed*0.5 && abs(angle_difference(i.direction,direction))<30.0){
-        var l = distance_to_object(i);
-        if(l>foresight*0.4){
-            i = noone;
+    if(variable_instance_exists(i, "roll_invuln") && i.roll_invuln>0){
+        i = noone;
+    }
+    else {
+        if(i.speed>speed*0.5 && abs(angle_difference(i.direction,direction))<30.0){
+            var l = distance_to_object(i);
+            if(l>foresight*0.4){
+                i = noone;
+            }
         }
     }
 }

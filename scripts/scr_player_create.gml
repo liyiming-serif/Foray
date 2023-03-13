@@ -51,7 +51,7 @@ with(instance_create(x,y,obj_player_avatar)){
 
 //HACK: continuous chip dmg if player is hitting an enemy ship
 
-if(hp<=0 || invincibility > 0 || other.hp<=0) return undefined;
+if(hp<=0 || invincibility>0 || other.hp<=0 || roll_invuln>0) return undefined;
 
 if(!other.is_friendly && !variable_instance_exists(other,"dmg")){
     var dmg = global.CONTACT_DMG;

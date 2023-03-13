@@ -54,13 +54,18 @@ var sx, sy, i, adir, adiff, pa, da;
 sx = lengthdir_x(speed*foresight,direction);
 sy = lengthdir_y(speed*foresight,direction);
 i = collision_line(x,y,sx+x,sy+y,obj_ship_parent,false,true);
-//don't dodge if obstacle is 1)moving away 2)too fast 3)not imminently close
+//don't dodge if obstacle is 1)moving away 2)too fast 3)not imminently close 4)rolling 
 if(i!=noone){
-    adiff = abs(angle_difference(i.direction,direction));
-    if(i.speed>speed*0.5 && adiff<60.0){
-        var l = distance_to_object(i);
-        if(l>foresight*0.4){
-            i = noone;
+    if(variable_instance_exists(i, "roll_invuln") && i.roll_invuln>0){
+        i = noone;
+    }
+    else {
+        adiff = abs(angle_difference(i.direction,direction));
+        if(i.speed>speed*0.5 && adiff<60.0){
+            var l = distance_to_object(i);
+            if(l>foresight*0.4){
+                i = noone;
+            }
         }
     }
 }
@@ -143,7 +148,7 @@ return false;
 ///scr_aiplane_hit()
 
 var php = hp;
-scr_ship_hit();
+scr_plane_hit();
 if(hp<=achy && php>achy){     
     var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
     scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));

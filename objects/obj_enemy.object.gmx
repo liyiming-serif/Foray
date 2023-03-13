@@ -170,6 +170,7 @@ scr_aiplane_hit();
           <argument>
             <kind>1</kind>
             <string>///finish death seq if out of hp
+event_inherited();
 if(hp&lt;=0){
     instance_destroy();
     scr_ground_particle_create(x, y, global.boom_air);
