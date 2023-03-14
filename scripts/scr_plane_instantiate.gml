@@ -36,6 +36,7 @@ amr = scr_interpolate_stat(display_amr,global.amr_tiers);
 //hidden stats
 min_speed = scr_interpolate_stat(display_speed,global.min_speed_tiers);
 max_speed = scr_interpolate_stat(display_speed,global.max_speed_tiers);
+roll_speed = scr_interpolate_stat(display_speed,global.rolling_speed_tiers);
 modifier = ds_map_find_value(mp,"palette");
 
 //variable fields
@@ -123,19 +124,43 @@ if(argument_count==4){
     tm *= argument[3];
 }
 
-//actually turn plane, affecting direction.
-var da = angle_difference(pa,direction);
-var ta = min(abs(da),tm);
-direction += global.game_speed*ta*sign(da);
+//Set direction
+var da, ta;
+if(roll_invuln > 0){
+    //strafing during rolling
+    da = angle_difference(pa,direction);
+    ta = min(abs(da),turn*global.ROLL_TURN);
+    direction += global.game_speed*ta*sign(da);
+}
+else {
+    da = angle_difference(pa,direction);
+    ta = min(abs(da),tm);
+    direction += global.game_speed*ta*sign(da);
+}
 
 //actually move the plane based on turn angle
 speed = global.game_speed*curr_speed*(1-ta/(turn*global.TURN_DAMPENER));
 
-//drifting, affecting image_angle
-if(is_braking && !(argument_count==4 && abs(argument[3])<1)){
+//Set image angle
+var pimg_angle, dimg_angle;
+pimg_angle = angle_difference(image_angle, pa);
+dimg_angle = angle_difference(image_angle, direction);
+if(is_braking &&
+    !(argument_count==4 && abs(argument[3])<1) &&
+    curr_speed > neutral_speed){
+    
+    //drifting during break
     da = angle_difference(pa,image_angle);
     ta = min(abs(da),turn*global.DRIFT);
     image_angle += global.game_speed*ta*sign(da);
+}
+else if(sign(pimg_angle)!=sign(dimg_angle) &&
+    pimg_angle!=0 &&
+    dimg_angle!=0){
+    //lock image angle until drift is finished
+}
+else if(roll_invuln > 0){
+    //strafing, lock image angle
 }
 else {
     var da2 = angle_difference(direction,image_angle);
@@ -181,27 +206,32 @@ audio_stop_sound(engine_sound);
 
 #define scr_plane_boost
 ///scr_plane_boost()
-is_braking = false;
-is_boosting = true;
-curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,max_speed);
-
+if(!is_rolling){
+    is_braking = false;
+    is_boosting = true;
+    curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,max_speed);
+}
 
 #define scr_plane_brake
 ///scr_plane_brake()
-is_braking = true;
-is_boosting = false;
-curr_speed = clamp(curr_speed-global.BRAKE_SPEED,min_speed,max_speed);
+if(!is_rolling){
+    is_braking = true;
+    is_boosting = false;
+    curr_speed = clamp(curr_speed-global.BRAKE_SPEED,min_speed,max_speed);
+}
 
 
 #define scr_plane_neutral
 ///scr_plane_neutral()
-is_braking = false;
-is_boosting = false;
-if(curr_speed<neutral_speed){//too slow
-    curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,neutral_speed);
-}
-else if(curr_speed>neutral_speed){//too fast
-    curr_speed = clamp(curr_speed-global.AIR_FRIC,neutral_speed,max_speed);
+if(!is_rolling){
+    is_braking = false;
+    is_boosting = false;
+    if(curr_speed<neutral_speed){//too slow
+        curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,neutral_speed);
+    }
+    else if(curr_speed>neutral_speed){//too fast
+        curr_speed = clamp(curr_speed-global.AIR_FRIC,neutral_speed,max_speed);
+    }
 }
 
 #define scr_plane_shade
@@ -316,6 +346,11 @@ if(image_index>u_bound_frame && hp > 0){
 }
 else if(image_index<l_bound_frame){
     image_index = l_bound_frame;
+}
+
+//rolling mechanics
+if(is_rolling){
+    scr_plane_rolling();
 }
 
 //draw depth

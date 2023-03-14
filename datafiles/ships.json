@@ -8,7 +8,8 @@
       "speeds":[2, 2.3, 2.6],
       "min_speeds":[1.8, 2, 2.2],
       "max_speeds":[3.7, 4.5, 5.2],
-      "turns":[1.8, 2.6, 3.2],
+      "roll_speeds":[4.2, 5, 5.5],
+      "turns":[2, 3, 4],
       "armors":[0, 2, 4]
     },
     "models":{
@@ -21,7 +22,7 @@
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
         "rolltime": 30,
-        "roll_cooldown": 20,
+        "roll_cooldown": 15,
         "palette": 0
       },
       "bessie":{
@@ -33,7 +34,7 @@
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
         "rolltime": 30,
-        "roll_cooldown": 20,
+        "roll_cooldown": 15,
         "palette": 1
       },
       "camel":{
@@ -45,7 +46,7 @@
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
         "rolltime": 30,
-        "roll_cooldown": 20,
+        "roll_cooldown": 15,
         "palette": 3
       },
       "firnas":{
@@ -57,7 +58,7 @@
         "wpn":"flamethrower",
         "default_pilot_ai":"pyro",
         "rolltime": 30,
-        "roll_cooldown": 20,
+        "roll_cooldown": 15,
         "palette": 2
       },
       "earl":{
@@ -69,7 +70,7 @@
         "wpn":"mg",
         "default_pilot_ai":"mg_chaser",
         "rolltime": 30,
-        "roll_cooldown": 20,
+        "roll_cooldown": 15,
         "palette": 4
       },
       "deneb":{
@@ -81,7 +82,7 @@
         "wpn":"flamethrower",
         "default_pilot_ai":"pyro",
         "rolltime": 30,
-        "roll_cooldown": 20,
+        "roll_cooldown": 15,
         "palette": 5
       }
     },

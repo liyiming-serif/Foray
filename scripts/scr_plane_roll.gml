@@ -9,6 +9,9 @@ if(is_rolling || roll_cooldown!=0){
 roll_invuln = rolltime;
 is_rolling = true;
 
+//Configure direction of dash
+
+
 sprite_index = spr_plane1_roll;
 image_speed = roll_anim_speed;
 image_index = 0;
