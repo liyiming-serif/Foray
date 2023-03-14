@@ -332,20 +332,31 @@ for(var i=array_length_1d(global.DMG_THRESHOLDS)-1; i>=0; i--;){
 }
 
 //advance frame
-if(image_index>u_bound_frame && hp > 0){
+if(image_index>=u_bound_frame && hp > 0){
     //special rolling conditions
     if(is_rolling){
-        l_bound_frame = roll_start_frame;
-    }
-    if(roll_invuln==0){
-        l_bound_frame = roll_end_frame;
-        u_bound_frame = image_number;
+        if(roll_invuln>0){
+            l_bound_frame = roll_start_frame;
+        }
+        else{
+            l_bound_frame = roll_end_frame;
+            u_bound_frame = image_number;
+        }
     }
     
     image_index = l_bound_frame;
+    
+    if(is_friendly){
+        show_debug_message("hit upper bound");
+        show_debug_message(string(round(image_index)));
+    }
 }
 else if(image_index<l_bound_frame){
     image_index = l_bound_frame;
+    if(is_friendly){
+        show_debug_message("hit lower bound");
+        show_debug_message(string(round(image_index)));
+    }
 }
 
 //rolling mechanics
