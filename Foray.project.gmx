@@ -259,6 +259,7 @@
     <script>scripts\scr_grounded_create.gml</script>
     <scripts name="plane">
       <script>scripts\scr_plane_hit.gml</script>
+      <script>scripts\scr_plane_roll.gml</script>
     </scripts>
     <scripts name="pilot_ai">
       <script>scripts\scr_ai_mg_chaser_make.gml</script>

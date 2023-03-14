@@ -51,7 +51,9 @@ scr_plane_gc();
             <kind>1</kind>
             <string>///Turn off plane shooting sprite
 
-sprite_index = spr_plane1;
+if(!is_rolling){
+    sprite_index = spr_plane1;
+}
 </string>
           </argument>
         </arguments>

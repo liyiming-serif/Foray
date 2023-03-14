@@ -144,19 +144,21 @@ else {
 }
 
 //change sprite based on turn angle
-if(ta > turn){
-    if(sign(da) == 1){ //hard left turn
-        l_bound_frame = left_frame;
-        u_bound_frame = image_number;
+if(!is_rolling){
+    if(ta > turn){
+        if(sign(da) == 1){ //hard left turn
+            l_bound_frame = left_frame;
+            u_bound_frame = image_number;
+        }
+        else{ //hard right turn
+            l_bound_frame = right_frame;
+            u_bound_frame = left_frame;
+        }
     }
-    else{ //hard right turn
-        l_bound_frame = right_frame;
-        u_bound_frame = left_frame;
+    else{ //neutral
+        l_bound_frame = neutral_frame;
+        u_bound_frame = right_frame;
     }
-}
-else{ //neutral
-    l_bound_frame = neutral_frame;
-    u_bound_frame = right_frame;
 }
 
 //update sound emitter for doppler effect
@@ -301,6 +303,15 @@ for(var i=array_length_1d(global.DMG_THRESHOLDS)-1; i>=0; i--;){
 
 //advance frame
 if(image_index>u_bound_frame && hp > 0){
+    //special rolling conditions
+    if(is_rolling){
+        l_bound_frame = roll_start_frame;
+    }
+    if(roll_invuln==0){
+        l_bound_frame = roll_end_frame;
+        u_bound_frame = image_number;
+    }
+    
     image_index = l_bound_frame;
 }
 else if(image_index<l_bound_frame){
@@ -374,10 +385,15 @@ new.invincibility = global.SPAWN_INVINCIBILITY*0.5;
 //inherit old plane's hp
 new.hp = hp;
 //restore a bit of hp and double invincibility frames if stealing new plane
-if(object_index==obj_enemy) {
-    new.invincibility = global.SPAWN_INVINCIBILITY;
-    new.timeline_position = 0;
-    new.hp = min(hp+max_hp*0.7, max_hp);
+switch(object_index){
+    case obj_enemy:
+    case obj_enemy_pyro:
+        new.invincibility = global.SPAWN_INVINCIBILITY;
+        new.timeline_position = 0;
+        new.hp = min(hp+max_hp*0.7, max_hp);
+        break;
+    default:
+        break;
 }
 
 //destroy old stolen plane
@@ -409,6 +425,11 @@ if(angles[1]>pi){
 #define scr_plane_shoot
 ///scr_plane_shoot(cb_type)
 
+//TEMP: planes *cannot* shoot while rolling
+if(is_rolling){
+    return undefined;
+}
+
 //wrapper around executing gid callbacks for reducing copied code
 var cb, ret;
 cb = argument[0];
@@ -419,6 +440,7 @@ if(ret!=undefined){
     alarm[11] = gid.recoil;
 }
 return ret;
+
 #define scr_plane_gc
 //scr_plane_gc
 
@@ -432,22 +454,3 @@ if(variable_instance_exists(id,"crashing_sound")){
 
 //dispose function for all ships
 scr_ship_gc();
-#define scr_plane_roll
-///scr_plane_roll()
-
-//Returns whether a new roll was started
-if(is_rolling || roll_cooldown!=0){
-    return false;
-}
-
-//Start the roll
-roll_invuln = rolltime;
-is_rolling = true;
-
-sprite_index = spr_plane1_roll;
-image_speed = roll_anim_speed;
-image_index = 0;
-u_bound_frame = roll_start_frame;
-l_bound_frame = roll_end_frame;
-
-return true;
