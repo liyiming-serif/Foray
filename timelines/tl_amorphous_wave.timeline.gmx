@@ -31,7 +31,7 @@ scr_player_create(800,500,90,"altair");
 scr_skymine_create(924,840,0,0);
 scr_skymine_create(288,1080,0,0);
 scr_skymine_create(1080,288,0,0);
-//scr_spawn_plane("firnas",1);
+scr_spawn_plane("firnas",1);
 timeline_running = false;
 </string>
           </argument>

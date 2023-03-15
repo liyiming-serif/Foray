@@ -103,6 +103,7 @@ audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,globa
 //Probably the most important script of the game.
 
 //(t)urn (m)odifier based on speed
+
 var tm = (((global.ACC_DAMPENER*max_speed)-curr_speed)/((global.ACC_DAMPENER*max_speed)-min_speed))*turn;
 
 //Turn towards or away from target.
@@ -169,7 +170,7 @@ else {
 }
 
 //change sprite based on turn angle
-if(!is_rolling){
+if(!is_rolling && sprite_index != spr_plane1_buckle){
     if(ta > turn){
         if(sign(da) == 1){ //hard left turn
             l_bound_frame = left_frame;
@@ -345,18 +346,12 @@ if(image_index>=u_bound_frame && hp > 0){
     }
     
     image_index = l_bound_frame;
-    
-    if(is_friendly){
-        show_debug_message("hit upper bound");
-        show_debug_message(string(round(image_index)));
+    if(is_friendly && sprite_index==spr_plane1_buckle && has_pilot){
+        show_debug_message("well that's not right: "+string(u_bound_frame));
     }
 }
 else if(image_index<l_bound_frame){
     image_index = l_bound_frame;
-    if(is_friendly){
-        show_debug_message("hit lower bound");
-        show_debug_message(string(round(image_index)));
-    }
 }
 
 //rolling mechanics
@@ -387,7 +382,7 @@ angles = -1;
 sprite_index = spr_plane1_land;
 image_index = 0;
 l_bound_frame = 0;
-r_bound_frame = image_number+1;
+u_bound_frame = image_number+1;
 image_speed = 0.2;
 
 //set crash course
@@ -421,7 +416,8 @@ new.speed = speed;
 new.sprite_index = spr_plane1_buckle;
 new.image_index = 0;
 new.l_bound_frame = 0;
-new.r_bound_frame = image_number;
+new.u_bound_frame = new.image_number+1;
+show_debug_message("hit new plane buckle: "+string(new.u_bound_frame));
 //start tint green coroutine
 new.timeline_index = tl_steal_coroutine;
 new.timeline_position = 24;

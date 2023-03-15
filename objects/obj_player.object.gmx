@@ -147,7 +147,6 @@ scr_player_contact_hit();
             <kind>1</kind>
             <string>///finish death seq if out of hp; end buckle anim
 
-event_inherited();
 if(hp&lt;=0){
     if(global.player_id==id){
         scr_set_level("level1");
@@ -158,52 +157,15 @@ if(hp&lt;=0){
     }
 }
 else if(sprite_index==spr_plane1_buckle){
+    show_debug_message("controls restored");
     sprite_index = spr_plane1;
     if(!has_pilot){
         var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
         scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///debug statements
+
 event_inherited();
-
-c_pos = scr_game_to_gui(x-48, y+48);
-s_pos = scr_game_to_gui(x+48, y+48);
-u_pos = scr_game_to_gui(x+48, y-48);
-l_pos = scr_game_to_gui(x-48, y-48);
-
-c_mess = string(round(image_index));
-s_mess = string(image_speed);
-u_mess = string(u_bound_frame);
-l_mess = string(l_bound_frame);
-
-draw_text_colour(c_pos[0],c_pos[1],c_mess,c_teal,c_teal,c_teal,c_teal,1);
-draw_text_colour(s_pos[0],s_pos[1],s_mess,c_teal,c_teal,c_teal,c_teal,1);
-draw_text_colour(u_pos[0],u_pos[1],u_mess,c_teal,c_teal,c_teal,c_teal,1);
-draw_text_colour(l_pos[0],l_pos[1],l_mess,c_teal,c_teal,c_teal,c_teal,1);
-
 </string>
           </argument>
         </arguments>
