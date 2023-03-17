@@ -285,6 +285,7 @@
       <script>scripts\scr_spawn_plane.gml</script>
       <script>scripts\scr_spawn_skymine.gml</script>
       <script>scripts\scr_spawn_balloon.gml</script>
+      <script>scripts\scr_spawn_blimp.gml</script>
       <script>scripts\scr_spawn_zeppelin.gml</script>
     </scripts>
     <scripts name="UI">

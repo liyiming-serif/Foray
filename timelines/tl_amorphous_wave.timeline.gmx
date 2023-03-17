@@ -31,8 +31,8 @@ scr_player_create(800,500,90,"altair");
 scr_skymine_create(924,840,0,0);
 scr_skymine_create(288,1080,0,0);
 scr_skymine_create(1080,288,0,0);
-scr_spawn_plane("firnas",1);
-timeline_running = false;
+//scr_spawn_plane("firnas",1);
+//timeline_running = false;
 </string>
           </argument>
         </arguments>
@@ -330,10 +330,41 @@ scr_remove_design_pattern("scr_spawn_balloon");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///showcase skymine clusters
+            <string>///showcase blimps, pause skymines
 
-scr_spawn_skymine_cluster(true);
+scr_spawn_blimp();
 
+scr_remove_design_pattern("scr_spawn_skymine");
+scr_remove_design_pattern("scr_spawn_chasing_skymine");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>3120</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///re-add skymine patterns
+
+scr_spawn_skymine();
+scr_spawn_chasing_skymine();
 </string>
           </argument>
         </arguments>
@@ -359,10 +390,7 @@ scr_spawn_skymine_cluster(true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///wipe skymine patterns
-
-scr_remove_design_pattern("scr_spawn_skymine_cluster");
-scr_remove_design_pattern("scr_spawn_chasing_skymine");
+            <string>///end of blimps
 </string>
           </argument>
         </arguments>
@@ -617,9 +645,9 @@ scr_spawn_chasing_skymine();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///reintroduce skymine clusters
+            <string>///reintroduce blimps
 
-scr_spawn_skymine_cluster();
+scr_spawn_blimp();
 </string>
           </argument>
         </arguments>
@@ -648,7 +676,7 @@ scr_spawn_skymine_cluster();
             <string>///pause all patterns except static skymines
 
 scr_remove_design_pattern("scr_spawn_chasing_skymine");
-scr_remove_design_pattern("scr_spawn_skymine_cluster");
+scr_remove_design_pattern("scr_spawn_blimp");
 scr_remove_design_pattern("scr_spawn_balloon");
 scr_remove_design_pattern("scr_spawn_amr_balloon");
 scr_remove_design_pattern("scr_spawn_plane_cmc4");
@@ -774,7 +802,7 @@ scr_remove_design_pattern("scr_spawn_balloon");
 scr_remove_design_pattern("scr_spawn_amr_balloon");
 scr_remove_design_pattern("scr_spawn_plane_cmc4");
 scr_remove_design_pattern("scr_spawn_plane_cmc5");
-scr_remove_design_pattern("scr_spawn_skymine_cluster");
+scr_remove_design_pattern("scr_spawn_blimp");
 scr_remove_design_pattern("scr_spawn_amr_balloon");
 </string>
           </argument>
@@ -838,7 +866,7 @@ scr_add_design_pattern("scr_spawn_balloon");
 scr_add_design_pattern("scr_spawn_amr_balloon");
 scr_add_design_pattern("scr_spawn_plane_cmc4");
 scr_add_design_pattern("scr_spawn_plane_cmc5");
-scr_add_design_pattern("scr_spawn_skymine_cluster");
+scr_add_design_pattern("scr_spawn_blimp");
 scr_add_design_pattern("scr_spawn_amr_balloon");
 scr_add_design_pattern("scr_spawn_zeppelin");
 scr_add_seen_wpn("mg");

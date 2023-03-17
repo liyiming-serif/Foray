@@ -50,3 +50,7 @@ return res;
 ///scr_tutorial_has_paused()
 
 return keyboard_check_released(global.options_key);
+#define scr_tutorial_has_rolled
+///scr_tutorial_has_rolled()
+
+return keyboard_check_pressed(global.roll_key);

@@ -8,6 +8,7 @@
     "scr_spawn_chasing_skymine":5.5,
     "scr_spawn_skymine_cluster":3,
     "scr_spawn_balloon":1.4,
+    "scr_spawn_blimp":0.9,
     "scr_spawn_amr_balloon":0.85,
     "scr_spawn_zeppelin":0.1
   }

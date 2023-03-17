@@ -33,6 +33,7 @@ if(!variable_global_exists("shoot_tutorial_done")){
     global.shoot_tutorial_done = false;
     global.boost_tutorial_done = false;
     global.brake_tutorial_done = false;
+    global.roll_tutorial_done = false;
     global.options_tutorial_done = false;
     global.steal_tutorial_done = false;
     

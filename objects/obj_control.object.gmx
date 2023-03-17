@@ -511,7 +511,7 @@ if(keyboard_check_pressed(global.options_key)){
         scr_set_res(2);
     }
     else{
-        scr_set_res(2);
+        scr_set_res(0);
     }
 }
 </string>
