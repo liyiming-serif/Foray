@@ -28,9 +28,10 @@ Your plane turns and moves towards your mouse.
 __To uninstall__, simply delete the `Foray` game folder from the path you specified when you installed the game. By default it's in C:\Users\\[username]\Foray. You can also run `Add or Remove Programs` and select `Foray` from the list of programs, then hit uninstall.
   
 ### Known Bugs
+* **This game won't run on a 4k monitor.** Sorry about that, I'll get it fixed as soon as I can.
 * When the game resets itself after you die in *windowed mode*, the camera will be misaligned. Pressing 'F' to enable fullscreen should fix this.
 * When shooting down a flamethrower enemy, the flame may stay in place. I'm working on a fix, thanks for being patient!
 
 ### Roadmap
-* 3/31/2023: solid obstacles
-* 4/30/2023: 1st full level completed
+* 3/31/2023: solid obstacles; 4k monitor bug fix
+* 4/30/2023: 1st full level completed; other bugs fixed
