@@ -1,5 +1,5 @@
 # Foray
-![mmm...deliciously shitty 30FPS](tech_demo.gif)
+![insert gameplay footage](tech_demo.gif)
   
 An arcade flying game I'm doing the art and progamming for in my spare time. Hope that by final release you have half as much fun playing it as I did making it <3
   
@@ -23,7 +23,10 @@ Your plane turns and moves towards your mouse.
 * 'F' to toggle fullscreen/windowed.
   
 ### Running the Demo
-`Tested only on Windows` Foray.exe contains the installer. Run it and follow the installation wizard.
+`Tested only on Windows` 
+1. Download the `Foray_Installer.exe` file
+2. If Windows blocked the .exe, hit "More Info" and it'll let you run the installer
+3. Once installation is done, it'll create a game folder in the directory you specified. Navigate to the folder and launch `Foray.exe` to start the game
   
 __To uninstall__, simply delete the `Foray` game folder from the path you specified when you installed the game. By default it's in C:\Users\\[username]\Foray. You can also run `Add or Remove Programs` and select `Foray` from the list of programs, then hit uninstall.
   
