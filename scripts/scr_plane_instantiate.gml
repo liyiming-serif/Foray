@@ -410,29 +410,28 @@ crashing_sound = scr_play_sound(snd_falling,x,y);
 //becomes the active player.
 
 //create player plane
-var new = scr_player_create(x,y,direction,key);
-new.speed = speed;
+var nw_plane = scr_player_create(x,y,direction,key);
+nw_plane.speed = speed;
 //play buckling animation for new plane
-new.sprite_index = spr_plane1_buckle;
-new.image_index = 0;
-new.l_bound_frame = 0;
-new.u_bound_frame = new.image_number+1;
-show_debug_message("hit new plane buckle: "+string(new.u_bound_frame));
+nw_plane.sprite_index = spr_plane1_buckle;
+nw_plane.image_index = 0;
+nw_plane.l_bound_frame = 0;
+nw_plane.u_bound_frame = nw_plane.image_number+1;
 //start tint green coroutine
-new.timeline_index = tl_steal_coroutine;
-new.timeline_position = 24;
-new.timeline_running = true;
+nw_plane.timeline_index = tl_steal_coroutine;
+nw_plane.timeline_position = 24;
+nw_plane.timeline_running = true;
 //invincibility during recovery frames
-new.invincibility = global.SPAWN_INVINCIBILITY*0.5;
+nw_plane.invincibility = global.SPAWN_INVINCIBILITY*0.5;
 //inherit old plane's hp
-new.hp = hp;
+nw_plane.hp = hp;
 //restore a bit of hp and double invincibility frames if stealing new plane
 switch(object_index){
     case obj_enemy:
     case obj_enemy_pyro:
-        new.invincibility = global.SPAWN_INVINCIBILITY;
-        new.timeline_position = 0;
-        new.hp = min(hp+max_hp*0.7, max_hp);
+        nw_plane.invincibility = global.SPAWN_INVINCIBILITY;
+        nw_plane.timeline_position = 0;
+        nw_plane.hp = min(hp+max_hp*0.7, max_hp);
         break;
     default:
         break;
