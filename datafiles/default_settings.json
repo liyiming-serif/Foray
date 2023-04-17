@@ -1,0 +1,12 @@
+{
+  "controls":{
+    "brake_key":"Z",
+    "boost_key":"X",
+    "roll_key":"C",
+    "options_key":"F"
+  },
+  "graphics":{
+    "resolution":3,
+    "screensize":0,
+  }
+}

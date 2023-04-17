@@ -68,6 +68,16 @@ while(!file_text_eof(f)){
 file_text_close(f);
 global.DESIGN_PATTERNS = json_decode(raw);
 
+//Player settings
+f = file_text_open_read(working_directory + "\default_settings.json");
+raw = "";
+while(!file_text_eof(f)){
+    raw += file_text_read_string(f);
+    file_text_readln(f);
+}
+file_text_close(f);
+global.DEFAULT_SETTINGS = json_decode(raw);
+
 //PARSE JSONS
 global.planes = ds_map_find_value(global.SHIPS, "planes");
 global.airships = ds_map_find_value(global.SHIPS, "airships");
@@ -86,6 +96,9 @@ global.missiles = ds_map_find_value(global.WPNS_BULLETS, "missiles");
 global.sp_dmg = ds_map_find_value(global.WPNS_BULLETS, "sp_dmg");
 global.midflights = ds_map_find_value(global.WPNS_BULLETS, "midflights");
 global.design_pattern_weights = ds_map_find_value(global.DESIGN_PATTERNS, "cb_weights");
+//default settings
+global.DEFAULT_CONTROLS = ds_map_find_value(global.DEFAULT_SETTINGS, "controls");
+global.DEFAULT_GRAPHICS = ds_map_find_value(global.DEFAULT_SETTINGS, "graphics");
 
 //Unintiallized level json + metadata
 global.curr_level_data = undefined;
@@ -209,11 +222,12 @@ global.tiles_y = 0;
 global.player_id = 0;
 global.city_id = 0;
 
-//controls
-global.brake_key = ord('Z');
-global.boost_key = ord('X');
-global.roll_key = ord('C');
-global.options_key = ord('F');
+//TODO: custom player settings
+//SETTINGS: controls
+global.brake_key = ord(ds_map_find_value(global.DEFAULT_CONTROLS, "brake_key"));
+global.boost_key = ord(ds_map_find_value(global.DEFAULT_CONTROLS, "boost_key"));
+global.roll_key = ord(ds_map_find_value(global.DEFAULT_CONTROLS, "roll_key"));
+global.options_key = ord(ds_map_find_value(global.DEFAULT_CONTROLS, "options_key"));
 
 //Set plane palettes
 enum mk{ //TODO: add modifiers
@@ -331,14 +345,16 @@ global.palette_texture = background_get_texture(bg_palette);
 global.is_meter_ref = shader_get_uniform(shader_wedge_flash, "isMeter");
 
 //DISPLAY/RESOLUTION MANAGER 
-global.IDEAL_WIDTH = 540;
+global.IDEAL_WIDTH = 640;
 global.IDEAL_HEIGHT = 360;
-global.FULLSCREEN_WIDTH = 0; //calculated in init views
-global.FULLSCREEN_HEIGHT = 0;
+global.resolution = ds_map_find_value(global.DEFAULT_GRAPHICS, "resolution");
+global.screensize = ds_map_find_value(global.DEFAULT_GRAPHICS, "screensize");
+global.GUI_RES = 3;
+global.FULL_SCREENSIZE = 0; //calculated in init views
 view_xprev = 0; //for smoothing resolution changes
 view_yprev = 0;
 scr_init_views();
-scr_set_res(0);
+scr_set_screensize(global.screensize); //fullscreen bug?
 window_set_cursor(cr_none);
 scr_set_level("level1");
 </string>
@@ -384,6 +400,7 @@ part_type_destroy(global.trail_far);
 ds_map_destroy(global.SHIPS);
 ds_map_destroy(global.WPNS_BULLETS);
 ds_map_destroy(global.DESIGN_PATTERNS);
+ds_map_destroy(global.DEFAULT_SETTINGS);
 if(global.curr_level_name!=""){
     ds_map_destroy(global.curr_level_data);
 }
@@ -508,10 +525,10 @@ if(global.changing_levels){
             <string>///'F' to toggle fullscreen
 if(keyboard_check_pressed(global.options_key)){
     if(window_get_fullscreen()){
-        scr_set_res(2);
+        scr_set_screensize(2);
     }
     else{
-        scr_set_res(0);
+        scr_set_screensize(0);
     }
 }
 </string>

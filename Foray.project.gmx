@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="29" name="datafiles">
+  <datafiles number="30" name="datafiles">
     <datafile>
       <name>Westington.ttf</name>
       <exists>-1</exists>
@@ -54,6 +54,23 @@
         </Config>
       </ConfigOptions>
       <filename>4mini.ttf</filename>
+    </datafile>
+    <datafile>
+      <name>default_settings.json</name>
+      <exists>-1</exists>
+      <size>177</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>default_settings.json</filename>
     </datafile>
     <datafile>
       <name>ships.json</name>
@@ -278,7 +295,7 @@
       <script>scripts\scr_play_sound.gml</script>
     </scripts>
     <scripts name="control">
-      <script>scripts\scr_set_res.gml</script>
+      <script>scripts\scr_set_screensize.gml</script>
       <script>scripts\scr_set_level.gml</script>
     </scripts>
     <scripts name="design_patterns">

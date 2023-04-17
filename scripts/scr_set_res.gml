@@ -1,11 +1,11 @@
 #define scr_set_res
 ///scr_set_res(zoom)
 var zoom = round(argument0);
+surface_resize(application_surface, global.IDEAL_WIDTH, global.IDEAL_HEIGHT);
 if(zoom<=0){ //fullscreen
     view_visible[1] = false;
     view_visible[0] = true;
     window_set_fullscreen(true);
-    surface_resize(application_surface,display_get_width(),display_get_height());
     display_set_gui_size(global.FULLSCREEN_WIDTH,global.FULLSCREEN_HEIGHT);
 }
 else{
@@ -13,7 +13,6 @@ else{
     view_visible[1] = true;
     window_set_fullscreen(false);
     window_set_size(global.IDEAL_WIDTH*zoom,global.IDEAL_HEIGHT*zoom);
-    surface_resize(application_surface,global.IDEAL_WIDTH*zoom,global.IDEAL_HEIGHT*zoom);
     display_set_gui_size(global.IDEAL_WIDTH,global.IDEAL_HEIGHT);
 }
 

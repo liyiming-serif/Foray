@@ -10,8 +10,6 @@ global.next_level = argument0;
 //reset room views
 view_xview[0]=0;
 view_yview[0]=0;
-view_xview[1]=0;
-view_yview[1]=0;
 
 //Reset parallax
 global.tiles_x = 0;
