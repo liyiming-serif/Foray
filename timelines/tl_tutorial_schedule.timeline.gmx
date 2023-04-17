@@ -268,7 +268,7 @@ if(scr_instance_exists(curr_obj_following)){
             <string>///'F' for windowed mode
 
 if(!global.options_tutorial_done){
-    scr_tutorial_create(global.player_id,scr_tutorial_has_paused,spr_tutorial_key,"F   toggles fullscreen");
+    scr_tutorial_create(global.player_id,scr_tutorial_has_paused_or_timeout,spr_tutorial_key,"F   toggles fullscreen");
     curr_obj_following = global.player_id;
 }
 </string>

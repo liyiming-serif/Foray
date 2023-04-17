@@ -28,6 +28,10 @@ return keyboard_check_released(global.brake_key);
 
 return mouse_check_button_released(mb_left);
 
+#define scr_tutorial_has_rolled
+///scr_tutorial_has_rolled()
+
+return keyboard_check_pressed(global.roll_key);
 #define scr_tutorial_has_stolen
 ///scr_tutorial_has_stolen()
 
@@ -46,11 +50,15 @@ else{
 prev_player_id = global.player_id;
 return res;
 
-#define scr_tutorial_has_paused
-///scr_tutorial_has_paused()
+#define scr_tutorial_has_paused_or_timeout
+///scr_tutorial_has_paused_or_timeout()
+
+//skip tutorial after some time
+if(global.options_tutorial_skip > 0){
+    global.options_tutorial_skip--;
+}
+else{
+    return true;
+}
 
 return keyboard_check_released(global.options_key);
-#define scr_tutorial_has_rolled
-///scr_tutorial_has_rolled()
-
-return keyboard_check_pressed(global.roll_key);

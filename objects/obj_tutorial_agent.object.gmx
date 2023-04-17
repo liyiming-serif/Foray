@@ -45,6 +45,10 @@ show_verbose_tutorials = false;
 verbose_text_pos[0] = 0;
 verbose_text_pos[1] = 0;
 curr_obj_following = 0;
+
+//timers for skippable tutorials
+global.options_tutorial_skip = 360;
+
 </string>
           </argument>
         </arguments>
