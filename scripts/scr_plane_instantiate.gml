@@ -75,11 +75,18 @@ sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "spriteUVs");
 on_target = 0.0;
 on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
 
+//ui angle shader
+steal_angles_ref = shader_get_uniform(shader_angle, "angles");
+steal_origin_ref = shader_get_uniform(shader_angle, "origin");
+steal_uvs_ref = shader_get_uniform(shader_angle, "spriteUVs");
+
 //particle counters
 smoke_counter = global.SMOKE_RATE;
 trail_counter = global.TRAIL_RATE;
 
-//GUI: drawing entry-point arrows
+//GUI: stealing reticle, sweep, and arrow
+reticle_img_ind = 0;
+sweep_img_ind = 0;
 arrow_img_ind = 0;
 
 //arm the plane
@@ -346,9 +353,6 @@ if(image_index>=u_bound_frame && hp > 0){
     }
     
     image_index = l_bound_frame;
-    if(is_friendly && sprite_index==spr_plane1_buckle && has_pilot){
-        show_debug_message("well that's not right: "+string(u_bound_frame));
-    }
 }
 else if(image_index<l_bound_frame){
     image_index = l_bound_frame;

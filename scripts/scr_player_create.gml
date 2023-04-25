@@ -26,7 +26,6 @@ sprite_index = spr_plane1_buckle;
 image_index = 0;
 l_bound_frame = 0;
 u_bound_frame = image_number+1;
-show_debug_message("hit ditching plane buckle: "+string(u_bound_frame));
 
 //creation code for player avatar
 with(instance_create(x,y,obj_player_avatar)){

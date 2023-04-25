@@ -283,6 +283,7 @@
       <script>scripts\scr_plane_hit.gml</script>
       <script>scripts\scr_plane_roll.gml</script>
       <script>scripts\scr_plane_rolling.gml</script>
+      <script>scripts\scr_plane_ui_get_angles.gml</script>
     </scripts>
     <scripts name="pilot_ai">
       <script>scripts\scr_ai_mg_chaser_make.gml</script>
@@ -333,9 +334,11 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
     <shader type="GLSLES">shaders\shader_hit_flash.shader</shader>
+    <shader type="GLSLES">shaders\shader_hurt_flash.shader</shader>
     <shader type="GLSLES">shaders\shader_wedge_flash.shader</shader>
     <shader type="GLSLES">shaders\shader_wedge_hit_flash.shader</shader>
     <shader type="GLSLES">shaders\shader_cast_shadow.shader</shader>
+    <shader type="GLSLES">shaders\shader_angle.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\obj_player</object>

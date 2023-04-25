@@ -19,26 +19,17 @@ void main()
 }
 
 //######################_==_YOYO_SHADER_MARKER_==_######################@~//
-// Highlight all pixels within a certain angle red/blue;
-// apply palette swap shader otherwise.
-// Hit this spot to force enemy pilot to abandon plane.
+// Only draw pixels within a certain angle for a sprite
 //
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
-uniform sampler2D palette;
-uniform float row;
-uniform float onTarget; // is hitting weak spot? USING GML BOOL SEMANTICS!!!
 uniform vec2 angles; //(min,max), radians, anti-clockwise, [-PI,PI]
 uniform vec2 origin;
 uniform vec4 spriteUVs;//left, top, 1/width, 1/height
                         //used to get true uv-coords.
                         
-uniform float isMeter; //(cursor only) hide instead of flash
-
-const float PI = 3.14159265359; //because gm's glsles is ancient.
-
-bool inRange(vec2 pos)
+bool pixelWithinAngle(vec2 pos)
 {
     pos.x-=origin.x;
     pos.y-=origin.y;
@@ -55,23 +46,14 @@ bool inRange(vec2 pos)
 
 void main()
 {
-    vec4 baseColor = texture2D( gm_BaseTexture, v_vTexcoord );
     vec2 pos = (v_vTexcoord-spriteUVs.xy)*spriteUVs.zw;
-    if(inRange(pos)){
-        if(isMeter>=0.5){ //hide a slice of the sprite
-            gl_FragColor = vec4(0.0,0.0,0.0,0.0);
-        }
-        else if(onTarget>=0.5){ //flash blue
-            gl_FragColor = vec4(0.30078125,0.93359375,0.69140625,baseColor.a);
-            //gl_FragColor = texture2D(palette, vec2( baseColor.r, 0.9921875));
-        }
-        else { //flash red
-            gl_FragColor = vec4(0.85546875,0.09375,0.26953125,baseColor.a);
-            //gl_FragColor = texture2D(palette, vec2( baseColor.r, 0.99609375));
-        }
+    if(!pixelWithinAngle(pos))
+    {
+        gl_FragColor = vec4(0.0,0.0,0.0,0.0);
     }
-    else{ //normal pal swap
-        gl_FragColor = texture2D(palette, vec2( baseColor.r, row ));
+    else
+    {
+        gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
     }
 }
 

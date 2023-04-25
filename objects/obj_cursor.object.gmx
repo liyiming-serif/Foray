@@ -300,6 +300,7 @@ shader_reset();
           <argument>
             <kind>1</kind>
             <string>///Draw square targets
+return 0;
 if(scr_instance_exists(target_plane)){
     var ind, t;
     ind = image_index mod sprite_get_number(spr_lockon);
