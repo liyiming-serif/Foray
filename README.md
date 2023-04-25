@@ -35,5 +35,5 @@ __To uninstall__, simply delete the `Foray` game folder from the path you specif
 * When shooting down a flamethrower enemy, the flame may stay in place.
 
 ### Roadmap
-* [DONE] 3/31/2023: solid obstacles; 4k monitor bug fix
+* [DONE] 3/31/2023: 4k monitor bug fix
 * 5/30/2023: 1st full level completed; other bugs fixed
