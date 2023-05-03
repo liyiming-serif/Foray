@@ -233,6 +233,7 @@
       </sprites>
       <sprite>sprites\spr_steal_reticle</sprite>
       <sprite>sprites\spr_steal_reticle_on</sprite>
+      <sprite>sprites\spr_steal_sweep_sm</sprite>
       <sprite>sprites\spr_steal_sweep</sprite>
       <sprite>sprites\spr_steal_sweep_on</sprite>
       <sprite>sprites\spr_lockon</sprite>

@@ -155,8 +155,7 @@ y = mouse_y;
             <kind>1</kind>
             <string>///keyboard controls
 
-if(mouse_check_button(mb_right)){ //buffer-able key press
-    
+if(mouse_check_button(mb_right)){ //RMB to enter steal mode
     if(instance_number(obj_cursor_frame)==0){
         cid = instance_create(0,0,obj_cursor_frame);
         cid.pid = id;

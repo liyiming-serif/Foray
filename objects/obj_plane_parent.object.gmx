@@ -212,7 +212,43 @@ if(is_array(angles) &amp;&amp; hp&gt;0 &amp;&amp; scr_instance_exists(global.pla
     var ret_spr, sweep_spr, arrow_spr, d_pos;
     d_pos = scr_game_to_gui(x,y);
     
-    if(on_target){
+    if(!mouse_check_button(mb_right)){ //steal-mode not on = small reticle
+        //Draw reticle sweep small
+        sweep_spr = spr_steal_sweep_sm;
+        
+        shader_set(shader_angle);
+        var sweep_ang = scr_plane_ui_get_angles(starting_angle, 
+            degtorad(angle_difference(image_angle,0)));
+        shader_set_uniform_f_array(steal_angles_ref, sweep_ang);
+        var originx = sprite_get_xoffset(sweep_spr)/sprite_get_width(sweep_spr);
+        var originy = sprite_get_yoffset(sweep_spr)/sprite_get_height(sweep_spr);
+        shader_set_uniform_f(steal_origin_ref, originx, originy);
+        var uvs = sprite_get_uvs(sweep_spr,sweep_img_ind);
+        shader_set_uniform_f(steal_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
+        draw_sprite(sweep_spr, sweep_img_ind, d_pos[0], d_pos[1]);
+        shader_reset();
+        
+        sweep_img_ind = (sweep_img_ind+global.STEAL_SWEEP_ANIM_SPEED)%
+            sprite_get_number(sweep_spr);
+            
+        //Draw reticle off at 1/2 scale
+        ret_spr = spr_steal_reticle;
+        draw_sprite_ext(ret_spr, reticle_img_ind,
+            d_pos[0], d_pos[1], 0.5, 0.5,
+            0,c_white,1);
+        reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
+            sprite_get_number(ret_spr);
+        
+        //Draw arrow w/ closer origin
+        arrow_spr = spr_steal_arrow;
+        sprite_set_offset(arrow_spr, -26, sprite_get_yoffset(arrow_spr));
+        draw_sprite_ext(arrow_spr,arrow_img_ind,
+            d_pos[0],d_pos[1],1,1,
+            radtodeg(starting_angle)+image_angle,c_white,1);
+        arrow_img_ind = (arrow_img_ind+global.STEAL_ARROW_ANIM_SPEED)%
+            sprite_get_number(arrow_spr);
+    }
+    else if(on_target){
         //Draw reticle sweep
         sweep_spr = spr_steal_sweep_on;
 
@@ -264,6 +300,7 @@ if(is_array(angles) &amp;&amp; hp&gt;0 &amp;&amp; scr_instance_exists(global.pla
         
         //Draw steal arrow
         arrow_spr = spr_steal_arrow;
+        sprite_set_offset(arrow_spr, -52, sprite_get_yoffset(arrow_spr));
         draw_sprite_ext(arrow_spr,arrow_img_ind,
             d_pos[0],d_pos[1],1,1,
             radtodeg(starting_angle)+image_angle,c_white,1);
