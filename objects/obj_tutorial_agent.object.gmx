@@ -49,7 +49,7 @@ curr_obj_following = 0;
 //timers for skippable tutorials
 global.options_tutorial_skip = 360;
 
-timeline_running = false;
+//timeline_running = false;
 </string>
           </argument>
         </arguments>
@@ -79,8 +79,7 @@ if(!scr_instance_exists(global.player_id) || instance_number(obj_tutorial)&gt;0)
     exit;
 }
 else{
-    //timeline_running = true;
-    timeline_running = false;
+    timeline_running = true;
 }
 </string>
           </argument>
