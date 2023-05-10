@@ -221,6 +221,8 @@
       <sprite>sprites\spr_tutorial_key</sprite>
       <sprite>sprites\spr_tutorial_mouse</sprite>
       <sprite>sprites\spr_tutorial_mouse_right</sprite>
+      <sprite>sprites\spr_tutorial_mouse_right_hold</sprite>
+      <sprite>sprites\spr_tutorial_mouse_right_release</sprite>
       <sprite>sprites\spr_city_warning</sprite>
       <sprite>sprites\spr_city_missile_warning</sprite>
       <sprites name="stats_ui">
