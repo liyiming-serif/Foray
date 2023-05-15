@@ -126,8 +126,8 @@ if(min_dist==-1 || d&lt;min_dist){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///draw dashed line
-var dist, rot, d_pos;
+            <string>///draw dotted line
+var dist, rot, dot_ind, dot_pat, num_dots, dot_dist, d_pos, dot_spr;
 if(scr_instance_exists(pid.target_plane)){ //snap to target
     dist = point_distance(global.player_id.x,global.player_id.y,pid.target_plane.x,pid.target_plane.y);
     rot = point_direction(global.player_id.x,global.player_id.y,pid.target_plane.x,pid.target_plane.y);
@@ -137,15 +137,39 @@ else{
     rot = point_direction(global.player_id.x,global.player_id.y,x,y);
 }
 
+dot_ind = clamp(dist/2 div global.DOT_DIST_MIN, 0, global.DOT_MAX);
+dot_pat = ds_list_find_value(global.DOT_PATTERNS, dot_ind);
+num_dots = ds_list_size(dot_pat);
+dot_dist = dist / num_dots;
+
 shader_set(shader_pal_swap);
 texture_set_stage(pid.palette_ref, global.palette_texture);
 shader_set_uniform_f(pid.row_ref, pid.rt_modifier);
-d_pos = scr_game_to_gui(global.player_id.x,global.player_id.y);
-draw_sprite_general(eff_link,dl_image_index,0,0,dist,3,d_pos[0],d_pos[1],1,1,rot,c_white,c_white,c_white,c_white,1);
+//draw dotted steal trail
+for(var i = 0; i &lt; num_dots; i++){
+    var px, py;
+    px = global.player_id.x+lengthdir_x(dot_dist*(i+0.5), rot);
+    py = global.player_id.y+lengthdir_y(dot_dist*(i+0.5), rot);
+    d_pos = scr_game_to_gui(px, py);
+    switch(ds_list_find_value(dot_pat,i)){
+        case "s":
+            dot_spr = spr_steal_dotted_trail_s;
+            break;
+        case "m":
+            dot_spr = spr_steal_dotted_trail_m;
+            break;
+        case "l":
+            dot_spr = spr_steal_dotted_trail_l;
+            break;
+    }
+    draw_sprite(dot_spr, 0, d_pos[0], d_pos[1]);
+}
+//OLD: draw eff link
+//draw_sprite_general(eff_link,dl_image_index,0,0,dist,3,d_pos[0],d_pos[1],1,1,rot,c_white,c_white,c_white,c_white,1);
 shader_reset();
 
-//advance frame
-dl_image_index = (dl_image_index+1) mod sprite_get_number(eff_link);
+//OLD: advance frame
+//dl_image_index = (dl_image_index+1) mod sprite_get_number(eff_link);
 </string>
           </argument>
         </arguments>

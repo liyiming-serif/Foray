@@ -68,7 +68,7 @@ while(!file_text_eof(f)){
 file_text_close(f);
 global.DESIGN_PATTERNS = json_decode(raw);
 
-//Player settings
+//Player + ui settings
 f = file_text_open_read(working_directory + "\default_settings.json");
 raw = "";
 while(!file_text_eof(f)){
@@ -114,7 +114,7 @@ global.fnt_westington_m = font_add(working_directory + "\Westington.ttf",24,true
 //INITIALLIZE CONSTANTS
 global.TURN_DAMPENER = 9; //how little turning reduces speed
 global.C_TURN_DAMPENER = 0.25; //dampening factor when holding [C]
-global.C_MAX_DIST = sprite_get_width(eff_link);
+global.C_MAX_DIST = 192;
 global.MAX_CAM_FOLLOW_DIST = 120;
 global.PARALLAX_FACTOR = 0.75;
 global.ACC_SPEED = 0.5;
@@ -142,6 +142,9 @@ global.SWERVE_TURN_MOD = 1.5; //turning boost for AI avoiding obstacles
 global.MAX_MISSILE_TARGETS = 1;
 //k: obj_name for missile type, v: list of ids allowed to draw targets
 global.missile_slots = ds_map_create(); 
+
+//UI DECODE
+global.UI_MAP = ds_map_find_value(global.DEFAULT_SETTINGS, "ui");
 
 //UI CONSTANTS
 global.C_TEXT = make_colour_rgb(108,102,142);
@@ -171,6 +174,11 @@ global.C_ENEMY_MAX_HBAR = make_colour_rgb(255,0,0);
 global.C_ENEMY_MIN_HBAR = make_colour_rgb(255,0,0);
 global.C_ENEMY_BACK_HBAR = make_colour_rgb(87,107,112);
 global.ENEMY_HBAR_THICKNESS = 2;
+//New steal UI
+global.STEAL_DOTTED_TRAIL = ds_map_find_value(global.UI_MAP, "steal_dotted_trail");
+global.DOT_DIST_MIN = ds_map_find_value(global.STEAL_DOTTED_TRAIL, "dot_dist_min");
+global.DOT_PATTERNS = ds_map_find_value(global.STEAL_DOTTED_TRAIL, "dot_patterns");
+global.DOT_MAX = ds_list_size(global.DOT_PATTERNS)-1;
 
 //SCREEN FLASH CONSTS
 global.C_FLASH_RED = make_colour_rgb(219,24,69);

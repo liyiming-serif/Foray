@@ -240,6 +240,8 @@
       <sprite>sprites\spr_steal_sweep_on</sprite>
       <sprite>sprites\spr_lockon</sprite>
       <sprite>sprites\spr_lockoff</sprite>
+      <sprite>sprites\spr_mode_steal_frame</sprite>
+      <sprite>sprites\spr_mode_steal_gauge</sprite>
       <sprite>sprites\spr_steal_arrow</sprite>
       <sprite>sprites\spr_arrowon</sprite>
       <sprite>sprites\spr_arrowoff</sprite>
@@ -249,6 +251,9 @@
         <sprite>sprites\spr_cf_cursor</sprite>
         <sprite>sprites\spr_meter</sprite>
         <sprite>sprites\eff_link</sprite>
+        <sprite>sprites\spr_steal_dotted_trail_s</sprite>
+        <sprite>sprites\spr_steal_dotted_trail_m</sprite>
+        <sprite>sprites\spr_steal_dotted_trail_l</sprite>
       </sprites>
     </sprites>
   </sprites>

@@ -8,5 +8,16 @@
   "graphics":{
     "resolution":3,
     "screensize":0,
+  },
+  "ui":{
+    "steal_dotted_trail":{
+      "dot_dist_min":27,
+      "dot_patterns":[
+        ["m"],
+        ["s","m","s"],
+        ["s","m","l","m","s"],
+        ["s","s","m","l","m","s","s"]
+      ]
+    }
   }
 }
