@@ -173,7 +173,7 @@ else{ //key release even when out of window
 }
 
 if(mouse_check_button_released(mb_right)){ //steal plane
-    if(scr_instance_exists(target_plane) &amp;&amp; target_plane.hp&gt;0 &amp;&amp; target_plane.on_target &amp;&amp; global.player_id.object_index==obj_player){
+    if(scr_instance_exists(target_plane) &amp;&amp; target_plane.hp&gt;0 &amp;&amp; target_plane.steal_progress==1 &amp;&amp; global.player_id.object_index==obj_player){
         with(global.player_id){
             scr_player_bail(other.target_plane);
         }
@@ -201,22 +201,35 @@ if(mouse_check_button_released(mb_right)){ //steal plane
             <kind>1</kind>
             <string>///calculate on_target
 
-if(target_prev != target_plane){ //target changed since last frame
-    if(scr_instance_exists(target_prev)){ //reset previous target's on target var
+//target changed since last frame
+if(target_prev != target_plane){
+    //reset previous target's on target var
+    if(scr_instance_exists(target_prev)){
+        target_prev.is_targeted = false;
         target_prev.on_target = 0.0;
     }
 }
 
-if(scr_instance_exists(target_plane)&amp;&amp;is_array(target_plane.angles)&amp;&amp;scr_instance_exists(global.player_id)){
-    /*var pa, da, ir;
-    pa = point_direction(target_plane.x,target_plane.y,global.player_id.x,global.player_id.y);
-    da = degtorad(angle_difference(pa,target_plane.image_angle));
-    if(target_plane.angles[0]&gt;target_plane.angles[1]){
-        ir = (da &gt;= target_plane.angles[0]) || (da &lt; target_plane.angles[1]);
+//Charge stealing on target plane
+if(scr_instance_exists(target_plane) &amp;&amp; scr_instance_exists(global.player_id)){
+    target_plane.is_targeted = true;
+
+    var d, a;
+    d = point_distance(global.player_id.x, global.player_id.y, target_plane.x, target_plane.y);
+    a = target_plane.steal_progress * d;
+    a += global.steal_charge_rate;
+    target_plane.steal_progress = min(a/d, 1);
+    
+    //show target statbox (+player stats to compare)
+    if(instance_number(obj_statbox)==0){
+        scr_statbox_create(global.player_id,target_plane);
+        scr_statbox_create(target_plane,global.player_id);
     }
-    else{
-        ir = (da &gt;= target_plane.angles[0]) &amp;&amp; (da &lt; target_plane.angles[1]);
-    }*/
+}
+
+//TODO: deprecate angle stealing
+if(scr_instance_exists(target_plane)&amp;&amp;is_array(target_plane.angles)&amp;&amp;scr_instance_exists(global.player_id)){
+
     if(scr_is_obj_between_angles(global.player_id, target_plane)){
         target_plane.on_target = 1.0;
         rt_modifier = mk.TINT_GREEN/256.0;
@@ -230,13 +243,9 @@ else{
     rt_modifier = modifier/256.0;
 }
 
-//slow down the action if on target to aid stealing
-if(scr_instance_exists(target_plane) &amp;&amp; target_plane.on_target){
+//slow down the action if target plane is ready to steal
+if(scr_instance_exists(target_plane) &amp;&amp; target_plane.steal_progress==1){
     global.game_speed = max(global.game_speed-global.SLOMO_RATE, global.SLOMO_MIN);
-    if(instance_number(obj_statbox)==0){
-        scr_statbox_create(global.player_id,target_plane);
-        scr_statbox_create(target_plane,global.player_id);
-    }
 }
 else{
     global.game_speed = min(global.game_speed+global.SLOMO_RATE, 1.0);
@@ -298,34 +307,7 @@ shader_reset();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw square targets
-return 0;
-if(scr_instance_exists(target_plane)){
-    var ind, t;
-    ind = image_index mod sprite_get_number(spr_lockon);
-    t = target_plane;
-    if(t.on_target){ //lockon: green
-        //top left
-        draw_sprite_ext(spr_lockon,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
-        //bottom left
-        draw_sprite_ext(spr_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
-        //bottom right
-        draw_sprite_ext(spr_lockon,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
-        //top right
-        draw_sprite_ext(spr_lockon,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
-    }
-    else{ //lockon: red
-        //top left
-        draw_sprite_ext(spr_lockoff,ind,t.x-t.sprite_xoffset,t.y-t.sprite_yoffset,1,1,0,c_white,1);
-        //bottom left
-        draw_sprite_ext(spr_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y-t.sprite_yoffset,1,1,270,c_white,1);
-        //bottom right
-        draw_sprite_ext(spr_lockoff,ind,t.x+t.sprite_width-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,180,c_white,1);
-        //top right
-        draw_sprite_ext(spr_lockoff,ind,t.x-t.sprite_xoffset,target_plane.y+t.sprite_height-t.sprite_yoffset,1,1,90,c_white,1);
-    }
-}
-
+            <string>///Skip drawing
 </string>
           </argument>
         </arguments>

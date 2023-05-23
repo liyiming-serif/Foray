@@ -16,7 +16,12 @@
       "muzzle_vel":12,
       "dmg":[2, 2.85, 3.25],
       "range":[300,312],
-      "muzzle_flare":"flare1"
+      "muzzle_flare":"flare1",
+      "knockback": {
+        "init_force": 6,
+        "falloff_point": 0.3,
+        "falloff": 0.03
+      }
     },
     "cannon":{
       "obj_ind":"obj_wpn_parent",

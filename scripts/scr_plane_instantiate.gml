@@ -66,7 +66,12 @@ rt_modifier = modifier/256.0; //magic number for 256 max palettes
 palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
 row_ref = shader_get_uniform(shader_pal_swap, "row");
 
-//wedge shader
+//charage-based stealing
+is_stealable = false;
+is_targeted = false;
+steal_progress = 0;
+
+//TODO: remove wedge shader
 starting_angle = 0; //mid-point of angles
 angles = -1;
 angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
@@ -375,6 +380,11 @@ else{
 roll_invuln = max(0, roll_invuln-global.game_speed);
 roll_cooldown = max(0, roll_cooldown-global.game_speed);
 
+//charge stealing: progress falloff when not targeted
+if(!is_targeted){
+    steal_progress = max(steal_progress-global.STEAL_CHARGE_FALLOFF, 0);
+}
+
 
 #define scr_plane_crash
 ///scr_plane_crash()
@@ -446,6 +456,10 @@ instance_destroy();
 
 #define scr_plane_gen_weakspot
 ///scr_plane_gen_weakspot(starting_angle, angle_variance=0)
+
+//TODO: delete this if charge stealing works out
+is_stealable = true;
+return 0;
 
 var w;
 

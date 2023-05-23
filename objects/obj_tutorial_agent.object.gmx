@@ -115,7 +115,7 @@ if(global.options_tutorial_done &amp;&amp; scr_instance_exists(curr_obj_followin
 if(global.options_tutorial_done &amp;&amp; !global.steal_tutorial_done &amp;&amp; scr_instance_exists(global.player_id)){
     for(var i = 0; i &lt; instance_number(obj_enemy); i++){
         var s = instance_find(obj_enemy,i);
-        if( point_distance(global.player_id.x,global.player_id.y,s.x,s.y)&lt;=global.C_MAX_DIST &amp;&amp;
+        if( point_distance(global.player_id.x,global.player_id.y,s.x,s.y)&lt;=global.steal_max_range &amp;&amp;
             is_array(s.angles) &amp;&amp;
             scr_is_obj_between_angles(global.player_id, s)){
             

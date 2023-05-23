@@ -1,0 +1,8 @@
+{
+  "cloaks":{
+    "default":{
+      "charge_rate_px": 1,
+      "max_range": 192
+    }
+  }
+}

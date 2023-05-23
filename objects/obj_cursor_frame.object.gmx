@@ -33,7 +33,6 @@ image_speed = 0;
 //init variables
 min_dist = -1;
 pid = 0; //parent id
-dl_image_index = 0; //dashed line image index
 </string>
           </argument>
         </arguments>
@@ -59,10 +58,10 @@ dl_image_index = 0; //dashed line image index
             <string>///update search coord
 var pd; //point direction between mouse and player
 
-if(point_distance(global.player_id.x,global.player_id.y,mouse_x,mouse_y)&gt;global.C_MAX_DIST){
+if(point_distance(global.player_id.x,global.player_id.y,mouse_x,mouse_y)&gt;global.steal_max_range){
     pd = point_direction(global.player_id.x,global.player_id.y,mouse_x,mouse_y);
-    x = global.player_id.x+lengthdir_x(global.C_MAX_DIST,pd);
-    y = global.player_id.y+lengthdir_y(global.C_MAX_DIST,pd);
+    x = global.player_id.x+lengthdir_x(global.steal_max_range,pd);
+    y = global.player_id.y+lengthdir_y(global.steal_max_range,pd);
 }
 else{
     x = mouse_x;
@@ -164,12 +163,8 @@ for(var i = 0; i &lt; num_dots; i++){
     }
     draw_sprite(dot_spr, 0, d_pos[0], d_pos[1]);
 }
-//OLD: draw eff link
-//draw_sprite_general(eff_link,dl_image_index,0,0,dist,3,d_pos[0],d_pos[1],1,1,rot,c_white,c_white,c_white,c_white,1);
 shader_reset();
 
-//OLD: advance frame
-//dl_image_index = (dl_image_index+1) mod sprite_get_number(eff_link);
 </string>
           </argument>
         </arguments>

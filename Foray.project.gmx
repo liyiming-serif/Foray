@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="30" name="datafiles">
+  <datafiles number="31" name="datafiles">
     <datafile>
       <name>Westington.ttf</name>
       <exists>-1</exists>
@@ -105,6 +105,23 @@
         </Config>
       </ConfigOptions>
       <filename>wpns_bullets.json</filename>
+    </datafile>
+    <datafile>
+      <name>cloaks.json</name>
+      <exists>-1</exists>
+      <size>99</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>cloaks.json</filename>
     </datafile>
     <datafile>
       <name>level1.json</name>
