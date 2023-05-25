@@ -208,7 +208,49 @@ if(!has_pilot &amp;&amp; instance_number(obj_player_avatar)&lt;1){
             <kind>1</kind>
             <string>/// Draw steal UI
 
-if(is_array(angles) &amp;&amp; hp&gt;0 &amp;&amp; scr_instance_exists(global.player_id)){
+scr_ship_draw_ui();
+
+if(!is_stealable || hp&lt;=0){
+    return undefined;
+}
+
+if(global.AB_USE_CHARGE_STEAL){
+    var ret_spr, ret_spr_on, d_pos;
+    d_pos = scr_game_to_gui(x,y);
+    
+    if(!mouse_check_button(mb_right)){
+        //steal-mode not on = small reticle
+        ret_spr = spr_steal_reticle;
+        draw_sprite_ext(ret_spr, reticle_img_ind,
+            d_pos[0], d_pos[1], 0.5, 0.5,
+            0,c_white,1);
+        reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
+            sprite_get_number(ret_spr);
+    }
+    else{
+        //steal-mode on: show steal progress on reticle
+        ret_spr = spr_steal_reticle;
+        ret_spr_on = spr_steal_reticle_on;
+        
+        shader_set(shader_angle);
+        var sweep_ang = scr_plane_ui_get_angles(starting_angle, 
+            degtorad(angle_difference(image_angle,0)));
+        shader_set_uniform_f_array(steal_angles_ref, sweep_ang);
+        var originx = sprite_get_xoffset(sweep_spr)/sprite_get_width(sweep_spr);
+        var originy = sprite_get_yoffset(sweep_spr)/sprite_get_height(sweep_spr);
+        shader_set_uniform_f(steal_origin_ref, originx, originy);
+        var uvs = sprite_get_uvs(sweep_spr,sweep_img_ind);
+        shader_set_uniform_f(steal_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
+        draw_sprite(sweep_spr, sweep_img_ind, d_pos[0], d_pos[1]);
+        shader_reset();
+        
+        reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
+            sprite_get_number(ret_spr);
+        reticle_img_on_ind = (reticle_img_ind+global.STEAL_RETICLE_ON_ANIM_SPEED)%
+            sprite_get_number(ret_spr);
+    }
+}
+if(global.AB_USE_ANGLE_STEAL){
     var ret_spr, sweep_spr, arrow_spr, d_pos;
     d_pos = scr_game_to_gui(x,y);
     
@@ -248,7 +290,7 @@ if(is_array(angles) &amp;&amp; hp&gt;0 &amp;&amp; scr_instance_exists(global.pla
         arrow_img_ind = (arrow_img_ind+global.STEAL_ARROW_ANIM_SPEED)%
             sprite_get_number(arrow_spr);
     }
-    else if(on_target){
+    else if(ready_to_steal){
         //Draw reticle sweep
         sweep_spr = spr_steal_sweep_on;
 
@@ -308,8 +350,6 @@ if(is_array(angles) &amp;&amp; hp&gt;0 &amp;&amp; scr_instance_exists(global.pla
             sprite_get_number(arrow_spr);
     }
 }
-
-scr_ship_draw_ui();
 </string>
           </argument>
         </arguments>

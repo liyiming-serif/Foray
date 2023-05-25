@@ -35,6 +35,10 @@ if(instance_number(obj_control)&gt;1){
 
 randomize();
 
+//A/B TEST FLAGS
+global.AB_USE_CHARGE_STEAL = true;
+global.AB_USE_ANGLE_STEAL = false;
+
 //LOAD JSONS
 var f, raw;
 
@@ -238,7 +242,7 @@ global.game_speed = 1.0;
 global.game_speed_prev = global.game_speed;
 //SLOMO during stealing
 global.SLOMO_RATE = 0.11; //ease into slomo
-global.SLOMO_MIN = 0;
+global.SLOMO_MIN = 0.15;
 
 //shitty GML library doesn't move tiles by abs position
 global.tiles_x = 0;

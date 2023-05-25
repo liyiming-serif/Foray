@@ -95,7 +95,7 @@ min_dist = -1;
             <string>///find min dist in-range target
 
 if(image_index!=0) return undefined;
-if(!is_array(other.angles)) return undefined;
+if(!other.is_stealable) return undefined;
 
 var d = distance_to_object(other);
 

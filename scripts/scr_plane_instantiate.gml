@@ -66,19 +66,18 @@ rt_modifier = modifier/256.0; //magic number for 256 max palettes
 palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
 row_ref = shader_get_uniform(shader_pal_swap, "row");
 
-//charage-based stealing
+//stealing mechanic flags
 is_stealable = false;
-is_targeted = false;
-steal_progress = 0;
+if(global.AB_USE_CHARGE_STEAL){
+    is_targeted = false;
+    steal_progress = 0;
+}
 
-//TODO: remove wedge shader
-starting_angle = 0; //mid-point of angles
-angles = -1;
-angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
-origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
-sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "spriteUVs");
-on_target = 0.0;
-on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
+if(global.AB_USE_ANGLE_STEAL){
+    starting_angle = 0; //mid-point of angles
+    angles = -1;
+}
+ready_to_steal = false;
 
 //ui angle shader
 steal_angles_ref = shader_get_uniform(shader_angle, "angles");
@@ -91,8 +90,13 @@ trail_counter = global.TRAIL_RATE;
 
 //GUI: stealing reticle, sweep, and arrow
 reticle_img_ind = 0;
-sweep_img_ind = 0;
-arrow_img_ind = 0;
+if(global.AB_USE_CHARGE_STEAL){
+    reticle_on_img_id = 0;
+}
+if(global.AB_USE_ANGLE_STEAL){
+    sweep_img_ind = 0;
+    arrow_img_ind = 0;
+}
 
 //arm the plane
 wpn_name = ds_map_find_value(mp,"wpn");
@@ -254,50 +258,11 @@ if(!is_rolling){
 scr_cast_shadow();
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
-if (hitstun>0){
-    if (is_array(angles)){ //apply hit wedge flash
-        angles_ref = shader_get_uniform(shader_wedge_hit_flash, "angles");
-        origin_ref = shader_get_uniform(shader_wedge_hit_flash, "origin");
-        sprite_uvs_ref = shader_get_uniform(shader_wedge_hit_flash, "spriteUVs");
-        on_target_ref = shader_get_uniform(shader_wedge_hit_flash, "onTarget");
-        
-        shader_set(shader_wedge_hit_flash);
-        shader_set_uniform_f(on_target_ref, on_target);
-        shader_set_uniform_f_array(angles_ref, angles);
-        var originx = sprite_get_xoffset(sprite_index)/sprite_get_width(sprite_index);
-        var originy = sprite_get_yoffset(sprite_index)/sprite_get_height(sprite_index);
-        shader_set_uniform_f(origin_ref, originx, originy);
-        var uvs = sprite_get_uvs(sprite_index,image_index);
-        shader_set_uniform_f(sprite_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-        
-        angles_ref = shader_get_uniform(shader_wedge_flash, "angles");
-        origin_ref = shader_get_uniform(shader_wedge_flash, "origin");
-        sprite_uvs_ref = shader_get_uniform(shader_wedge_flash, "spriteUVs");
-        on_target_ref = shader_get_uniform(shader_wedge_flash, "onTarget");
-    }
-    else{
-        //apply hit flash
-        shader_set(shader_hit_flash);
-    }
+if (is_stealable && image_index%3>1.5){ //apply red flash
+    shader_set(shader_hurt_flash);
 }
-else if (is_array(angles) && image_index%3>1.5){ //apply wedge flash
-    palette_ref = shader_get_sampler_index(shader_wedge_flash, "palette");
-    row_ref = shader_get_uniform(shader_wedge_flash, "row");
-    
-    shader_set(shader_wedge_flash);
-    shader_set_uniform_f(row_ref, rt_modifier);
-    texture_set_stage(palette_ref, global.palette_texture);
-    shader_set_uniform_f(on_target_ref, on_target);
-    shader_set_uniform_f_array(angles_ref, angles);
-    var originx = sprite_get_xoffset(sprite_index)/sprite_get_width(sprite_index);
-    var originy = sprite_get_yoffset(sprite_index)/sprite_get_height(sprite_index);
-    shader_set_uniform_f(origin_ref, originx, originy);
-    var uvs = sprite_get_uvs(sprite_index,image_index);
-    shader_set_uniform_f(sprite_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-    shader_set_uniform_f(global.is_meter_ref, 0.0);
-    
-    palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
-    row_ref = shader_get_uniform(shader_pal_swap, "row");
+else if (hitstun>0){ //apply white flash
+    shader_set(shader_hit_flash);
 }
 else{ //apply palette swap shader
     shader_set(shader_pal_swap);
@@ -381,7 +346,7 @@ roll_invuln = max(0, roll_invuln-global.game_speed);
 roll_cooldown = max(0, roll_cooldown-global.game_speed);
 
 //charge stealing: progress falloff when not targeted
-if(!is_targeted){
+if(global.AB_USE_CHARGE_STEAL && !is_targeted){
     steal_progress = max(steal_progress-global.STEAL_CHARGE_FALLOFF, 0);
 }
 
@@ -457,28 +422,28 @@ instance_destroy();
 #define scr_plane_gen_weakspot
 ///scr_plane_gen_weakspot(starting_angle, angle_variance=0)
 
-//TODO: delete this if charge stealing works out
 is_stealable = true;
-return 0;
 
-var w;
-
-//TODO: calculate width of angles based on model quality
-w = pi;
-
-starting_angle = argument[0];
-if(argument_count > 1){
-    starting_angle += random_range(-argument[1], argument[1]);
-}
-
-angles[0] = starting_angle-w/2;
-if(angles[0]<-pi){
-    angles[0]+=2*pi;
-}
-
-angles[1] = angles[0]+w;
-if(angles[1]>pi){
-    angles[1]-=2*pi;
+if(global.AB_USE_ANGLE_STEAL){
+    var w;
+    
+    //TODO: calculate width of angles based on model quality
+    w = pi;
+    
+    starting_angle = argument[0];
+    if(argument_count > 1){
+        starting_angle += random_range(-argument[1], argument[1]);
+    }
+    
+    angles[0] = starting_angle-w/2;
+    if(angles[0]<-pi){
+        angles[0]+=2*pi;
+    }
+    
+    angles[1] = angles[0]+w;
+    if(angles[1]>pi){
+        angles[1]-=2*pi;
+    }
 }
 
 #define scr_plane_shoot

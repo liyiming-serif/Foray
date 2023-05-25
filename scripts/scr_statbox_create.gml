@@ -192,7 +192,7 @@ return ret;
 ///scr_statbox_advance_frame()
 if (!scr_instance_exists(follow_id) ||
     !scr_instance_exists(opposing_id) ||
-    (!follow_id.on_target && !opposing_id.on_target)){
+    (!follow_id.ready_to_steal && !opposing_id.ready_to_steal)){
     
     instance_destroy();
 }

@@ -153,9 +153,10 @@ y = mouse_y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///keyboard controls
+            <string>///Steal [RMB] controls
 
-if(mouse_check_button(mb_right)){ //RMB to enter steal mode
+//RMB to enter steal mode
+if(mouse_check_button(mb_right)){
     if(instance_number(obj_cursor_frame)==0){
         cid = instance_create(0,0,obj_cursor_frame);
         cid.pid = id;
@@ -172,8 +173,14 @@ else{ //key release even when out of window
     }
 }
 
-if(mouse_check_button_released(mb_right)){ //steal plane
-    if(scr_instance_exists(target_plane) &amp;&amp; target_plane.hp&gt;0 &amp;&amp; target_plane.steal_progress==1 &amp;&amp; global.player_id.object_index==obj_player){
+//Steal plane!
+if(mouse_check_button_released(mb_right)){
+    if (scr_instance_exists(target_plane) &amp;&amp;
+        scr_instance_exists(player_id) &amp;&amp;
+        target_plane.hp&gt;0 &amp;&amp;
+        target_plane.ready_to_steal &amp;&amp;
+        global.player_id.object_index==obj_player){
+        
         with(global.player_id){
             scr_player_bail(other.target_plane);
         }
@@ -199,52 +206,69 @@ if(mouse_check_button_released(mb_right)){ //steal plane
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///calculate on_target
+            <string>///Cursor held over target plane
 
 //target changed since last frame
 if(target_prev != target_plane){
     //reset previous target's on target var
     if(scr_instance_exists(target_prev)){
-        target_prev.is_targeted = false;
-        target_prev.on_target = 0.0;
+        target_prev.ready_to_steal = false;
+        if(global.AB_USE_CHARGE_STEAL){
+            target_prev.is_targeted = false;
+        }
     }
 }
 
-//Charge stealing on target plane
-if(scr_instance_exists(target_plane) &amp;&amp; scr_instance_exists(global.player_id)){
-    target_plane.is_targeted = true;
+rt_modifier = modifier/256.0;
 
-    var d, a;
-    d = point_distance(global.player_id.x, global.player_id.y, target_plane.x, target_plane.y);
-    a = target_plane.steal_progress * d;
-    a += global.steal_charge_rate;
-    target_plane.steal_progress = min(a/d, 1);
+//target plane is stealable
+if (scr_instance_exists(target_plane) &amp;&amp;
+    scr_instance_exists(global.player_id) &amp;&amp;
+    target_plane.is_stealable){
     
-    //show target statbox (+player stats to compare)
-    if(instance_number(obj_statbox)==0){
-        scr_statbox_create(global.player_id,target_plane);
-        scr_statbox_create(target_plane,global.player_id);
-    }
-}
+    //charge stealing progress...
+    if(global.AB_USE_CHARGE_STEAL){
+        target_plane.is_targeted = true;
+    
+        var d, a;
+        d = point_distance(global.player_id.x, global.player_id.y, target_plane.x, target_plane.y);
+        a = target_plane.steal_progress * d;
+        a += global.steal_charge_rate;
+        target_plane.steal_progress = min(a/d, 1);
+        
+        //show target statbox (+player stats to compare)
+        if(instance_number(obj_statbox)==0){
+            scr_statbox_create(global.player_id,target_plane);
+            scr_statbox_create(target_plane,global.player_id);
+        }
 
-//TODO: deprecate angle stealing
-if(scr_instance_exists(target_plane)&amp;&amp;is_array(target_plane.angles)&amp;&amp;scr_instance_exists(global.player_id)){
-
-    if(scr_is_obj_between_angles(global.player_id, target_plane)){
-        target_plane.on_target = 1.0;
-        rt_modifier = mk.TINT_GREEN/256.0;
+        if(target_plane.steal_progress==1){
+            target_plane.ready_to_steal = true;
+        }
     }
-    else{
-        target_plane.on_target = 0.0;
-        rt_modifier = mk.TINT_RED/256.0;
+    
+    //set steal ready based on angle of approach
+    //NOTE: is_stealable implies angles is array
+    if(global.AB_USE_ANGLE_STEAL){
+        if(scr_is_obj_between_angles(global.player_id, target_plane)){
+            target_plane.ready_to_steal = true;
+            rt_modifier = mk.TINT_GREEN/256.0;
+            
+            //show target statbox (+player stats to compare)
+            if(instance_number(obj_statbox)==0){
+                scr_statbox_create(global.player_id,target_plane);
+                scr_statbox_create(target_plane,global.player_id);
+            }
+        }
+        else{
+            target_plane.ready_to_steal = false;
+            rt_modifier = mk.TINT_RED/256.0;
+        }
     }
-}
-else{
-    rt_modifier = modifier/256.0;
 }
 
 //slow down the action if target plane is ready to steal
-if(scr_instance_exists(target_plane) &amp;&amp; target_plane.steal_progress==1){
+if(scr_instance_exists(target_plane) &amp;&amp; target_plane.ready_to_steal){
     global.game_speed = max(global.game_speed-global.SLOMO_RATE, global.SLOMO_MIN);
 }
 else{
