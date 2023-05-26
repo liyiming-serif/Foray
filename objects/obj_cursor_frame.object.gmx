@@ -126,7 +126,7 @@ if(min_dist==-1 || d&lt;min_dist){
           <argument>
             <kind>1</kind>
             <string>///draw dotted line
-var dist, rot, dot_ind, dot_pat, num_dots, dot_dist, d_pos, dot_spr;
+var dist, rot, dot_ind, dot_pat, num_dots, dot_dist, d_pos, dot_spr, dot_img_ind;
 if(scr_instance_exists(pid.target_plane)){ //snap to target
     dist = point_distance(global.player_id.x,global.player_id.y,pid.target_plane.x,pid.target_plane.y);
     rot = point_direction(global.player_id.x,global.player_id.y,pid.target_plane.x,pid.target_plane.y);
@@ -140,6 +140,7 @@ dot_ind = clamp(dist/2 div global.DOT_DIST_MIN, 0, global.DOT_MAX);
 dot_pat = ds_list_find_value(global.DOT_PATTERNS, dot_ind);
 num_dots = ds_list_size(dot_pat);
 dot_dist = dist / num_dots;
+dot_img_ind = 0;
 
 shader_set(shader_pal_swap);
 texture_set_stage(pid.palette_ref, global.palette_texture);
@@ -161,7 +162,14 @@ for(var i = 0; i &lt; num_dots; i++){
             dot_spr = spr_steal_dotted_trail_l;
             break;
     }
-    draw_sprite(dot_spr, 0, d_pos[0], d_pos[1]);
+    //gradually fill dots to indicate charge steal progress
+    if(global.AB_USE_CHARGE_STEAL &amp;&amp; scr_instance_exists(pid.target_plane)){
+        var m;
+        m = pid.target_plane.steal_progress*num_dots - i;
+        m = clamp(m,0,1);
+        dot_img_ind = floor(lerp(0,dot_spr.image_number-1,m));
+    }
+    draw_sprite(dot_spr, dot_img_ind, d_pos[0], d_pos[1]);
 }
 shader_reset();
 

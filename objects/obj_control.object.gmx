@@ -197,6 +197,9 @@ global.STEAL_DOTTED_TRAIL = ds_map_find_value(global.UI_MAP, "steal_dotted_trail
 global.DOT_DIST_MIN = ds_map_find_value(global.STEAL_DOTTED_TRAIL, "dot_dist_min");
 global.DOT_PATTERNS = ds_map_find_value(global.STEAL_DOTTED_TRAIL, "dot_patterns");
 global.DOT_MAX = ds_list_size(global.DOT_PATTERNS)-1;
+if(global.AB_USE_CHARGE_STEAL){
+    global.RET_PROG_STARTING_ANGLE_RAD = .69*2*pi;
+}
 
 //SCREEN FLASH CONSTS
 global.C_FLASH_RED = make_colour_rgb(219,24,69);

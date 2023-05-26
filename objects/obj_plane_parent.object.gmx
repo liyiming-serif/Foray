@@ -229,19 +229,30 @@ if(global.AB_USE_CHARGE_STEAL){
     }
     else{
         //steal-mode on: show steal progress on reticle
+        var originx, originy, uvs;
         ret_spr = spr_steal_reticle;
         ret_spr_on = spr_steal_reticle_on;
         
         shader_set(shader_angle);
-        var sweep_ang = scr_plane_ui_get_angles(starting_angle, 
-            degtorad(angle_difference(image_angle,0)));
-        shader_set_uniform_f_array(steal_angles_ref, sweep_ang);
-        var originx = sprite_get_xoffset(sweep_spr)/sprite_get_width(sweep_spr);
-        var originy = sprite_get_yoffset(sweep_spr)/sprite_get_height(sweep_spr);
+        var charge_ang_rad = scr_plane_ui_charge_to_rads(steal_progress);
+        //'off' portion
+        shader_set_uniform_f(steal_angles_ref, charge_ang_rad[1], charge_ang_rad[0]);
+        originx = sprite_get_xoffset(ret_spr)/sprite_get_width(ret_spr);
+        originy = sprite_get_yoffset(ret_spr)/sprite_get_height(ret_spr);
         shader_set_uniform_f(steal_origin_ref, originx, originy);
-        var uvs = sprite_get_uvs(sweep_spr,sweep_img_ind);
-        shader_set_uniform_f(steal_uvs_ref,uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-        draw_sprite(sweep_spr, sweep_img_ind, d_pos[0], d_pos[1]);
+        uvs = sprite_get_uvs(ret_spr, reticle_img_ind);
+        shader_set_uniform_f(steal_uvs_ref,
+            uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
+        draw_sprite(ret_spr, reticle_img_ind, d_pos[0], d_pos[1]);
+        //'on' portion
+        shader_set_uniform_f_array(steal_angles_ref, charge_ang_rad);
+        originx = sprite_get_xoffset(ret_spr_on)/sprite_get_width(ret_spr_on);
+        originy = sprite_get_yoffset(ret_spr_on)/sprite_get_height(ret_spr_on);
+        shader_set_uniform_f(steal_origin_ref, originx, originy);
+        uvs = sprite_get_uvs(ret_spr_on, reticle_img_on_ind);
+        shader_set_uniform_f(steal_uvs_ref,
+            uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
+        draw_sprite(ret_spr_on, reticle_img_on_ind, d_pos[0], d_pos[1]);
         shader_reset();
         
         reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%

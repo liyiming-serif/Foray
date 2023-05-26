@@ -1,3 +1,4 @@
+#define scr_plane_ui_get_angles
 ///scr_plane_ui_get_angles(starting_angle_deg, offset_deg)
 
 var w, midpt, start_a, offset, res;
@@ -27,3 +28,15 @@ if(res[1] > pi){
 }
 
 return res;
+
+#define scr_plane_ui_charge_to_rads
+///scr_plane_ui_charge_to_rads(steal_progress)
+//Given target plane's steal progress,
+//return start + end angles for reticle shader in radians
+
+var res, prog_to_rad;
+
+prog_to_rad = argument[0]*2*pi;
+
+res[0] = global.RET_PROG_STARTING_ANGLE_RAD;
+res[1] = res[0] - prog_to_rad;
