@@ -167,7 +167,7 @@ for(var i = 0; i &lt; num_dots; i++){
         var m;
         m = pid.target_plane.steal_progress*num_dots - i;
         m = clamp(m,0,1);
-        dot_img_ind = floor(lerp(0,dot_spr.image_number-1,m));
+        dot_img_ind = floor(lerp(0,sprite_get_number(dot_spr)-1,m));
     }
     draw_sprite(dot_spr, dot_img_ind, d_pos[0], d_pos[1]);
 }

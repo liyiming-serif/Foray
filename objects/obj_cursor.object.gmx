@@ -176,7 +176,7 @@ else{ //key release even when out of window
 //Steal plane!
 if(mouse_check_button_released(mb_right)){
     if (scr_instance_exists(target_plane) &amp;&amp;
-        scr_instance_exists(player_id) &amp;&amp;
+        scr_instance_exists(global.player_id) &amp;&amp;
         target_plane.hp&gt;0 &amp;&amp;
         target_plane.ready_to_steal &amp;&amp;
         global.player_id.object_index==obj_player){

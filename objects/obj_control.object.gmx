@@ -109,14 +109,15 @@ global.projectiles = ds_map_find_value(global.WPNS_BULLETS, "projectiles");
 global.missiles = ds_map_find_value(global.WPNS_BULLETS, "missiles");
 global.sp_dmg = ds_map_find_value(global.WPNS_BULLETS, "sp_dmg");
 global.midflights = ds_map_find_value(global.WPNS_BULLETS, "midflights");
+global.cloaks = ds_map_find_value(global.CLOAKS, "cloaks");
 global.design_pattern_weights = ds_map_find_value(global.DESIGN_PATTERNS, "cb_weights");
 //default settings
 global.DEFAULT_CONTROLS = ds_map_find_value(global.DEFAULT_SETTINGS, "controls");
 global.DEFAULT_GRAPHICS = ds_map_find_value(global.DEFAULT_SETTINGS, "graphics");
 //NOTE: only default cloak available for now
-global.cloak = ds_map_find_value(global.CLOAKS, "default");
-global.steal_charge_rate = ds_map_find_value(global.cloak, "charge_rate_px");
-global.steal_max_range = ds_map_find_value(global.cloak, "max_range");
+global.equipped_cloak = ds_map_find_value(global.cloaks, "default");
+global.steal_charge_rate = ds_map_find_value(global.equipped_cloak, "charge_rate_px");
+global.steal_max_range = ds_map_find_value(global.equipped_cloak, "max_range");
 
 //Unintiallized level json + metadata
 global.curr_level_data = undefined;
@@ -434,6 +435,7 @@ ds_map_destroy(global.SHIPS);
 ds_map_destroy(global.WPNS_BULLETS);
 ds_map_destroy(global.DESIGN_PATTERNS);
 ds_map_destroy(global.DEFAULT_SETTINGS);
+ds_map_destroy(global.CLOAKS);
 if(global.curr_level_name!=""){
     ds_map_destroy(global.curr_level_data);
 }

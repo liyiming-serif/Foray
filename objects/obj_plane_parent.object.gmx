@@ -249,15 +249,15 @@ if(global.AB_USE_CHARGE_STEAL){
         originx = sprite_get_xoffset(ret_spr_on)/sprite_get_width(ret_spr_on);
         originy = sprite_get_yoffset(ret_spr_on)/sprite_get_height(ret_spr_on);
         shader_set_uniform_f(steal_origin_ref, originx, originy);
-        uvs = sprite_get_uvs(ret_spr_on, reticle_img_on_ind);
+        uvs = sprite_get_uvs(ret_spr_on, reticle_on_img_id);
         shader_set_uniform_f(steal_uvs_ref,
             uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-        draw_sprite(ret_spr_on, reticle_img_on_ind, d_pos[0], d_pos[1]);
+        draw_sprite(ret_spr_on, reticle_on_img_id, d_pos[0], d_pos[1]);
         shader_reset();
         
         reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
             sprite_get_number(ret_spr);
-        reticle_img_on_ind = (reticle_img_ind+global.STEAL_RETICLE_ON_ANIM_SPEED)%
+        reticle_on_img_id = (reticle_img_ind+global.STEAL_RETICLE_ON_ANIM_SPEED)%
             sprite_get_number(ret_spr);
     }
 }

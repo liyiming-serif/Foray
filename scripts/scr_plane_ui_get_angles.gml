@@ -40,3 +40,5 @@ prog_to_rad = argument[0]*2*pi;
 
 res[0] = global.RET_PROG_STARTING_ANGLE_RAD;
 res[1] = res[0] - prog_to_rad;
+
+return res;
