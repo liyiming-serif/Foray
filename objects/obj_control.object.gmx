@@ -192,6 +192,7 @@ global.CITY_WARNING_BORDER = 12;
 global.C_ENEMY_MAX_HBAR = make_colour_rgb(255,0,0);
 global.C_ENEMY_MIN_HBAR = make_colour_rgb(255,0,0);
 global.C_ENEMY_BACK_HBAR = make_colour_rgb(87,107,112);
+global.C_HBAR_BACK_NORM = scr_normalize_rgb(global.C_ENEMY_BACK_HBAR);
 global.ENEMY_HBAR_THICKNESS = 2;
 //New steal UI
 global.STEAL_DOTTED_TRAIL = ds_map_find_value(global.UI_MAP, "steal_dotted_trail");

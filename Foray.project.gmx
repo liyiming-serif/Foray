@@ -250,11 +250,14 @@
         <sprite>sprites\spr_statbox</sprite>
         <sprite>sprites\spr_statbox_enemy</sprite>
       </sprites>
-      <sprite>sprites\spr_steal_reticle</sprite>
+      <sprite>sprites\spr_steal_reticle_off</sprite>
       <sprite>sprites\spr_steal_reticle_on</sprite>
+      <sprite>sprites\spr_steal_reticle_oy</sprite>
       <sprite>sprites\spr_steal_sweep_sm</sprite>
       <sprite>sprites\spr_steal_sweep</sprite>
       <sprite>sprites\spr_steal_sweep_on</sprite>
+      <sprite>sprites\spr_tooltip_aim</sprite>
+      <sprite>sprites\spr_tooltip_jump</sprite>
       <sprite>sprites\spr_lockon</sprite>
       <sprite>sprites\spr_lockoff</sprite>
       <sprite>sprites\spr_mode_steal_frame</sprite>
@@ -268,6 +271,7 @@
         <sprite>sprites\spr_cf_cursor</sprite>
         <sprite>sprites\spr_meter</sprite>
         <sprite>sprites\eff_link</sprite>
+        <sprite>sprites\spr_steal_dotted_trail</sprite>
         <sprite>sprites\spr_steal_dotted_trail_s</sprite>
         <sprite>sprites\spr_steal_dotted_trail_m</sprite>
         <sprite>sprites\spr_steal_dotted_trail_l</sprite>
@@ -345,6 +349,7 @@
       <script>scripts\scr_instance_exists.gml</script>
       <script>scripts\scr_game_to_gui.gml</script>
       <script>scripts\scr_interpolate_stat.gml</script>
+      <script>scripts\scr_normalize_rgb.gml</script>
       <script>scripts\scr_add_design_pattern.gml</script>
       <script>scripts\scr_get_point_on_border.gml</script>
       <script>scripts\scr_difficulty_curve.gml</script>
@@ -364,6 +369,7 @@
     <shader type="GLSLES">shaders\shader_wedge_hit_flash.shader</shader>
     <shader type="GLSLES">shaders\shader_cast_shadow.shader</shader>
     <shader type="GLSLES">shaders\shader_angle.shader</shader>
+    <shader type="GLSLES">shaders\shader_radial_bar.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\obj_player</object>
