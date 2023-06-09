@@ -157,6 +157,8 @@ global.MAX_STATS = 3;
 global.MAX_PROGRESS_RATE = 0.003/room_speed;
 global.PROGRESS_RATE = 0.015/room_speed;
 global.SWERVE_TURN_MOD = 1.5; //turning boost for AI avoiding obstacles
+//Color consts
+global.C_FLASH_WARN_NORM = scr_normalize_rgb(make_colour_rgb(255,222,33));
 
 global.MAX_MISSILE_TARGETS = 1;
 //k: obj_name for missile type, v: list of ids allowed to draw targets
@@ -197,10 +199,8 @@ global.ENEMY_HBAR_THICKNESS = 2;
 //New steal UI
 global.STEAL_DOTTED_TRAIL = ds_map_find_value(global.UI_MAP, "steal_dotted_trail");
 global.DOT_DIST_MIN = ds_map_find_value(global.STEAL_DOTTED_TRAIL, "dot_dist_min");
-global.DOT_PATTERNS = ds_map_find_value(global.STEAL_DOTTED_TRAIL, "dot_patterns");
-global.DOT_MAX = ds_list_size(global.DOT_PATTERNS)-1;
 if(global.AB_USE_CHARGE_STEAL){
-    global.RET_PROG_STARTING_ANGLE_RAD = .69*2*pi;
+    global.RET_PROG_STARTING_ANGLE_RAD = -0.31*2*pi;
 }
 
 //SCREEN FLASH CONSTS
@@ -378,6 +378,8 @@ part_type_life(global.trail_far, room_speed*0.4, room_speed*0.4);
 //shader globals
 global.palette_texture = background_get_texture(bg_palette);
 global.is_meter_ref = shader_get_uniform(shader_wedge_flash, "isMeter");
+shader_set_uniform_f_array(shader_get_uniform(shader_radial_bar, "bgColor"),
+    global.C_HBAR_BACK_NORM);
 
 //DISPLAY/RESOLUTION MANAGER 
 global.IDEAL_WIDTH = 640;

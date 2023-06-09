@@ -38,7 +38,11 @@ var res, prog_to_rad;
 
 prog_to_rad = argument[0]*2*pi;
 
-res[0] = global.RET_PROG_STARTING_ANGLE_RAD;
-res[1] = res[0] - prog_to_rad;
+res[0] = 0;
+res[1] = global.RET_PROG_STARTING_ANGLE_RAD;
+res[0] = res[1] - prog_to_rad;
+if(res[0] < -pi){
+    res[0] += 2*pi;
+}
 
 return res;

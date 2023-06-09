@@ -19,14 +19,16 @@ void main()
 }
 
 //######################_==_YOYO_SHADER_MARKER_==_######################@~//
-// Turn entire sprite white when hit, preserving alpha
+// Turn entire sprite to a single color, preserving alpha
 //
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
+uniform vec3 flashColor;
+
 void main()
 {
     vec4 baseColor = texture2D( gm_BaseTexture, v_vTexcoord );
-    gl_FragColor = vec4(1.0,1.0,0.7294117647,baseColor.a);
+    gl_FragColor = vec4(flashColor, baseColor.a);
 }
 

@@ -65,6 +65,8 @@ u_bound_frame = right_frame;
 rt_modifier = modifier/256.0; //magic number for 256 max palettes
 palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
 row_ref = shader_get_uniform(shader_pal_swap, "row");
+//flash shader
+flash_color_ref = shader_get_uniform(shader_flash, "flashColor");
 
 //stealing mechanic flags
 is_stealable = false;
@@ -79,10 +81,17 @@ if(global.AB_USE_ANGLE_STEAL){
 }
 ready_to_steal = false;
 
-//ui angle shader
-steal_angles_ref = shader_get_uniform(shader_angle, "angles");
-steal_origin_ref = shader_get_uniform(shader_angle, "origin");
-steal_uvs_ref = shader_get_uniform(shader_angle, "spriteUVs");
+//steal ui shaders
+if(global.AB_USE_CHARGE_STEAL){
+    steal_angles_ref = shader_get_uniform(shader_radial_bar, "angles");
+    steal_origin_ref = shader_get_uniform(shader_radial_bar, "origin");
+    steal_uvs_ref = shader_get_uniform(shader_radial_bar, "spriteUVs");
+}
+else if(global.AB_USE_ANGLE_STEAL){
+    steal_angles_ref = shader_get_uniform(shader_angle, "angles");
+    steal_origin_ref = shader_get_uniform(shader_angle, "origin");
+    steal_uvs_ref = shader_get_uniform(shader_angle, "spriteUVs");
+}
 
 //particle counters
 smoke_counter = global.SMOKE_RATE;
@@ -90,8 +99,9 @@ trail_counter = global.TRAIL_RATE;
 
 //GUI: stealing reticle, sweep, and arrow
 reticle_img_ind = 0;
+reticle_scale = 1;
 if(global.AB_USE_CHARGE_STEAL){
-    reticle_on_img_id = 0;
+    reticle_on_img_ind = 0;
 }
 if(global.AB_USE_ANGLE_STEAL){
     sweep_img_ind = 0;
@@ -258,8 +268,14 @@ if(!is_rolling){
 scr_cast_shadow();
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
-if (is_stealable && image_index%3>1.5){ //apply red flash
-    shader_set(shader_hurt_flash);
+if (is_stealable && image_index%3>1.5){ //apply red/warn flash
+    if(global.AB_USE_CHARGE_STEAL && is_targeted){
+        shader_set_uniform_f_array(flash_color_ref, global.C_FLASH_WARN_NORM);
+        shader_set(shader_flash);
+    }
+    else{
+        shader_set(shader_hurt_flash);
+    }
 }
 else if (hitstun>0){ //apply white flash
     shader_set(shader_hit_flash);
@@ -423,6 +439,7 @@ instance_destroy();
 ///scr_plane_gen_weakspot(starting_angle, angle_variance=0)
 
 is_stealable = true;
+reticle_scale = 3;
 
 if(global.AB_USE_ANGLE_STEAL){
     var w;

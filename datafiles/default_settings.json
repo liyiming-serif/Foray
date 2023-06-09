@@ -11,7 +11,7 @@
   },
   "ui":{
     "steal_dotted_trail":{
-      "dot_dist_min":27,
+      "dot_dist_min":8,
       "dot_patterns":[
         ["m"],
         ["s","m","s"],

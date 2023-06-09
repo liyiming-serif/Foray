@@ -24,13 +24,19 @@ void main()
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
-uniform vec2 angles; //(min,max), radians, anti-clockwise, [-PI,PI]
+uniform vec2 angles; //(min,max), radians, anti-clockwise, [-PI,PI)
 uniform vec2 origin;
 uniform vec4 spriteUVs;//left, top, 1/width, 1/height
                         //used to get true uv-coords.
-                        
+               
+// Draw from angles[0] -> angles[1] going anti-clockwise
+// Edge case: angles[0] == angles[1] will draw *nothing*         
 bool pixelWithinAngle(vec2 pos)
 {
+    if(angles[0] == angles[1]){
+        return false;
+    }
+    
     pos.x-=origin.x;
     pos.y-=origin.y;
     if(pos.y==0.0 && pos.x==0.0){

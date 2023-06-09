@@ -7,4 +7,4 @@ n[0] = colour_get_red(c)/255.0;
 n[1] = colour_get_green(c)/255.0;
 n[2] = colour_get_blue(c)/255.0;
 
-return norm;
+return n;

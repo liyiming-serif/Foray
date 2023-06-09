@@ -214,51 +214,56 @@ if(!is_stealable || hp&lt;=0){
     return undefined;
 }
 
+reticle_scale = max(lerp(reticle_scale, 0.9, 0.2), 1);
+
 if(global.AB_USE_CHARGE_STEAL){
     var ret_spr, ret_spr_on, d_pos;
+    ret_spr = spr_steal_reticle_off;
+    ret_spr_on = spr_steal_reticle_oy;
     d_pos = scr_game_to_gui(x,y);
     
+    //State: not stealing
     if(!mouse_check_button(mb_right)){
-        //steal-mode not on = small reticle
-        ret_spr = spr_steal_reticle;
+        //small reticle
         draw_sprite_ext(ret_spr, reticle_img_ind,
-            d_pos[0], d_pos[1], 0.5, 0.5,
+            d_pos[0], d_pos[1], 0.5*reticle_scale, 0.5*reticle_scale,
             0,c_white,1);
         reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
             sprite_get_number(ret_spr);
     }
-    else{
-        //steal-mode on: show steal progress on reticle
-        var originx, originy, uvs;
-        ret_spr = spr_steal_reticle;
-        ret_spr_on = spr_steal_reticle_on;
-        
-        shader_set(shader_angle);
-        var charge_ang_rad = scr_plane_ui_charge_to_rads(steal_progress);
-        //'off' portion
-        shader_set_uniform_f(steal_angles_ref, charge_ang_rad[1], charge_ang_rad[0]);
-        originx = sprite_get_xoffset(ret_spr)/sprite_get_width(ret_spr);
-        originy = sprite_get_yoffset(ret_spr)/sprite_get_height(ret_spr);
-        shader_set_uniform_f(steal_origin_ref, originx, originy);
-        uvs = sprite_get_uvs(ret_spr, reticle_img_ind);
-        shader_set_uniform_f(steal_uvs_ref,
-            uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-        draw_sprite(ret_spr, reticle_img_ind, d_pos[0], d_pos[1]);
-        //'on' portion
-        shader_set_uniform_f_array(steal_angles_ref, charge_ang_rad);
-        originx = sprite_get_xoffset(ret_spr_on)/sprite_get_width(ret_spr_on);
-        originy = sprite_get_yoffset(ret_spr_on)/sprite_get_height(ret_spr_on);
-        shader_set_uniform_f(steal_origin_ref, originx, originy);
-        uvs = sprite_get_uvs(ret_spr_on, reticle_on_img_id);
-        shader_set_uniform_f(steal_uvs_ref,
-            uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-        draw_sprite(ret_spr_on, reticle_on_img_id, d_pos[0], d_pos[1]);
-        shader_reset();
-        
+    //State: in steal mode, but not aiming at this plane
+    else if(!is_targeted){
+        draw_sprite_ext(ret_spr, reticle_img_ind,
+            d_pos[0], d_pos[1], reticle_scale, reticle_scale,
+            0,c_white,1);
         reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
             sprite_get_number(ret_spr);
-        reticle_on_img_id = (reticle_img_ind+global.STEAL_RETICLE_ON_ANIM_SPEED)%
-            sprite_get_number(ret_spr);
+    }
+    //State: Aiming...
+    else if(steal_progress &gt; 1){
+        //show steal progress on reticle
+        var charge_ang_rad, originx, originy, uvs;
+        charge_ang_rad = scr_plane_ui_charge_to_rads(steal_progress);
+        originx = sprite_get_xoffset(ret_spr_on)/sprite_get_width(ret_spr_on);
+        originy = sprite_get_yoffset(ret_spr_on)/sprite_get_height(ret_spr_on);
+        uvs = sprite_get_uvs(ret_spr_on, reticle_on_img_ind);
+        
+        shader_set(shader_radial_bar);
+        shader_set_uniform_f(steal_angles_ref, charge_ang_rad[0], charge_ang_rad[1]);
+        shader_set_uniform_f(steal_origin_ref, originx, originy);
+        shader_set_uniform_f(steal_uvs_ref,
+            uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
+        draw_sprite(ret_spr_on, reticle_on_img_ind, d_pos[0], d_pos[1]);
+        shader_reset();
+        
+        reticle_on_img_ind = (reticle_on_img_ind+global.STEAL_RETICLE_ON_ANIM_SPEED)%
+            sprite_get_number(ret_spr_on);
+    }
+    //State: ready to steal
+    else if(ready_to_steal){
+        draw_sprite(ret_spr_on, reticle_on_img_ind, d_pos[0], d_pos[1]);
+        reticle_on_img_ind = (reticle_on_img_ind+global.STEAL_RETICLE_ON_ANIM_SPEED)%
+            sprite_get_number(ret_spr_on);
     }
 }
 if(global.AB_USE_ANGLE_STEAL){
@@ -285,7 +290,7 @@ if(global.AB_USE_ANGLE_STEAL){
             sprite_get_number(sweep_spr);
             
         //Draw reticle off at 1/2 scale
-        ret_spr = spr_steal_reticle;
+        ret_spr = spr_steal_reticle_off;
         draw_sprite_ext(ret_spr, reticle_img_ind,
             d_pos[0], d_pos[1], 0.5, 0.5,
             0,c_white,1);
@@ -346,7 +351,7 @@ if(global.AB_USE_ANGLE_STEAL){
             sprite_get_number(sweep_spr);
     
         //Draw reticle off
-        ret_spr = spr_steal_reticle;
+        ret_spr = spr_steal_reticle_off;
         draw_sprite(ret_spr, reticle_img_ind, d_pos[0], d_pos[1]);
         reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
             sprite_get_number(ret_spr);
