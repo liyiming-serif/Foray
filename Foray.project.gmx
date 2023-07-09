@@ -251,13 +251,13 @@
         <sprite>sprites\spr_statbox_enemy</sprite>
       </sprites>
       <sprite>sprites\spr_steal_reticle_off</sprite>
+      <sprite>sprites\spr_steal_reticle_aim</sprite>
+      <sprite>sprites\spr_steal_reticle_dot</sprite>
       <sprite>sprites\spr_steal_reticle_on</sprite>
       <sprite>sprites\spr_steal_reticle_oy</sprite>
       <sprite>sprites\spr_steal_sweep_sm</sprite>
       <sprite>sprites\spr_steal_sweep</sprite>
       <sprite>sprites\spr_steal_sweep_on</sprite>
-      <sprite>sprites\spr_tooltip_aim</sprite>
-      <sprite>sprites\spr_tooltip_jump</sprite>
       <sprite>sprites\spr_lockon</sprite>
       <sprite>sprites\spr_lockoff</sprite>
       <sprite>sprites\spr_mode_steal_frame</sprite>
@@ -275,6 +275,8 @@
         <sprite>sprites\spr_steal_dotted_trail_s</sprite>
         <sprite>sprites\spr_steal_dotted_trail_m</sprite>
         <sprite>sprites\spr_steal_dotted_trail_l</sprite>
+        <sprite>sprites\spr_tooltip_jump</sprite>
+        <sprite>sprites\spr_tooltip_aim</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -360,6 +362,7 @@
       <script>scripts\scr_ground_particle_create.gml</script>
       <script>scripts\scr_line_rect_intersect.gml</script>
     </scripts>
+    <script>scripts\scr_cursor_frame_move.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>

@@ -3,10 +3,10 @@
   <spriteName>spr_cf_cursor</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>-2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_cf_cursor</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -33,6 +33,8 @@ image_speed = 0;
 //init variables
 min_dist = -1;
 pid = 0; //parent id
+
+scr_cursor_frame_move();
 </string>
           </argument>
         </arguments>
@@ -56,20 +58,43 @@ pid = 0; //parent id
           <argument>
             <kind>1</kind>
             <string>///update search coord
-var pd; //point direction between mouse and player
-
-if(point_distance(global.player_id.x,global.player_id.y,mouse_x,mouse_y)&gt;global.steal_max_range){
-    pd = point_direction(global.player_id.x,global.player_id.y,mouse_x,mouse_y);
-    x = global.player_id.x+lengthdir_x(global.steal_max_range,pd);
-    y = global.player_id.y+lengthdir_y(global.steal_max_range,pd);
-}
-else{
-    x = mouse_x;
-    y = mouse_y;
-}
+scr_cursor_frame_move();
 
 //clear min dist data
 min_dist = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///advance frame
+
+if(scr_instance_exists(pid.target_plane)){
+    sprite_index = spr_tooltip_aim;
+    if(pid.target_plane.ready_to_steal){
+        sprite_index = spr_tooltip_jump;
+    }
+    image_speed = global.TOOLTIP_ANIM_SPEED;
+}
+else{
+    sprite_index = spr_cf_cursor;
+    image_speed = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -94,7 +119,7 @@ min_dist = -1;
             <kind>1</kind>
             <string>///find min dist in-range target
 
-if(image_index!=0) return undefined;
+if(!mouse_check_button(mb_right)) return undefined;
 if(!other.is_stealable) return undefined;
 
 var d = distance_to_object(other);
@@ -182,17 +207,23 @@ shader_reset();
             <kind>1</kind>
             <string>///draw cursor frame
 var d_pos;
-shader_set(shader_pal_swap);
-texture_set_stage(pid.palette_ref, global.palette_texture);
-shader_set_uniform_f(pid.row_ref, pid.rt_modifier);
 if(scr_instance_exists(pid.target_plane)){ //snap to target
     d_pos = scr_game_to_gui(pid.target_plane.x,pid.target_plane.y);
 }
 else{
     d_pos = scr_game_to_gui(x,y);
 }
-draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
-shader_reset();
+
+if(sprite_index == spr_cf_cursor){
+    shader_set(shader_pal_swap);
+    texture_set_stage(pid.palette_ref, global.palette_texture);
+    shader_set_uniform_f(pid.row_ref, pid.rt_modifier);
+    draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
+    shader_reset();
+}
+else {
+    draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
+}
 </string>
           </argument>
         </arguments>

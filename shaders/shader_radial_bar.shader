@@ -29,7 +29,7 @@ varying vec4 v_vColour;
 uniform vec3 bgColor;
 uniform vec2 angles; //(min,max), radians, [-PI,PI)
 uniform vec2 origin;
-uniform vec4 spriteUVs;//left, top, 1/width, 1/height
+uniform vec4 spriteUVs; //left, top, 1/width, 1/height
                         //used to get true uv-coords.
                         
 // Draw from angles[0] -> angles[1] going anti-clockwise

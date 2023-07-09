@@ -217,8 +217,10 @@ if(!is_stealable || hp&lt;=0){
 reticle_scale = max(lerp(reticle_scale, 0.9, 0.2), 1);
 
 if(global.AB_USE_CHARGE_STEAL){
-    var ret_spr, ret_spr_on, d_pos;
+    var ret_spr, ret_spr_aim, ret_spr_dot, ret_spr_on, d_pos;
     ret_spr = spr_steal_reticle_off;
+    ret_spr_aim = spr_steal_reticle_aim;
+    ret_spr_dot = spr_steal_reticle_dot;
     ret_spr_on = spr_steal_reticle_oy;
     d_pos = scr_game_to_gui(x,y);
     
@@ -226,7 +228,7 @@ if(global.AB_USE_CHARGE_STEAL){
     if(!mouse_check_button(mb_right)){
         //small reticle
         draw_sprite_ext(ret_spr, reticle_img_ind,
-            d_pos[0], d_pos[1], 0.5*reticle_scale, 0.5*reticle_scale,
+            d_pos[0], d_pos[1], reticle_scale, reticle_scale,
             0,c_white,1);
         reticle_img_ind = (reticle_img_ind+global.STEAL_RETICLE_ANIM_SPEED)%
             sprite_get_number(ret_spr);
@@ -240,24 +242,19 @@ if(global.AB_USE_CHARGE_STEAL){
             sprite_get_number(ret_spr);
     }
     //State: Aiming...
-    else if(steal_progress &gt; 1){
-        //show steal progress on reticle
-        var charge_ang_rad, originx, originy, uvs;
-        charge_ang_rad = scr_plane_ui_charge_to_rads(steal_progress);
-        originx = sprite_get_xoffset(ret_spr_on)/sprite_get_width(ret_spr_on);
-        originy = sprite_get_yoffset(ret_spr_on)/sprite_get_height(ret_spr_on);
-        uvs = sprite_get_uvs(ret_spr_on, reticle_on_img_ind);
-        
-        shader_set(shader_radial_bar);
-        shader_set_uniform_f(steal_angles_ref, charge_ang_rad[0], charge_ang_rad[1]);
-        shader_set_uniform_f(steal_origin_ref, originx, originy);
-        shader_set_uniform_f(steal_uvs_ref,
-            uvs[0],uvs[3],1/(uvs[2]-uvs[0]),1/(uvs[1]-uvs[3]));
-        draw_sprite(ret_spr_on, reticle_on_img_ind, d_pos[0], d_pos[1]);
-        shader_reset();
-        
-        reticle_on_img_ind = (reticle_on_img_ind+global.STEAL_RETICLE_ON_ANIM_SPEED)%
-            sprite_get_number(ret_spr_on);
+    else if(steal_progress &lt; 1){
+        //show steal progress by zooming in aim ret until it overlaps
+        //dotted circle
+        draw_sprite(ret_spr_dot, reticle_dot_img_ind, d_pos[0], d_pos[1]);
+        reticle_dot_img_ind = (reticle_dot_img_ind+global.STEAL_RETICLE_DOT_ANIM_SPEED)%
+            sprite_get_number(ret_spr_dot);
+            
+        var rs = (1-steal_progress) + 1;
+        draw_sprite_ext(ret_spr_aim, reticle_aim_img_ind,
+            d_pos[0], d_pos[1], rs, rs,
+            0,c_white,1);
+        reticle_aim_img_ind = (reticle_aim_img_ind+global.STEAL_RETICLE_AIM_ANIM_SPEED)%
+            sprite_get_number(ret_spr_aim);
     }
     //State: ready to steal
     else if(ready_to_steal){

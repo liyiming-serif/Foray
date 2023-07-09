@@ -68,8 +68,7 @@ cid = 0; //child id of cursor frame
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Release steal button
-
+            <string>///Lock-out steal button
 instance_destroy(cid);
 sprite_index = spr_cursor;
 l_bound_frame = 0;

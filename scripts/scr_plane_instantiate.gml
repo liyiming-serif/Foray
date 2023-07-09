@@ -102,6 +102,8 @@ reticle_img_ind = 0;
 reticle_scale = 1;
 if(global.AB_USE_CHARGE_STEAL){
     reticle_on_img_ind = 0;
+    reticle_aim_img_ind = 0;
+    reticle_dot_img_ind = 0;
 }
 if(global.AB_USE_ANGLE_STEAL){
     sweep_img_ind = 0;
@@ -270,8 +272,8 @@ scr_cast_shadow();
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if (is_stealable && image_index%3>1.5){ //apply red/warn flash
     if(global.AB_USE_CHARGE_STEAL && is_targeted){
-        shader_set_uniform_f_array(flash_color_ref, global.C_FLASH_WARN_NORM);
         shader_set(shader_flash);
+        shader_set_uniform_f_array(flash_color_ref, global.C_FLASH_WARN_NORM);
     }
     else{
         shader_set(shader_hurt_flash);
@@ -361,9 +363,9 @@ else{
 roll_invuln = max(0, roll_invuln-global.game_speed);
 roll_cooldown = max(0, roll_cooldown-global.game_speed);
 
-//charge stealing: progress falloff when not targeted
+//charge stealing: reset charge progress when not aiming
 if(global.AB_USE_CHARGE_STEAL && !is_targeted){
-    steal_progress = max(steal_progress-global.STEAL_CHARGE_FALLOFF, 0);
+    steal_progress = 0;
 }
 
 

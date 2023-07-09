@@ -31,7 +31,7 @@ uniform float row;
 uniform float onTarget; // is hitting weak spot? USING GML BOOL SEMANTICS!!!
 uniform vec2 angles; //(min,max), radians, anti-clockwise, [-PI,PI]
 uniform vec2 origin;
-uniform vec4 spriteUVs;//left, top, 1/width, 1/height
+uniform vec4 spriteUVs; //left, top, 1/width, 1/height
                         //used to get true uv-coords.
                         
 uniform float isMeter; //(cursor only) hide instead of flash
