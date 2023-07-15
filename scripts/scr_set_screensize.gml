@@ -1,7 +1,6 @@
 #define scr_set_screensize
 ///scr_set_screensize(zoom)
 var rr, guir, tss;
-show_debug_message("enemy count: "+string(global.spawn_cap));
 tss = round(argument0);
 if(tss<=0 || tss>3){ //fullscreen
     window_set_fullscreen(true);

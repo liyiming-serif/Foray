@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>///variables for drawing HUD
 //sprite refs
-hp_gauge_ref = spr_hp_gauge;
+hp_gauge_ref = spr_player_hp_gauge;
+hp_bar_ref = spr_player_hp_bar;
 progress_gauge_ref = spr_progress_gauge;
 progress_bar_ref = spr_progress_bar;
 city_warning_ref = spr_city_warning;
@@ -138,7 +139,7 @@ if(warning_alarm &gt; 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw health bar
+            <string>///Draw player's health bar
 //actual bar
 var amt = 100*hp/max_hp;
 draw_healthbar(global.HBAR_X,global.HBAR_Y,global.HBAR_X+sprite_get_width(hp_gauge_ref)-5,global.HBAR_Y+sprite_get_height(hp_gauge_ref)-24,amt,c_black,global.C_MIN_BAR,global.C_MAX_BAR,3,false,false);

@@ -157,7 +157,6 @@ if(hp&lt;=0){
     }
 }
 else if(sprite_index==spr_plane1_buckle){
-    show_debug_message("controls restored");
     sprite_index = spr_plane1;
     if(!has_pilot){
         var pa = point_direction(x,y,global.player_id.x,global.player_id.y);

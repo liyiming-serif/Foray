@@ -232,7 +232,8 @@
     <sprites name="ui">
       <sprite>sprites\spr_hud_artist</sprite>
       <sprite>sprites\spr_lighting_artist</sprite>
-      <sprite>sprites\spr_hp_gauge</sprite>
+      <sprite>sprites\spr_player_hp_gauge</sprite>
+      <sprite>sprites\spr_player_hp_bar</sprite>
       <sprite>sprites\spr_progress_gauge</sprite>
       <sprite>sprites\spr_progress_bar</sprite>
       <sprite>sprites\spr_tutorial_key</sprite>
@@ -310,6 +311,7 @@
     <script>scripts\scr_flame_plume_create.gml</script>
     <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
+    <script>scripts\scr_cursor_frame_move.gml</script>
     <scripts name="plane">
       <script>scripts\scr_plane_hit.gml</script>
       <script>scripts\scr_plane_roll.gml</script>
@@ -334,6 +336,7 @@
     <scripts name="control">
       <script>scripts\scr_set_screensize.gml</script>
       <script>scripts\scr_set_level.gml</script>
+      <script>scripts\scr_set_ui_consts.gml</script>
     </scripts>
     <scripts name="design_patterns">
       <script>scripts\scr_spawn_plane.gml</script>
@@ -362,7 +365,6 @@
       <script>scripts\scr_ground_particle_create.gml</script>
       <script>scripts\scr_line_rect_intersect.gml</script>
     </scripts>
-    <script>scripts\scr_cursor_frame_move.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shader_pal_swap.shader</shader>
