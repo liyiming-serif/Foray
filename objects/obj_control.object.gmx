@@ -153,8 +153,6 @@ global.DMG_THRESHOLDS[2] = 0.25;
 global.CONTACT_DMG = 2;
 global.MIN_DMG = 0.5;
 global.MAX_STATS = 3;
-global.MAX_PROGRESS_RATE = 0.003/room_speed;
-global.PROGRESS_RATE = 0.015/room_speed;
 global.SWERVE_TURN_MOD = 1.5; //turning boost for AI avoiding obstacles
 
 global.MAX_MISSILE_TARGETS = 1;
@@ -205,10 +203,6 @@ global.SOUND_BALLOON_PITCH_SHIFT = 1.5;
 global.SOUND_BALLOON_GAIN_SHIFT = 0.4;
 global.SOUND_SKYMINE_FALLOFF_REF_DIST = 120;
 global.SOUND_SKYMINE_FALLOFF_MAX_DIST = 312;
-
-//Gun Progress
-global.max_progress = 0;
-global.progress = 0;
 
 //Pause
 global.paused = false;
@@ -699,46 +693,6 @@ for(var i = 0; i &lt; instance_number(obj_ship_parent); i++){
             s.accuracy = s.og_accuracy*(1+global.spawn_cap);
         }
     }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Check+Update Defense Progress
-
-//If progress is &lt; 0, game over state
-if(global.progress &lt; 0){
-    scr_set_level("level1");
-}
-
-if(global.progress &lt; global.max_progress){
-    //city's been hit, so progress needs to catch up to max
-    global.progress = clamp(global.progress+global.PROGRESS_RATE*global.game_speed,
-                            0,
-                            global.max_progress);
-}
-else{
-    //move max progress along when all damage has been repaired
-    global.max_progress = clamp(global.max_progress+global.MAX_PROGRESS_RATE*global.game_speed,
-                                0,
-                                1);
-    global.progress = global.max_progress;
 }
 </string>
           </argument>

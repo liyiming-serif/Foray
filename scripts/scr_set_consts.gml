@@ -1,3 +1,9 @@
+#define scr_set_consts
+///scr_set_consts()
+
+/*GAMEPLAY CONSTANTS*/
+
+#define scr_set_ui_consts
 ///scr_set_ui_consts()
 
 /*UI CONSTANTS*/
@@ -31,7 +37,6 @@ global.TOOLTIP_ANIM_SPEED = 0.4;
 global.PLAYER_HBAR_OFFSET[0] = 8;
 global.PLAYER_HBAR_OFFSET[1] = 0;
 global.PLAYER_HBAR_ANIM_SPEED = 0.15;
-global.PLAYER_HP_LOW_WARN = 0.3;
 
 global.CITY_HIT_FLASH_ALPHA = 0.4;
 global.CITY_HIT_SHAKE_DIST = 5;

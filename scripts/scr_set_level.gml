@@ -19,8 +19,6 @@ global.tiles_y = 0;
 ds_list_clear(global.skymine_queue);
 
 //reset score and progress
-global.progress = 0.0;
-global.max_progress = 0.0;
 score = 0;
 
 //Signal: Wait 2 frames before actually changing rooms

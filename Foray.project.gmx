@@ -234,8 +234,6 @@
       <sprite>sprites\spr_lighting_artist</sprite>
       <sprite>sprites\spr_player_hp_gauge</sprite>
       <sprite>sprites\spr_player_hp_bar</sprite>
-      <sprite>sprites\spr_progress_gauge</sprite>
-      <sprite>sprites\spr_progress_bar</sprite>
       <sprite>sprites\spr_tutorial_key</sprite>
       <sprite>sprites\spr_tutorial_mouse</sprite>
       <sprite>sprites\spr_tutorial_mouse_right</sprite>
@@ -261,8 +259,6 @@
       <sprite>sprites\spr_steal_sweep_on</sprite>
       <sprite>sprites\spr_lockon</sprite>
       <sprite>sprites\spr_lockoff</sprite>
-      <sprite>sprites\spr_mode_steal_frame</sprite>
-      <sprite>sprites\spr_mode_steal_gauge</sprite>
       <sprite>sprites\spr_steal_arrow</sprite>
       <sprite>sprites\spr_arrowon</sprite>
       <sprite>sprites\spr_arrowoff</sprite>

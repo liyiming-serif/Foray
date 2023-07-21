@@ -26,23 +26,23 @@
           <argument>
             <kind>1</kind>
             <string>///variables for drawing HUD
-//sprite refs
-hp_gauge_ref = spr_player_hp_gauge;
-hp_bar_ref = spr_player_hp_bar;
-progress_gauge_ref = spr_progress_gauge;
-progress_bar_ref = spr_progress_bar;
-city_warning_ref = spr_city_warning;
 
-//frame trackers for animated HUD elements
+//player hp bar + gauge
+player_hp_gauge_ref = spr_player_hp_gauge;
+player_hp_bar_ref = spr_player_hp_bar;
+player_hp_gauge_img_ind = 0;
+//hp values to track
+max_hp = ds_map_find_value(global.planes,"max_hp");
+hp = max_hp;
+target_hp = hp;
+
+//animations for under-attack warning popups
+city_warning_ref = spr_city_warning;
 warning_frame = 0;
 warning_img_speed = 0.6;
 warning_pos = -1;
 warning_alarm = 0;
 
-//hp values to track
-max_hp = ds_map_find_value(global.planes,"max_hp");
-hp = max_hp;
-target_hp = hp;
 </string>
           </argument>
         </arguments>
@@ -140,57 +140,42 @@ if(warning_alarm &gt; 0){
           <argument>
             <kind>1</kind>
             <string>///Draw player's health bar
-//actual bar
-var amt = 100*hp/max_hp;
-draw_healthbar(global.HBAR_X,global.HBAR_Y,global.HBAR_X+sprite_get_width(hp_gauge_ref)-5,global.HBAR_Y+sprite_get_height(hp_gauge_ref)-24,amt,c_black,global.C_MIN_BAR,global.C_MAX_BAR,3,false,false);
 
-//gauge overlay
-draw_sprite(hp_gauge_ref,0,global.HBAR_X,global.HBAR_Y);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw progress bar
+//orient to bottom left of screen
+var px = global.PLAYER_HBAR_OFFSET[0];
+var py = view_hview[scr_view_current()]-global.PLAYER_HBAR_OFFSET[1];
 
-//gauge sprite (anchor to right side of screen)
-var vc = scr_view_current();
-var xpos = view_wview[vc]-sprite_get_width(progress_gauge_ref)+sprite_get_xoffset(progress_gauge_ref);
-draw_sprite(progress_gauge_ref, 0, xpos, global.PBAR_Y);
+//hp gauge underlay
+draw_sprite(player_hp_gauge_ref, player_hp_gauge_img_ind,
+    px, py);
+player_hp_gauge_img_ind += global.PLAYER_HBAR_ANIM_SPEED;
+player_hp_gauge_img_ind %= sprite_get_number(player_hp_gauge_ref);
 
-//maximum progress bar
-var prog = global.max_progress*sprite_get_width(progress_bar_ref);
-draw_sprite_part_ext(progress_bar_ref,0,0,0,prog,sprite_get_height(progress_bar_ref),xpos,global.PBAR_Y,1,1,global.C_MIN_BAR,1);
+//hp bar - drain down
+var amt, bbox_h, cbox_l, cbox_t, cbox_w, cbox_h;
+amt = hp/max_hp;
+cbox_l = sprite_get_bbox_left(player_hp_bar_ref);
+cbox_t = lerp(sprite_get_bbox_bottom(player_hp_bar_ref),
+    sprite_get_bbox_top(player_hp_bar_ref),
+    amt);
+cbox_w = sprite_get_bbox_right(player_hp_bar_ref) -
+    sprite_get_bbox_left(player_hp_bar_ref);
+bbox_h = sprite_get_bbox_bottom(player_hp_bar_ref) -
+    sprite_get_bbox_top(player_hp_bar_ref);
+cbox_h = amt * bbox_h;
 
-//current progress bar
-prog = global.progress*sprite_get_width(progress_bar_ref);
-draw_sprite_part_ext(progress_bar_ref,0,0,0,prog,sprite_get_height(progress_bar_ref),xpos,global.PBAR_Y,1,1,global.C_MAX_BAR,1);
-
-//progress text
-var c_prev = draw_get_colour();
-
-draw_set_font(global.fnt_4mini);
-draw_set_valign(fa_top);
-draw_set_halign(fa_right);
-draw_set_colour(global.C_TEXT_LIGHT);
-draw_text(xpos-4, global.PBAR_Y-1, string(round(global.progress*100))+"%");
-
-draw_set_colour(c_prev);
+//flash red - low hp
+if(amt &lt;= global.PLAYER_HP_LOW_WARN &amp;&amp; player_hp_gauge_img_ind &lt; sprite_get_number(player_hp_gauge_ref)/2){
+    shader_set(shader_hurt_flash);
+}
+//NOTE: x,y -&gt; top-left corner of cropped sprite
+//NOTE: off by 1 error in cropping width and height
+//GMS2: edit texture groups, stop automatic croppingk
+draw_sprite_part(player_hp_bar_ref, 0,
+    cbox_l, cbox_t, cbox_w+1, cbox_h+1,
+    px + cbox_l,
+    py - sprite_get_yoffset(player_hp_bar_ref) + cbox_t);
+shader_reset();
 </string>
           </argument>
         </arguments>
