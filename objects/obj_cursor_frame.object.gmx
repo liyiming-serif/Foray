@@ -34,6 +34,8 @@ image_speed = 0;
 min_dist = -1;
 pid = 0; //parent id
 
+tooltip_none_img_ind = 0;
+
 scr_cursor_frame_move();
 </string>
           </argument>
@@ -224,6 +226,65 @@ if(sprite_index == spr_cf_cursor){
 else {
     draw_sprite(sprite_index,image_index,d_pos[0],d_pos[1]);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///draw 'no targets' tooltip
+
+if(!scr_any_stealables_in_view()){
+    var r, ang, fid, d_pos, vc, spr, s, d;
+    r = 16;
+    ang = 45;
+    if(scr_instance_exists(pid.target_plane)){
+        fid = pid.target_plane;
+    }
+    else {
+        fid = self;
+    }
+    d_pos = scr_game_to_gui(fid.x+lengthdir_x(r,ang), fid.y+lengthdir_y(r,ang));
+    vc = scr_view_current();
+    spr = spr_tooltip_none;
+    s[0] = d_pos[0] - sprite_get_xoffset(spr);
+    s[1] = d_pos[1] - sprite_get_yoffset(spr);
+    s[2] = s[0] + sprite_get_width(spr);
+    s[3] = s[1] + sprite_get_height(spr);
+    d[0] = view_xport[vc];
+    d[1] = view_yport[vc];
+    d[2] = view_wport[vc];
+    d[3] = view_hport[vc];
+    
+    if(rectangle_in_rectangle(s[0],s[1],s[2],s[3],d[0],d[1],d[2],d[3]) != 1){
+        //point tooltip towards view center
+        var fp = scr_game_to_gui(fid.x, fid.y);
+        ang = point_direction(fp[0], fp[1], d[2]/2, d[3]/2);
+        d_pos = scr_game_to_gui(fid.x+lengthdir_x(r,ang), fid.y+lengthdir_y(r,ang));
+        //on left side: right-align the tooltip
+        if(d_pos[0] &lt; fp[0]){
+            d_pos[0] -= sprite_get_width(spr);
+        }
+    }
+    draw_sprite(spr, tooltip_none_img_ind, d_pos[0], d_pos[1]);
+    tooltip_none_img_ind = (tooltip_none_img_ind+global.TOOLTIP_NONE_ANIM_SPEED)%
+                sprite_get_number(spr);
+}
+
 </string>
           </argument>
         </arguments>
