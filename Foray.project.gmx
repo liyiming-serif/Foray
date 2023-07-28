@@ -206,8 +206,8 @@
     </sprites>
     <sprite>sprites\spr_wpn_antiair_gun</sprite>
     <sprite>sprites\spr_city</sprite>
-    <sprite>sprites\eff_hit1</sprite>
     <sprites name="particles">
+      <sprite>sprites\eff_hit1</sprite>
       <sprite>sprites\eff_b1_miss</sprite>
       <sprite>sprites\eff_flame_miss</sprite>
       <sprite>sprites\eff_flare1</sprite>
