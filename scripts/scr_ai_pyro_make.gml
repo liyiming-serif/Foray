@@ -31,11 +31,11 @@ switch(state){
         if(can_fire){
             scr_ai_pyro_fire();
         }
-        scr_aiplane_navigate(target_id.x,target_id.y,false);
+        scr_aiplane_navigate(target_id.x,target_id.y);
         break;
     case plane_ai_states.RELOADING:
     case plane_ai_states.FLEEING:
-        scr_aiplane_navigate(target_id.x,target_id.y,true);
+        scr_aiplane_navigate(-target_id.x,-target_id.y,global.AI_FLEE_TURN_MOD);
         break;
 }
 

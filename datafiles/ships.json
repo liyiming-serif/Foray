@@ -9,14 +9,16 @@
       "min_speeds":[1.8, 2, 2.2],
       "max_speeds":[3.7, 4.5, 5.2],
       "roll_speeds":[4.2, 5, 5.5],
-      "turns":[2, 3, 4],
+      "base_turns":[2, 3, 4],
+      "turn_accels":[0.2, 0.34, 0.4],
       "armors":[0, 2, 4]
     },
     "models":{
       "altair":{
         "name": "Altair",
         "speed": 1,
-        "turn": 1.3,
+        "base_turn": 1.3,
+        "turn_accel": 1,
         "dmg":1,
         "amr":1,
         "wpn":"mg",
@@ -28,7 +30,8 @@
       "bessie":{
         "name": "BC-4 Bessie",
         "speed": 2,
-        "turn": 1,
+        "base_turn": 1,
+        "turn_accel": 1,
         "dmg": 1,
         "amr": 1,
         "wpn":"mg",
@@ -40,7 +43,8 @@
       "camel":{
         "name": "Camel",
         "speed": 1,
-        "turn": 2,
+        "base_turn": 2,
+        "turn_accel": 2,
         "dmg":1,
         "amr":1,
         "wpn":"mg",
@@ -52,7 +56,8 @@
       "firnas":{
         "name": "IB-N Firnas",
         "speed": 1,
-        "turn": 1,
+        "base_turn": 1,
+        "turn_accel": 1,
         "dmg":2,
         "amr":1,
         "wpn":"flamethrower",
@@ -64,7 +69,8 @@
       "earl":{
         "name": "Red Baron",
         "speed": 2,
-        "turn": 2,
+        "base_turn": 2,
+        "turn_accel": 2,
         "dmg":1,
         "amr":1,
         "wpn":"mg",
@@ -76,7 +82,8 @@
       "deneb":{
         "name": "Deneb",
         "speed": 2,
-        "turn": 1,
+        "base_turn": 1,
+        "turn_accel": 1,
         "dmg":2,
         "amr":1,
         "wpn":"flamethrower",

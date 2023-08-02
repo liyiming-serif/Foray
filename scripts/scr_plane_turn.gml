@@ -1,5 +1,4 @@
-///scr_plane_turn(xtarget, ytarget, turn)
+///scr_plane_turn()
 
-var SHARP_TURN_THRESH = 1;
-
+//change direction based on turn
 

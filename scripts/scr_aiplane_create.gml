@@ -21,8 +21,8 @@ with(instance_create(xv,yv,obj)){
     scr_plane_instantiate(dir,model_name,false,ds_list_find_value(utt,skill));
     
     //Handicap AI
-    og_turn = turn;
-    turn *= global.AI_TURN_REDUC;
+    og_base_turn = base_turn;
+    base_turn *= global.AI_TURN_REDUC;
     neutral_speed *= global.AI_SPEED_REDUC;
     min_speed *= global.AI_SPEED_REDUC;
     max_speed *= global.AI_SPEED_REDUC;
@@ -34,20 +34,24 @@ with(instance_create(xv,yv,obj)){
     //entry point for AI FSM
     var create_script = asset_get_index(ds_map_find_value(mp,"create_script"));
     script_execute(create_script, mp);
-    scr_set_avoidance(neutral_speed, turn, 0);
+    scr_set_avoidance(neutral_speed, base_turn, 0);
     
     return id;
 }
 
 #define scr_aiplane_navigate
-///scr_aiplane_navigate(xtarget, ytarget, away)
+///scr_aiplane_navigate(xtarget, ytarget, turn_modifier=1)
 
 //CALCULATES TRAJECTORY FOR AVOIDING OBSTACLES, THEN TURNS THE PLANE
 //NEEDS: AI states, axy, foresight, turn, turn func, avoid_arc, skill, is_friendly
 
 var xtarget = argument[0];
 var ytarget = argument[1];
-var away = argument[2];
+var ai_turn_mod = 1;
+if(argument_count == 3){
+    ai_turn_mod = argument[2];
+}
+
 var sx, sy, i, adir, adiff, pa, da;
 
 //sensing obstacles
@@ -106,11 +110,11 @@ if(i!=noone){
 }
 if(state == plane_ai_states.AVOIDING){
     //swerving
-    scr_plane_turn(x+ax, y+ay, away, global.SWERVE_TURN_MOD);
+    scr_plane_steer(x+ax, y+ay, ai_turn_mod*global.SWERVE_TURN_MOD);
 }
 else{
     //normal flying
-    scr_plane_turn(xtarget, ytarget, away);
+    scr_plane_steer(xtarget, ytarget, ai_turn_mod);
 }
 
 #define scr_aiplane_shoot
@@ -153,5 +157,5 @@ if(hp<=achy && php>achy){
     var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
     scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));
     //make it easier to aim
-    //turn *= global.AI_TURN_REDUC;
+    //base_turn *= global.AI_TURN_REDUC;
 }
