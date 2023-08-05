@@ -36,7 +36,7 @@ base_turn = scr_interpolate_stat(display_turn,global.base_turn_tiers);
 min_speed = scr_interpolate_stat(display_speed,global.min_speed_tiers);
 max_speed = scr_interpolate_stat(display_speed,global.max_speed_tiers);
 turn_accel = scr_interpolate_stat(ds_map_find_value(mp,"turn_accel"),global.turn_accel_tiers);
-roll_speed = scr_interpolate_stat(display_speed,global.rolling_speed_tiers);
+roll_speed = scr_interpolate_stat(display_speed,global.roll_speed_tiers);
 amr = scr_interpolate_stat(display_amr,global.amr_tiers);
 modifier = ds_map_find_value(mp,"palette");
 
@@ -184,6 +184,11 @@ if(is_braking){
     if(curr_speed > min_speed){
         insta_turn = true;
     }
+}
+
+//Boost after drifting to fly straight
+if(is_boosting){
+    tm_d *= global.STABILITY;
 }
 
 //Apply turn modifiers
