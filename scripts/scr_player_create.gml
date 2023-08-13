@@ -50,6 +50,7 @@ with(instance_create(x,y,obj_player_avatar)){
 ///scr_player_contact_hit()
 
 //HACK: continuous chip dmg if player is hitting an enemy ship
+//TODO: remove and combine with scr_plane_solid_hit
 
 if(hp<=0 || invincibility>0 || other.hp<=0 || roll_invuln>0) return undefined;
 

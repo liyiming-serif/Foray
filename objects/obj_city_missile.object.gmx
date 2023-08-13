@@ -107,30 +107,6 @@ invincibility = max(invincibility-global.game_speed,0);
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_projectile_parent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///scr_city_missile_hit()
-scr_city_missile_hit();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_city">
       <action>
         <libid>1</libid>
@@ -154,6 +130,30 @@ found_target = true;
 instance_destroy();
 //alarm[0] = airtime;
 //whistle_sound = scr_play_sound_ui(snd_drop_bomb,x,y);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_projectile_parent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///scr_city_missile_hit()
+scr_city_missile_hit();
 </string>
           </argument>
         </arguments>

@@ -204,8 +204,13 @@
       <sprite>sprites\spr_wpn_flamethrower_on</sprite>
       <sprite>sprites\spr_wpn_airtillery</sprite>
     </sprites>
-    <sprite>sprites\spr_wpn_antiair_gun</sprite>
-    <sprite>sprites\spr_city</sprite>
+    <sprites name="obstacles">
+      <sprite>sprites\spr_hbox_island</sprite>
+    </sprites>
+    <sprites name="defender">
+      <sprite>sprites\spr_city</sprite>
+      <sprite>sprites\spr_antiair_gun</sprite>
+    </sprites>
     <sprites name="particles">
       <sprite>sprites\eff_hit1</sprite>
       <sprite>sprites\eff_b1_miss</sprite>
@@ -292,15 +297,30 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_plane_instantiate.gml</script>
-    <script>scripts\scr_aiplane_create.gml</script>
-    <script>scripts\scr_player_create.gml</script>
-    <script>scripts\scr_skymine_create.gml</script>
-    <script>scripts\scr_balloon_create.gml</script>
-    <script>scripts\scr_subballoon_create.gml</script>
-    <script>scripts\scr_blimp_create.gml</script>
-    <script>scripts\scr_zeppelin_create.gml</script>
-    <script>scripts\scr_ship_instantiate.gml</script>
+    <scripts name="plane">
+      <script>scripts\scr_plane_instantiate.gml</script>
+      <script>scripts\scr_player_create.gml</script>
+      <script>scripts\scr_plane_hit.gml</script>
+      <script>scripts\scr_plane_roll.gml</script>
+      <script>scripts\scr_plane_rolling.gml</script>
+      <script>scripts\scr_plane_ui_get_angles.gml</script>
+      <scripts name="pilot_ai">
+        <script>scripts\scr_aiplane_create.gml</script>
+        <script>scripts\scr_ai_mg_chaser_make.gml</script>
+        <script>scripts\scr_ai_pyro_make.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="ships">
+      <script>scripts\scr_skymine_create.gml</script>
+      <script>scripts\scr_balloon_create.gml</script>
+      <script>scripts\scr_subballoon_create.gml</script>
+      <script>scripts\scr_blimp_create.gml</script>
+      <script>scripts\scr_zeppelin_create.gml</script>
+      <script>scripts\scr_ship_instantiate.gml</script>
+    </scripts>
+    <scripts name="pathfinding">
+      <script>scripts\scr_set_avoidance.gml</script>
+    </scripts>
     <script>scripts\scr_city_hit.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
     <script>scripts\scr_flamethrower_step.gml</script>
@@ -309,19 +329,6 @@
     <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
     <script>scripts\scr_cursor_frame_move.gml</script>
-    <scripts name="plane">
-      <script>scripts\scr_plane_hit.gml</script>
-      <script>scripts\scr_plane_roll.gml</script>
-      <script>scripts\scr_plane_rolling.gml</script>
-      <script>scripts\scr_plane_ui_get_angles.gml</script>
-    </scripts>
-    <scripts name="pilot_ai">
-      <script>scripts\scr_ai_mg_chaser_make.gml</script>
-      <script>scripts\scr_ai_pyro_make.gml</script>
-    </scripts>
-    <scripts name="pathfinding">
-      <script>scripts\scr_set_avoidance.gml</script>
-    </scripts>
     <scripts name="wpn_cbs">
       <script>scripts\scr_fire_missile.gml</script>
       <script>scripts\scr_ignite.gml</script>
@@ -376,26 +383,46 @@
     <shader type="GLSLES">shaders\shader_flash.shader</shader>
   </shaders>
   <objects name="objects">
-    <object>objects\obj_player</object>
-    <object>objects\obj_enemy</object>
-    <object>objects\obj_enemy_pyro</object>
-    <object>objects\obj_skymine</object>
-    <object>objects\obj_balloon</object>
-    <object>objects\obj_subballoon</object>
-    <object>objects\obj_balloon_amr</object>
-    <object>objects\obj_blimp</object>
-    <object>objects\obj_zeppelin</object>
+    <objects name="planes">
+      <object>objects\obj_plane_parent</object>
+      <object>objects\obj_player</object>
+      <object>objects\obj_enemy</object>
+      <object>objects\obj_enemy_pyro</object>
+    </objects>
+    <objects name="ships">
+      <object>objects\obj_ship_parent</object>
+      <object>objects\obj_skymine</object>
+      <object>objects\obj_balloon</object>
+      <object>objects\obj_subballoon</object>
+      <object>objects\obj_balloon_amr</object>
+      <object>objects\obj_blimp</object>
+      <object>objects\obj_zeppelin</object>
+    </objects>
     <object>objects\obj_player_avatar</object>
-    <object>objects\obj_bullet</object>
-    <object>objects\obj_cannonball</object>
-    <object>objects\obj_flame_plume</object>
-    <object>objects\obj_flame_flicker</object>
-    <object>objects\obj_player_missile</object>
-    <object>objects\obj_city_missile</object>
-    <object>objects\obj_drop_bomb</object>
-    <object>objects\obj_wpn_flamethrower</object>
-    <object>objects\obj_wpn_antiair_gun</object>
-    <object>objects\obj_city</object>
+    <objects name="projectiles">
+      <object>objects\obj_projectile_parent</object>
+      <object>objects\obj_bullet</object>
+      <object>objects\obj_cannonball</object>
+      <object>objects\obj_flame_plume</object>
+      <object>objects\obj_flame_flicker</object>
+      <object>objects\obj_missile_parent</object>
+      <object>objects\obj_player_missile</object>
+      <object>objects\obj_city_missile</object>
+      <object>objects\obj_drop_bomb</object>
+    </objects>
+    <objects name="obstacles">
+      <object>objects\obj_solid_parent</object>
+      <object>objects\obj_hbox_island</object>
+    </objects>
+    <objects name="weapons">
+      <object>objects\obj_wpn_parent</object>
+      <object>objects\obj_charge_wpn_parent</object>
+      <object>objects\obj_wpn_flamethrower</object>
+    </objects>
+    <objects name="defenders">
+      <object>objects\obj_antiair_gun</object>
+      <object>objects\obj_city</object>
+    </objects>
     <objects name="control">
       <object>objects\obj_control</object>
       <object>objects\obj_hud_artist</object>
@@ -403,18 +430,14 @@
       <object>objects\obj_spawner</object>
       <object>objects\obj_tutorial_agent</object>
     </objects>
-    <object>objects\obj_ship_parent</object>
-    <object>objects\obj_missile_parent</object>
-    <object>objects\obj_plane_parent</object>
-    <object>objects\obj_projectile_parent</object>
-    <object>objects\obj_charge_wpn_parent</object>
-    <object>objects\obj_wpn_parent</object>
     <object>objects\obj_grounded_parent</object>
     <object>objects\obj_midflight_parent</object>
-    <object>objects\obj_cursor</object>
-    <object>objects\obj_cursor_frame</object>
-    <object>objects\obj_statbox</object>
-    <object>objects\obj_tutorial</object>
+    <objects name="ui">
+      <object>objects\obj_cursor</object>
+      <object>objects\obj_cursor_frame</object>
+      <object>objects\obj_statbox</object>
+      <object>objects\obj_tutorial</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_amorphous_wave</timeline>
