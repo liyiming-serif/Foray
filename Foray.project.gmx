@@ -282,6 +282,7 @@
         <sprite>sprites\spr_tooltip_none</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_debug_arrow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_palette</background>

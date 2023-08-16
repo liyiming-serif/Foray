@@ -211,6 +211,7 @@ if(roll_invuln > 0){
 else {
     image_angle += global.game_speed*turn;
 }
+image_angle = angle_difference(image_angle, 0); //constrain angle values
 
 //Set direction
 var ideal_turn_d, max_turn_d;
@@ -225,11 +226,12 @@ else{
         turn_d+turn_accel*tam*global.game_speed);
 }
 direction += global.game_speed*turn_d;
+direction = angle_difference(direction,0); //constrain angle values
 
 
 //Set speed
 speed = global.game_speed*curr_speed*(1-abs(turn_d)/(base_turn*global.SPEED_DAMPENER));
-
+    
 //Change sprite based on turn img angle
 if(!is_rolling && sprite_index != spr_plane1_buckle){
     if(turn > base_turn){
@@ -260,13 +262,13 @@ audio_emitter_gain(engine_sound_emitter, gain);
 #define scr_plane_idle
 ///scr_plane_idle()
 //refactor this. copy-pasted from point_turn
-var ideal_turn_d, da_d;
-da_d = angle_difference(image_angle,direction);
-ideal_turn_d = min(abs(da_d),base_turn)*sign(da_d);
-turn_d = clamp(ideal_turn_d,
-    turn_d-turn_accel*global.game_speed,
-    turn_d+turn_accel*global.game_speed);
-direction += global.game_speed*turn_d;
+var ideal_turn, da;
+da = angle_difference(direction,image_angle);
+ideal_turn = min(abs(da),base_turn)*sign(da);
+turn = clamp(ideal_turn,
+    turn-turn_accel*global.game_speed,
+    turn+turn_accel*global.game_speed);
+image_angle += global.game_speed*turn_d;
 speed = global.game_speed*curr_speed;
 audio_stop_sound(engine_sound);
 

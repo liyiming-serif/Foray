@@ -95,6 +95,7 @@ var da = angle_difference(pa,direction);
 var ta = min(abs(da),tm);
 
 direction += global.game_speed*ta*sign(da);
+direction = angle_difference(direction,0); //constrain angle values
 speed = global.game_speed*sm;
 if(should_face_dir){
     image_angle = direction;
@@ -136,6 +137,7 @@ var da = angle_difference(pa,direction);
 var ta = min(abs(da),tm);
 
 direction += global.game_speed*ta*sign(da);
+direction = angle_difference(direction,0); //constrain angle values
 speed = global.game_speed*sm;
 if(should_face_dir){
     image_angle = direction;

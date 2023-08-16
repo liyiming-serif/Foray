@@ -100,8 +100,7 @@ scr_ship_update_wpn(sprite_width-sprite_xoffset-2,image_angle,gid);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///obstacle collisions
-
+            <string>///enable solid collisions
 scr_plane_solid_hit();
 </string>
           </argument>

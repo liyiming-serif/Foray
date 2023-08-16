@@ -71,7 +71,32 @@ if(s_u!=noone &amp;&amp; s_d!=noone){
 }
 
 image_speed = 0;
-image_index = grid_pos;
+//debug only
+//image_index = grid_pos;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///debug
+image_index = 5;
 </string>
           </argument>
         </arguments>

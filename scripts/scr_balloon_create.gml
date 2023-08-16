@@ -161,6 +161,8 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<gid[0].range[
     var da = angle_difference(pa,gid[0].image_angle);
     var ta = min(abs(da),gun_turn);
     gid[0].image_angle += global.game_speed*ta*sign(da);
+    gid[0].image_angle = 
+        angle_difference(gid[0].image_angle, 0); //constrain angle values
     
     //shoot if within angle
     if(abs(da) <= accuracy){
