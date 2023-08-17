@@ -132,6 +132,7 @@ global.fnt_westington_s = font_add(working_directory + "\Westington.ttf",12,true
 global.fnt_westington_m = font_add(working_directory + "\Westington.ttf",24,true,false,32,128);
 
 //INITIALLIZE CONSTANTS
+//GAMEPLAY CONSTANTS
 global.SPEED_DAMPENER = 9; //how little turning reduces speed
 global.C_TURN_DAMPENER = 0.25; //dampening factor when stealing
 global.MAX_CAM_FOLLOW_DIST = 120;
@@ -146,6 +147,8 @@ global.ROLL_TURN = 1.6;
 global.TURN_ACC_DAMPENER = 0.75; //how much turn acc is reduced by speed [0-1]
 global.TURN_DAMPENER = 0.25;
 global.TURN_OUTSIDE_ROOM_COEFF = 2.5;
+global.MAX_COLLISION_ANGLE = 70; //constrain reflection angle in solid collisions
+global.MAX_CORNER_COLLISION_ANGLE = 45; //magic num for using box colliders for triangles
 global.SPAWN_INVINCIBILITY = room_speed*1.5; //invincibility after swapping planes
 global.JUMP_SPEED = 6;
 global.C_RECOVERY = room_speed*0.18;

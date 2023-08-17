@@ -9,28 +9,41 @@ if(roll_invuln == 0){
 ///scr_plane_solid_hit()
 
 //Set bounce direction based on collision
-var sfn, ca;
-sfn = point_direction(other.x, other.y, x, y);
+//Angle in = angle out
+var surf_n, coll_a, max_coll_a;
+surf_n = point_direction(other.x, other.y, x, y);
+max_coll_a = global.MAX_COLLISION_ANGLE;
 if(variable_instance_exists(other, "grid_pos")){
     switch(other.grid_pos){
         case 1:
-            sfn = 225; break;
+            surf_n = 225;
+            max_coll_a = global.MAX_CORNER_COLLISION_ANGLE;
+            break;
         case 2:
-            sfn = 270; break;
+            surf_n = 270; break;
         case 3:
-            sfn = 315; break;
+            surf_n = 315;
+            max_coll_a = global.MAX_CORNER_COLLISION_ANGLE;
+            break;
         case 4:
-            sfn = 180; break;
+            surf_n = 180; break;
         case 6:
-            sfn = 0; break;
+            surf_n = 0; break;
         case 7:
-            sfn = 135; break;
+            surf_n = 135;
+            max_coll_a = global.MAX_CORNER_COLLISION_ANGLE;
+            break;
         case 8:
-            sfn = 90; break;
+            surf_n = 90; break;
         case 9:
-            sfn = 45; break;
+            surf_n = 45;
+            max_coll_a = global.MAX_CORNER_COLLISION_ANGLE;
+            break;
     }
 }
-ca = angle_difference(direction,sfn+180);
-direction = sfn + ca;
-move_outside_solid(direction, -1);
+coll_a = clamp(
+    angle_difference(surf_n, direction+180),
+    -max_coll_a,
+    max_coll_a);
+direction = surf_n + coll_a;
+move_outside_solid(surf_n, -1);
