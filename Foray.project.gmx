@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="31" name="datafiles">
+  <datafiles number="32" name="datafiles">
     <datafile>
       <name>Westington.ttf</name>
       <exists>-1</exists>
@@ -124,6 +124,23 @@
       <filename>cloaks.json</filename>
     </datafile>
     <datafile>
+      <name>aeroduct.json</name>
+      <exists>-1</exists>
+      <size>67</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>aeroduct.json</filename>
+    </datafile>
+    <datafile>
       <name>level1.json</name>
       <exists>-1</exists>
       <size>66</size>
@@ -231,6 +248,15 @@
         <sprite>sprites\eff_trail_close</sprite>
         <sprite>sprites\eff_trail_far</sprite>
       </sprites>
+      <sprites name="clouds">
+        <sprite>sprites\eff_cloud_1</sprite>
+        <sprite>sprites\eff_cloud_2</sprite>
+        <sprite>sprites\eff_cloud_3</sprite>
+        <sprite>sprites\eff_cloud_4</sprite>
+        <sprite>sprites\eff_cloud_5</sprite>
+        <sprite>sprites\eff_cloud_6</sprite>
+        <sprite>sprites\eff_cloud_7</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_player_missile_target</sprite>
     <sprite>sprites\spr_city_missile_target</sprite>
@@ -286,6 +312,12 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_palette</background>
+    <backgrounds name="aeroduct">
+      <background>background\bg_aeroduct</background>
+      <background>background\ts_track</background>
+      <background>background\ts_track_shadow</background>
+      <background>background\ts_skyblocks_shadow</background>
+    </backgrounds>
     <background>background\ts_sand</background>
     <background>background\ts_rock</background>
     <background>background\ts_flora</background>
@@ -447,6 +479,7 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\_rm_loading</room>
+    <room>rooms\rm_aeroduct</room>
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>

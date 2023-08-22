@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///error check on target id existence
 if(!scr_instance_exists(target_id)){
-    scr_set_level("level1");
+    scr_set_level("aeroduct");
 }
 </string>
           </argument>

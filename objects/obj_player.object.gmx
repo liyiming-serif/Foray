@@ -149,7 +149,7 @@ scr_player_contact_hit();
 
 if(hp&lt;=0){
     if(global.player_id==id){
-        scr_set_level("level1");
+        scr_set_level("aeroduct");
     }
     else{
         instance_destroy();

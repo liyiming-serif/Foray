@@ -365,7 +365,7 @@ view_yprev = 0;
 scr_init_views();
 scr_set_screensize(global.screensize); //fullscreen bug?
 window_set_cursor(cr_none);
-scr_set_level("level1");
+scr_set_level("aeroduct");
 </string>
           </argument>
         </arguments>

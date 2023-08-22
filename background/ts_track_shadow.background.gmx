@@ -13,7 +13,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>600</width>
-  <height>240</height>
-  <data>images\ts_skyblocks.png</data>
+  <width>96</width>
+  <height>72</height>
+  <data>images\ts_track_shadow.png</data>
 </background>
