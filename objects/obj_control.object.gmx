@@ -136,7 +136,8 @@ global.fnt_westington_m = font_add(working_directory + "\Westington.ttf",24,true
 global.SPEED_DAMPENER = 9; //how little turning reduces speed
 global.C_TURN_DAMPENER = 0.25; //dampening factor when stealing
 global.MAX_CAM_FOLLOW_DIST = 120;
-global.PARALLAX_FACTOR = 0.75;
+global.PARALLAX_FACTOR = 0.75; //fraction of layer that gets displayed in whole room
+global.PARALLAX_FACTOR_DEPTHS = 0.4;
 global.ACC_SPEED = 0.5;
 global.BRAKE_SPEED = 0.05;
 global.AIR_FRIC = 0.01;
@@ -292,6 +293,8 @@ global.partsys = part_system_create();
 part_system_depth(global.partsys,-1);
 global.partsys_ground = part_system_create();
 part_system_depth(global.partsys_ground,9);
+global.partsys_depths = part_system_create();
+part_system_depth(global.partsys_depths,256);
 
 global.b1_miss = part_type_create();
 part_type_sprite(global.b1_miss, eff_b1_miss, true, true, false);
@@ -393,6 +396,7 @@ scr_set_level("aeroduct");
 //particles
 part_system_destroy(global.partsys);
 part_system_destroy(global.partsys_ground);
+part_system_destroy(global.partsys_depths);
 part_type_destroy(global.b1_miss);
 part_type_destroy(global.flare1);
 part_type_destroy(global.deflect);
@@ -649,7 +653,7 @@ if(scr_instance_exists(global.player_id)){
             <kind>1</kind>
             <string>///Lerp-parallax
 
-var tiles_xprev, tiles_yprev, vc;
+var tiles_xprev, tiles_yprev, vc, depths_x, depths_y;
 
 tiles_xprev = global.tiles_x;
 tiles_yprev = global.tiles_y;
@@ -657,14 +661,19 @@ tiles_yprev = global.tiles_y;
 vc = scr_view_current();
 global.tiles_x = lerp(0,room_width*(1-global.PARALLAX_FACTOR),view_xview[vc]/(room_width-view_wview[vc]));
 global.tiles_y = lerp(0,room_height*(1-global.PARALLAX_FACTOR),view_yview[vc]/(room_height-view_hview[vc]));
+depths_x = lerp(0,room_width*(1-global.PARALLAX_FACTOR_DEPTHS),
+    view_xview[vc]/(room_width-view_wview[vc]));
+depths_y = lerp(0,room_height*(1-global.PARALLAX_FACTOR_DEPTHS),
+    view_yview[vc]/(room_height-view_hview[vc]));
 
 tile_layer_shift(127, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(126, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(125, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 tile_layer_shift(124, global.tiles_x-tiles_xprev, global.tiles_y-tiles_yprev);
 
-//grounded particle system
+//parallax-ed particle systems
 part_system_position(global.partsys_ground, global.tiles_x, global.tiles_y);
+part_system_position(global.partsys_depths, depths_x, depths_y);
 
 </string>
           </argument>

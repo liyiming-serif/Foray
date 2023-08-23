@@ -263,6 +263,7 @@
     <sprites name="ui">
       <sprite>sprites\spr_hud_artist</sprite>
       <sprite>sprites\spr_lighting_artist</sprite>
+      <sprite>sprites\spr_cloud_caller</sprite>
       <sprite>sprites\spr_player_hp_gauge</sprite>
       <sprite>sprites\spr_player_hp_bar</sprite>
       <sprite>sprites\spr_tutorial_key</sprite>
@@ -374,6 +375,7 @@
       <script>scripts\scr_set_screensize.gml</script>
       <script>scripts\scr_set_level.gml</script>
       <script>scripts\scr_set_ui_consts.gml</script>
+      <script>scripts\scr_init_part_cloud.gml</script>
     </scripts>
     <scripts name="design_patterns">
       <script>scripts\scr_spawn_plane.gml</script>
@@ -400,6 +402,7 @@
       <script>scripts\scr_is_obj_between_angles.gml</script>
       <script>scripts\scr_is_obj_outside_room.gml</script>
       <script>scripts\scr_ground_particle_create.gml</script>
+      <script>scripts\scr_depths_particle_create.gml</script>
       <script>scripts\scr_line_rect_intersect.gml</script>
       <script>scripts\scr_any_stealables_in_view.gml</script>
     </scripts>
@@ -460,6 +463,7 @@
       <object>objects\obj_control</object>
       <object>objects\obj_hud_artist</object>
       <object>objects\obj_lighting_artist</object>
+      <object>objects\obj_cloud_caller</object>
       <object>objects\obj_spawner</object>
       <object>objects\obj_tutorial_agent</object>
     </objects>

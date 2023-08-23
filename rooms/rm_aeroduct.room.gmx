@@ -169,6 +169,7 @@
     <instance objName="obj_hbox_island" x="1272" y="696" name="inst_C5C1E0F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hbox_island" x="1272" y="672" name="inst_632443D7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hbox_island" x="1296" y="672" name="inst_25DDBC1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cloud_caller" x="360" y="0" name="inst_2277018C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ts_track" x="1224" y="960" w="48" h="48" xo="48" yo="0" id="10011786" name="inst_F56246C2" depth="127" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
