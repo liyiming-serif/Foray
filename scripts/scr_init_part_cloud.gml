@@ -6,13 +6,13 @@ for(var i = 1; i <= 7; i++){
         case 2:
         case 5:
         case 6:
-            cld_sp = 1;
+            cld_sp = 0.5;
             break;
         case 1:
         case 3:
         case 4:
         case 7:
-            cld_sp = 0.5;
+            cld_sp = 0.4;
             break;
     }
     cld_spr = asset_get_index("eff_cloud_"+string(i));
