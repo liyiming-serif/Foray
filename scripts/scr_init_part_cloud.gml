@@ -16,12 +16,12 @@ for(var i = 1; i <= 7; i++){
             break;
     }
     cld_spr = asset_get_index("eff_cloud_"+string(i));
-    cld_dist = room_width*global.PARALLAX_FACTOR_DEPTHS+sprite_get_width(cld_spr); 
-    cld_t = room_speed*cld_dist/cld_sp;
+    cld_dist = global.PARALLAX_FACTOR_DEPTHS*(room_width+sprite_get_width(cld_spr)); 
+    cld_t = (60/room_speed)*(cld_dist/cld_sp);
     
     part_clouds[i-1] = part_type_create();
     part_type_sprite(part_clouds[i-1], cld_spr, false, false, false);
     part_type_direction(part_clouds[i-1], 180, 180, 0, 0);
-    //part_type_speed(part_clouds[i-1], cld_sp, cld_sp, 0, 0);
+    part_type_speed(part_clouds[i-1], cld_sp, cld_sp, 0, 0);
     part_type_life(part_clouds[i-1], cld_t, cld_t);
 }

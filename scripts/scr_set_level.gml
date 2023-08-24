@@ -11,6 +11,11 @@ global.next_level = argument0;
 view_xview[0]=0;
 view_yview[0]=0;
 
+//clear particles
+part_particles_clear(global.partsys);
+part_particles_clear(global.partsys_ground);
+part_particles_clear(global.partsys_depths);
+
 //Reset parallax
 global.tiles_x = 0;
 global.tiles_y = 0;

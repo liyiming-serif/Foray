@@ -42,6 +42,44 @@ for(var p = 0; p &lt; 8; p++){
     cy = sh+lengthdir_y(r, a)-sprite_get_height(cspr)/2;
     scr_depths_particle_create(cx, cy, part_clouds[ci-1]);
 } 
+
+//start timer for auto-generating clouds
+alarm[0] = 240; //t = tiling_dist/cloud_speed
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///make some clouds
+
+for(var i = 1; i &lt;= 7; i++){
+    if(i == irandom_range(1,7)){
+        var cspr, cx, cy;
+        cspr = asset_get_index("eff_cloud_"+string(i));
+        cx = room_width;
+        cy = irandom_range(-sprite_get_height(cspr), room_height);
+        scr_depths_particle_create(cx, cy, part_clouds[i-1]);
+    }
+}
+
+alarm[0] = 240;
 </string>
           </argument>
         </arguments>

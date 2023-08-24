@@ -170,7 +170,7 @@ if(amt &lt;= global.PLAYER_HP_LOW_WARN &amp;&amp; player_hp_gauge_img_ind &lt; s
 }
 //NOTE: x,y -&gt; top-left corner of cropped sprite
 //NOTE: off by 1 error in cropping width and height
-//GMS2: edit texture groups, stop automatic croppingk
+//GMS2: edit texture groups, stop automatic cropping
 draw_sprite_part(player_hp_bar_ref, 0,
     cbox_l, cbox_t, cbox_w+1, cbox_h+1,
     px + cbox_l,

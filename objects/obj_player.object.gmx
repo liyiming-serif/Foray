@@ -189,8 +189,8 @@ event_inherited();
             <kind>1</kind>
             <string>///debug
 event_inherited();
-var d_pos = scr_game_to_gui(x,y);
-draw_sprite_ext(spr_debug_arrow, 0, d_pos[0], d_pos[1], 1,1,direction,c_white,1);
+//var d_pos = scr_game_to_gui(x,y);
+//draw_sprite_ext(spr_debug_arrow, 0, d_pos[0], d_pos[1], 1,1,direction,c_white,1);
 </string>
           </argument>
         </arguments>
