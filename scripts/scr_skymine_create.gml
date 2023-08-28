@@ -83,7 +83,7 @@ if(!scr_instance_exists(target_id)){
     target_id = global.player_id;
 }
 
-//look ahead and check for any allies in the way
+//look ahead and check for any solids/allies in the way
 var l, sp, pd, i, can_move;
 sp =  chase_vel*global.game_speed;
 pd = point_direction(x,y,target_id.x,target_id.y);
@@ -92,7 +92,7 @@ l = sp*sp/(2*friction);
 i = collision_line(x,y,lengthdir_x(l,pd)+x,lengthdir_y(l,pd)+y,obj_obstacle_parent,false,true);
 can_move = true;
 if(i!=noone){
-    if(!variable_instance_exists(i, "is_friendly") || i.is_friendly){
+    if(!variable_instance_exists(i, "is_friendly") || i.is_friendly == is_friendly){
         can_move = false;
     }
 }

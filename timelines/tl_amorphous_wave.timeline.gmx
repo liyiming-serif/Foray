@@ -22,17 +22,17 @@
             <string>///spawn player + starting enemies
 scr_player_create(800,500,90,"firnas");
 
-//scr_blimp_create(924,648,30);
-//scr_blimp_create(689,1122,315);
-//scr_blimp_create(144,527,60);
-//scr_blimp_create(1427,288,225);
-scr_balloon_create(1008,760,"",false);
-scr_balloon_create(924,648,"cannon",false);
-scr_skymine_create(924,840,0,0);
-scr_skymine_create(288,1080,0,0);
-scr_skymine_create(1080,288,0,0);
-scr_spawn_plane("bessie",1);
-//timeline_running = false;
+scr_blimp_create(924,648,30);
+scr_blimp_create(689,1122,315);
+scr_blimp_create(144,527,60);
+scr_blimp_create(1427,288,225);
+//scr_balloon_create(1008,760,"",false);
+//scr_balloon_create(924,648,"cannon",false);
+//scr_skymine_create(924,840,0,0);
+//scr_skymine_create(288,1080,0,0);
+//scr_skymine_create(1080,288,0,0);
+//scr_spawn_plane("bessie",1);
+timeline_running = false;
 </string>
           </argument>
         </arguments>
