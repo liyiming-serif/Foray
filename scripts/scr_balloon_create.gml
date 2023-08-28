@@ -101,7 +101,7 @@ if(scr_instance_exists(gid[1]) && gid[1].visible){
 //sensing obstacles
 sx = lengthdir_x(speed*foresight,direction);
 sy = lengthdir_y(speed*foresight,direction);
-i = collision_line(x,y,sx+x,sy+y,obj_ship_parent,false,true);
+i = collision_line(x,y,sx+x,sy+y,obj_obstacle_parent,false,true);
 //don't dodge if obstacle is 1)moving away 2)too fast 3)not imminently close 4)rolling 
 if(i!=noone){
     if(variable_instance_exists(i, "roll_invuln") && i.roll_invuln>0){

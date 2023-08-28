@@ -345,12 +345,12 @@
       </scripts>
     </scripts>
     <scripts name="ships">
+      <script>scripts\scr_ship_instantiate.gml</script>
       <script>scripts\scr_skymine_create.gml</script>
       <script>scripts\scr_balloon_create.gml</script>
       <script>scripts\scr_subballoon_create.gml</script>
       <script>scripts\scr_blimp_create.gml</script>
       <script>scripts\scr_zeppelin_create.gml</script>
-      <script>scripts\scr_ship_instantiate.gml</script>
     </scripts>
     <scripts name="pathfinding">
       <script>scripts\scr_set_avoidance.gml</script>
@@ -447,6 +447,7 @@
       <object>objects\obj_drop_bomb</object>
     </objects>
     <objects name="obstacles">
+      <object>objects\obj_obstacle_parent</object>
       <object>objects\obj_solid_parent</object>
       <object>objects\obj_hbox_island</object>
     </objects>
