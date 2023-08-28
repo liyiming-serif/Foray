@@ -15,7 +15,11 @@ else{ //existing flame
     //control non-lingering flame
     if(variable_instance_exists(projectile_id,"linger_alarm")){
         if(!projectile_id.alarm[projectile_id.linger_alarm]){
-            projectile_id.x = x+lengthdir_x(barrel_len,image_angle);
+            var p_xs, p_xo;
+            p_xs = projectile_id.image_xscale;
+            p_xo = sprite_get_xoffset(projectile_id.sprite_index);
+            //adjust for shortened flame plume
+            projectile_id.x = x+lengthdir_x(barrel_len-(1-p_xs)*p_xo,image_angle);
             projectile_id.y = y+lengthdir_y(barrel_len,image_angle);
             projectile_id.direction = direction;
             projectile_id.image_angle = image_angle;
