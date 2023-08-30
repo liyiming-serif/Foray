@@ -22,7 +22,8 @@ with(instance_create(xv,yv,obj_blimp)){
     gid[2] = scr_wpn_create(x,y,0,"player_missile_gun",false); //right
     
     //ai params
-    scr_set_avoidance(curr_speed, turn, 0);
+    //increase sight modifier for oblong shape
+    scr_set_avoidance(curr_speed, turn, 0, 1);
     flee_duration = ds_map_find_value(mp,"flee_duration");
     fleeing_timer = flee_duration;
     city_range[0] = ds_list_find_value(ds_map_find_value(mp,"city_range"),0);
@@ -113,7 +114,7 @@ if(i!=noone){
     else {
         if(i.speed>speed*0.5 && abs(angle_difference(i.direction,direction))<30.0){
             var l = distance_to_object(i);
-            if(l>foresight*0.4){
+            if(l>foresight){
                 i = noone;
             }
         }
@@ -140,7 +141,7 @@ if(i!=noone){
         alarm[avoid_state_alarm] = avoid_arc;
     }
 }
-if(alarm[avoid_state_alarm]){
+if(alarm[avoid_state_alarm]>0){
     //swerving
     if(away){
         scr_ship_turn_away(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
@@ -148,6 +149,7 @@ if(alarm[avoid_state_alarm]){
     else{
         scr_ship_turn(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
     }
+    image_blend = c_olive;
 }
 else{
     //normal flying
@@ -157,7 +159,7 @@ else{
     else{
         scr_ship_turn(tx, ty, true, tm, sm);
     }
-    
+    image_blend = c_white;
 }
 
 #define scr_blimp_aim_city

@@ -17,10 +17,12 @@
       "dmg":[2, 2.85, 3.25],
       "range":[300,312],
       "muzzle_flare":"flare1",
-      "knockback": {
-        "init_force": 6,
-        "falloff_point": 0.3,
-        "falloff": 0.03
+      "crit": {
+        "impact": 3,
+        "kb_duration": 7,
+        "kb_invuln": 102,
+        "lock_angle": 10,
+        "dmg_mult":1.2,
       }
     },
     "cannon":{
@@ -53,7 +55,7 @@
       "recoil":1,
       "palette":198,
       "accuracy":1,
-      "dmg":[1.2,1.2,1.2]
+      "dmg":[1.1,1.1,1.1]
     },
     "airtillery":{
       "obj_ind":"obj_charge_wpn_parent",
@@ -125,7 +127,7 @@
       "projectile":"player_missile",
       "recoil":1,
       "muzzle_vel":0,
-      "shoot_rate":300,
+      "shoot_rate":30000,
       "accuracy":0,
       "range":[1200,1248],
     },
@@ -139,7 +141,7 @@
       "recoil":1,
       "muzzle_vel":0,
       "accuracy":0,
-      "shoot_rate":300,
+      "shoot_rate":30000,
       "range":[2000,2048],
     }
   },
@@ -174,8 +176,8 @@
 
   "missiles":{
     "city_missile":{
-      "turn":1,
-      "speed":2.5,
+      "turn":1.5,
+      "speed":1,
       "targeting_cb":"scr_missile_target_city",
       "targeting_sprite":"spr_city_missile_target",
       "warn_range":500,
@@ -183,18 +185,20 @@
       "obj_ind":"obj_city_missile",
       "ground_hit_part":"explosion_ground",
       "air_hit_part":"boom_air",
-      "max_hp":8,
+      "max_hp":6,
       "hp_bar_width":32
     },
     "player_missile":{
-      "turn":2.5,
+      "turn":1.5,
       "speed":3.5,
       "targeting_cb":"scr_missile_target_player",
       "targeting_sprite":"spr_player_missile_target",
       "warn_range":300,
       "obj_ind":"obj_player_missile",
       "air_hit_part":"explosion",
-      "miss_part":"hit1"
+      "miss_part":"hit1",
+      "max_hp":3,
+      "hp_bar_width":24
     }
   },
 
