@@ -24,7 +24,6 @@ max_hp = ds_map_find_value(global.planes,"max_hp");
 display_speed = clamp(ds_map_find_value(mp,"speed"),1,global.MAX_STATS);
 display_turn = clamp(ds_map_find_value(mp,"base_turn"),1,global.MAX_STATS);
 display_dmg = clamp(ds_map_find_value(mp,"dmg"),1,global.MAX_STATS);
-display_amr = clamp(ds_map_find_value(mp,"amr"),1,global.MAX_STATS);
 rolltime = ds_map_find_value(mp,"rolltime");
 max_roll_cooldown = ds_map_find_value(mp, "roll_cooldown");
 
@@ -37,7 +36,6 @@ min_speed = scr_interpolate_stat(display_speed,global.min_speed_tiers);
 max_speed = scr_interpolate_stat(display_speed,global.max_speed_tiers);
 turn_accel = scr_interpolate_stat(ds_map_find_value(mp,"turn_accel"),global.turn_accel_tiers);
 roll_speed = scr_interpolate_stat(display_speed,global.roll_speed_tiers);
-amr = scr_interpolate_stat(display_amr,global.amr_tiers);
 modifier = ds_map_find_value(mp,"palette");
 
 //variable fields
