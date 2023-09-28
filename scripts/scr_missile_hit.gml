@@ -1,4 +1,4 @@
-#define scr_missile_create
+#define scr_missile_hit
 ///scr_missile_create(x,y,dir,missile_type,is_friendly)
 
 var xv = argument[0];
@@ -27,7 +27,8 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     max_hp = ds_map_find_value(mp, "max_hp");
     hp = max_hp;
     hp_bar_width = ds_map_find_value(mp,"hp_bar_width");
-    scr_hittable_set();
+    hitstun = 0;
+    invincibility = 0;
     
     //set target
     switch(type){
@@ -143,7 +144,8 @@ speed = global.game_speed*(curr_speed);
 ttl = max(0,ttl-global.game_speed);
 
 //countdown hitstun and invincibility
-scr_hittable_step();
+hitstun = max(hitstun-global.game_speed, 0);
+invincibility = max(invincibility-global.game_speed,0);
 
 ///out of range: kms
 if(ttl<=0){

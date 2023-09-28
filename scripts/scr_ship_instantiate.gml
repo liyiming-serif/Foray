@@ -19,8 +19,7 @@ if(dsn != undefined){
     death_seq_cb = asset_get_index(dsn);
 }
 //common: collision
-hitstun = 0;
-invincibility = 0;
+scr_hittable_set();
 sp_invincibility = 0;
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
@@ -55,8 +54,7 @@ audio_emitter_falloff(engine_sound_emitter,
 ///scr_ship_advance_frame()
 
 //countdown hitstun and invincibility
-hitstun = max(hitstun-global.game_speed, 0);
-invincibility = max(invincibility-global.game_speed,0);
+scr_hittable_step();
 sp_invincibility = max(sp_invincibility-global.game_speed,0);
 
 //update emitter
@@ -357,12 +355,5 @@ instance_destroy();
 
 //draw hp bar
 if(hp<max_hp && global.player_id != id){
-    var amt, w, h, px, py, uipos;
-    amt = 100*hp/max_hp;
-    w = hp_bar_width;
-    h = global.ENEMY_HBAR_THICKNESS;
-    px = x-w/2;
-    py = y-sprite_yoffset-h;
-    uipos = scr_game_to_gui(px,py);
-    draw_healthbar(uipos[0],uipos[1],uipos[0]+w,uipos[1]+h,amt,global.C_ENEMY_BACK_HBAR,global.C_ENEMY_MIN_HBAR,global.C_ENEMY_MAX_HBAR,0,true,false);
+    scr_hittable_draw_hp_bar();
 }

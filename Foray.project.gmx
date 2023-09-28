@@ -331,7 +331,7 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="plane">
+    <scripts name="planes">
       <script>scripts\scr_plane_instantiate.gml</script>
       <script>scripts\scr_player_create.gml</script>
       <script>scripts\scr_plane_hit.gml</script>
@@ -405,6 +405,11 @@
       <script>scripts\scr_depths_particle_create.gml</script>
       <script>scripts\scr_line_rect_intersect.gml</script>
       <script>scripts\scr_any_stealables_in_view.gml</script>
+    </scripts>
+    <scripts name="hittables">
+      <script>scripts\scr_hittable_set.gml</script>
+      <script>scripts\scr_hittable_draw_hp_bar.gml</script>
+      <script>scripts\scr_hittable_step.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

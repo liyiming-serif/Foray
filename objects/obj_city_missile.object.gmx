@@ -78,35 +78,6 @@ else{
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///scr_missile_step extended
-
-scr_missile_step();
-
-//countdown hitstun and invincibility
-hitstun = max(hitstun-global.game_speed, 0);
-invincibility = max(invincibility-global.game_speed,0);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_city">
       <action>
         <libid>1</libid>
@@ -130,30 +101,6 @@ found_target = true;
 instance_destroy();
 //alarm[0] = airtime;
 //whistle_sound = scr_play_sound_ui(snd_drop_bomb,x,y);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_projectile_parent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///scr_city_missile_hit()
-scr_city_missile_hit();
 </string>
           </argument>
         </arguments>
@@ -202,14 +149,7 @@ scr_missile_draw_ui();
             <string>///draw healthbar
 
 if(hp&lt;max_hp){
-    var amt, w, h, px, py, uipos;
-    amt = 100*hp/max_hp;
-    w = hp_bar_width;
-    h = global.ENEMY_HBAR_THICKNESS;
-    px = x-w/2;
-    py = y-sprite_yoffset-h;
-    uipos = scr_game_to_gui(px,py);
-    draw_healthbar(uipos[0],uipos[1],uipos[0]+w,uipos[1]+h,amt,global.C_ENEMY_BACK_HBAR,global.C_ENEMY_MIN_HBAR,global.C_ENEMY_MAX_HBAR,0,true,false);
+    scr_hittable_draw_hp_bar();
 }
 </string>
           </argument>

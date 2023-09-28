@@ -170,10 +170,6 @@ global.missile_slots = ds_map_create();
 //UI
 global.UI_MAP = ds_map_find_value(global.DEFAULT_SETTINGS, "ui");
 scr_set_ui_consts();
-//DEPRECATED UI CONSTANTS
-global.C_TEXT_SHADOW = make_colour_rgb(143,239,186);
-global.C_MAX_BAR = make_colour_rgb(132,255,177); //min-max colors for health bars
-global.C_MIN_BAR = make_colour_rgb(0,181,156);
 
 //New steal UI
 global.STEAL_DOTTED_TRAIL = ds_map_find_value(global.UI_MAP, "steal_dotted_trail");
