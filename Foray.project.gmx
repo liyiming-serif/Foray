@@ -352,17 +352,28 @@
       <script>scripts\scr_blimp_create.gml</script>
       <script>scripts\scr_zeppelin_create.gml</script>
     </scripts>
-    <scripts name="pathfinding">
-      <script>scripts\scr_set_avoidance.gml</script>
-    </scripts>
     <script>scripts\scr_city_hit.gml</script>
     <script>scripts\scr_wpn_create.gml</script>
     <script>scripts\scr_flamethrower_step.gml</script>
-    <script>scripts\scr_projectile_create.gml</script>
+    <scripts name="projectiles">
+      <script>scripts\scr_projectile_create.gml</script>
+      <script>scripts\scr_projectile_collide_with_hittable.gml</script>
+      <script>scripts\scr_projectile_collide_with_solid.gml</script>
+      <script>scripts\scr_projectile_out_of_range.gml</script>
+    </scripts>
     <script>scripts\scr_flame_plume_create.gml</script>
     <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
     <script>scripts\scr_cursor_frame_move.gml</script>
+    <scripts name="steerable">
+      <script>scripts\scr_set_avoidance.gml</script>
+    </scripts>
+    <scripts name="hittable">
+      <script>scripts\scr_hittable_set.gml</script>
+      <script>scripts\scr_hittable_draw_hp_bar.gml</script>
+      <script>scripts\scr_hittable_step.gml</script>
+      <script>scripts\scr_hittable_collide_with_projectile.gml</script>
+    </scripts>
     <scripts name="wpn_cbs">
       <script>scripts\scr_fire_missile.gml</script>
       <script>scripts\scr_ignite.gml</script>
@@ -405,11 +416,6 @@
       <script>scripts\scr_depths_particle_create.gml</script>
       <script>scripts\scr_line_rect_intersect.gml</script>
       <script>scripts\scr_any_stealables_in_view.gml</script>
-    </scripts>
-    <scripts name="hittables">
-      <script>scripts\scr_hittable_set.gml</script>
-      <script>scripts\scr_hittable_draw_hp_bar.gml</script>
-      <script>scripts\scr_hittable_step.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

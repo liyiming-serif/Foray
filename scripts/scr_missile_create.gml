@@ -92,7 +92,7 @@ airtime = ds_map_find_value(mp, "airtime");
 found_target = false;
 
 
-#define scr_city_missile_hit
+#define scr_missile_hit
 ///scr_missile_hit()
 
 if(hp<=0) return undefined;
