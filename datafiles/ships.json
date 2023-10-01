@@ -2,7 +2,8 @@
   "planes":{
     "max_hp": 40,
     "weak_point_rel": [20, 0],
-    "death_seq_cb":"scr_plane_crash",
+    "shot_down_cb":"scr_plane_crash",
+    "crash_cb":"scr_plane_crash",
     "threat": 0.3,
     "score":8,
     "stat_tiers":{
@@ -121,79 +122,103 @@
       }
     }
   },
-
-  "airships":{
-    "skymine" : {
+  "skymine" : {
+    "threat":0.02,
+    "hull_comp":{
       "max_hp":8,
+      "hp_bar_width":28
+    },
+    "ai":{
+      "alert_range":48,
+      "update_target_time":600
+    },
+    "optional":{
+      "dmg":5,
+      "fric":0.07,
       "chase_vel":3.2,
       "chase_freq":80,
       "chase_hp_reduc":0.7,
-      "dmg":5,
-      "fric":0.07,
-      "weak_point_rel": [0, 0],
-      "lightness":1,
-      "alert_range":48,
-      "update_target_time":600,
-      "chasing_threat":0.05,
-      "threat":0.02,
-      "score": 1,
-      "hp_bar_width":28
+      "chasing_threat":0.05
+    }
+  },
+  "balloon":{
+    "threat":0.15,
+    "shot_down_cb":"scr_ship_explode_small",
+    "crash_cb":"scr_ship_explode_small",
+    "hull_comp":{
+      "max_hp":25
     },
-    "balloon":{
-      "max_hp":25,
+    "engine_comp":{
       "speed":1.5,
-      "turn":1.5,
-      "gun_turn":2,
-      "update_target_time":420,
-      "weak_point_rel": [0, 0],
-      "lightness":1,
+      "turn":1.5
+    },
+    "bomber_comp":{
+      "drop_bomb_reload_speed":240
+    },
+    "amr_comp":{
       "amr_anim_time":20,
       "amr_up_lag":40,
       "amr_down_lag":60,
-      "amr_hp_reduc":0.7,
+      "amr_hp_reduc":0.7
+    },
+    "ai":{
+      "update_target_time":420,
       "alert_range":384,
       "accuracy_coeff":27,
       "aggro_chance":0.25,
-      "aggro_checks_per_sec":2,
-      "drop_bomb_reload_speed":240,
-      "death_seq_cb":"scr_ship_explode_small",
-      "threat":0.15,
-      "score":11,
-      "subballoon":{
-        "max_hp":14,
-        "fric":0.06,
-        "threat":0.07,
-        "score":2
-      }
+      "aggro_checks_per_sec":2
     },
-    "blimp":{
+    "optional":{
+      "gun_turn":2,
+      "subballoon":{
+        "threat":0.07,
+        "hull_comp":{
+          "max_hp":14
+        },
+        "optional":{
+          "fric":0.06
+        }
+      }
+    }
+  },
+  "blimp":{
+    "threat":0.2,
+    "shot_down_cb":"scr_ship_explode_small",
+    "crash_cb":"scr_ship_explode_small",
+    "hull_comp":{
       "max_hp":35,
-      "speed":2,
-      "turn":1,
-      "update_target_time":420,
-      "weak_point_rel": [0, 0],
-      "lightness":0.8,
-      "city_range":[300,700],
-      "flee_duration":20,
-      "alert_range": 30,
-      "death_seq_cb":"scr_ship_explode_small",
-      "threat":0.2,
-      "score":15,
       "hp_bar_width":46
     },
-    "zeppelin":{
-      "max_hp":200,
-      "speed":0.7,
-      "turn":0.11,
+    "engine_comp":{
+      "speed":2,
+      "turn":1
+    },
+    "ai":{
       "update_target_time":420,
-      "lightness":0,
+      "city_range":[300,700],
+      "flee_duration":20,
+      "alert_range": 30
+    }
+  },
+  "zeppelin":{
+    "threat":0.35,
+    "shot_down_cb":"scr_ship_explode_large",
+    "crash_cb":"scr_ship_explode_large",
+    "hull_comp":{
+      "max_hp":200,
+      "hp_bar_width":125
+    },
+    "engine_comp":{
+      "speed":0.7,
+      "turn":0.11
+    },
+    "bomber_comp":{
       "drop_bomb_rate":30,
       "drop_bomb_rounds":3,
-      "drop_bomb_reload_speed":360,
-      "death_seq_cb":"scr_ship_explode_large",
-      "threat":0.35,
-      "score":150,
-      "hp_bar_width":125
+      "drop_bomb_reload_speed":360
+    },
+    "ai":{
+      "update_target_time":420
     }
   }
 }
