@@ -1,109 +1,101 @@
 {
   "planes":{
-    "max_hp": 40,
-    "weak_point_rel": [20, 0],
-    "shot_down_cb":"scr_plane_crash",
-    "crash_cb":"scr_plane_crash",
     "threat": 0.3,
-    "score":8,
-    "stat_tiers":{
+    "cb_shot_down":"scr_plane_crash",
+    "cb_crash":"scr_plane_crash",
+    "c_hull":{
+      "max_hp": 40,
+      "weight": 1
+    },
+    "tiers_engine":{
       "speeds":[2, 2.3, 2.6],
-      "min_speeds":[1.8, 2, 2.2],
-      "max_speeds":[3.7, 4.5, 5.2],
-      "roll_speeds":[5, 6.25, 7],
-      "base_turns":[2, 3, 4],
-      "turn_accels":[0.2, 0.34, 0.4]
+      "turns":[2, 3, 4],
+      "extend":{
+        "brake_speeds":[1.8, 2, 2.2],
+        "boost_speeds":[3.7, 4.5, 5.2],
+        "roll_speeds":[5, 6.25, 7],
+        "roll_durations":[30],
+        "roll_cooldowns":[15],
+        "turn_accels":[0.2, 0.34, 0.4]
+      }
     },
     "models":{
       "altair":{
         "name": "Altair",
-        "speed": 1,
-        "base_turn": 1.3,
-        "turn_accel": 1,
-        "dmg":1,
-        "lightness":0.8,
+        "tier_speed": 1,
+        "tier_turn": 1.3,
         "wpn":"mg",
-        "default_pilot_ai":"mg_chaser",
-        "rolltime": 30,
-        "roll_cooldown": 15,
+        "default_ai":"mg_chaser",
+        "tier_turn_accel": 1,
+        "tier_roll_duration": 1,
+        "tier_roll_cooldown": 1,
         "palette": 0
       },
       "bessie":{
         "name": "BC-4 Bessie",
-        "speed": 2,
-        "base_turn": 1,
-        "turn_accel": 1,
-        "dmg": 1,
-        "lightness": 1,
+        "tier_speed": 2,
+        "tier_turn": 1,
         "wpn":"mg",
-        "default_pilot_ai":"mg_chaser",
-        "rolltime": 30,
-        "roll_cooldown": 15,
+        "default_ai":"mg_chaser",
+        "tier_turn_accel": 1,
+        "tier_roll_duration": 1,
+        "tier_roll_cooldown": 1,
         "palette": 1
       },
       "camel":{
         "name": "Camel",
-        "speed": 1,
-        "base_turn": 2,
-        "turn_accel": 2,
-        "dmg":1,
-        "lightness":1,
+        "tier_speed": 1,
+        "tier_turn": 2,
         "wpn":"mg",
-        "default_pilot_ai":"mg_chaser",
-        "rolltime": 30,
-        "roll_cooldown": 15,
+        "default_ai":"mg_chaser",
+        "tier_turn_accel": 2,
+        "tier_roll_duration": 1,
+        "tier_roll_cooldown": 1,
         "palette": 3
       },
       "firnas":{
         "name": "IB-N Firnas",
-        "speed": 1,
-        "base_turn": 1,
-        "turn_accel": 1,
-        "dmg":2,
-        "lightness":0.8,
+        "tier_speed": 1,
+        "tier_turn": 1,
         "wpn":"flamethrower",
-        "default_pilot_ai":"pyro",
-        "rolltime": 30,
-        "roll_cooldown": 15,
+        "default_ai":"pyro",
+        "tier_turn_accel": 1,
+        "tier_roll_duration": 1,
+        "tier_roll_cooldown": 1,
         "palette": 2
       },
       "earl":{
         "name": "Red Baron",
-        "speed": 2,
-        "base_turn": 2,
-        "turn_accel": 2,
-        "dmg":1,
-        "lightness":1,
+        "tier_speed": 2,
+        "tier_turn": 2,
         "wpn":"mg",
-        "default_pilot_ai":"mg_chaser",
-        "rolltime": 30,
-        "roll_cooldown": 15,
+        "default_ai":"mg_chaser",
+        "tier_turn_accel": 2,
+        "tier_roll_duration": 1,
+        "tier_roll_cooldown": 1,
         "palette": 4
       },
       "deneb":{
         "name": "Deneb",
-        "speed": 2,
-        "base_turn": 1,
-        "turn_accel": 1,
-        "dmg":2,
-        "lightness":1,
+        "tier_speed": 2,
+        "tier_turn": 1,
         "wpn":"flamethrower",
-        "default_pilot_ai":"pyro",
-        "rolltime": 30,
-        "roll_cooldown": 15,
+        "default_ai":"pyro",
+        "tier_turn_accel": 1,
+        "tier_roll_duration": 1,
+        "tier_roll_cooldown": 1,
         "palette": 5
       }
     },
-    "pilot_ai":{
+    "ai":{
       "mg_chaser":{
         "obj_ind":"obj_enemy",
         "range": [240,260],
         "accuracy": [25,15],
-        "avoid_arc": 30,
         "achy": [0.33,0.25],
         "update_target_time": [480,300],
         "create_script": "scr_ai_mg_chaser_make",
-        "optional":{
+        "extend":{
           "max_rounds": [5,8],
           "reload_speed":[120,60]
         }
@@ -115,7 +107,7 @@
         "achy": [0.33,0.25],
         "update_target_time": [480,300],
         "create_script":"scr_ai_pyro_make",
-        "optional":{
+        "extend":{
           "fuel":[120,192],
           "refuel_speed":[1,1.2]
         }
@@ -124,17 +116,17 @@
   },
   "skymine" : {
     "threat":0.02,
-    "hull_comp":{
+    "c_hull":{
       "max_hp":8,
-      "hp_bar_width":28
+      "hp_bar_width":28,
+      "weight":0.5
     },
     "ai":{
       "alert_range":48,
       "update_target_time":600
     },
-    "optional":{
+    "extend":{
       "dmg":5,
-      "fric":0.07,
       "chase_vel":3.2,
       "chase_freq":80,
       "chase_hp_reduc":0.7,
@@ -143,12 +135,13 @@
   },
   "balloon":{
     "threat":0.15,
-    "shot_down_cb":"scr_ship_explode_small",
-    "crash_cb":"scr_ship_explode_small",
-    "hull_comp":{
-      "max_hp":25
+    "cb_shot_down":"scr_ship_explode_small",
+    "cb_crash":"scr_ship_explode_small",
+    "c_hull":{
+      "max_hp":25,
+      "weight":2
     },
-    "engine_comp":{
+    "c_engine":{
       "speed":1.5,
       "turn":1.5
     },
@@ -168,14 +161,14 @@
       "aggro_chance":0.25,
       "aggro_checks_per_sec":2
     },
-    "optional":{
+    "extend":{
       "gun_turn":2,
       "subballoon":{
         "threat":0.07,
-        "hull_comp":{
+        "c_hull":{
           "max_hp":14
         },
-        "optional":{
+        "extend":{
           "fric":0.06
         }
       }
@@ -183,13 +176,14 @@
   },
   "blimp":{
     "threat":0.2,
-    "shot_down_cb":"scr_ship_explode_small",
-    "crash_cb":"scr_ship_explode_small",
-    "hull_comp":{
+    "cb_shot_down":"scr_ship_explode_small",
+    "cb_crash":"scr_ship_explode_small",
+    "c_hull":{
       "max_hp":35,
-      "hp_bar_width":46
+      "hp_bar_width":46,
+      "weight":4
     },
-    "engine_comp":{
+    "c_engine":{
       "speed":2,
       "turn":1
     },
@@ -202,17 +196,18 @@
   },
   "zeppelin":{
     "threat":0.35,
-    "shot_down_cb":"scr_ship_explode_large",
-    "crash_cb":"scr_ship_explode_large",
-    "hull_comp":{
+    "cb_shot_down":"scr_ship_explode_large",
+    "cb_crash":"scr_ship_explode_large",
+    "c_hull":{
       "max_hp":200,
-      "hp_bar_width":125
+      "hp_bar_width":125,
+      "weight":0
     },
-    "engine_comp":{
+    "c_engine":{
       "speed":0.7,
       "turn":0.11
     },
-    "bomber_comp":{
+    "c_bomber":{
       "drop_bomb_rate":30,
       "drop_bomb_rounds":3,
       "drop_bomb_reload_speed":360
