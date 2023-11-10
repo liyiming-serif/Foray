@@ -7,83 +7,81 @@
       "max_hp": 40,
       "weight": 1
     },
-    "tiers_engine":{
+    "engine_tiers":{
       "speeds":[2, 2.3, 2.6],
       "turns":[2, 3, 4],
-      "extend":{
-        "brake_speeds":[1.8, 2, 2.2],
-        "boost_speeds":[3.7, 4.5, 5.2],
-        "roll_speeds":[5, 6.25, 7],
-        "roll_durations":[30],
-        "roll_cooldowns":[15],
-        "turn_accels":[0.2, 0.34, 0.4]
-      }
+      "brake_speeds":[1.8, 2, 2.2],
+      "boost_speeds":[3.7, 4.5, 5.2],
+      "roll_speeds":[5, 6.25, 7],
+      "roll_durations":[30],
+      "roll_cooldowns":[15],
+      "turn_accels":[0.2, 0.34, 0.4]
     },
     "models":{
       "altair":{
         "name": "Altair",
-        "tier_speed": 1,
-        "tier_turn": 1.3,
+        "speed_rank": 1,
+        "turn_rank": 1.3,
         "wpn":"mg",
         "default_ai":"mg_chaser",
-        "tier_turn_accel": 1,
-        "tier_roll_duration": 1,
-        "tier_roll_cooldown": 1,
+        "turn_accel_rank": 1,
+        "roll_duration_rank": 1,
+        "roll_cooldown_rank": 1,
         "palette": 0
       },
       "bessie":{
         "name": "BC-4 Bessie",
-        "tier_speed": 2,
-        "tier_turn": 1,
+        "speed_rank": 2,
+        "turn_rank": 1,
         "wpn":"mg",
         "default_ai":"mg_chaser",
-        "tier_turn_accel": 1,
-        "tier_roll_duration": 1,
-        "tier_roll_cooldown": 1,
+        "turn_accel_rank": 1,
+        "roll_duration_rank": 1,
+        "roll_cooldown_rank": 1,
         "palette": 1
       },
       "camel":{
         "name": "Camel",
-        "tier_speed": 1,
-        "tier_turn": 2,
+        "speed_rank": 1,
+        "turn_rank": 2,
         "wpn":"mg",
         "default_ai":"mg_chaser",
-        "tier_turn_accel": 2,
-        "tier_roll_duration": 1,
-        "tier_roll_cooldown": 1,
+        "turn_accel_rank": 2,
+        "roll_duration_rank": 1,
+        "roll_cooldown_rank": 1,
         "palette": 3
       },
       "firnas":{
         "name": "IB-N Firnas",
-        "tier_speed": 1,
-        "tier_turn": 1,
+        "speed_rank": 1,
+        "turn_rank": 1,
         "wpn":"flamethrower",
         "default_ai":"pyro",
-        "tier_turn_accel": 1,
-        "tier_roll_duration": 1,
-        "tier_roll_cooldown": 1,
+        "turn_accel_rank": 1,
+        "roll_duration_rank": 1,
+        "roll_cooldown_rank": 1,
         "palette": 2
       },
       "earl":{
         "name": "Red Baron",
-        "tier_speed": 2,
-        "tier_turn": 2,
+        "speed_rank": 2,
+        "turn_rank": 2,
         "wpn":"mg",
         "default_ai":"mg_chaser",
-        "tier_turn_accel": 2,
-        "tier_roll_duration": 1,
-        "tier_roll_cooldown": 1,
+        "turn_accel_rank": 2,
+        "roll_duration_rank": 1,
+        "roll_cooldown_rank": 1,
         "palette": 4
       },
       "deneb":{
         "name": "Deneb",
-        "tier_speed": 2,
-        "tier_turn": 1,
+        "speed_rank": 2,
+        "turn_rank": 1,
         "wpn":"flamethrower",
         "default_ai":"pyro",
-        "tier_turn_accel": 1,
-        "tier_roll_duration": 1,
-        "tier_roll_cooldown": 1,
+        "turn_accel_rank": 1,
+        "roll_duration_rank": 1,
+        "roll_cooldown_rank": 1,
         "palette": 5
       }
     },
@@ -145,10 +143,10 @@
       "speed":1.5,
       "turn":1.5
     },
-    "bomber_comp":{
+    "c_bomber":{
       "drop_bomb_reload_speed":240
     },
-    "amr_comp":{
+    "c_amr":{
       "amr_anim_time":20,
       "amr_up_lag":40,
       "amr_down_lag":60,

@@ -149,7 +149,7 @@ scr_missile_draw_ui();
             <string>///draw healthbar
 
 if(hp&lt;max_hp){
-    scr_hittable_draw_hp_bar();
+    scr_c_hull_draw_hp_bar();
 }
 </string>
           </argument>

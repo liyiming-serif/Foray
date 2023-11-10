@@ -23,11 +23,8 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     turn = ds_map_find_value(mp, "turn");
     targeting_cb = asset_get_index(ds_map_find_value(mp, "targeting_cb"));
     
-    //hittable
-    max_hp = ds_map_find_value(mp, "max_hp");
-    hp = max_hp;
-    hp_bar_width = ds_map_find_value(mp,"hp_bar_width");
-    scr_hittable_set();
+    //LOAD COMPONENTS
+    scr_c_hull_add();
     
     //set target
     switch(type){
@@ -143,7 +140,7 @@ speed = global.game_speed*(curr_speed);
 ttl = max(0,ttl-global.game_speed);
 
 //countdown hitstun and invincibility
-scr_hittable_step();
+scr_c_hull_step();
 
 ///out of range: kms
 if(ttl<=0){

@@ -2,24 +2,18 @@
 ///scr_ship_instantiate(is_friendly, ds_map, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
-//hitstun and invincibility frames
 is_friendly = argument[0];
 var mp = argument[1];
 
-//common: hp
-max_hp = ds_map_find_value(mp, "max_hp");
-hp = max_hp;
-hp_bar_width = ds_map_find_value(mp,"hp_bar_width");
-if(hp_bar_width==undefined){
-    hp_bar_width = sprite_width;
-}
+//LOAD COMPONENTS
+scr_c_hull_add(mp);
+
 //common: callbacks
 var dsn = ds_map_find_value(mp,"death_seq_cb");
 if(dsn != undefined){
     death_seq_cb = asset_get_index(dsn);
 }
 //common: collision
-scr_hittable_set();
 sp_invincibility = 0;
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
@@ -54,7 +48,7 @@ audio_emitter_falloff(engine_sound_emitter,
 ///scr_ship_advance_frame()
 
 //countdown hitstun and invincibility
-scr_hittable_step();
+scr_c_hull_step();
 sp_invincibility = max(sp_invincibility-global.game_speed,0);
 
 //update emitter
@@ -355,5 +349,5 @@ instance_destroy();
 
 //draw hp bar
 if(hp<max_hp && global.player_id != id){
-    scr_hittable_draw_hp_bar();
+    scr_c_hull_draw_hp_bar();
 }

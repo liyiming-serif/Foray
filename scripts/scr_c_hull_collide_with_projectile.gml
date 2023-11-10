@@ -1,4 +1,4 @@
-///scr_hittable_collide_with_projectile()
+///scr_c_hull_collide_with_projectile()
 
 if(is_friendly==other.is_friendly) return undefined;
 if(invincibility>0) return undefined;
