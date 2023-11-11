@@ -18,10 +18,7 @@ sp_invincibility = 0;
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
 
-//TODO: remove scoring
-points = ds_map_find_value(mp, "score");
-
-//Enemies: locate targets
+//ai
 if(!is_friendly){
     //player
     var utt = ds_map_find_value(mp,"update_target_time");
