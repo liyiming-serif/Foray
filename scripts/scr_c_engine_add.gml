@@ -1,4 +1,4 @@
-///scr_c_engine_add(mp)
+///scr_c_engine_add(mp, sight_modifier=0.4)
 
 
 //set variables needed for avoidance code
@@ -6,10 +6,9 @@
 var sp = argument[0];
 var tn = argument[1]*global.SWERVE_TURN_MOD;
 
-avoid_state_alarm = argument[2];
 var smod = 0.4;
-if(argument_count == 4){
-    smod = argument[3];
+if(argument_count == 2){
+    smod = argument[1];
 }
 
 ax = 0;

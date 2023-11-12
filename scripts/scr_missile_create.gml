@@ -174,7 +174,7 @@ var ty = target_id.y;
 var pd, dd, sx, sy, i, adir, adiff, pa, da;
 
 //clear detour route if avoidance state alarm not active
-if(!alarm[avoid_state_alarm]){
+if(!alarm[global.AVOIDANCE_ALARM]){
     ax = 0;
     ay = 0;
 }
@@ -222,11 +222,11 @@ if(i!=noone){
     }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    if(!alarm[avoid_state_alarm]){
-        alarm[avoid_state_alarm] = avoid_arc;
+    if(!alarm[global.AVOIDANCE_ALARM]){
+        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
     }
 }
-if(alarm[avoid_state_alarm]){
+if(alarm[global.AVOIDANCE_ALARM]){
     //swerving
     scr_missile_turn(x+ax, y+ay, global.SWERVE_TURN_MOD);
 }
@@ -275,6 +275,7 @@ audio_emitter_gain(propulsion_sound_emitter, clamp(gain,0,1));
 
 //gc audio emitter
 audio_emitter_free(propulsion_sound_emitter);
+
 #define scr_missile_set_target
 ///scr_missile_set_target()
 if(!variable_instance_exists(id,"target_sprite") || !scr_instance_exists(target_id)){

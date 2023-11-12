@@ -116,7 +116,7 @@ if(i!=noone){
         }
     }
 }
-if(!alarm[avoid_state_alarm]){
+if(!alarm[global.AVOIDANCE_ALARM]){
     ax = 0;
     ay = 0;
 }
@@ -137,11 +137,11 @@ if(i!=noone){
     }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    if(!alarm[avoid_state_alarm]){
-        alarm[avoid_state_alarm] = avoid_arc;
+    if(!alarm[global.AVOIDANCE_ALARM]){
+        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
     }
 }
-if(alarm[avoid_state_alarm]){
+if(alarm[global.AVOIDANCE_ALARM]){
     //swerving
     scr_ship_turn(x+ax, y+ay, false, global.SWERVE_TURN_MOD*tm, sm);
 }
@@ -236,6 +236,7 @@ else{
 
 //gid[1] must be instantiated
 return gid[1].state == shield_states.UP || gid[1].state == shield_states.GOING_DOWN;
+
 #define scr_balloon_advance_frame
 ///scr_balloon_advance_frame()
 

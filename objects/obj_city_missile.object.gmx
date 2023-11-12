@@ -52,7 +52,7 @@ else{
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="2" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -99,7 +99,7 @@ else{
 
 found_target = true;
 instance_destroy();
-//alarm[0] = airtime;
+//alarm[11] = airtime;
 //whistle_sound = scr_play_sound_ui(snd_drop_bomb,x,y);
 </string>
           </argument>

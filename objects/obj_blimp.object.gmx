@@ -187,8 +187,8 @@ dpt1 = scr_game_to_gui(x,y);
 dpt2 = scr_game_to_gui(sx+x,sy+y);
 draw_line_width(dpt1[0], dpt1[1], dpt2[0], dpt2[1], 2);
 
-if(alarm[avoid_state_alarm]&gt;0){
-    draw_text(dpt1[0],dpt1[1],string(alarm[avoid_state_alarm]));
+if(alarm[global.AVOIDANCE_ALARM]&gt;0){
+    draw_text(dpt1[0],dpt1[1],string(alarm[global.AVOIDANCE_ALARM]));
 }
 </string>
           </argument>

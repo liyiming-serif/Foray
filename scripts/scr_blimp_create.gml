@@ -97,7 +97,7 @@ if(argument_count > 4){
 var pd, dd, sx, sy, i, adir, adiff, pa, da;
 
 //clear detour route if avoidance state alarm not active
-if(!alarm[avoid_state_alarm]){
+if(!alarm[global.AVOIDANCE_ALARM]){
     ax = 0;
     ay = 0;
 }
@@ -137,11 +137,11 @@ if(i!=noone){
     }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    if(!alarm[avoid_state_alarm]){
-        alarm[avoid_state_alarm] = avoid_arc;
+    if(!alarm[global.AVOIDANCE_ALARM]){
+        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
     }
 }
-if(alarm[avoid_state_alarm]>0){
+if(alarm[global.AVOIDANCE_ALARM]>0){
     //swerving
     if(away){
         scr_ship_turn_away(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
@@ -232,6 +232,7 @@ if(scr_instance_exists(gid[2])){
 
 #define scr_blimp_idle
 ///scr_blimp_idle()
+
 #define scr_blimp_calibrate_wpns
 ///scr_blimp_calibrate_wpns()
 

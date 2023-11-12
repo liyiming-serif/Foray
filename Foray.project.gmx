@@ -403,9 +403,9 @@
       <script>scripts\scr_play_sound.gml</script>
     </scripts>
     <scripts name="control">
+      <script>scripts\scr_set_globals.gml</script>
       <script>scripts\scr_set_screensize.gml</script>
       <script>scripts\scr_set_level.gml</script>
-      <script>scripts\scr_set_ui_consts.gml</script>
       <script>scripts\scr_init_part_cloud.gml</script>
     </scripts>
     <scripts name="design_patterns">

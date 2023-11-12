@@ -103,8 +103,8 @@ if(i!=noone){
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = plane_ai_states.AVOIDING;
-    if(!alarm[avoid_state_alarm]){
-        alarm[avoid_state_alarm] = avoid_arc;
+    if(!alarm[global.AVOIDANCE_ALARM]){
+        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }
