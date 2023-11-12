@@ -382,6 +382,9 @@
     <script>scripts\scr_missile_create.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
     <script>scripts\scr_cursor_frame_move.gml</script>
+    <scripts name="ai">
+      <script>scripts\scr_ai_set_avoidance.gml</script>
+    </scripts>
     <scripts name="components">
       <scripts name="c_hull">
         <script>scripts\scr_c_hull_add.gml</script>
@@ -390,7 +393,6 @@
         <script>scripts\scr_c_hull_collide_with_projectile.gml</script>
       </scripts>
       <scripts name="c_engine">
-        <script>scripts\scr_set_avoidance.gml</script>
         <script>scripts\scr_c_engine_add.gml</script>
       </scripts>
     </scripts>

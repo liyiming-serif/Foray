@@ -34,7 +34,7 @@ with(instance_create(xv,yv,obj)){
     //entry point for AI FSM
     var create_script = asset_get_index(ds_map_find_value(mp,"create_script"));
     script_execute(create_script, mp);
-    scr_set_avoidance(neutral_speed, base_turn, 0);
+    scr_ai_set_avoidance(neutral_speed, base_turn);
     
     return id;
 }

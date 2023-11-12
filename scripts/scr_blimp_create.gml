@@ -23,7 +23,7 @@ with(instance_create(xv,yv,obj_blimp)){
     
     //ai params
     //increase sight modifier for oblong shape
-    scr_set_avoidance(curr_speed, turn, 0, 1);
+    scr_ai_set_avoidance(neutral_speed, turn, 1);
     flee_duration = ds_map_find_value(mp,"flee_duration");
     fleeing_timer = flee_duration;
     city_range[0] = ds_list_find_value(ds_map_find_value(mp,"city_range"),0);

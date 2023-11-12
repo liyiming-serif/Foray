@@ -1,19 +1,15 @@
-///scr_c_engine_add(mp, sight_modifier=0.4)
+///scr_c_engine_add(mp)
 
+//decode json properties
+//ADDS: neutral_speed, turn, curr_speed
 
-//set variables needed for avoidance code
-//ADDS: foresight, avoid_arc, ax, ay
-var sp = argument[0];
-var tn = argument[1]*global.SWERVE_TURN_MOD;
+var mp = argument[0];
+var cmp = ds_map_find_value(mp, "c_hull");
 
-var smod = 0.4;
-if(argument_count == 2){
-    smod = argument[1];
+if(is_undefined(cmp)){
+    return undefined;
 }
 
-ax = 0;
-ay = 0;
-//time it takes to turn a certain angle
-avoid_arc = ceil(67.5/tn);
-//distance covered by one avoid arc
-foresight = smod*avoid_arc*sp;
+neutral_speed = ds_map_find_value(cmp, "speed");
+turn = ds_map_find_value(cmp, "turn");
+curr_speed = neutral_speed;

@@ -46,7 +46,7 @@ with(instance_create(xv,yv,obj_balloon)){
     player_noticed = false;
     is_aggro = false;
     alarm[1] = aggro_interval;
-    scr_set_avoidance(curr_speed, turn, 0);
+    scr_ai_set_avoidance(neutral_speed, turn);
     
     image_speed = 0.4;
 

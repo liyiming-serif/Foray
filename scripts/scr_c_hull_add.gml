@@ -1,7 +1,12 @@
 ///scr_c_hull_add(mp)
 
+//decode json properties
+//ADDS: max_hp, hp, hp_bar_width, hit_stun, invincibility
+
 var mp = argument[0];
-if(is_undefined(mp)){
+var cmp = ds_map_find_value(mp, "c_hull");
+
+if(is_undefined(cmp)){
     return undefined;
 }
 

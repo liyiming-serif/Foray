@@ -7,6 +7,7 @@ var mp = argument[1];
 
 //LOAD COMPONENTS
 scr_c_hull_add(mp);
+scr_c_engine_add(mp);
 
 //common: callbacks
 var dsn = ds_map_find_value(mp,"death_seq_cb");
@@ -19,6 +20,7 @@ sp_invincibility = 0;
 threat = ds_map_find_value(mp,"threat");
 
 //ai
+//TODO: REAFACTOR AI
 if(!is_friendly){
     //player
     var utt = ds_map_find_value(mp,"update_target_time");

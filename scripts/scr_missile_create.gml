@@ -56,7 +56,7 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     }
     
     //initialize pathfinding with avoidance algorithm
-    scr_set_avoidance(curr_speed, turn, 11);
+    scr_ai_set_avoidance(neutral_speed, turn);
     
     //audio
     propulsion_sound_emitter = audio_emitter_create();
