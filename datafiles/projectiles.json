@@ -44,11 +44,15 @@
         "turn":1.5,
         "speed":1
       },
-      "ground_hit_part":"explosion_ground",
-      "targeting_cb":"scr_missile_target_city",
-      "targeting_sprite":"spr_city_missile_target",
-      "warn_range":500,
-      "airtime":50
+      "c_targeting":{
+        "cb_targeting":"scr_missile_target_city",
+        "targeting_sprite":"spr_city_missile_target",
+        "warn_range":500
+      },
+      "extend":{
+        "ground_hit_part":"explosion_ground",
+        "airtime":50
+      }
     },
     "player_missile":{
       "obj_ind":"obj_player_missile",
@@ -63,10 +67,14 @@
         "turn":1.5,
         "speed":3.5
       },
-      "cb_targeting":"scr_missile_target_player",
-      "targeting_sprite":"spr_player_missile_target",
-      "warn_range":300,
-      "air_hit_part":"explosion"
+      "c_targeting":{
+        "cb_targeting":"scr_missile_target_player",
+        "targeting_sprite":"spr_player_missile_target",
+        "warn_range":300
+      },
+      "extend":{
+        "air_hi:t_part":"explosion"
+      }
     }
   },
 
