@@ -349,7 +349,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="planes">
-      <script>scripts\scr_plane_instantiate.gml</script>
+      <script>scripts\scr_plane_init.gml</script>
       <script>scripts\scr_player_create.gml</script>
       <script>scripts\scr_plane_hit.gml</script>
       <script>scripts\scr_plane_roll.gml</script>
@@ -362,7 +362,7 @@
       </scripts>
     </scripts>
     <scripts name="ships">
-      <script>scripts\scr_ship_instantiate.gml</script>
+      <script>scripts\scr_ship_init.gml</script>
       <script>scripts\scr_skymine_create.gml</script>
       <script>scripts\scr_balloon_create.gml</script>
       <script>scripts\scr_subballoon_create.gml</script>

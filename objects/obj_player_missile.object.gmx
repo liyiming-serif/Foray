@@ -63,8 +63,8 @@ scr_play_sound(snd_explosion_m,x,y);
           <argument>
             <kind>1</kind>
             <string>///draw target on player
-
-scr_missile_draw_ui();
+event_inherited();
+scr_missile_draw_target();
 </string>
           </argument>
         </arguments>

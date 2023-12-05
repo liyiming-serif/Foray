@@ -1,7 +1,7 @@
 ///scr_c_hull_add(mp)
 
 //decode json properties
-//ADDS: max_hp, hp, hp_bar_width, hit_stun, invincibility
+//ADDS: max_hp, hp, hp_bar_width, hit_stun, invuln
 
 var mp = argument[0];
 var cmp = ds_map_find_value(mp, "c_hull");
@@ -20,4 +20,6 @@ if(hp_bar_width==undefined){
 
 //collision
 hitstun = 0;
-invincibility = 0;
+invuln = 0;
+sp_invuln = 0;
+solid_invuln = 0;

@@ -30,11 +30,11 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     switch(type){
         case "player_missile":
             target_id = global.player_id;
-            scr_player_missile_instantiate(mp);
+            scr_player_missile_init(mp);
             break;
         case "city_missile":
             target_id = global.city_id;
-            scr_city_missile_instantiate(mp);
+            scr_city_missile_init(mp);
             break;
     }
     if(!variable_instance_exists(id,"target_id")){
@@ -70,8 +70,8 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
 
 
 
-#define scr_player_missile_instantiate
-///scr_player_missile_instantiate(mp)
+#define scr_player_missile_init
+///scr_player_missile_init(mp)
 
 var mp = argument[0];
 
@@ -79,7 +79,7 @@ var mp = argument[0];
 air_hit_part = variable_global_get(ds_map_find_value(mp,"air_hit_part"));
 
 #define scr_city_missile_instantiate
-///scr_city_missile_instantiate(mp)
+///scr_city_missile_init(mp)
 var mp = argument[0];
 
 //set city missile specific vars
@@ -95,8 +95,8 @@ found_target = false;
 if(hp<=0) return undefined;
 
 if(is_friendly!=other.is_friendly && !other.is_sp_dmg){
-    if(invincibility>0){ //destroy bullet and exit early
-        if(!variable_instance_exists(other,"piercing_invincibility")){
+    if(invuln>0){ //destroy bullet and exit early
+        if(!variable_instance_exists(other,"piercing_invuln")){
             instance_destroy(other);
             scr_play_sound(snd_deflect,x,y);
         }
@@ -124,8 +124,8 @@ if(is_friendly!=other.is_friendly && !other.is_sp_dmg){
     scr_play_sound(snd_hitting,x,y);
     
     //destroy bullet, or set piercing
-    if(variable_instance_exists(other,"piercing_invincibility")){
-        invincibility = other.piercing_invincibility;
+    if(variable_instance_exists(other,"piercing_invuln")){
+        invuln = other.piercing_invuln;
     }
     else{
         instance_destroy(other);
@@ -139,7 +139,7 @@ if(is_friendly!=other.is_friendly && !other.is_sp_dmg){
 speed = global.game_speed*(curr_speed);
 ttl = max(0,ttl-global.game_speed);
 
-//countdown hitstun and invincibility
+//countdown hitstun and invuln
 scr_c_hull_step();
 
 ///out of range: kms
@@ -294,8 +294,8 @@ if(!ds_map_exists(global.missile_slots, object_get_name(object_index))){
     ds_map_add(global.missile_slots, object_get_name(object_index), ds_list_create());
 }
 
-#define scr_missile_draw_ui
-///scr_missile_draw_ui()
+#define scr_missile_draw_target
+///scr_missile_draw_target()
 
 if(!variable_instance_exists(id,"target_sprite") ||
     !variable_instance_exists(id,"target_sprite_ind") ||

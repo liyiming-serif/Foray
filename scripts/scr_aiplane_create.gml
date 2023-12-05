@@ -18,7 +18,7 @@ with(instance_create(xv,yv,obj)){
     og_accuracy = ds_list_find_value(ds_map_find_value(mp,"accuracy"),skill); //angle diff before plane opens fire
     accuracy = og_accuracy;
     var utt = ds_map_find_value(mp,"update_target_time"); //update_target_time
-    scr_plane_instantiate(dir,model_name,false,ds_list_find_value(utt,skill));
+    scr_plane_init(dir,model_name,false,ds_list_find_value(utt,skill));
     
     //Handicap AI
     og_base_turn = base_turn;

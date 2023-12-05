@@ -8,7 +8,7 @@ with(instance_create(xv,yv,obj_balloon)){
     //initiallize stats
     var mp = ds_map_find_value(global.airships, "balloon");
     
-    scr_ship_instantiate(false,mp);
+    scr_ship_init(false,mp);
     
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");
@@ -234,7 +234,7 @@ else{
 #define scr_balloon_amr_is_up
 ///scr_balloon_amr_is_up()
 
-//gid[1] must be instantiated
+//gid[1] must be initialized
 return gid[1].state == shield_states.UP || gid[1].state == shield_states.GOING_DOWN;
 
 #define scr_balloon_advance_frame

@@ -29,7 +29,7 @@
 
 var mp = ds_map_find_value(global.sp_dmg, "flame_flicker");
 dmg = ds_map_find_value(mp, "dmg");
-sp_invincibility = ds_map_find_value(mp, "sp_invincibility");
+sp_invuln = ds_map_find_value(mp, "sp_invuln");
 is_sp_dmg = true;
 image_speed = 0.6;
 </string>

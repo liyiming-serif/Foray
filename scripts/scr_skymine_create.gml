@@ -22,7 +22,7 @@ with(instance_create(xv,yv,obj_skymine)){
     alert_range = ds_map_find_value(mp, "alert_range");
     chase_player = chp;
     
-    scr_ship_instantiate(false,mp);
+    scr_ship_init(false,mp);
     
     //optional behavior: chase the player like Blooper
     if(chase_player){
@@ -65,12 +65,13 @@ ds_list_add(global.skymine_queue, tuple);
 #define scr_skymine_hit
 ///scr_skymine_hit()
 
-if(is_friendly!=other.is_friendly && hp>0 && invincibility<=0 && abs(speed)<=friction){
+if(is_friendly!=other.is_friendly && hp>0 && invuln<=0 && abs(speed)<=friction){
     //get pushed around
     speed = other.dmg*global.game_speed;
     direction = other.direction;
 }
 scr_ship_hit();
+
 #define scr_skymine_chase
 ///scr_skymine_chase()
 

@@ -39,7 +39,7 @@ with(instance_create(xv,yv,obj_zeppelin)){
     }
     min_range += sprite_width; //offset the zeppelin's own size
     
-    scr_ship_instantiate(false,mp);
+    scr_ship_init(false,mp);
     
     /*
     engine_sound = audio_play_sound_on(engine_sound_emitter,snd_balloon_propeller,true,0);

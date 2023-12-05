@@ -1,15 +1,15 @@
-#define scr_plane_instantiate
-///scr_plane_instantiate(dir, model_name, is_friendly, update_target_time=-1)
+#define scr_plane_init
+///scr_plane_init(dir, model_name, is_friendly, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
 direction = argument[0];
 var mp = ds_map_find_value(global.models, argument[1]);
 key = argument[1];
 if(argument_count==4){
-    scr_ship_instantiate(argument[2],global.planes,argument[3]);
+    scr_ship_init(argument[2],global.planes,argument[3]);
 }
 else{
-    scr_ship_instantiate(argument[2],global.planes);
+    scr_ship_init(argument[2],global.planes);
 }
 
 //orient the plane

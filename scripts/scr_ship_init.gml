@@ -1,5 +1,5 @@
-#define scr_ship_instantiate
-///scr_ship_instantiate(is_friendly, ds_map, update_target_time=-1)
+#define scr_ship_init
+///scr_ship_init(is_friendly, ds_map, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
 is_friendly = argument[0];

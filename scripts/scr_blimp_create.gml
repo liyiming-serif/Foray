@@ -7,7 +7,7 @@ var dir = argument[2];
 with(instance_create(xv,yv,obj_blimp)){
     //initiallize stats
     var mp = ds_map_find_value(global.airships, "blimp");
-    scr_ship_instantiate(false,mp);
+    scr_ship_init(false,mp);
     
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");

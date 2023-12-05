@@ -7,7 +7,7 @@ var model_name = argument3;
 
 //PLAYER CONSTRUCTOR:
 with(instance_create(xv,yv,obj_player)){
-    scr_plane_instantiate(dir,model_name,true);
+    scr_plane_init(dir,model_name,true);
 
     global.player_id = id;
     obj_cursor.modifier = modifier; //update cursor color palette
@@ -52,7 +52,7 @@ with(instance_create(x,y,obj_player_avatar)){
 //HACK: continuous chip dmg if player is hitting an enemy ship
 //TODO: remove and combine with scr_plane_solid_hit
 
-if(hp<=0 || invincibility>0 || other.hp<=0 || roll_invuln>0) return undefined;
+if(hp<=0 || invuln>0 || other.hp<=0 || roll_invuln>0) return undefined;
 
 if(!other.is_friendly && !variable_instance_exists(other,"dmg")){
     var dmg = global.CONTACT_DMG;
@@ -86,6 +86,6 @@ if(!other.is_friendly && !variable_instance_exists(other,"dmg")){
         }
     }
     
-    //apply invincibility
-    invincibility += 15;
+    //apply invuln
+    invuln += 15;
 }

@@ -1,7 +1,7 @@
 ///scr_c_hull_collide_with_projectile()
 
 if(is_friendly==other.is_friendly) return undefined;
-if(invincibility>0) return undefined;
+if(invuln>0) return undefined;
 if(hp<=0) return undefined;
 
 //apply dmg + initiate death seq if hp <= 0
@@ -17,4 +17,4 @@ if(hp <= 0){
 
 //flash white + apply iframes
 hitstun = log2(other.dmg+1)*2.2;
-invincibility = other.hit_invuln;
+invuln = other.hit_invuln;
