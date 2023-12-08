@@ -34,7 +34,8 @@
     "city_missile":{
       "obj_ind":"obj_city_missile",
       "c_bullet":{
-        "hit_part":"boom_air"
+        "hit_part":"explosion",
+        "miss_part":"boom_air"
       },
       "c_hull":{
         "max_hp":6,
@@ -51,12 +52,14 @@
       },
       "extend":{
         "ground_hit_part":"explosion_ground",
-        "airtime":50
+        "airtime":90,
+        "airtime_invuln":30
       }
     },
     "player_missile":{
       "obj_ind":"obj_player_missile",
       "c_bullet":{
+        "hit_part":"explosion",
         "miss_part":"hit1"
       },
       "c_hull":{
@@ -71,9 +74,6 @@
         "cb_targeting":"scr_missile_target_player",
         "targeting_sprite":"spr_player_missile_target",
         "warn_range":300
-      },
-      "extend":{
-        "air_hi:t_part":"explosion"
       }
     }
   },

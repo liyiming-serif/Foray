@@ -356,9 +356,9 @@
       <script>scripts\scr_plane_rolling.gml</script>
       <script>scripts\scr_plane_ui_get_angles.gml</script>
       <scripts name="pilot_ai">
-        <script>scripts\scr_aiplane_create.gml</script>
-        <script>scripts\scr_ai_mg_chaser_make.gml</script>
-        <script>scripts\scr_ai_pyro_make.gml</script>
+        <script>scripts\scr_aiplane_init.gml</script>
+        <script>scripts\scr_ai_mg_chaser_create.gml</script>
+        <script>scripts\scr_ai_pyro_create.gml</script>
       </scripts>
     </scripts>
     <scripts name="ships">
@@ -379,7 +379,7 @@
       <script>scripts\scr_projectile_out_of_range.gml</script>
     </scripts>
     <script>scripts\scr_flame_plume_create.gml</script>
-    <script>scripts\scr_missile_create.gml</script>
+    <script>scripts\scr_missile_init.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
     <script>scripts\scr_cursor_frame_move.gml</script>
     <scripts name="ai">
@@ -425,6 +425,7 @@
     </scripts>
     <scripts name="helpers">
       <script>scripts\scr_instance_exists.gml</script>
+      <script>scripts\scr_instance_create.gml</script>
       <script>scripts\scr_game_to_gui.gml</script>
       <script>scripts\scr_interpolate_stat.gml</script>
       <script>scripts\scr_normalize_rgb.gml</script>
@@ -522,6 +523,10 @@
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>
+  <constants number="2">
+    <constant name="arg_len">global.i_arg_len</constant>
+    <constant name="arg_buff">global.i_arg_buff</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

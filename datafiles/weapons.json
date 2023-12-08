@@ -37,13 +37,13 @@
     "c_auto":{
       "projectile":"cannonball",
       "recoil":12,
-      "palette":194,
       "shoot_rate":70,
       "accuracy":1,
       "muzzle_vel":7,
       "range":[440,480],
       "muzzle_flare":"flare1"
-    }
+    },
+    "palette":194
   },
   "flamethrower":{
     "obj_ind":"obj_wpn_flamethrower",
@@ -57,9 +57,9 @@
     "c_ignition":{
       "projectile":"flame_plume",
       "recoil":1,
-      "palette":198,
       "accuracy":1
-    }
+    },
+    "palette":198
   },
   "airtillery":{
     "obj_ind":"obj_charge_wpn_parent",

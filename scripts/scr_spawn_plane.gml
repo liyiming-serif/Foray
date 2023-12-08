@@ -18,7 +18,10 @@ if(scr_instance_exists(global.player_id)){
     }
 }
 
-plane = scr_aiplane_create(pos[0],pos[1],dir,model_name,skill);
+var ai_name = ds_map_find_value(m_map, "default_pilot_ai");
+var create_enemy = asset_get_index("scr_ai"+ai_name+"_create");
+plane = script_execute(create_enemy,pos[0],pos[1],dir,model_name,skill);
+//scr_aiplane_create(pos[0],pos[1],dir,model_name,skill);
 with(plane){
     cmc = round(display_speed)+round(display_turn)+round(display_dmg);
 }

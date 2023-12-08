@@ -1,21 +1,22 @@
-#define scr_missile_create
-///scr_missile_create(x,y,dir,missile_type,is_friendly)
+#define scr_missile_init
+///scr_missile_init(missile_name, is_friendly)
 
-var xv = argument[0];
-var yv = argument[1];
-var dir = argument[2];
-var type = argument[3];
-//Wrapper around instance_create that also inits JSON properties
-var mp = ds_map_find_value(global.missiles, type);
+var key = argument[0];
+is_friendly = argument[1];
+
+var mp = ds_map_find_value(global.projectiles, projectile);
 //projectile not found, returning null id
 if(mp==undefined){
     return undefined;
 }
 
+var p = scr_instance_create(
+    xv,
+    yv,
+    asset_get_index(ds_map_find_value(mp,"obj_ind")),
+    projectile);
 with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     is_friendly = argument[4];
-    direction = dir;
-    image_angle = direction;
     target_image_index = 0;
     
     //deserialize json
@@ -30,11 +31,11 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     switch(type){
         case "player_missile":
             target_id = global.player_id;
-            scr_player_missile_init(mp);
+            scr_player_missile_create(mp);
             break;
         case "city_missile":
             target_id = global.city_id;
-            scr_city_missile_init(mp);
+            scr_city_missile_create(mp);
             break;
     }
     if(!variable_instance_exists(id,"target_id")){
@@ -71,15 +72,18 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
 
 
 #define scr_player_missile_create
-///scr_player_missile_create(mp)
+///scr_player_missile_create(x,y,dir,is_friendly)
 
-var mp = argument[0];
+var xv = argument[0];
+var yv = argument[1];
+var dir = argument[2];
 
+scr_missile_init(mp);
 //set player missile specific vars
 air_hit_part = variable_global_get(ds_map_find_value(mp,"air_hit_part"));
 
 #define scr_city_missile_create
-///scr_city_missile_create(mp)
+///scr_city_missile_create(x,y,dir,is_friendly)
 var mp = argument[0];
 
 //set city missile specific vars
