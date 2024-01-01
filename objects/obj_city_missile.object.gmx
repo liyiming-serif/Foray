@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Read JSON data
 
-//available args:(missile_name, is_friendly)
+//available args:(is_friendly)
 var key = arg_buff[0];
 
 event_inherited();

@@ -1,8 +1,8 @@
 {
   "planes":{
     "threat": 0.3,
-    "cb_shot_down":"scr_plane_crash",
-    "cb_crash":"scr_plane_crash",
+    "shot_down_cb":"scr_plane_crash",
+    "crash_cb":"scr_plane_crash",
     "c_hull":{
       "max_hp": 40,
       "weight": 1
@@ -133,8 +133,8 @@
   },
   "balloon":{
     "threat":0.15,
-    "cb_shot_down":"scr_ship_explode_small",
-    "cb_crash":"scr_ship_explode_small",
+    "shot_down_cb":"scr_ship_explode_small",
+    "crash_cb":"scr_ship_explode_small",
     "c_hull":{
       "max_hp":25,
       "weight":2
@@ -174,8 +174,8 @@
   },
   "blimp":{
     "threat":0.2,
-    "cb_shot_down":"scr_ship_explode_small",
-    "cb_crash":"scr_ship_explode_small",
+    "shot_down_cb":"scr_ship_explode_small",
+    "crash_cb":"scr_ship_explode_small",
     "c_hull":{
       "max_hp":35,
       "hp_bar_width":46,
@@ -194,8 +194,8 @@
   },
   "zeppelin":{
     "threat":0.35,
-    "cb_shot_down":"scr_ship_explode_large",
-    "cb_crash":"scr_ship_explode_large",
+    "shot_down_cb":"scr_ship_explode_large",
+    "crash_cb":"scr_ship_explode_large",
     "c_hull":{
       "max_hp":200,
       "hp_bar_width":125,

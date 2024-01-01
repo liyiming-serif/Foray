@@ -27,17 +27,7 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     //LOAD COMPONENTS
     scr_c_hull_add();
     
-    //set target
-    switch(type){
-        case "player_missile":
-            target_id = global.player_id;
-            scr_player_missile_create(mp);
-            break;
-        case "city_missile":
-            target_id = global.city_id;
-            scr_city_missile_create(mp);
-            break;
-    }
+    //TODO: set target
     if(!variable_instance_exists(id,"target_id")){
         instance_destroy();
         return undefined;
@@ -69,28 +59,6 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
     return id;
 }
 
-
-
-#define scr_player_missile_create
-///scr_player_missile_create(x,y,dir,is_friendly)
-
-var xv = argument[0];
-var yv = argument[1];
-var dir = argument[2];
-
-scr_missile_init(mp);
-//set player missile specific vars
-air_hit_part = variable_global_get(ds_map_find_value(mp,"air_hit_part"));
-
-#define scr_city_missile_create
-///scr_city_missile_create(x,y,dir,is_friendly)
-var mp = argument[0];
-
-//set city missile specific vars
-air_hit_part = variable_global_get(ds_map_find_value(mp,"air_hit_part"));
-ground_hit_part = variable_global_get(ds_map_find_value(mp,"ground_hit_part"));
-airtime = ds_map_find_value(mp, "airtime");
-found_target = false;
 
 
 #define scr_missile_hit

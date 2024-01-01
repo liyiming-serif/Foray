@@ -1,7 +1,6 @@
 {
   "projectiles":{
-    "mg_bullet":{
-      "obj_ind":"obj_bullet",
+    "bullet":{
       "anim_speed":0.5,
       "c_bullet":{
         "hit_part":"hit1",
@@ -10,7 +9,6 @@
       "palette1":128
     },
     "cannonball":{
-      "obj_ind":"obj_cannonball",
       "anim_speed":0.5,
       "c_bullet":{
         "hit_part":"hit1"
@@ -18,7 +16,6 @@
       "palette1":128
     },
     "flame_plume":{
-      "obj_ind":"obj_flame_plume",
       "anim_speed":0.4,
       "c_bullet":{
         "miss_part":"flame_miss"
@@ -32,7 +29,6 @@
       "palette1":130
     },
     "city_missile":{
-      "obj_ind":"obj_city_missile",
       "c_bullet":{
         "hit_part":"explosion",
         "miss_part":"boom_air"
@@ -46,7 +42,7 @@
         "speed":1
       },
       "c_targeting":{
-        "cb_targeting":"scr_missile_target_city",
+        "targeting_cb":"scr_missile_target_city",
         "targeting_sprite":"spr_city_missile_target",
         "warn_range":500
       },
@@ -57,7 +53,6 @@
       }
     },
     "player_missile":{
-      "obj_ind":"obj_player_missile",
       "c_bullet":{
         "hit_part":"explosion",
         "miss_part":"hit1"
@@ -71,7 +66,7 @@
         "speed":3.5
       },
       "c_targeting":{
-        "cb_targeting":"scr_missile_target_player",
+        "targeting_cb":"scr_missile_target_player",
         "targeting_sprite":"spr_player_missile_target",
         "warn_range":300
       }

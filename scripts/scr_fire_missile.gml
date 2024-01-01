@@ -15,8 +15,7 @@ var mp = ds_map_find_value(global.projectiles, projectile);
 var p = scr_instance_create(
     x,
     y,
-    asset_get_index(ds_map_find_value(mp,"obj_ind")),
-    projectile,
+    projectile_ind,
     is_friendly);
 //set trajectory
 p.direction = direction;
