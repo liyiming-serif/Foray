@@ -20,9 +20,9 @@
   <width>48</width>
   <height>17</height>
   <frames>
-    <frame index="0">images\spr_wpn_flamethrower_on_0.png</frame>
-    <frame index="1">images\spr_wpn_flamethrower_on_1.png</frame>
-    <frame index="2">images\spr_wpn_flamethrower_on_2.png</frame>
-    <frame index="3">images\spr_wpn_flamethrower_on_3.png</frame>
+    <frame index="0">images\spr_flamethrower_on_0.png</frame>
+    <frame index="1">images\spr_flamethrower_on_1.png</frame>
+    <frame index="2">images\spr_flamethrower_on_2.png</frame>
+    <frame index="3">images\spr_flamethrower_on_3.png</frame>
   </frames>
 </sprite>

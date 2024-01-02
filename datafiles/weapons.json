@@ -1,7 +1,5 @@
 {
   "mg":{
-    "obj_ind":"obj_wpn_parent",
-    "spr_ind":"spr_wpn_mg",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_shoot",
     "on_release_cb":"scr_do_nothing",
@@ -26,8 +24,6 @@
     "palette":192
   },
   "cannon":{
-    "obj_ind":"obj_wpn_parent",
-    "spr_ind":"spr_wpn_bomb",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_cannon_shoot",
     "on_release_cb":"scr_do_nothing",
@@ -46,8 +42,6 @@
     "palette":194
   },
   "flamethrower":{
-    "obj_ind":"obj_wpn_flamethrower",
-    "spr_ind":"spr_wpn_flamethrower",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_ignite",
     "on_release_cb":"scr_do_nothing",
@@ -62,8 +56,6 @@
     "palette":198
   },
   "airtillery":{
-    "obj_ind":"obj_charge_wpn_parent",
-    "spr_ind":"spr_wpn_airtillery",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_charge_shoot",
     "on_release_cb":"scr_charge_scatter",
@@ -86,8 +78,6 @@
     "palette":196
   },
   "burst_cannon":{
-    "obj_ind":"obj_charge_wpn_parent",
-    "spr_ind":"spr_wpn_bomb",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_charge_shoot",
     "on_release_cb":"scr_charge_scatter",
@@ -110,7 +100,6 @@
     "palette":194
   },
   "mine_layer":{
-    "obj_ind":"obj_wpn_parent",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_charge_shoot",
     "on_release_cb":"scr_lay_mine",
@@ -132,7 +121,6 @@
     }
   },
   "player_missile_gun":{
-    "obj_ind":"obj_wpn_parent",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_fire_missile",
     "on_release_cb":"scr_do_nothing",
@@ -147,7 +135,6 @@
     }
   },
   "city_missile_gun":{
-    "obj_ind":"obj_wpn_parent",
     "on_click_cb":"scr_do_nothing",
     "pressed_cb":"scr_fire_missile",
     "on_release_cb":"scr_do_nothing",
