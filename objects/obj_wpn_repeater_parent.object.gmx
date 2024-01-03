@@ -8,6 +8,64 @@
   <parentName>obj_wpn_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///load firing component(dir, wpn_name, is_friendly)
+
+event_inherited();
+var cmp = ds_map_find_value(mp, "c_repeater");
+//scr_c_repeater_add(cmp);
+projectile_ind = asset_get_index(ds_map_find_value(cmp,"projectile_ind"));
+dmg = ds_map_find_value(cmp, "dmg");
+recoil = ds_map_find_value(cmp, "recoil");
+shoot_rate = ds_map_find_value(cmp, "shoot_rate");
+muzzle_vel = ds_map_find_value(cmp, "muzzle_vel");
+accuracy = ds_map_find_value(cmp, "accuracy");
+range[0] = ds_list_find_value(ds_map_find_value(cmp,"range"),0);
+range[1] = ds_list_find_value(ds_map_find_value(cmp,"range"),1);
+rounds = ds_map_find_value(cmp, "rounds");
+reload_rate = ds_map_find_value(cmp, "reload_rate");
+
+//optional parameters
+var v = ds_map_find_value(mp,"sweep_angle");
+if(v!=undefined){
+    sweep_angle = v;
+}
+v = ds_map_find_value(mp,"muzzle_vel_var");
+if(v!=undefined){
+    muzzle_vel_var = v;
+}
+v = ds_map_find_value(cmp,"muzzle_flare");
+if(v!=undefined){
+    muzzle_flare = variable_global_get(v);
+}
+v = ds_map_find_value(cmp,"charge_part");
+if(v!=undefined){
+    charge_part = variable_global_get(ds_list_find_value(v,0));
+    charge_part_life[0] = ds_list_find_value(v,1);
+    charge_part_life[1] = ds_list_find_value(v,2);
+    charge_part_frames = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>

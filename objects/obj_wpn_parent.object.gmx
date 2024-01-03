@@ -8,6 +8,64 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///scr_wpn_init(dir, wpn_name, is_friendly)
+
+//direction?
+image_angle = arg_buff[0];
+var k = arg_buff[1];
+is_friendly = arg_buff[2];
+
+mp = ds_map_find_value(global.weapons,k);
+
+//angle + position
+image_angle_prev = image_angle;
+dx = 0;
+dy = 0;
+av = 0;
+
+//graphical
+if(sprite_index!=undefined){
+    //animation
+    anim_speed = ds_map_find_value(mp,"anim_speed");
+    image_speed = anim_speed;
+    
+    shoot_frame = ds_map_find_value(mp,"shoot_frame");
+    l_bound_frame = 0;
+    u_bound_frame = shoot_frame;
+    
+    //palette swap shader
+    modifier = ds_map_find_value(mp,"palette");
+    rt_modifier = modifier/255.0;
+    palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
+    row_ref = shader_get_uniform(shader_pal_swap, "row");
+}
+
+//callbacks
+on_click_cb = asset_get_index(ds_map_find_value(mp,"on_click_cb"));
+pressed_cb = asset_get_index(ds_map_find_value(mp,"pressed_cb"));
+on_release_cb = asset_get_index(ds_map_find_value(mp,"on_release_cb"));
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="11">
       <action>
         <libid>1</libid>
