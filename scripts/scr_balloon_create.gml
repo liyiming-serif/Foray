@@ -19,7 +19,7 @@ with(instance_create(xv,yv,obj_balloon)){
     is_armored = argument[3];
     
     //mount weapons
-    gid[0] = scr_wpn_create(x,y,0,wpn_name,false);
+    gid[0] = scr_wpn_equip(x,y,0,wpn_name,false);
     gid[1] = 0;
     if(scr_instance_exists(gid[0])){
         gun_turn -= gun_turn*(1-7/gid[0].recoil);

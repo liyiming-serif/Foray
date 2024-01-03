@@ -23,10 +23,10 @@ with(instance_create(xv,yv,obj_zeppelin)){
     image_angle = direction;
     
     //mount wpns
-    gid[0] = scr_wpn_create(x,y,0,front_wpn,false);
-    gid[1] = scr_wpn_create(x,y,0,left_wpn,false);
-    gid[2] = scr_wpn_create(x,y,0,right_wpn,false);
-    gid[3] = scr_wpn_create(x,y,0,"mine_layer",false);
+    gid[0] = scr_wpn_equip(x,y,0,front_wpn,false);
+    gid[1] = scr_wpn_equip(x,y,0,left_wpn,false);
+    gid[2] = scr_wpn_equip(x,y,0,right_wpn,false);
+    gid[3] = scr_wpn_equip(x,y,0,"mine_layer",false);
     
     //min_range determines nimbus
     min_range = 0;

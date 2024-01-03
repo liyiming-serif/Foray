@@ -28,8 +28,12 @@
             <string>///load firing component(dir, wpn_name, is_friendly)
 
 event_inherited();
-var cmp = ds_map_find_value(mp, "c_repeater");
+
 //scr_c_repeater_add(cmp);
+shoot_counter = 0;
+
+//load parameters from JSON
+var cmp = ds_map_find_value(mp, "c_repeater");
 projectile_ind = asset_get_index(ds_map_find_value(cmp,"projectile_ind"));
 dmg = ds_map_find_value(cmp, "dmg");
 recoil = ds_map_find_value(cmp, "recoil");
@@ -39,7 +43,11 @@ accuracy = ds_map_find_value(cmp, "accuracy");
 range[0] = ds_list_find_value(ds_map_find_value(cmp,"range"),0);
 range[1] = ds_list_find_value(ds_map_find_value(cmp,"range"),1);
 rounds = ds_map_find_value(cmp, "rounds");
+
 reload_rate = ds_map_find_value(cmp, "reload_rate");
+reload_rate = v;
+reload_counter = reload_rate;
+reload_counter_prev = reload_counter;
 
 //optional parameters
 var v = ds_map_find_value(mp,"sweep_angle");
@@ -53,6 +61,19 @@ if(v!=undefined){
 v = ds_map_find_value(cmp,"muzzle_flare");
 if(v!=undefined){
     muzzle_flare = variable_global_get(v);
+}
+v = ds_map_find_value(cmp,"charge_snd");
+if(v!=undefined){
+    wpn_sound_emitter = audio_emitter_create();
+    audio_emitter_falloff(wpn_sound_emitter,
+        global.SOUND_FALLOFF_REF_DIST,
+        global.SOUND_FALLOFF_MAX_DIST,
+        global.SOUND_FALLOFF_FACTOR);
+    charge_sound = audio_play_sound_on(
+        wpn_sound_emitter,
+        asset_get_index(v),
+        true,
+        0);
 }
 v = ds_map_find_value(cmp,"charge_part");
 if(v!=undefined){

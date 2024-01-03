@@ -113,7 +113,7 @@ if(global.AB_USE_ANGLE_STEAL){
 
 //arm the plane
 wpn_name = ds_map_find_value(mp,"wpn");
-gid = scr_wpn_create(x,y,direction,wpn_name,is_friendly,display_dmg);
+gid = scr_wpn_equip(x,y,direction,wpn_name,is_friendly,display_dmg);
 
 //audio
 if(is_friendly){

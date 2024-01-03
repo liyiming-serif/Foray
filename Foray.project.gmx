@@ -370,8 +370,7 @@
       <script>scripts\scr_zeppelin_create.gml</script>
     </scripts>
     <script>scripts\scr_city_hit.gml</script>
-    <script>scripts\scr_wpn_create.gml</script>
-    <script>scripts\scr_flamethrower_step.gml</script>
+    <script>scripts\scr_wpn_equip.gml</script>
     <scripts name="projectiles">
       <script>scripts\scr_projectile_create.gml</script>
       <script>scripts\scr_projectile_collide_with_hittable.gml</script>
@@ -395,6 +394,9 @@
       </scripts>
       <scripts name="c_engine">
         <script>scripts\scr_c_engine_add.gml</script>
+      </scripts>
+      <scripts name="c_ignition">
+        <script>scripts\scr_c_ignition_step.gml</script>
       </scripts>
     </scripts>
     <scripts name="wpn_cbs">

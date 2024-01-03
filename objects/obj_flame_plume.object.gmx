@@ -27,10 +27,10 @@
             <kind>1</kind>
             <string>///flame plume create extended
 
-linger_alarm = 0;
-smoke_alarm = 1;
-flicker_alarm = 2;
-is_sp_dmg = false;
+linger_alarm = 11;
+smoke_alarm = 10;
+flicker_alarm = 9;
+
 </string>
           </argument>
         </arguments>

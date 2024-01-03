@@ -28,6 +28,12 @@
       },
       "palette1":130
     },
+    "flame_flicker":{
+      "extend":{
+        "sp_dmg":0.8,
+        "sp_invuln":10
+      }
+    },
     "city_missile":{
       "c_bullet":{
         "hit_part":"explosion",
@@ -74,10 +80,7 @@
   },
 
   "sp_dmg":{
-    "flame_flicker":{
-      "dmg":0.8,
-      "sp_invuln":10
-    }
+    
   },
 
   "bombs":{

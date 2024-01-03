@@ -25,11 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///scr_flamethrower_create()
+            <string>///load firing component(dir, wpn_name, is_friendly)
 
+event_inherited();
+//scr_c_ignition_add(cmp);
 projectile_id = noone;
 is_wpn_on = false;
 
+//load parameters from JSON
+var cmp = ds_map_find_value(mp, "c_ignition");
+projectile_ind = asset_get_index(ds_map_find_value(cmp,"projectile_ind"));
+dmg = ds_map_find_value(cmp, "dmg");
+recoil = ds_map_find_value(cmp, "recoil");
+accuracy = ds_map_find_value(cmp, "accuracy");
 </string>
           </argument>
         </arguments>
@@ -52,9 +60,11 @@ is_wpn_on = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///flamethrower step
+            <string>///scr_c_ignition step()
 
-scr_flamethrower_step();
+event_inherited();
+
+scr_c_ignition_step();
 </string>
           </argument>
         </arguments>

@@ -28,8 +28,12 @@
             <string>///load firing component(dir, wpn_name, is_friendly)
 
 event_inherited();
-var cmp = ds_map_find_value(mp, "c_auto");
+
 //scr_c_auto_add(cmp);
+shoot_counter = 0;
+
+//load parameters from JSON
+var cmp = ds_map_find_value(mp, "c_auto");
 projectile_ind = asset_get_index(ds_map_find_value(cmp,"projectile_ind"));
 dmg = ds_map_find_value(cmp, "dmg");
 recoil = ds_map_find_value(cmp, "recoil");
@@ -44,6 +48,32 @@ var v = ds_map_find_value(cmp,"muzzle_flare");
 if(v!=undefined){
     muzzle_flare = variable_global_get(v);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///scr_c_auto_step
+
+event_inherited();
+shoot_counter = min(shoot_counter+global.game_speed,shoot_rate);
 </string>
           </argument>
         </arguments>

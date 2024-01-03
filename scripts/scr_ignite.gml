@@ -29,8 +29,8 @@ else{ //existing flame
     //produce recoil flash+animation
     if(!variable_instance_exists(projectile_id,"linger_alarm") ||
         !projectile_id.alarm[projectile_id.linger_alarm]) {
-            rt_modifier = (modifier+1.0)/256.0;
-            alarm[11] = recoil;
+            rt_modifier = (modifier+1.0)/255.0;
+            alarm[global.MUZZLE_FLASH_ALARM] = recoil;
             l_bound_frame = shoot_frame;
             u_bound_frame = image_number;
     }

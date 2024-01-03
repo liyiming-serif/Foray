@@ -17,9 +17,9 @@ with(instance_create(xv,yv,obj_blimp)){
     image_angle = direction;
     
     //mount wpns
-    gid[0] = scr_wpn_create(x,y,0,"city_missile_gun",false);
-    gid[1] = scr_wpn_create(x,y,0,"player_missile_gun",false); //left
-    gid[2] = scr_wpn_create(x,y,0,"player_missile_gun",false); //right
+    gid[0] = scr_wpn_equip(x,y,0,"city_missile_gun",false);
+    gid[1] = scr_wpn_equip(x,y,0,"player_missile_gun",false); //left
+    gid[2] = scr_wpn_equip(x,y,0,"player_missile_gun",false); //right
     
     //ai params
     //increase sight modifier for oblong shape

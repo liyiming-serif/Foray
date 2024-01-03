@@ -133,8 +133,6 @@ else{
 
 found_target = true;
 instance_destroy();
-//alarm[11] = airtime;
-//whistle_sound = scr_play_sound_ui(snd_drop_bomb,x,y);
 </string>
           </argument>
         </arguments>

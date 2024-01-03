@@ -72,6 +72,7 @@
       "muzzle_flare":"flare1",
       "rounds":5,
       "reload_rate":120,
+      "charge_snd":"snd_charging",
       "charge_part":["charge",20,30],
       "sweep_angle":90
     },
@@ -94,6 +95,7 @@
       "muzzle_flare":"flare1",
       "rounds":4,
       "reload_rate":60,
+      "charge_snd":"snd_charging",
       "charge_part":["charge",20,30],
       "sweep_angle":135
     },
