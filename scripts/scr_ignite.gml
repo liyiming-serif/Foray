@@ -9,6 +9,10 @@ if(!scr_instance_exists(projectile_id)){
     f.direction = direction;
     f.image_angle = image_angle;
     f.dmg = dmg;
+    //pass dmg_mod to secondary effects
+    if(variable_instance_exists(id, "dmg_mod")){
+        f.dmg_mod = dmg_mod;
+    }
     projectile_id = f;
 }
 else{ //existing flame

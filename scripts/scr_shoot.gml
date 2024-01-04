@@ -1,75 +1,68 @@
 #define scr_shoot
 ///scr_shoot()
-//TODO: take angular+linear velocity into account
+//Generic shooting callback. Can be expanded and customized.
+//req: shoot_rate, shoot_frame, dx, dy
+
+//check cooldown
 if(shoot_counter < shoot_rate){
-    return noone;
+    return undefined;
 }
 shoot_counter = 0;
-//compute angular velocity
-var 
+//produce recoil flash+animation
+rt_modifier = (modifier+1.0)/255.0;
+alarm[global.MUZZLE_FLASH] = recoil;
+//animate wpn firing
+l_bound_frame = shoot_frame;
+u_bound_frame = image_number;
+
+/*COMPUTE DIRECTIONAL INFLUENCE*/
+//compute linear velocity w/ respect to fire angle
+var refx, refy, lv;
+refx = lengthdir_x(1,image_angle);
+refy = lengthdir_y(1,image_angle);
+lv = dot_product(dx,dy,refx,refy);
 
 //actually create bullet
-var b = instance_create(x+lengthdir_x(barrel,image_angle),y+lengthdir_y(12,image_angle),type);
-b.direction = image_angle+random_range(-accuracy,accuracy);
-b.speed = speed + sp;
+var b = scr_projectile_create(x+lengthdir_x(barrel_len,image_angle),y+lengthdir_y(barrel_len,image_angle),bullet_type,is_friendly);
+if(is_friendly){
+    b.direction = image_angle+2*av+random_range(-accuracy,accuracy);
+}
+else{
+    b.direction = image_angle+av+random_range(-accuracy,accuracy);
+}
+b.curr_speed = muzzle_vel + lv;
 b.image_angle = b.direction;
-b.alarm[0] = range;
+b.ttl = random_range(range[0],range[1])/muzzle_vel; //time to live
 b.dmg = dmg;
-b.isFriendly = isFriendly;
 
 //produce muzzle flare [optional]
-if(part_type!=noone){
-    part_type_life(part_type, room_speed*0.1, room_speed*0.15);
-    part_type_direction(part_type,b.direction,b.direction,0,0);
-    part_type_orientation(part_type,0,0,0,0,true);
-    part_type_speed(part_type,speed,speed,0,0);
-    part_particles_create(global.partsys,x,y,part_type,1);
+if(variable_instance_exists(id,"muzzle_flare")){
+    part_type_direction(muzzle_flare,b.direction,b.direction,0,0);
+    part_type_orientation(muzzle_flare,0,0,0,0,true);
+    part_type_speed(muzzle_flare,lv,lv,0,0);
+    part_particles_create(global.partsys,b.x,b.y,muzzle_flare,1);
 }
 
 return b;
 
-#define scr_wpn_create
-///scr_wpn_create(wpn_name,isFriendly)
+#define scr_cannon_shoot
+///scr_cannon_shoot()
 
-//Used for instantiating a generic gun from JSON.
-//Additional properties must be read in wpn obj's create event.
-
-var mp = ds_map_find_value(global.WEAPONS,argument0);
-isFriendly = argument1;
-image_angle_prev = image_angle;
-
-//scr_shoot attributes
-bullet_type = asset_get_index(ds_map_find_value(mp,"projectile_ind"));
-shoot_rate = ds_map_find_value(mp,"shoot_rate");
-shoot_counter = 0;
-recoil = ds_map_find_value(mp,"recoil"); //num frames gun and plane flash from firing
-accuracy = ds_map_find_value(mp,"accuracy");
-muzzle_vel = ds_map_find_value(mp,"speed");
-dmg = ds_map_find_value(mp,"dmg");
-lifespan[0] = ds_list_find_value(ds_map_find_value(mp,"lifespan"),0);
-lifespan[1] = ds_list_find_value(ds_map_find_value(mp,"lifespan"),1);
-if(ds_map_exists(mp,"barrel_len")){
-    barrel_len = ds_map_find_value(mp,"barrel_len");
+var b = scr_shoot();
+if(b!=undefined){
+    b.image_angle = 0;
 }
-else{
-    barrel_len = sprite_width;
-}
+return b;
 
-//callbacks
-on_click_cb = scr_do_nothing;
-pressed_cb = scr_do_nothing;
-on_release_cb = scr_do_nothing;
+#define scr_charge_scatter
+///scr_charge_scatter()
 
-//animation
-image_speed = 0;
-anim_speed = ds_map_find_value(mp,"anim_speed");
-shoot_frame = ds_map_find_value(mp,"shoot_frame");
-l_bound_frame = 0;
-u_bound_frame = shoot_frame;
+//Wrapper around scr_shoot that shoots in an even spread
+//Only capatible with charge_shooting
+var og_angle = image_angle;
 
+image_angle += ((rounds-0.5)/max_rounds)*sweep_angle - sweep_angle/2;
+var b = scr_shoot();
 
-#define scr_do_nothing
-///scr_do_nothing()
-
-//placeholder script to save on error-checking
-return undefined;
+image_angle = og_angle;
+return b;

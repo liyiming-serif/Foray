@@ -79,10 +79,6 @@
     }
   },
 
-  "sp_dmg":{
-    
-  },
-
   "bombs":{
     "drop_bomb":{
       "dmg":0,

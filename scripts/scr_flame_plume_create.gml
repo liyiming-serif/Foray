@@ -26,12 +26,15 @@ if(collision_line(x,y,rx,ry,obj_solid_parent,false,true)==noone){
 }
 
 if(!alarm[flicker_alarm]){
-    //create flicker object
+    //create secondary effect: flame flicker
     var xp, yp, b;
     xp = x+lengthdir_x(88*image_xscale, image_angle);
     yp = y+lengthdir_y(88*image_xscale, image_angle);
     b = instance_create(xp, yp, obj_flame_flicker);
     b.is_friendly = is_friendly;
+    if(variable_instance_exists(id,"dmg_mod")){
+        b.sp_dmg *= dmg_mod;
+    }
     alarm[flicker_alarm] = flicker_frequency;
 }
 

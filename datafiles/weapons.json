@@ -57,7 +57,7 @@
   },
   "airtillery":{
     "on_click_cb":"scr_do_nothing",
-    "pressed_cb":"scr_charge_shoot",
+    "pressed_cb":"scr_charge_volley",
     "on_release_cb":"scr_charge_scatter",
     "shoot_frame":1,
     "anim_speed":0.5,
@@ -80,7 +80,7 @@
   },
   "burst_cannon":{
     "on_click_cb":"scr_do_nothing",
-    "pressed_cb":"scr_charge_shoot",
+    "pressed_cb":"scr_charge_volley",
     "on_release_cb":"scr_charge_scatter",
     "shoot_frame":1,
     "anim_speed":0.25,
@@ -103,7 +103,7 @@
   },
   "mine_layer":{
     "on_click_cb":"scr_do_nothing",
-    "pressed_cb":"scr_charge_shoot",
+    "pressed_cb":"scr_charge_volley",
     "on_release_cb":"scr_lay_mine",
     "c_repeater":{
       "projectile_ind":"obj_skymime",
