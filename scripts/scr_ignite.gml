@@ -4,7 +4,10 @@ is_wpn_on = true;
 
 //create flame
 if(!scr_instance_exists(projectile_id)){
-    var f = scr_flame_plume_create(x+lengthdir_x(barrel_len,image_angle),y+lengthdir_y(barrel_len,image_angle),bullet_type,is_friendly);
+    var f = scr_flame_plume_create(
+        x+lengthdir_x(barrel_len,image_angle),
+        y+lengthdir_y(barrel_len,image_angle),
+        bullet_type,is_friendly);
     f.curr_speed = 0;
     f.direction = direction;
     f.image_angle = image_angle;

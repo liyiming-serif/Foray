@@ -61,49 +61,6 @@ with(instance_create(xv, yv, asset_get_index(ds_map_find_value(mp,"obj_ind")))){
 
 
 
-#define scr_missile_hit
-///scr_missile_hit()
-
-if(hp<=0) return undefined;
-
-if(is_friendly!=other.is_friendly && !other.is_sp_dmg){
-    if(invuln>0){ //destroy bullet and exit early
-        if(!variable_instance_exists(other,"piercing_invuln")){
-            instance_destroy(other);
-            scr_play_sound(snd_deflect,x,y);
-        }
-
-        return undefined;
-    }    
-
-    //spawn projectile's hit particle
-    if(variable_instance_exists(other,"hit_part")){
-        part_type_direction(other.hit_part,other.direction,other.direction,0,0);
-        part_type_orientation(other.hit_part,0,0,0,0,true);
-        part_particles_create(global.partsys,other.x,other.y,other.hit_part,1);
-    }
-    
-    //flash white
-    hitstun = log2(other.dmg+1)*2.2;
-    
-    //apply dmg + initiate death seq if hp <= 0
-    hp -= other.dmg;
-    if(hp <= 0){
-        instance_destroy();
-    }
-    
-    //audio
-    scr_play_sound(snd_hitting,x,y);
-    
-    //destroy bullet, or set piercing
-    if(variable_instance_exists(other,"piercing_invuln")){
-        invuln = other.piercing_invuln;
-    }
-    else{
-        instance_destroy(other);
-    } 
-}
-
 #define scr_missile_step
 ///scr_missile_step()
 

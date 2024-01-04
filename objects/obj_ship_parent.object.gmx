@@ -127,7 +127,7 @@ scr_c_hull_collide_with_obstacle();
             <kind>1</kind>
             <string>///Generic hit script
 
-scr_ship_hit();
+scr_c_hull_collide_with_projectile();
 </string>
           </argument>
         </arguments>
@@ -152,7 +152,7 @@ scr_ship_hit();
             <kind>1</kind>
             <string>///Generic hit script
 
-scr_ship_hit();
+scr_c_hull_collide_with_projectile();
 </string>
           </argument>
         </arguments>

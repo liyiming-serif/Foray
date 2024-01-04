@@ -2,15 +2,6 @@
 ///scr_flame_plume_create(x,y,projectile_name,is_friendly)
 
 var b = scr_projectile_create(argument[0],argument[1],argument[2],argument[3]);
-
-var mp = ds_map_find_value(global.projectiles,argument[2]);
-var opt = ds_map_find_value(mp,"optional");
-b.piercing_invuln = ds_map_find_value(opt, "piercing_invuln");
-b.linger = ds_map_find_value(opt, "linger");
-b.flicker_frequency = ds_map_find_value(opt,"flicker_frequency");
-b.smoke_frequency = ds_map_find_value(opt,"smoke_frequency");
-b.miss_part = variable_global_get(ds_map_find_value(opt,"miss_part"));
-
 return b;
 
 #define scr_flame_plume_step

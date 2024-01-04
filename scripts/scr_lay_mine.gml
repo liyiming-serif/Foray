@@ -17,6 +17,7 @@ if(scr_instance_exists(global.player_id)){
 }
 vel = global.game_speed*((muzzle_vel)+random_range(-muzzle_vel_var,muzzle_vel_var));
 var b = scr_skymine_create(x,y,dir,vel);
+b.max_hp *= mine_hp_reduc;
 b.hp *= mine_hp_reduc;
 scr_play_sound(snd_spawn_skymine,x,y);
 return b;

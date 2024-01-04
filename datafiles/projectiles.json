@@ -21,7 +21,7 @@
         "miss_part":"flame_miss"
       },
       "extend":{
-        "piercing_invuln":7,
+        "invuln":7,
         "linger":4,
         "flicker_frequency":6,
         "smoke_frequency":20
@@ -29,6 +29,7 @@
       "palette1":130
     },
     "flame_flicker":{
+      "anim_speed":0.6,
       "extend":{
         "sp_dmg":0.8,
         "sp_invuln":10

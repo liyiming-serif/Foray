@@ -22,4 +22,4 @@ if(hp_bar_width==undefined){
 hitstun = 0;
 invuln = 0;
 sp_invuln = 0;
-solid_invuln = 0;
+crash_invuln = 0;

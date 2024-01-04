@@ -25,9 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///load firing component(dir, wpn_name, is_friendly)
+            <string>///read JSON data (dir, wpn_name, is_friendly)
 event_inherited();
-mine_hp_reduc = ds_map_find_value(mp,"mine_hp_reduc");
+
+var ext = ds_map_find_value(mp, "extend");
+mine_hp_reduc = ds_map_find_value(ext,"mine_hp_reduc");
 </string>
           </argument>
         </arguments>

@@ -140,95 +140,25 @@ audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
 #define scr_ship_hit
 ///scr_ship_hit()
 
-//Abstract function for when a ship collides with a projectile.
-
-if(hp<=0) return undefined;
-
-if(is_friendly!=other.is_friendly){
-    if(other.is_sp_dmg){
-        if(sp_invuln>0){
-            return undefined;
-        }
-    }
-    else{
-        //destroy bullet and exit early
-        if(invuln>0){
-            if(!variable_instance_exists(other,"piercing_invuln")){
-                instance_destroy(other);
-                scr_play_sound(snd_deflect,x,y);
-            }
+//TO REFACTOR: player/enemy hit specific code
+if(is_friendly){ //player
+    //TODO: apply screen shake?
     
-            return undefined;
-        }
-    }
-
-    //spawn projectile's hit particle
-    if(variable_instance_exists(other,"hit_part")){
-        part_type_direction(other.hit_part,other.direction,other.direction,0,0);
-        part_type_orientation(other.hit_part,0,0,0,0,true);
-        part_particles_create(global.partsys,other.x,other.y,other.hit_part,1);
+    //apply screen flash
+    if(id==global.player_id){
+        global.flash_red_alpha += post_dmg/15;
     }
     
-    //Damage Modifier
-    var post_dmg = other.dmg;
-    
-    //apply armor 
-    if(variable_instance_exists(id,"amr")){
-        post_dmg = max(post_dmg-amr,global.MIN_DMG);
-    }
-    
-    //flash white
-    hitstun = log2(post_dmg+1)*2.2;
-    
-    //player hit specific code
-    if(is_friendly){
-        //TODO: apply screen shake?
-        
-        //apply screen flash
-        if(id==global.player_id){
-            global.flash_red_alpha += post_dmg/15;
-        }
-        
-        //DIFFICULTY MOD: scale dmg down by spawn capacity
-        if(!global.is_endless){
-            post_dmg = max((1-global.spawn_cap*0.3)*post_dmg,global.MIN_DMG);
-        }
-    }
-    else{ //enemy hit specific code
-        //DIFFICULY MOD: increase player's atk if outnumbered
-        post_dmg *= 1+global.spawn_cap*0.5;
-    }
-    
-    //apply dmg + initiate death seq if hp <= 0
-    hp -= post_dmg;
-    if(hp <= 0){
-        if(variable_instance_exists(id,"death_seq_cb")){
-            script_execute(death_seq_cb);
-        }
-        else{
-            instance_destroy();
-        }
-    }
-    
-    //audio
-    scr_play_sound(snd_hitting,x,y);
-    
-    
-    if(other.is_sp_dmg){
-        if(variable_instance_exists(other,"sp_invuln")){
-            sp_invuln = other.sp_invuln;
-        }
-    }
-    else{
-        //destroy bullet, or set piercing
-        if(variable_instance_exists(other,"piercing_invuln")){
-            invuln = other.piercing_invuln;
-        }
-        else{
-            instance_destroy(other);
-        } 
+    //DIFFICULTY MOD: scale dmg down by spawn capacity
+    if(!global.is_endless){
+        post_dmg = max((1-global.spawn_cap*0.3)*post_dmg,global.MIN_DMG);
     }
 }
+else{ //enemy
+    //DIFFICULY MOD: increase player's atk if outnumbered
+    post_dmg *= 1+global.spawn_cap*0.5;
+}
+
 
 #define scr_ship_shade
 ///scr_ship_shade()

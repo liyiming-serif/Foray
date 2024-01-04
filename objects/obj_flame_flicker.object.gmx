@@ -27,11 +27,11 @@
             <kind>1</kind>
             <string>///flame_flicker_create
 
-var mp = ds_map_find_value(global.sp_dmg, "flame_flicker");
-dmg = ds_map_find_value(mp, "dmg");
-sp_invuln = ds_map_find_value(mp, "sp_invuln");
-is_sp_dmg = true;
-image_speed = 0.6;
+mp = ds_map_find_value(global.projectiles, "flame_flicker");
+event_inherited();
+var ext = ds_map_find_value(mp,"extend");
+sp_dmg = ds_map_find_value(ext, "sp_dmg");
+sp_invuln = ds_map_find_value(ext, "sp_invuln");
 </string>
           </argument>
         </arguments>

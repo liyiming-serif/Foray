@@ -33,28 +33,6 @@ scr_missile_init(arg_buff[0], arg_buff[1]);
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///set damage to normal type
-is_sp_dmg = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="1" enumb="0">
       <action>
@@ -146,8 +124,8 @@ scr_missile_step();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///enable solid collisions
-scr_c_hull_collide_with_obstacle();
+            <string>///crash immediately
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -170,8 +148,8 @@ scr_c_hull_collide_with_obstacle();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///scr_missile_hit()
-scr_missile_hit();
+            <string>///hull collision
+scr_c_hull_collide_with_projectile();
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///flame plume create extended
+            <string>///flame plume create
+
+mp = ds_map_find_value(global.projectiles, "flame_plume");
+event_inherited();
+
+//extend
+var ext = ds_map_find_value(mp,"extend");
+invuln = ds_map_find_value(ext,"invuln");
+
+linger = ds_map_find_value(ext, "linger");
+flicker_frequency = ds_map_find_value(ext,"flicker_frequency");
+smoke_frequency = ds_map_find_value(ext,"smoke_frequency");
 
 linger_alarm = 11;
 smoke_alarm = 10;
