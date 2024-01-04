@@ -494,7 +494,6 @@
         <object>objects\obj_wpn_auto_parent</object>
         <object>objects\obj_mg</object>
         <object>objects\obj_cannon</object>
-        <object>objects\obj_mine_layer</object>
         <object>objects\obj_player_missile_gun</object>
         <object>objects\obj_city_missile_gun</object>
       </objects>
@@ -502,6 +501,7 @@
         <object>objects\obj_wpn_repeater_parent</object>
         <object>objects\obj_airtillery</object>
         <object>objects\obj_burst_cannon</object>
+        <object>objects\obj_mine_layer</object>
       </objects>
       <objects name="ignitions">
         <object>objects\obj_wpn_ignition_parent</object>

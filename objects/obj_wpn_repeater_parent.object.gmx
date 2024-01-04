@@ -131,7 +131,7 @@ audio_emitter_free(wpn_sound_emitter);
           <argument>
             <kind>1</kind>
             <string>///update linear and angular velocity
-scr_wpn_end_frame();
+event_inherited();
 </string>
           </argument>
         </arguments>

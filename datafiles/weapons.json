@@ -118,7 +118,7 @@
       "reload_rate":90
     },
     "extend":{
-      "hp_reduc":0.7
+      "mine_hp_reduc":0.7
     }
   },
   "player_missile_gun":{

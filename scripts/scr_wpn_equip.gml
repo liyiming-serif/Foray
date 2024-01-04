@@ -44,14 +44,7 @@ with(scr_instance_create(
             range[1] *= global.AI_SHOT_RANGE_REDUC;
         }
     }
-    
-    //optional parameters
-    var v;
-    v = ds_map_find_value(mp,"hp_reduc");
-    if(v!=undefined){
-        hp_reduc = v;
-    }
-    
+
     return id;
 }
 
@@ -105,6 +98,7 @@ return b;
 
 #define scr_lay_mine
 ///scr_lay_mine()
+//req: , mine_hp_reduc
 
 //check cooldown & spawn limit
 if(shoot_counter<shoot_rate || global.spawn_cap>2){
@@ -122,7 +116,7 @@ if(scr_instance_exists(global.player_id)){
 }
 vel = global.game_speed*((muzzle_vel)+random_range(-muzzle_vel_var,muzzle_vel_var));
 var b = scr_skymine_create(x,y,dir,vel);
-b.hp *= hp_reduc;
+b.hp *= mine_hp_reduc;
 scr_play_sound(snd_spawn_skymine,x,y);
 return b;
 
