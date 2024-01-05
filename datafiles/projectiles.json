@@ -6,14 +6,14 @@
         "hit_part":"hit1",
         "miss_part":"b1_miss"
       },
-      "palette1":128
+      "palette":128
     },
     "cannonball":{
       "anim_speed":0.5,
       "c_bullet":{
         "hit_part":"hit1"
       },
-      "palette1":128
+      "palette":128
     },
     "flame_plume":{
       "anim_speed":0.4,
@@ -26,7 +26,7 @@
         "flicker_frequency":6,
         "smoke_frequency":20
       },
-      "palette1":130
+      "palette":130
     },
     "flame_flicker":{
       "anim_speed":0.6,

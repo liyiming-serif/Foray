@@ -62,6 +62,19 @@ v = ds_map_find_value(cmp,"muzzle_flare");
 if(v!=undefined){
     muzzle_flare = variable_global_get(v);
 }
+v = ds_map_find_value(cmp,"shoot_snd");
+if(v!=undefined){
+    //shoot_snd is string
+    if(ds_exists(v, ds_type_list)){
+        //sound group
+        shoot_snd = ds_list_find_value(v,0);
+        shoot_snd_num = ds_list_find_value(v,1);
+    }
+    else{
+        //single sound
+        shoot_snd = v;
+    }
+}
 v = ds_map_find_value(cmp,"charge_snd");
 if(v!=undefined){
     wpn_sound_emitter = audio_emitter_create();

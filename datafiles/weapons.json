@@ -12,7 +12,8 @@
       "accuracy":2,
       "muzzle_vel":12,
       "range":[300,312],
-      "muzzle_flare":"flare1"
+      "muzzle_flare":"flare1",
+      "shoot_snd":["snd_mg",7]
     },
     "anim_speed":0.5,
     "c_kb": {
@@ -37,7 +38,8 @@
       "accuracy":1,
       "muzzle_vel":7,
       "range":[440,480],
-      "muzzle_flare":"flare1"
+      "muzzle_flare":"flare1",
+      "shoot_snd":"snd_cannon"
     },
     "palette":194
   },
@@ -72,6 +74,7 @@
       "muzzle_flare":"flare1",
       "rounds":5,
       "reload_rate":120,
+      "shoot_snd":["snd_mg",7],
       "charge_snd":"snd_charging",
       "charge_part":["charge",20,30],
       "sweep_angle":90
@@ -95,6 +98,7 @@
       "muzzle_flare":"flare1",
       "rounds":4,
       "reload_rate":60,
+      "shoot_snd":"snd_cannon",
       "charge_snd":"snd_charging",
       "charge_part":["charge",20,30],
       "sweep_angle":135

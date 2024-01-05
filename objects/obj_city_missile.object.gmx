@@ -25,14 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Read JSON data
+            <string>///Read JSON data(is_friendly)
 
-//available args:(is_friendly)
-var key = arg_buff[0];
-
+var mp = ds_map_find_value(global.projectiles,"city_missile");
 event_inherited();
 
-var mp = ds_map_find_value(global.projectiles, key);
 var ext = ds_map_find_value(mp, "extend");
 ground_hit_part = variable_global_get(ds_map_find_value(ext,"ground_hit_part"));
 airtime = ds_map_find_value(ext, "airtime");

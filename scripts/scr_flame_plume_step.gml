@@ -1,10 +1,3 @@
-#define scr_flame_plume_create
-///scr_flame_plume_create(x,y,projectile_name,is_friendly)
-
-var b = scr_projectile_create(argument[0],argument[1],argument[2],argument[3]);
-return b;
-
-#define scr_flame_plume_step
 ///scr_flame_plume_step()
 
 //reset xscale

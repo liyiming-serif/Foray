@@ -23,7 +23,11 @@ refy = lengthdir_y(1,image_angle);
 lv = dot_product(dx,dy,refx,refy);
 
 //actually create bullet
-var b = scr_projectile_create(x+lengthdir_x(barrel_len,image_angle),y+lengthdir_y(barrel_len,image_angle),bullet_type,is_friendly);
+var b = scr_instance_create(
+    x+lengthdir_x(barrel_len,image_angle),
+    y+lengthdir_y(barrel_len,image_angle),
+    projectile_ind,
+    is_friendly);
 if(is_friendly){
     b.direction = image_angle+2*av+random_range(-accuracy,accuracy);
 }
@@ -41,6 +45,11 @@ if(variable_instance_exists(id,"muzzle_flare")){
     part_type_orientation(muzzle_flare,0,0,0,0,true);
     part_type_speed(muzzle_flare,lv,lv,0,0);
     part_particles_create(global.partsys,b.x,b.y,muzzle_flare,1);
+}
+
+//sound [optional]
+if(variable_instance_exists(id,"shoot_snd")){
+    scr_wpn_fire_sound();
 }
 
 return b;

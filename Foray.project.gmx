@@ -372,13 +372,10 @@
     <script>scripts\scr_city_hit.gml</script>
     <script>scripts\scr_wpn_equip.gml</script>
     <scripts name="projectiles">
-      <script>scripts\scr_projectile_create.gml</script>
-      <script>scripts\scr_projectile_collide_with_hittable.gml</script>
-      <script>scripts\scr_projectile_collide_with_solid.gml</script>
-      <script>scripts\scr_projectile_out_of_range.gml</script>
+      <script>scripts\scr_projectile_shade.gml</script>
+      <script>scripts\scr_missile_navigate.gml</script>
+      <script>scripts\scr_flame_plume_step.gml</script>
     </scripts>
-    <script>scripts\scr_flame_plume_create.gml</script>
-    <script>scripts\scr_missile_init.gml</script>
     <script>scripts\scr_grounded_create.gml</script>
     <script>scripts\scr_cursor_frame_move.gml</script>
     <scripts name="ai">
@@ -401,6 +398,10 @@
       <scripts name="c_targeting">
         <script>scripts\scr_missile_target_city.gml</script>
         <script>scripts\scr_missile_target_player.gml</script>
+      </scripts>
+      <scripts name="c_bullet">
+        <script>scripts\scr_c_bullet_add.gml</script>
+        <script>scripts\scr_c_bullet_step.gml</script>
       </scripts>
     </scripts>
     <scripts name="wpn_cbs">

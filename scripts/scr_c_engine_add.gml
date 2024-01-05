@@ -3,8 +3,7 @@
 //decode json properties
 //ADDS: neutral_speed, turn, curr_speed
 
-var mp = argument[0];
-var cmp = ds_map_find_value(mp, "c_hull");
+var cmp = argument[0];
 
 if(is_undefined(cmp)){
     return undefined;

@@ -87,3 +87,23 @@ if(sprite_index != undefined){
     l_bound_frame = 0;
     u_bound_frame = shoot_frame;
 }
+#define scr_wpn_fire_sound
+///scr_wpn_fire_sound()
+//wpn helper function for playing a sound or sound group
+//req: shoot_snd
+//opt: shoot_snd_num
+
+var s;
+if(variable_instance_exists(id,num_sounds)){
+    //sound group: shoot_snd is the prefix string
+    s = scr_play_sound_randomize(shoot_snd, shoot_snd_num, x, y);
+}
+else{
+    //single sound: shoot_snd is the asset name
+    s = scr_play_sound(asset_get_index(shoot_snd), x, y);
+}
+
+//reduce sound by 50% if coming from player
+if(is_friendly){
+    audio_sound_gain(s,0.5,0);
+}
