@@ -14,8 +14,7 @@ var dsn = ds_map_find_value(mp,"death_seq_cb");
 if(dsn != undefined){
     death_seq_cb = asset_get_index(dsn);
 }
-//common: collision
-sp_invuln = 0;
+
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
 
@@ -36,12 +35,7 @@ if(!is_friendly){
     }
 }
 
-//audio
-engine_sound_emitter = audio_emitter_create();
-audio_emitter_falloff(engine_sound_emitter,
-    global.SOUND_FALLOFF_REF_DIST,
-    global.SOUND_FALLOFF_MAX_DIST,
-    global.SOUND_FALLOFF_FACTOR);
+
 
 #define scr_ship_advance_frame
 ///scr_ship_advance_frame()

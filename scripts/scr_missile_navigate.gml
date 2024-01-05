@@ -113,13 +113,13 @@ image_angle = direction;
 
 //sound
 var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
-audio_emitter_gain(propulsion_sound_emitter, clamp(gain,0,1));
+audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
 
 #define scr_missile_destroy
 ///scr_missile_destroy()
 
 //gc audio emitter
-audio_emitter_free(propulsion_sound_emitter);
+audio_emitter_free(engine_sound_emitter);
 
 #define scr_missile_set_target
 ///scr_missile_set_target()

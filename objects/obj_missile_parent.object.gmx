@@ -33,18 +33,9 @@ event_inherited();
 //LOAD COMPONENTS
 scr_c_hull_add(ds_map_find_value(mp,"c_hull"));
 scr_c_bullet_add(ds_map_find_value(mp,"c_bullet"));
+scr_c_engine_add(ds_map_find_value(mp,"c_engine"));
 
 var cmp, v;
-//TODO: scr_c_engine_add(cmp)
-cmp = ds_map_find_value(mp,"c_engine");
-curr_speed = ds_map_find_value(cmp, "speed");
-turn = ds_map_find_value(cmp, "turn");
-//audio
-propulsion_sound_emitter = audio_emitter_create();
-audio_emitter_falloff(propulsion_sound_emitter,
-    global.SOUND_FALLOFF_REF_DIST,
-    global.SOUND_FALLOFF_MAX_DIST,
-    global.SOUND_FALLOFF_FACTOR);
 
 //TODO: scr_c_targeting_add(cmp)
 cmp = ds_map_find_value(mp,"c_targeting");
@@ -147,8 +138,8 @@ scr_c_bullet_step();
 //TODO: refactor c_engine_step
 scr_missile_navigate();
 //update emitter
-audio_emitter_position(propulsion_sound_emitter,x,y,0);
-audio_emitter_velocity(propulsion_sound_emitter,hspeed,vspeed,0);
+audio_emitter_position(engine_sound_emitter,x,y,0);
+audio_emitter_velocity(engine_sound_emitter,hspeed,vspeed,0);
 </string>
           </argument>
         </arguments>
