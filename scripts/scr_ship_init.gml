@@ -1,38 +1,34 @@
 #define scr_ship_init
-///scr_ship_init(is_friendly, ds_map, update_target_time=-1)
+///scr_ship_init(is_friendly, ds_map)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
-is_friendly = argument[0];
-var mp = argument[1];
+is_friendly = arg_buff[0];
+mp = arg_buff[1];
 
 //LOAD COMPONENTS
-scr_c_hull_add(mp);
-scr_c_engine_add(mp);
+scr_c_hull_add(ds_map_find_value(mp,"c_hull"));
+scr_c_engine_add(ds_map_find_value(mp,"c_engine"));
 
 //common: callbacks
-var dsn = ds_map_find_value(mp,"death_seq_cb");
-if(dsn != undefined){
-    death_seq_cb = asset_get_index(dsn);
+var v;
+v = ds_map_find_value(mp,"shot_down_cb");
+if(v != undefined){
+    shot_down_cb = asset_get_index(v);
+}
+v = ds_map_find_value(mp,"crash_cb");
+if(v != undefined){
+    crash_cb = asset_get_index(v);
 }
 
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
 
-//ai
-//TODO: REAFACTOR AI
+//TODO: finish ai
+var aimp = ds_map_find_value(mp,"ai");
+update_target_time = ds_map_find_value(aimp,"update_target_time");
 if(!is_friendly){
-    //player
-    var utt = ds_map_find_value(mp,"update_target_time");
-    if(utt != undefined){
-        update_target_time = utt;
-    }
-    else if(argument_count==3){
-        update_target_time = argument[2];
-    }
-    if(variable_instance_exists(id,"update_target_time")){
-        target_id = global.player_id;
-        alarm[10] = update_target_time;
-    }
+    target_id = global.player_id;
+    alarm[update_target_time_alarm] = update_target_time;
 }
 
 

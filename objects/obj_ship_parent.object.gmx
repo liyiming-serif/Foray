@@ -49,10 +49,10 @@ scr_ship_gc();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Enemies: poll for target
+            <string>///AI: poll for target
 if(!is_friendly){
     target_id = global.player_id;
-    alarm[10] = update_target_time;
+    alarm[update_target_time_alarm] = update_target_time;
 }
 </string>
           </argument>
