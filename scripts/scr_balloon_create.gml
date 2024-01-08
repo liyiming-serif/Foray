@@ -18,25 +18,25 @@ with(instance_create(xv,yv,obj_balloon)){
     is_armored = argument[3];
     
     //mount weapons
-    gid[0] = scr_wpn_equip(x,y,wpn_ind,0,false);
-    gid[1] = 0;
-    if(scr_instance_exists(gid[0])){
-        gun_turn -= gun_turn*(1-7/gid[0].recoil);
-        gid[0].image_angle = 270;
-        og_accuracy = ds_map_find_value(mp,"accuracy_coeff")*gid[0].accuracy;
+    gid = 0;
+    if(wpn_ind!=undefined){
+        gid = scr_wpn_equip(x,y,wpn_ind,270,false);
+        gun_turn -= gun_turn*(1-7/gid.recoil);
+        og_accuracy = ds_map_find_value(mp,"accuracy_coeff")*gid.accuracy;
         accuracy = og_accuracy;
     }
+    //create armor
+    aid = 0;
     if(is_armored){
-        //create armor
-        gid[1] = instance_create(x,y,obj_balloon_amr);
+        aid = instance_create(x,y,obj_balloon_amr);
         
-        gid[1].state = shield_states.DOWN;
-        gid[1].anim_time = ds_map_find_value(mp, "amr_anim_time");
-        gid[1].up_lag = ds_map_find_value(mp, "amr_up_lag");
-        gid[1].down_lag = ds_map_find_value(mp, "amr_down_lag");
+        aid.state = shield_states.DOWN;
+        aid.anim_time = ds_map_find_value(mp, "amr_anim_time");
+        aid.up_lag = ds_map_find_value(mp, "amr_up_lag");
+        aid.down_lag = ds_map_find_value(mp, "amr_down_lag");
         //hack: armor needs at least balloon's anim length
         //future: if it needs to know more, pass balloon ref to armor
-        gid[1].balloon_frames = image_number;
+        aid.balloon_frames = image_number;
     }
     
     //ai and target selection
@@ -49,12 +49,6 @@ with(instance_create(xv,yv,obj_balloon)){
     
     image_speed = 0.4;
 
-    /*
-    engine_sound = audio_play_sound_on(engine_sound_emitter,snd_balloon_propeller,true,0);
-    audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
-    audio_emitter_gain(engine_sound_emitter, global.SOUND_BALLOON_GAIN_SHIFT);
-    audio_emitter_pitch(engine_sound_emitter, global.SOUND_BALLOON_PITCH_SHIFT);
-    */
     return id;
 }
 
@@ -92,7 +86,7 @@ if(scr_instance_exists(target_id) &&
 }
 
 //hiding behind armor; don't move
-if(scr_instance_exists(gid[1]) && gid[1].visible){
+if(scr_instance_exists(aid) && aid.visible){
     speed = 0;
     return undefined;
 }
@@ -154,18 +148,18 @@ else{
 ///scr_balloon_aim()
 
 //aim if in range
-if(scr_instance_exists(target_id) && distance_to_object(target_id)<gid[0].range[0]*0.6){
+if(scr_instance_exists(target_id) && distance_to_object(target_id)<gid.range[0]*0.6){
     //turn the gun
     var pa = point_direction(x, y, target_id.x, target_id.y);
-    var da = angle_difference(pa,gid[0].image_angle);
+    var da = angle_difference(pa,gid.image_angle);
     var ta = min(abs(da),gun_turn);
-    gid[0].image_angle += global.game_speed*ta*sign(da);
-    gid[0].image_angle = 
-        angle_difference(gid[0].image_angle, 0); //constrain angle values
+    gid.image_angle += global.game_speed*ta*sign(da);
+    gid.image_angle = 
+        angle_difference(gid.image_angle, 0); //constrain angle values
     
     //shoot if within angle
     if(abs(da) <= accuracy){
-        scr_ship_shoot(gid[0],"pressed");
+        scr_ship_shoot(gid,"pressed");
     }
 }
 
@@ -174,13 +168,13 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<gid[0].range[
 
 //TODO: change logic to put up shield friendly bullet is within range
 
-if(gid[1].state == shield_states.DOWN && scr_balloon_firing_in_range()){
+if(aid.state == shield_states.DOWN && scr_balloon_firing_in_range()){
     //raise armor if target is firing in range
-    gid[1].state = shield_states.GOING_UP;
+    aid.state = shield_states.GOING_UP;
 }
-else if(gid[1].state == shield_states.UP && !scr_balloon_firing_in_range()){
+else if(aid.state == shield_states.UP && !scr_balloon_firing_in_range()){
     //drop armor if target is no longer firing in range
-    gid[1].state = shield_states.GOING_DOWN;
+    aid.state = shield_states.GOING_DOWN;
 }
 
 
@@ -189,7 +183,7 @@ else if(gid[1].state == shield_states.UP && !scr_balloon_firing_in_range()){
 
 if(is_friendly!=other.is_friendly){
     player_noticed = true;
-    if(scr_instance_exists(gid[1]) && scr_balloon_amr_is_up()){
+    if(scr_instance_exists(aid) && scr_balloon_amr_is_up()){
         instance_destroy(other);
         part_particles_create(global.partsys,other.x,other.y,global.deflect,1);
         //deflected
@@ -205,15 +199,15 @@ if(is_friendly!=other.is_friendly){
 
 //Update weapon position. Call during the end step.
 
-if(scr_instance_exists(gid[0])){
-    scr_ship_update_wpn(6,gid[0].image_angle,gid[0],false);
+if(scr_instance_exists(gid)){
+    scr_ship_update_wpn(6,gid.image_angle,gid,false);
 }
 
-if(scr_instance_exists(gid[1]) && gid[1].visible){
-    gid[1].x = x;
-    gid[1].y = y;
+if(scr_instance_exists(aid) && aid.visible){
+    aid.x = x;
+    aid.y = y;
     if(scr_balloon_amr_is_up()){
-        gid[1].image_index = image_index;
+        aid.image_index = image_index;
     }
 }
 
@@ -233,8 +227,8 @@ else{
 #define scr_balloon_amr_is_up
 ///scr_balloon_amr_is_up()
 
-//gid[1] must be initialized
-return gid[1].state == shield_states.UP || gid[1].state == shield_states.GOING_DOWN;
+//aid must be initialized
+return aid.state == shield_states.UP || aid.state == shield_states.GOING_DOWN;
 
 #define scr_balloon_advance_frame
 ///scr_balloon_advance_frame()

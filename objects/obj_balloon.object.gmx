@@ -8,6 +8,34 @@
   <parentName>obj_ship_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///clean up armor id
+
+event_inherited();
+if(scr_instance_exists(aid)){
+    instance_destroy(aid);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -34,7 +62,7 @@ else if(distance_to_object(target_id)&gt;alert_range){
         is_aggro = false;
     }
 }
-else if(player_noticed &amp;&amp; scr_instance_exists(gid[0])){
+else if(player_noticed &amp;&amp; scr_instance_exists(gid)){
     if(random(1) &lt; aggro_chance){
         is_aggro = true;
     }
@@ -164,10 +192,10 @@ else if(scr_instance_exists(global.city_id)){
           <argument>
             <kind>1</kind>
             <string>///Aim Wpns
-if(scr_instance_exists(gid[0])){
+if(scr_instance_exists(gid)){
     scr_balloon_aim();
 }
-if(scr_instance_exists(gid[1])){
+if(scr_instance_exists(aid)){
     scr_balloon_guard();
 }
 

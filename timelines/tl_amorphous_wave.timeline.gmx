@@ -242,9 +242,9 @@ scr_remove_design_pattern("scr_spawn_plane_cmc3");
             <kind>1</kind>
             <string>///introduce balloons
 
-scr_spawn_balloon("");
-scr_spawn_balloon("");
-scr_spawn_balloon("");
+scr_spawn_balloon(undefined);
+scr_spawn_balloon(undefined);
+scr_spawn_balloon(undefined);
 
 //scr_remove_design_pattern("scr_spawn_balloon");
 </string>
