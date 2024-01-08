@@ -18,7 +18,7 @@ can_fire = true;
 ///Act based on AI FSM
 
 if(hp<=0 || !has_pilot || !scr_instance_exists(target_id)){
-    scr_plane_idle();
+    scr_c_plane_engine_idle();
     return undefined;
 }
 

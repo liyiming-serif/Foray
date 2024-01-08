@@ -20,10 +20,6 @@ scr_c_hull_add(cmp);
 cmp = ds_map_find_value(mp,"c_plane_engine");
 scr_c_plane_engine_add(cmp);
 
-rolltime = ds_map_find_value(mp,"rolltime");
-max_roll_cooldown = ds_map_find_value(mp, "roll_cooldown");
-
-
 //variable fields
 has_pilot = true;
 
@@ -100,181 +96,6 @@ display_name = ds_map_find_value(mp,"name");
 display_speed = round(clamp(speed_rank,1,global.MAX_STATS));
 display_turn = round(clamp(turn_rank,1,global.MAX_STATS));
 display_wpn = gid.name;
-
-#define scr_plane_steer
-///scr_plane_steer(xtarget, ytarget, turn_modifier=1)
-
-//Steer (calculate turn) of the plane towards a target.
-
-//Find target image angle + direction
-var pa, da, da_d;
-pa = point_direction(x,y,argument[0],argument[1]);
-da = angle_difference(pa,image_angle);
-da_d = angle_difference(pa,direction);
-
-//Calculate turn acc modifiers
-var tam;
-if(roll_invuln > 0){
-    tam = 1;
-}
-else{
-    //normal flying, dampen turn acc based on speed
-    tam = 1-global.TURN_ACC_DAMPENER*((curr_speed-min_speed)/(max_speed-min_speed));
-}
-
-
-//Calculate turn modifiers
-var tm, tm_d;
-tm = 1;
-tm_d = 1;
-//rolling turn boost
-if(roll_invuln > 0){
-    tm *= global.ROLL_TURN;
-    tm_d *= global.ROLL_TURN;
-}
-else{
-    //normal flying, dampen turn limit based on speed
-    tm *= 1-global.TURN_DAMPENER*((curr_speed-min_speed)/(max_speed-min_speed));
-    tm_d *= 1-global.TURN_DAMPENER*((curr_speed-min_speed)/(max_speed-min_speed));
-}
-//Apply a flat multiplier so planes spend less time off-screen
-if(scr_is_obj_outside_room()){
-    tm *= global.TURN_OUTSIDE_ROOM_COEFF;
-    tm_d *= global.TURN_OUTSIDE_ROOM_COEFF;
-}
-//Optional: apply a modifier w/out affecting 'turn' property.
-if(argument_count==3){
-    tm *= argument[2];
-    tm_d *= argument[2];
-}
-//hairpin turns at low speeds + stabilization
-var insta_turn = false;
-if(turn<global.TURN_STABLE_THRESH*base_turn){
-    insta_turn = true;
-}
-//Can drift - only affects image angle
-if(is_braking){
-    tm *= global.DRIFT;
-    if(curr_speed > min_speed){
-        insta_turn = true;
-    }
-}
-
-//Boost after drifting to fly straight
-if(is_boosting){
-    tm_d *= global.STABILITY;
-}
-
-//Apply turn modifiers
-var ideal_turn, max_turn;
-max_turn = tm*base_turn;
-ideal_turn = clamp(da,-max_turn,max_turn);
-if(insta_turn){
-    turn = ideal_turn;
-}
-else{
-    turn = clamp(ideal_turn,
-        turn-turn_accel*tam*global.game_speed,
-        turn+turn_accel*tam*global.game_speed);
-}
-
-//Set image angle
-if(roll_invuln > 0){
-    //rolling, lock image angle
-}
-else {
-    image_angle += global.game_speed*turn;
-}
-image_angle = angle_difference(image_angle, 0); //constrain angle values
-
-//Set direction
-var ideal_turn_d, max_turn_d;
-max_turn_d = tm_d*base_turn;
-ideal_turn_d = clamp(da_d,-max_turn_d,max_turn_d);
-if(insta_turn){
-    turn_d = ideal_turn_d;
-}
-else{
-    turn_d = clamp(ideal_turn_d,
-        turn_d-turn_accel*tam*global.game_speed,
-        turn_d+turn_accel*tam*global.game_speed);
-}
-direction += global.game_speed*turn_d;
-direction = angle_difference(direction,0); //constrain angle values
-
-
-//Set speed
-speed = global.game_speed*curr_speed*(1-abs(turn_d)/(base_turn*global.SPEED_DAMPENER));
-    
-//Change sprite based on turn img angle
-if(!is_rolling && sprite_index != spr_plane1_buckle){
-    if(turn > base_turn){
-        //hard left turn
-        l_bound_frame = left_frame;
-        u_bound_frame = image_number;
-    }
-    else if(turn < -base_turn){
-        //hard right turn
-        l_bound_frame = right_frame;
-        u_bound_frame = left_frame;
-    }
-    else{ //neutral
-        l_bound_frame = neutral_frame;
-        u_bound_frame = right_frame;
-    }
-}
-
-//update sound emitter for doppler effect
-if(is_friendly){
-    var pitch = 1-((max_speed-curr_speed)/max_speed)*global.SOUND_PITCH_DAMPENER;
-    audio_emitter_pitch(engine_sound_emitter, pitch);
-}
-var gain = (1-(max_speed-curr_speed)/max_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
-audio_emitter_gain(engine_sound_emitter, gain);
-
-
-#define scr_plane_idle
-///scr_plane_idle()
-//refactor this. copy-pasted from point_turn
-var ideal_turn, da;
-da = angle_difference(direction,image_angle);
-ideal_turn = min(abs(da),base_turn)*sign(da);
-turn = clamp(ideal_turn,
-    turn-turn_accel*global.game_speed,
-    turn+turn_accel*global.game_speed);
-image_angle += global.game_speed*turn_d;
-speed = global.game_speed*curr_speed;
-audio_stop_sound(engine_sound);
-
-#define scr_plane_boost
-///scr_plane_boost()
-if(!is_rolling){
-    is_braking = false;
-    is_boosting = true;
-    curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,max_speed);
-}
-
-#define scr_plane_brake
-///scr_plane_brake()
-if(!is_rolling){
-    is_braking = true;
-    is_boosting = false;
-    curr_speed = clamp(curr_speed-global.BRAKE_SPEED,min_speed,max_speed);
-}
-
-
-#define scr_plane_neutral
-///scr_plane_neutral()
-if(!is_rolling){
-    is_braking = false;
-    is_boosting = false;
-    if(curr_speed<neutral_speed){//too slow
-        curr_speed = clamp(curr_speed+global.ACC_SPEED,min_speed,neutral_speed);
-    }
-    else if(curr_speed>neutral_speed){//too fast
-        curr_speed = clamp(curr_speed-global.AIR_FRIC,neutral_speed,max_speed);
-    }
-}
 
 #define scr_plane_shade
 ///scr_plane_shade()
@@ -361,7 +182,7 @@ else if(image_index<l_bound_frame){
 
 //rolling mechanics
 if(is_rolling){
-    scr_plane_rolling();
+    scr_c_plane_engine_rolling();
 }
 
 //draw depth
@@ -374,7 +195,7 @@ else{
 
 //countdown rolling maneuver
 roll_invuln = max(0, roll_invuln-global.game_speed);
-roll_cooldown = max(0, roll_cooldown-global.game_speed);
+roll_cool = max(0, roll_cool-global.game_speed);
 
 //charge stealing: reset charge progress when not aiming
 if(global.AB_USE_CHARGE_STEAL && !is_targeted){

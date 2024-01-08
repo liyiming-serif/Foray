@@ -369,8 +369,6 @@
       <script>scripts\scr_plane_init.gml</script>
       <script>scripts\scr_player_create.gml</script>
       <script>scripts\scr_plane_hit.gml</script>
-      <script>scripts\scr_plane_roll.gml</script>
-      <script>scripts\scr_plane_rolling.gml</script>
       <script>scripts\scr_plane_ui_get_angles.gml</script>
       <scripts name="pilot_ai">
         <script>scripts\scr_aiplane_init.gml</script>
@@ -422,6 +420,13 @@
       </scripts>
       <scripts name="c_plane_engine">
         <script>scripts\scr_c_plane_engine_add.gml</script>
+        <script>scripts\scr_c_plane_engine_steer.gml</script>
+        <script>scripts\scr_c_plane_engine_boost.gml</script>
+        <script>scripts\scr_c_plane_engine_brake.gml</script>
+        <script>scripts\scr_c_plane_engine_neutral.gml</script>
+        <script>scripts\scr_c_plane_engine_roll.gml</script>
+        <script>scripts\scr_c_plane_engine_rolling.gml</script>
+        <script>scripts\scr_c_plane_engine_idle.gml</script>
       </scripts>
     </scripts>
     <scripts name="wpn_cbs">

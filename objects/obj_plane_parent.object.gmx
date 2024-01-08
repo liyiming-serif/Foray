@@ -236,7 +236,7 @@ if(is_rolling &amp;&amp; roll_invuln==0){
     sprite_index = spr_plane1;
     image_speed = idle_anim_speed;
     is_rolling = false;
-    roll_cooldown = max_roll_cooldown;
+    roll_cool = roll_cooldown;
 }
 </string>
           </argument>

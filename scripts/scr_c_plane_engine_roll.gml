@@ -1,16 +1,15 @@
-///scr_plane_roll()
+///scr_c_plane_engine_roll()
 
 //Returns whether a new roll was started
-if(is_rolling || roll_cooldown!=0){
+if(is_rolling || roll_cool!=0){
     return false;
 }
 
 //Start the roll
-roll_invuln = rolltime;
+roll_invuln = roll_duration;
 is_rolling = true;
 
-//Configure direction of dash
-
+//TODO: Configure direction of dash
 
 sprite_index = spr_plane1_roll;
 image_speed = roll_anim_speed;

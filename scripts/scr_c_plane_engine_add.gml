@@ -36,7 +36,6 @@ turn = 0;
 turn_d = 0;
 curr_speed = neutral_speed;
 roll_invuln = 0;
-roll_time = 0;
 roll_cool = 0;
 is_braking = false;
 is_boosting = false;

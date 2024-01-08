@@ -24,8 +24,8 @@ with(instance_create(xv,yv,obj)){
     og_base_turn = base_turn;
     base_turn *= global.AI_TURN_REDUC;
     neutral_speed *= global.AI_SPEED_REDUC;
-    min_speed *= global.AI_SPEED_REDUC;
-    max_speed *= global.AI_SPEED_REDUC;
+    brake_speed *= global.AI_SPEED_REDUC;
+    boost_speed *= global.AI_SPEED_REDUC;
     curr_speed = neutral_speed;
     max_hp = ceil(max_hp*global.AI_HP_REDUC);
     achy = ceil(ds_list_find_value(ds_map_find_value(mp,"achy"),skill)*max_hp); //hp threshold for stealing
@@ -110,11 +110,11 @@ if(i!=noone){
 }
 if(state == plane_ai_states.AVOIDING){
     //swerving
-    scr_plane_steer(x+ax, y+ay, ai_turn_mod*global.SWERVE_TURN_MOD);
+    scr_c_plane_engine_steer(x+ax, y+ay, ai_turn_mod*global.SWERVE_TURN_MOD);
 }
 else{
     //normal flying
-    scr_plane_steer(xtarget, ytarget, ai_turn_mod);
+    scr_c_plane_engine_steer(xtarget, ytarget, ai_turn_mod);
 }
 
 #define scr_aiplane_shoot

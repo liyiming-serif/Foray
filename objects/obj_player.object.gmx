@@ -80,40 +80,40 @@ scr_plane_advance_frame();
 
 if(hp&lt;=0 || !has_pilot || id!=global.player_id) {
     //NOTE: return exits the whole event, not just the code block
-    scr_plane_idle();
+    scr_c_plane_engine_idle();
     return undefined;
 }
 
 //buckling dampens turning and disables keyboard+firing
 if(sprite_index==spr_plane1_buckle){
-    scr_plane_steer(mouse_x, mouse_y, global.C_TURN_DAMPENER);
+    scr_c_plane_engine_steer(mouse_x, mouse_y, global.C_TURN_DAMPENER);
     return undefined;
 }
 
 //rolling
 if(keyboard_check_pressed(global.roll_key)){
-    scr_plane_roll();
+    scr_c_plane_engine_roll();
 }
 
 //boosting and braking
 if(keyboard_check(global.brake_key)){
-    scr_plane_brake();
+    scr_c_plane_engine_brake();
 }
 else if(keyboard_check(global.boost_key)){
-    scr_plane_boost();
+    scr_c_plane_engine_boost();
 }
 else{
-    scr_plane_neutral();
+    scr_c_plane_engine_neutral();
 }
 
 //stealing dampens turns and disables firing
 if(mouse_check_button(mb_right)){
-    scr_plane_steer(mouse_x, mouse_y, global.C_TURN_DAMPENER);
+    scr_c_plane_engine_steer(mouse_x, mouse_y, global.C_TURN_DAMPENER);
     return undefined;
 }
 
 //turn towards mouse pointer
-scr_plane_steer(mouse_x, mouse_y);
+scr_c_plane_engine_steer(mouse_x, mouse_y);
 
 //'LMB' to shoot
 if(!is_rolling){
