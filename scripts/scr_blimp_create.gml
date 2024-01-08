@@ -6,7 +6,7 @@ var dir = argument[2];
 
 with(instance_create(xv,yv,obj_blimp)){
     //initiallize stats
-    var mp = ds_map_find_value(global.airships, "blimp");
+    var mp = ds_map_find_value(global.ships, "blimp");
     scr_ship_init(false,mp);
     
     curr_speed = ds_map_find_value(mp, "speed");
@@ -17,9 +17,9 @@ with(instance_create(xv,yv,obj_blimp)){
     image_angle = direction;
     
     //mount wpns
-    gid[0] = scr_wpn_equip(x,y,0,"city_missile_gun",false);
-    gid[1] = scr_wpn_equip(x,y,0,"player_missile_gun",false); //left
-    gid[2] = scr_wpn_equip(x,y,0,"player_missile_gun",false); //right
+    gid[0] = scr_wpn_equip(x,y,obj_city_missile_gun,0,false);
+    gid[1] = scr_wpn_equip(x,y,obj_player_missile_gun,0,false); //left
+    gid[2] = scr_wpn_equip(x,y,obj_player_missile_gun,0,false);//right
     
     //ai params
     //increase sight modifier for oblong shape

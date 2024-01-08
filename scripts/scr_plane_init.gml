@@ -1,16 +1,11 @@
 #define scr_plane_init
-///scr_plane_init(dir, model_name, is_friendly, update_target_time=-1)
+///scr_plane_init(dir, model_name, is_friendly)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
-direction = argument[0];
-var mp = ds_map_find_value(global.models, argument[1]);
-key = argument[1];
-if(argument_count==4){
-    scr_ship_init(argument[2],global.planes,argument[3]);
-}
-else{
-    scr_ship_init(argument[2],global.planes);
-}
+direction = arg_buff[0];
+var mp = ds_map_find_value(global.models, arg_buff[1]);
+key = arg_buff[1];
+is_friendly = arg_buff[2];
 
 //orient the plane
 image_angle = direction;
@@ -18,37 +13,19 @@ image_angle = direction;
 //params common to every model
 max_hp = ds_map_find_value(global.planes,"max_hp");
 
-//primary stats. These stats represent how many stars the player sees.
-//Use the global lookup table to interpolate the in-game values these
-//stats represent.
-display_speed = clamp(ds_map_find_value(mp,"speed"),1,global.MAX_STATS);
-display_turn = clamp(ds_map_find_value(mp,"base_turn"),1,global.MAX_STATS);
-display_dmg = clamp(ds_map_find_value(mp,"dmg"),1,global.MAX_STATS);
+
+var cmp;
+cmp = ds_map_find_value(global.planes,"c_hull");
+scr_c_hull_add(cmp);
+cmp = ds_map_find_value(mp,"c_plane_engine");
+scr_c_plane_engine_add(cmp);
+
 rolltime = ds_map_find_value(mp,"rolltime");
 max_roll_cooldown = ds_map_find_value(mp, "roll_cooldown");
 
-//translated primary stats
-neutral_speed = scr_interpolate_stat(display_speed,global.speed_tiers);
-base_turn = scr_interpolate_stat(display_turn,global.base_turn_tiers);
-
-//hidden stats
-min_speed = scr_interpolate_stat(display_speed,global.min_speed_tiers);
-max_speed = scr_interpolate_stat(display_speed,global.max_speed_tiers);
-turn_accel = scr_interpolate_stat(ds_map_find_value(mp,"turn_accel"),global.turn_accel_tiers);
-roll_speed = scr_interpolate_stat(display_speed,global.roll_speed_tiers);
-modifier = ds_map_find_value(mp,"palette");
 
 //variable fields
-hp = max_hp;
-turn = 0;
-turn_d = 0;
-curr_speed = neutral_speed;
-is_braking = false;
-is_boosting = false;
-is_rolling = false;
 has_pilot = true;
-roll_invuln = 0;
-roll_cooldown = 0;
 
 //animation
 idle_anim_speed = 0.4; //hardcoded values
@@ -63,7 +40,8 @@ l_bound_frame = neutral_frame;
 u_bound_frame = right_frame;
 
 //palette swap shader
-rt_modifier = modifier/256.0; //magic number for 256 max palettes
+modifier = ds_map_find_value(mp,"palette");
+rt_modifier = modifier/255.0; //magic number for 256 max palettes
 palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
 row_ref = shader_get_uniform(shader_pal_swap, "row");
 //flash shader
@@ -112,18 +90,16 @@ if(global.AB_USE_ANGLE_STEAL){
 }
 
 //arm the plane
-wpn_name = ds_map_find_value(mp,"wpn");
-gid = scr_wpn_equip(x,y,direction,wpn_name,is_friendly,display_dmg);
+wpn_ind = asset_get_index(ds_map_find_value(mp,"wpn_ind"));
+gid = scr_wpn_equip(x,y,wpn_ind,direction,is_friendly);
 
-//audio
-if(is_friendly){
-    engine_sound = audio_play_sound_on(engine_sound_emitter,snd_ambience,true,0);
-}
-else{
-    engine_sound = audio_play_sound_on(engine_sound_emitter,snd_plane_engine,true,0);
-}
-audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
-
+//These stats represent how many stars the player sees.
+//Use the global lookup table to interpolate the in-game values these
+//stats represent.
+display_name = ds_map_find_value(mp,"name");
+display_speed = round(clamp(speed_rank,1,global.MAX_STATS));
+display_turn = round(clamp(turn_rank,1,global.MAX_STATS));
+display_wpn = gid.name;
 
 #define scr_plane_steer
 ///scr_plane_steer(xtarget, ytarget, turn_modifier=1)

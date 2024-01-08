@@ -13,7 +13,7 @@ if(argument_count<5){
 
 with(instance_create(xv,yv,obj_zeppelin)){
     //initiallize stats
-    var mp = ds_map_find_value(global.airships, "zeppelin");
+    var mp = ds_map_find_value(global.ships, "zeppelin");
     
     curr_speed = ds_map_find_value(mp, "speed");
     turn = ds_map_find_value(mp, "turn");
@@ -23,10 +23,10 @@ with(instance_create(xv,yv,obj_zeppelin)){
     image_angle = direction;
     
     //mount wpns
-    gid[0] = scr_wpn_equip(x,y,0,front_wpn,false);
-    gid[1] = scr_wpn_equip(x,y,0,left_wpn,false);
-    gid[2] = scr_wpn_equip(x,y,0,right_wpn,false);
-    gid[3] = scr_wpn_equip(x,y,0,"mine_layer",false);
+    gid[0] = scr_wpn_equip(x,y,front_wpn,0,false);
+    gid[1] = scr_wpn_equip(x,y,left_wpn,0,false);
+    gid[2] = scr_wpn_equip(x,y,right_wpn,0,false);
+    gid[3] = scr_wpn_equip(x,y,obj_mine_layer,0,false);
     
     //min_range determines nimbus
     min_range = 0;

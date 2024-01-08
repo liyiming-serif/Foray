@@ -1,17 +1,16 @@
 #define scr_balloon_create
-///scr_balloon_create(x,y,wpn_name,is_armored)
+///scr_balloon_create(x,y,wpn_ind,is_armored)
 var xv = argument[0];
 var yv = argument[1];
-var wpn_name = argument[2];
+var wpn_ind = argument[2];
 
 with(instance_create(xv,yv,obj_balloon)){
     //initiallize stats
-    var mp = ds_map_find_value(global.airships, "balloon");
+    var mp = ds_map_find_value(global.ships, "balloon");
     
     scr_ship_init(false,mp);
     
-    curr_speed = ds_map_find_value(mp, "speed");
-    turn = ds_map_find_value(mp, "turn");
+    //TODO: refactor extend
     gun_turn = ds_map_find_value(mp, "gun_turn");
     alert_range = ds_map_find_value(mp, "alert_range");
     drop_bomb_reload_speed = ds_map_find_value(mp, "drop_bomb_reload_speed");
@@ -19,7 +18,7 @@ with(instance_create(xv,yv,obj_balloon)){
     is_armored = argument[3];
     
     //mount weapons
-    gid[0] = scr_wpn_equip(x,y,0,wpn_name,false);
+    gid[0] = scr_wpn_equip(x,y,wpn_ind,0,false);
     gid[1] = 0;
     if(scr_instance_exists(gid[0])){
         gun_turn -= gun_turn*(1-7/gid[0].recoil);

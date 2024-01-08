@@ -25,14 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///scr_wpn_init(dir, wpn_name, is_friendly)
+            <string>///scr_wpn_init(dir, is_friendly)
+//req: mp
 
-//direction?
+//NOTE: image_angle = direction
 image_angle = arg_buff[0];
-var k = arg_buff[1];
-is_friendly = arg_buff[2];
+is_friendly = arg_buff[1];
 
-mp = ds_map_find_value(global.weapons,k);
+name = ds_map_find_value(mp,"name")
 
 //angle + position
 image_angle_prev = image_angle;

@@ -6,7 +6,7 @@
     "max_hp": 40,
     "weight": 1
   },
-  "engine_tiers":{
+  "plane_engine_tiers":{
     "speeds":[2, 2.3, 2.6],
     "turns":[2, 3, 4],
     "brake_speeds":[1.8, 2, 2.2],
@@ -19,7 +19,7 @@
   "models":{
     "altair":{
       "name": "Altair",
-      "wpn":"mg",
+      "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
         "speed_rank": 1,
@@ -32,7 +32,7 @@
     },
     "bessie":{
       "name": "BC-4 Bessie",
-      "wpn":"mg",
+      "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
         "speed_rank": 2,
@@ -45,7 +45,7 @@
     },
     "camel":{
       "name": "Camel",
-      "wpn":"mg",
+      "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
         "speed_rank": 1,
@@ -58,7 +58,7 @@
     },
     "firnas":{
       "name": "IB-N Firnas",
-      "wpn":"flamethrower",
+      "wpn_ind":"obj_flamethrower",
       "default_ai":"pyro",
       "c_plane_engine":{
         "speed_rank": 1,
@@ -71,8 +71,7 @@
     },
     "earl":{
       "name": "Red Baron",
-      
-      "wpn":"mg",
+      "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
         "speed_rank": 2,
@@ -85,11 +84,11 @@
     },
     "deneb":{
       "name": "Deneb",
-      "speed_rank": 2,
-      "turn_rank": 1,
-      "wpn":"flamethrower",
+      "wpn_ind":"obj_flamethrower",
       "default_ai":"pyro",
       "c_plane_engine":{
+        "speed_rank": 2,
+        "turn_rank": 1,
         "turn_accel_rank": 1,
         "roll_duration_rank": 1,
         "roll_cooldown_rank": 1,

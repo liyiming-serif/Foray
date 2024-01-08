@@ -36,7 +36,7 @@ if(instance_number(obj_control)&gt;1){
 randomize();
 
 //A/B TEST FLAGS
-global.AB_USE_CHARGE_STEAL = true;
+global.AB_USE_CHARGE_STEAL = false;
 global.AB_USE_ANGLE_STEAL = false;
 
 //LOAD JSONS
@@ -94,10 +94,9 @@ global.DEFAULT_SETTINGS = json_decode(raw);
 
 //PARSE JSONS
 global.planes = ds_map_find_value(global.SHIPS, "planes");
-global.airships = ds_map_find_value(global.SHIPS, "airships");
+global.ships = ds_map_find_value(global.SHIPS, "ships");
 global.models = ds_map_find_value(global.planes, "models");
-var stat_tiers = ds_map_find_value(global.planes, "stat_tiers");
-global.speed_tiers = ds_map_find_value(stat_tiers, "speeds");
+global.plane_engine_tiers = ds_map_find_value(global.planes, "plane_engine_tiers");
 global.min_speed_tiers = ds_map_find_value(stat_tiers, "min_speeds");
 global.max_speed_tiers = ds_map_find_value(stat_tiers, "max_speeds");
 global.roll_speed_tiers = ds_map_find_value(stat_tiers, "roll_speeds");

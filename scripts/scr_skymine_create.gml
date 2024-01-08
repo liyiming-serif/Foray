@@ -15,7 +15,7 @@ with(instance_create(xv,yv,obj_skymine)){
     speed = launch_vel;
     
     //initiallize stats
-    var mp = ds_map_find_value(global.airships, "skymine");
+    var mp = ds_map_find_value(global.ships, "skymine");
     
     friction = ds_map_find_value(mp, "fric");
     dmg = ds_map_find_value(mp, "dmg");

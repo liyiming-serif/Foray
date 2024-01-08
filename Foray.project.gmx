@@ -420,6 +420,9 @@
         <script>scripts\scr_c_bullet_add.gml</script>
         <script>scripts\scr_c_bullet_step.gml</script>
       </scripts>
+      <scripts name="c_plane_engine">
+        <script>scripts\scr_c_plane_engine_add.gml</script>
+      </scripts>
     </scripts>
     <scripts name="wpn_cbs">
       <script>scripts\scr_shoot.gml</script>

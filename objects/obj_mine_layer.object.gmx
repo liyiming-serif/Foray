@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///read JSON data (dir, wpn_name, is_friendly)
+            <string>///read JSON data(dir, is_friendly)
+mp = ds_map_find_value(global.weapons,"mine_layer");
 event_inherited();
 
 var ext = ds_map_find_value(mp, "extend");

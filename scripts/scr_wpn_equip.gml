@@ -1,5 +1,5 @@
 #define scr_wpn_equip
-///scr_wpn_equip(x, y, obj_ind, dir, wpn_name, is_friendly, dmg_mod=1)
+///scr_wpn_equip(x, y, obj_ind, dir, is_friendly, dmg_mod=1)
 
 //Used for creating a generic gun from JSON.
 //Additional JSON properties should be read in wpn obj's create event.
@@ -15,12 +15,11 @@ with(scr_instance_create(
     argument[1],
     argument[2],
     argument[3],
-    argument[4],
-    argument[5])){
+    argument[4])){
   
     //AI mods
-    if(argument_count == 7){
-        dmg_mod = argument[6];
+    if(argument_count == 6){
+        dmg_mod = argument[5];
         //apply dmg mod to base wpn dmg
         //since wpn creation already passed
         dmg *= dmg_mod;

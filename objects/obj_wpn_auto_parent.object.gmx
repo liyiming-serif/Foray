@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///load firing component(dir, wpn_name, is_friendly)
+            <string>///load firing component(dir, is_friendly)
 
 event_inherited();
 
