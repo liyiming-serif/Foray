@@ -7,9 +7,16 @@
     "scr_spawn_skymine":16,
     "scr_spawn_chasing_skymine":5.5,
     "scr_spawn_skymine_cluster":3,
+    "scr_spawn_unarmed_balloon":1.4,
     "scr_spawn_balloon":1.4,
     "scr_spawn_blimp":0.9,
     "scr_spawn_amr_balloon":0.85,
     "scr_spawn_zeppelin":0.1
+  },
+  "wpn_weights":{
+    "obj_cannon": 5,
+    "obj_light_mg":4,
+    "obj_airtillery":2,
+    "obj_burst_cannon":1
   }
 }
