@@ -57,7 +57,8 @@ var pd = point_direction(pos[0],pos[1],room_width/2,room_height/2);
 var rad = min(room_width,room_height)*2/5;
 var dest_x = room_width/2+lengthdir_x(rad,pd);
 var dest_y = room_height/2+lengthdir_y(rad,pd);
-var b = scr_balloon_create(pos[0],pos[1],wpn_ind,is_amred,undefined,dest_x,dest_y);
+var b = scr_instance_create(pos[0],pos[1],obj_balloon,
+    0,false,wpn_ind,is_amred,undefined,dest_x,dest_y);
 if(scr_instance_exists(b.gid)){
     scr_add_seen_wpn(wpn_ind);
 }

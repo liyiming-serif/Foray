@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Read JSON data
-
-//available args:(dir, model_name, is_friendly)
+            <string>///Read JSON data(dir, model_name, is_friendly)
 
 scr_plane_init(arg_buff[0], arg_buff[1], arg_buff[2]);
 

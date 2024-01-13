@@ -1,9 +1,9 @@
 #define scr_ship_init
-///scr_ship_init(is_friendly, ds_map)
+///scr_ship_init(dir, is_friendly)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
-is_friendly = arg_buff[0];
-mp = arg_buff[1];
+direction = argument[0];
+is_friendly = argument[1];
 
 //LOAD COMPONENTS
 scr_c_hull_add(ds_map_find_value(mp,"c_hull"));
@@ -23,7 +23,7 @@ if(v != undefined){
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
 
-//TODO: finish ai
+//Base ship AI
 var aimp = ds_map_find_value(mp,"ai");
 update_target_time = ds_map_find_value(aimp,"update_target_time");
 if(!is_friendly){

@@ -428,6 +428,12 @@
         <script>scripts\scr_c_plane_engine_rolling.gml</script>
         <script>scripts\scr_c_plane_engine_idle.gml</script>
       </scripts>
+      <scripts name="c_bomber">
+        <script>scripts\scr_c_bomber_add.gml</script>
+      </scripts>
+      <scripts name="scr_c_amr">
+        <script>scripts\scr_c_amr_add.gml</script>
+      </scripts>
     </scripts>
     <scripts name="wpn_cbs">
       <script>scripts\scr_shoot.gml</script>
@@ -573,7 +579,8 @@
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>
-  <constants number="3">
+  <constants number="4">
+    <constant name="aggro_alarm">1</constant>
     <constant name="update_target_time_alarm">10</constant>
     <constant name="arg_len">global.i_arg_len</constant>
     <constant name="arg_buff">global.i_arg_buff</constant>

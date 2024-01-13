@@ -5,46 +5,11 @@ var yv = argument[1];
 var wpn_ind = argument[2];
 
 with(instance_create(xv,yv,obj_balloon)){
-    //initiallize stats
-    var mp = ds_map_find_value(global.ships, "balloon");
     
-    scr_ship_init(false,mp);
-    
-    //TODO: refactor extend
-    gun_turn = ds_map_find_value(mp, "gun_turn");
-    alert_range = ds_map_find_value(mp, "alert_range");
-    drop_bomb_reload_speed = ds_map_find_value(mp, "drop_bomb_reload_speed");
-    drop_bomb_reload_counter = 0;
+    //TODO: refactor armor
     is_armored = argument[3];
     
-    //mount weapons
-    gid = 0;
-    if(wpn_ind!=undefined){
-        gid = scr_wpn_equip(x,y,wpn_ind,270,false);
-        gun_turn -= gun_turn*(1-7/gid.recoil);
-        og_accuracy = ds_map_find_value(mp,"accuracy_coeff")*gid.accuracy;
-        accuracy = og_accuracy;
-    }
-    //create armor
-    aid = 0;
-    if(is_armored){
-        aid = instance_create(x,y,obj_balloon_amr);
-        
-        aid.state = shield_states.DOWN;
-        aid.anim_time = ds_map_find_value(mp, "amr_anim_time");
-        aid.up_lag = ds_map_find_value(mp, "amr_up_lag");
-        aid.down_lag = ds_map_find_value(mp, "amr_down_lag");
-        //hack: armor needs at least balloon's anim length
-        //future: if it needs to know more, pass balloon ref to armor
-        aid.balloon_frames = image_number;
-    }
     
-    //ai and target selection
-    aggro_chance = ds_map_find_value(mp, "aggro_chance");
-    aggro_interval = room_speed/ds_map_find_value(mp, "aggro_checks_per_sec");
-    player_noticed = false;
-    is_aggro = false;
-    alarm[1] = aggro_interval;
     scr_ai_set_avoidance(neutral_speed, turn);
     
     image_speed = 0.4;
