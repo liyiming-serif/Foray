@@ -452,12 +452,13 @@
       <script>scripts\scr_set_level.gml</script>
       <script>scripts\scr_init_part_cloud.gml</script>
     </scripts>
-    <scripts name="design_patterns">
+    <scripts name="spawners">
       <script>scripts\scr_spawn_plane.gml</script>
       <script>scripts\scr_spawn_skymine.gml</script>
       <script>scripts\scr_spawn_balloon.gml</script>
       <script>scripts\scr_spawn_blimp.gml</script>
       <script>scripts\scr_spawn_zeppelin.gml</script>
+      <script>scripts\scr_spawn_choose_wpn.gml</script>
     </scripts>
     <scripts name="UI">
       <script>scripts\scr_tutorial_create.gml</script>
