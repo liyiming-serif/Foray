@@ -1,25 +1,4 @@
-#define scr_balloon_create
-///scr_balloon_create(x,y,wpn_ind,is_armored)
-var xv = argument[0];
-var yv = argument[1];
-var wpn_ind = argument[2];
-
-with(instance_create(xv,yv,obj_balloon)){
-    
-    //TODO: refactor armor
-    is_armored = argument[3];
-    
-    
-    scr_ai_set_avoidance(neutral_speed, turn);
-    
-    image_speed = 0.4;
-
-    return id;
-}
-
-
-
-#define scr_balloon_navigate
+#define scr_balloon_ai_navigate
 ///scr_balloon_navigate(x, y, turn_modifier=1, speed_modifier=1)
 
 //STATELESS AVOIDANCE FUNCTION
@@ -202,3 +181,21 @@ drop_bomb_reload_counter = min(drop_bomb_reload_counter+global.game_speed,
     drop_bomb_reload_speed);
 
 scr_ship_advance_frame();
+#define scr_balloon_ai_add
+///scr_balloon_ai_add(aimp)
+//req: neutral_speed, turn
+var aimp = ds_map_find_value(mp, "ai");
+alert_range = ds_map_find_value(aimp, "alert_range");
+accuracy_coeff = ds_map_find_value(aimp, "accuracy_coeff");
+aggro_chance = ds_map_find_value(aimp, "aggro_chance");
+aggro_interval = room_speed/ds_map_find_value(aimp, "aggro_checks_per_sec");
+player_noticed = false;
+is_aggro = false;
+alarm[aggro_alarm] = aggro_interval;
+scr_ai_set_avoidance(neutral_speed, turn);
+//set AI accuracy
+if(scr_instance_exists(gid)){
+    gun_turn -= gun_turn*(1-7/gid.recoil);
+    og_accuracy = accuracy_coeff*gid.accuracy;
+    accuracy = og_accuracy;
+}

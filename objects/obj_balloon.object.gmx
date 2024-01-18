@@ -26,46 +26,32 @@
           <argument>
             <kind>1</kind>
             <string>///read JSON data(dir, is_friendly, wpn_ind, is_armored)
-//req: mp
 
 mp = ds_map_find_value(global.ships, "balloon");
 event_inherited();
-//TODO: components
+//add components
 scr_c_bomber_add(ds_map_find_value(mp, "c_bomber"));
 var is_armred = arg_buff[3];
 if(is_amred){
     scr_c_amr_add(ds_map_find_value(mp, "c_amr"));
 }
 
-//AI
-var aimp = ds_map_find_value(mp, "ai");
-alert_range = ds_map_find_value(aimp, "alert_range");
-accuracy_coeff = ds_map_find_value(aimp, "accuracy_coeff");
-aggro_chance = ds_map_find_value(aimp, "aggro_chance");
-aggro_interval = room_speed/ds_map_find_value(aimp, "aggro_checks_per_sec");
-player_noticed = false;
-is_aggro = false;
-alarm[aggro_alarm] = aggro_interval;
-scr_ai_set_avoidance(neutral_speed, turn);
-
 //extended
 var ext = ds_map_find_value(mp, "extend");
 gun_turn = ds_map_find_value(ext, "gun_turn");
 
-//mount weapons + set AI accuracy
+//mount weapons
 var wpn_ind = arg_buff[2];
 gid = 0;
 if(wpn_ind!=undefined){
     gid = scr_wpn_equip(x,y,wpn_ind,270,false);
-    gun_turn -= gun_turn*(1-7/gid.recoil);
-    og_accuracy = accuracy_coeff*gid.accuracy;
-    accuracy = og_accuracy;
 }
 
 image_speed = 0.4;
 //TODO: implement sub-balloons
 
-
+//AI
+scr_balloon_ai_add(ds_map_find_value(mp, "ai"));
 </string>
           </argument>
         </arguments>
@@ -180,7 +166,17 @@ alarm[1] = aggro_interval;
             <kind>1</kind>
             <string>///Update wpns
 
-scr_balloon_update_wpns();
+if(scr_instance_exists(gid)){
+    scr_ship_update_wpn(6,gid.image_angle,gid,false);
+}
+
+if(scr_instance_exists(aid) &amp;&amp; aid.visible){
+    aid.x = x;
+    aid.y = y;
+    if(scr_balloon_amr_is_up()){
+        aid.image_index = image_index;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -229,10 +225,10 @@ scr_balloon_advance_frame();
             <string>///Navigate balloon towards target
 
 if(is_aggro &amp;&amp; scr_instance_exists(target_id)){
-    scr_balloon_navigate(target_id.x, target_id.y);
+    scr_balloon_ai_navigate(target_id.x, target_id.y);
 }
 else if(scr_instance_exists(global.city_id)){
-    scr_balloon_navigate(global.city_id.x, global.city_id.y-36, 0.5, 0.5);
+    scr_balloon_ai_navigate(global.city_id.x, global.city_id.y-36, 0.5, 0.5);
 }
 </string>
           </argument>
@@ -256,10 +252,10 @@ else if(scr_instance_exists(global.city_id)){
             <kind>1</kind>
             <string>///Aim Wpns
 if(scr_instance_exists(gid)){
-    scr_balloon_aim();
+    scr_balloon_ai_aim();
 }
 if(scr_instance_exists(aid)){
-    scr_balloon_guard();
+    scr_balloon_ai_guard();
 }
 
 //drop bombs on city

@@ -58,4 +58,3 @@ var b = scr_instance_create(pos[0],pos[1],obj_balloon,
 if(scr_instance_exists(b.gid)){
     scr_add_seen_wpn(wpn_ind);
 }
-
