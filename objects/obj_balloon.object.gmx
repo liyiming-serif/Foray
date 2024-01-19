@@ -173,7 +173,7 @@ if(scr_instance_exists(gid)){
 if(scr_instance_exists(aid) &amp;&amp; aid.visible){
     aid.x = x;
     aid.y = y;
-    if(scr_balloon_amr_is_up()){
+    if(scr_c_amr_is_up()){
         aid.image_index = image_index;
     }
 }
@@ -201,7 +201,10 @@ if(scr_instance_exists(aid) &amp;&amp; aid.visible){
             <kind>1</kind>
             <string>///Advance frame
 
-scr_balloon_advance_frame();
+drop_bomb_reload_counter = min(drop_bomb_reload_counter+global.game_speed,
+    drop_bomb_reload_speed);
+
+scr_ship_advance_frame();
 </string>
           </argument>
         </arguments>
@@ -222,48 +225,9 @@ scr_balloon_advance_frame();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Navigate balloon towards target
+            <string>///[AI]: Eval actions
 
-if(is_aggro &amp;&amp; scr_instance_exists(target_id)){
-    scr_balloon_ai_navigate(target_id.x, target_id.y);
-}
-else if(scr_instance_exists(global.city_id)){
-    scr_balloon_ai_navigate(global.city_id.x, global.city_id.y-36, 0.5, 0.5);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Aim Wpns
-if(scr_instance_exists(gid)){
-    scr_balloon_ai_aim();
-}
-if(scr_instance_exists(aid)){
-    scr_balloon_ai_guard();
-}
-
-//drop bombs on city
-if(position_meeting(x,y,obj_city) &amp;&amp; drop_bomb_reload_counter&gt;=drop_bomb_reload_speed){
-    instance_create(x, y, obj_drop_bomb);
-    drop_bomb_reload_counter = 0;
-}
-
+scr_balloon_ai_step();
 </string>
           </argument>
         </arguments>
@@ -287,7 +251,7 @@ if(position_meeting(x,y,obj_city) &amp;&amp; drop_bomb_reload_counter&gt;=drop_b
           <argument>
             <kind>1</kind>
             <string>///balloon hit
-scr_balloon_hit();
+scr_c_amr_collide_with_projectile();
 </string>
           </argument>
         </arguments>

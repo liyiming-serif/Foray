@@ -376,13 +376,15 @@
         <script>scripts\scr_ai_pyro_create.gml</script>
       </scripts>
     </scripts>
-    <scripts name="ships_ai">
-      <script>scripts\scr_ship_init.gml</script>
-      <script>scripts\scr_skymine_create.gml</script>
-      <script>scripts\scr_balloon_ai_add.gml</script>
-      <script>scripts\scr_subballoon_create.gml</script>
-      <script>scripts\scr_blimp_create.gml</script>
-      <script>scripts\scr_zeppelin_create.gml</script>
+    <scripts name="ships">
+      <scripts name="ships_ai">
+        <script>scripts\scr_ship_init.gml</script>
+        <script>scripts\scr_skymine_create.gml</script>
+        <script>scripts\scr_balloon_ai_add.gml</script>
+        <script>scripts\scr_subballoon_create.gml</script>
+        <script>scripts\scr_blimp_create.gml</script>
+        <script>scripts\scr_zeppelin_create.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\scr_city_hit.gml</script>
     <script>scripts\scr_wpn_equip.gml</script>
@@ -406,6 +408,7 @@
       </scripts>
       <scripts name="c_engine">
         <script>scripts\scr_c_engine_add.gml</script>
+        <script>scripts\scr_c_engine_turn.gml</script>
       </scripts>
       <scripts name="c_ignition">
         <script>scripts\scr_c_ignition_step.gml</script>
@@ -431,8 +434,10 @@
       <scripts name="c_bomber">
         <script>scripts\scr_c_bomber_add.gml</script>
       </scripts>
-      <scripts name="scr_c_amr">
+      <scripts name="c_amr">
         <script>scripts\scr_c_amr_add.gml</script>
+        <script>scripts\scr_c_amr_is_up.gml</script>
+        <script>scripts\scr_c_amr_collide_with_projectile.gml</script>
       </scripts>
     </scripts>
     <scripts name="wpn_cbs">

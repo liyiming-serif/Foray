@@ -17,6 +17,33 @@ if(scr_instance_exists(gid)){
     accuracy = og_accuracy;
 }
 
+#define scr_balloon_ai_step
+///scr_balloon_ai_step()
+//STATELESS: eval behavior based on flags
+
+//Navigate balloon towards target
+if(is_aggro && scr_instance_exists(target_id)){
+    scr_balloon_ai_navigate(target_id.x, target_id.y);
+}
+else if(scr_instance_exists(global.city_id)){
+    scr_balloon_ai_navigate(global.city_id.x, global.city_id.y-36, 0.5, 0.5);
+}
+
+//Aim Wpns
+if(scr_instance_exists(gid)){
+    scr_balloon_ai_aim();
+}
+if(scr_instance_exists(aid)){
+    scr_balloon_ai_guard();
+}
+
+//drop bombs on city
+if(position_meeting(x,y,obj_city) && drop_bomb_reload_counter>=drop_bomb_reload_speed){
+    instance_create(x, y, obj_drop_bomb);
+    drop_bomb_reload_counter = 0;
+}
+
+
 #define scr_balloon_ai_navigate
 ///scr_balloon_navigate(x, y, turn_modifier=1, speed_modifier=1)
 
@@ -99,11 +126,11 @@ if(i!=noone){
 }
 if(alarm[global.AVOIDANCE_ALARM]){
     //swerving
-    scr_ship_turn(x+ax, y+ay, false, global.SWERVE_TURN_MOD*tm, sm);
+    scr_c_engine_turn(x+ax, y+ay, false, global.SWERVE_TURN_MOD*tm, sm);
 }
 else{
     //normal flying
-    scr_ship_turn(tx, ty, false, tm, sm);
+    scr_c_engine_turn(tx, ty, false, tm, sm);
 }
 
 
@@ -141,22 +168,6 @@ else if(aid.state == shield_states.UP && !scr_balloon_ai_in_danger()){
 }
 
 
-#define scr_balloon_hit
-///scr_balloon_hit()
-
-if(is_friendly!=other.is_friendly){
-    player_noticed = true;
-    if(scr_instance_exists(aid) && scr_balloon_amr_is_up()){
-        instance_destroy(other);
-        part_particles_create(global.partsys,other.x,other.y,global.deflect,1);
-        //deflected
-        scr_play_sound_metallic(snd_deflect,x,y);
-    }
-    else{
-        scr_ship_hit();
-    }
-}
-
 #define scr_balloon_ai_in_danger
 ///scr_balloon_ai_in_danger()
 
@@ -169,17 +180,3 @@ if(scr_instance_exists(target_id) &&
 else{
     return false;
 }
-
-#define scr_balloon_amr_is_up
-///scr_balloon_amr_is_up()
-
-//aid must be initialized
-return aid.state == shield_states.UP || aid.state == shield_states.GOING_DOWN;
-
-#define scr_balloon_advance_frame
-///scr_balloon_advance_frame()
-
-drop_bomb_reload_counter = min(drop_bomb_reload_counter+global.game_speed,
-    drop_bomb_reload_speed);
-
-scr_ship_advance_frame();

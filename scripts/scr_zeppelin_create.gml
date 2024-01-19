@@ -107,8 +107,8 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<min_range){
 
 //Turn the blimp towards dest
 if(scr_instance_exists(global.city_id)){
-    scr_ship_turn(global.city_id.x, global.city_id.y-36, true);
+    scr_c_engine_turn(global.city_id.x, global.city_id.y-36, true);
 }
 else{
-    scr_ship_turn(room_width/2, room_width/2, true);
+    scr_c_engine_turn(room_width/2, room_width/2, true);
 }

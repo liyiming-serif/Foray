@@ -144,20 +144,20 @@ if(i!=noone){
 if(alarm[global.AVOIDANCE_ALARM]>0){
     //swerving
     if(away){
-        scr_ship_turn_away(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
+        scr_c_engine_turn_away(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
     }
     else{
-        scr_ship_turn(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
+        scr_c_engine_turn(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
     }
     image_blend = c_olive;
 }
 else{
     //normal flying
     if(away){
-        scr_ship_turn_away(tx, ty, true, tm, sm);
+        scr_c_engine_turn_away(tx, ty, true, tm, sm);
     }
     else{
-        scr_ship_turn(tx, ty, true, tm, sm);
+        scr_c_engine_turn(tx, ty, true, tm, sm);
     }
     image_blend = c_white;
 }
@@ -176,7 +176,7 @@ if(pd<=active_city_range){
 }
 else {
     //control blimp movement
-    scr_ship_turn(global.city_id.x, global.city_id.y, true);
+    scr_c_engine_turn(global.city_id.x, global.city_id.y, true);
 }
 
 #define scr_blimp_aim_player
