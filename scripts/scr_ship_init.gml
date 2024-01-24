@@ -6,8 +6,15 @@ direction = argument[0];
 is_friendly = argument[1];
 
 //LOAD COMPONENTS
-scr_c_hull_add(ds_map_find_value(mp,"c_hull"));
-scr_c_engine_add(ds_map_find_value(mp,"c_engine"));
+var cmp;
+cmp = ds_map_find_value(mp,"c_hull");
+if(cmp!= undefined){
+    scr_c_hull_add(cmp);
+}
+cmp = ds_map_find_value(mp,"c_engine");
+if(cmp != undefined){
+    scr_c_engine_add(cmp);
+}
 
 //common: callbacks
 var v;

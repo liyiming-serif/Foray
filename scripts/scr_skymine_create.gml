@@ -62,8 +62,8 @@ tuple[2] = false;
 
 ds_list_add(global.skymine_queue, tuple);
 
-#define scr_skymine_hit
-///scr_skymine_hit()
+#define scr_skymine_collide_with_projectile
+///scr_skymine_collide_with_projectile()
 
 if(is_friendly!=other.is_friendly && hp>0 && invuln<=0 && abs(speed)<=friction){
     //get pushed around
@@ -105,3 +105,14 @@ if(can_move){
 }
 
 alarm[0] = chase_freq;
+#define scr_skymine_collide_with_plane
+///scr_skymine_collide_with_plane()
+if(variable_instance_exists(other, "roll_invuln") && other.roll_invuln>0){
+    return undefined;
+}
+
+if(other.is_friendly != is_friendly ){
+    points = 0;
+    scr_play_sound(snd_detonation,x,y,);
+    instance_destroy();
+}

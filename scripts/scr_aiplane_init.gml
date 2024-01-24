@@ -147,15 +147,3 @@ if(pd<=range){
     }
 }
 return false;
-
-#define scr_aiplane_hit
-///scr_aiplane_hit()
-
-var php = hp;
-scr_plane_hit();
-if(hp<=achy && php>achy){     
-    var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
-    scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));
-    //make it easier to aim
-    //base_turn *= global.AI_TURN_REDUC;
-}

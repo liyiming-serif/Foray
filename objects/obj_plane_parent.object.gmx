@@ -161,7 +161,7 @@ scr_plane_advance_frame();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_missile_parent">
+    <event eventtype="4" ename="obj_solid_parent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -178,9 +178,8 @@ scr_plane_advance_frame();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generic hit script
-
-scr_plane_hit();
+            <string>///enable solid collisions
+scr_c_hull_collide_with_obstacle();
 </string>
           </argument>
         </arguments>
@@ -205,7 +204,36 @@ scr_plane_hit();
             <kind>1</kind>
             <string>///Generic hit script
 
-scr_plane_hit();
+if(roll_invuln == 0){
+    scr_c_hull_collide_with_projectile();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_skymine">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Custom hit script
+
+if(roll_invuln == 0){
+    scr_c_hull_collide_with_skymine();
+}
 </string>
           </argument>
         </arguments>
