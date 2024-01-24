@@ -37,8 +37,8 @@ with(instance_create(xv,yv,obj_blimp)){
     return id;
 }
 
-#define scr_blimp_position
-///scr_blimp_position()
+#define scr_blimp_ai_position
+///scr_blimp_ai_position()
 
 if(!scr_instance_exists(global.city_id)){
     return undefined;
@@ -50,15 +50,15 @@ if(prev_state != blimp_ai_states.POSITIONING){
 }
 
 //control blimp movement
-scr_blimp_navigate(global.city_id.x, global.city_id.y, false, 0.5, 0.5);
+scr_blimp_ai_navigate(global.city_id.x, global.city_id.y, false, 0.5, 0.5);
 ///check city is within range
 var pd = point_distance(global.city_id.x, global.city_id.y, x, y);
 if(pd<=active_city_range){
     state = blimp_ai_states.TARGETING_CITY;
 }
 
-#define scr_blimp_flee
-///scr_blimp_flee()
+#define scr_blimp_ai_flee
+///scr_blimp_ai_flee()
 
 if(!scr_instance_exists(target_id)){
     return undefined;
@@ -73,18 +73,11 @@ if(fleeing_timer == 0){
 }
 fleeing_timer = max(fleeing_timer-global.game_speed, 0);
 
-scr_blimp_navigate(target_id.x, target_id.y, true);
+scr_blimp_ai_navigate(target_id.x, target_id.y, true);
 
-#define scr_blimp_navigate
-///scr_blimp_navigate(x, y, away, turn_modifier=1, speed_modifier=1))
+#define scr_blimp_ai_navigate
+///scr_blimp_ai_navigate(x, y, away, turn_modifier=1, speed_modifier=1)
 
-//STATELESS AVOIDANCE FUNCTION
-//NEEDS: axy, foresight, avoid_arc
-//TODO: make both avoid functions generic if more ship ai reuses logic
-
-var tx = argument[0];
-var ty = argument[1];
-var away = argument[2];
 var tm = 1;
 if(argument_count > 3){
     tm = argument[3];
@@ -93,77 +86,20 @@ var sm = 1;
 if(argument_count > 4){
     sm = argument[4];
 }
+scr_ai_navigate(argument[0],argument[1],argument[2],tm,sm);
 
-var pd, dd, sx, sy, i, adir, adiff, pa, da;
-
-//clear detour route if avoidance state alarm not active
-if(!alarm[global.AVOIDANCE_ALARM]){
-    ax = 0;
-    ay = 0;
-}
-
-//sensing obstacles
-sx = lengthdir_x(speed*foresight,direction);
-sy = lengthdir_y(speed*foresight,direction);
-i = collision_line(x,y,sx+x,sy+y,obj_obstacle_parent,false,true);
-//don't dodge if obstacle is 1)moving away 2)too fast 3)not imminently close 4)rolling 
-if(i!=noone){
-    if(variable_instance_exists(i, "roll_invuln") && i.roll_invuln>0){
-        i = noone;
-    }
-    else {
-        if(i.speed>speed*0.5 && abs(angle_difference(i.direction,direction))<30.0){
-            var l = distance_to_object(i);
-            if(l>foresight){
-                i = noone;
-            }
-        }
-    }
-}
-
-//avoiding obstacles
-if(i!=noone){
-    //calculate avoidance trajectory
-    adiff = angle_difference(direction,i.direction);
-    if(i.speed<speed*0.5 || adiff==0 || adiff==180 || adiff==-180){
-        //position-based
-        pa = point_direction(x,y,i.x,i.y);
-        da = angle_difference(pa,direction);
-        adir = direction-sign(da)*90;
-    }
-    else{
-        //velocity-based
-        adir = direction+sign(adiff)*90;
-    }
-    ax = lengthdir_x(foresight,adir);
-    ay = lengthdir_y(foresight,adir);
-    if(!alarm[global.AVOIDANCE_ALARM]){
-        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
-    }
-}
+//DEBUGGING
 if(alarm[global.AVOIDANCE_ALARM]>0){
     //swerving
-    if(away){
-        scr_c_engine_turn_away(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
-    }
-    else{
-        scr_c_engine_turn(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
-    }
     image_blend = c_olive;
 }
 else{
     //normal flying
-    if(away){
-        scr_c_engine_turn_away(tx, ty, true, tm, sm);
-    }
-    else{
-        scr_c_engine_turn(tx, ty, true, tm, sm);
-    }
     image_blend = c_white;
 }
 
-#define scr_blimp_aim_city
-///scr_blimp_aim_city()
+#define scr_blimp_ai_aim_city
+///scr_blimp_ai_aim_city()
 
 if(!scr_instance_exists(global.city_id) || !scr_instance_exists(gid[0])){
     return undefined;
@@ -172,15 +108,15 @@ if(!scr_instance_exists(global.city_id) || !scr_instance_exists(gid[0])){
 ///check city is within range
 var pd = point_distance(global.city_id.x, global.city_id.y, x, y);
 if(pd<=active_city_range){
-    scr_ship_shoot(gid[0], "pressed");
+    scr_wpn_fire(gid[0], "pressed");
 }
 else {
     //control blimp movement
     scr_c_engine_turn(global.city_id.x, global.city_id.y, true);
 }
 
-#define scr_blimp_aim_player
-///scr_blimp_aim_player()
+#define scr_blimp_ai_aim_player
+///scr_blimp_ai_aim_player()
 
 //fire side missles at player
 if(scr_instance_exists(target_id)){
@@ -191,11 +127,11 @@ if(scr_instance_exists(target_id)){
     
     //dom wpn
     if(scr_instance_exists(gid[w])){
-        b = scr_ship_shoot(gid[w], "pressed");
+        b = scr_wpn_fire(gid[w], "pressed");
     }
     //alt wpn
     else if(scr_instance_exists(gid[alt_w])){
-        b = scr_ship_shoot(gid[alt_w], "pressed");
+        b = scr_wpn_fire(gid[alt_w], "pressed");
     }
     
     //alternate left/right missle cannons
@@ -230,8 +166,10 @@ if(scr_instance_exists(gid[2])){
     scr_ship_update_wpn(r,t,gid[2]);
 }
 
-#define scr_blimp_idle
-///scr_blimp_idle()
+#define scr_blimp_ai_retreat
+///scr_blimp_ai_retreat()
+
+//TODO: implement similar to flee but w/ out target_id
 
 #define scr_blimp_calibrate_wpns
 ///scr_blimp_calibrate_wpns()

@@ -33,39 +33,6 @@ if(!is_friendly){
 
 
 
-#define scr_ship_advance_frame
-///scr_ship_advance_frame()
-
-//countdown hitstun and invuln
-scr_c_hull_step();
-
-//update emitter
-audio_emitter_position(engine_sound_emitter,x,y,0);
-audio_emitter_velocity(engine_sound_emitter,hspeed,vspeed,0);
-
-#define scr_ship_hit
-///scr_ship_hit()
-
-//TO REFACTOR: player/enemy hit specific code
-if(is_friendly){ //player
-    //TODO: apply screen shake?
-    
-    //apply screen flash
-    if(id==global.player_id){
-        global.flash_red_alpha += post_dmg/15;
-    }
-    
-    //DIFFICULTY MOD: scale dmg down by spawn capacity
-    if(!global.is_endless){
-        post_dmg = max((1-global.spawn_cap*0.3)*post_dmg,global.MIN_DMG);
-    }
-}
-else{ //enemy
-    //DIFFICULY MOD: increase player's atk if outnumbered
-    post_dmg *= 1+global.spawn_cap*0.5;
-}
-
-
 #define scr_ship_shade
 ///scr_ship_shade()
 
@@ -129,31 +96,6 @@ if(argument_count==3 || argument[3]==true){
 
 g.x = x+lengthdir_x(r,t);
 g.y = y+lengthdir_y(r,t);
-
-#define scr_ship_shoot
-///scr_ship_shoot(gid, cb_type)
-
-//wrapper around executing gid callbacks for reducing copied code
-var g, cb, ret;
-g = argument[0];
-cb = argument[1];
-ret = -1;
-
-with(g){
-    switch(cb){
-        case "on_click":
-            ret = script_execute(on_click_cb);
-            break;
-        case "pressed":
-            ret = script_execute(pressed_cb);
-            break;
-        case "on_release":
-            ret = script_execute(on_release_cb);
-            break;
-    }
-}
-
-return ret;
 
 #define scr_ship_explode_large
 ///scr_ship_explode_large()

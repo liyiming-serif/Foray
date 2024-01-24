@@ -1,7 +1,7 @@
 #define scr_wpn_equip
 ///scr_wpn_equip(x, y, obj_ind, dir, is_friendly, dmg_mod=1)
 
-//Used for creating a generic gun from JSON.
+//Helper for creating a generic gun from JSON.
 //Additional JSON properties should be read in wpn obj's create event.
 
 var mp = ds_map_find_value(global.weapons,argument[3]);

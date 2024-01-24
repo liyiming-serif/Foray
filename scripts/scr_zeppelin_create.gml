@@ -89,16 +89,16 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<min_range){
     var da = angle_difference(pa,image_angle);
     
     if(da >= -45 && da < 45){ //front
-        scr_ship_shoot(gid[0],"pressed");
+        scr_wpn_fire(gid[0],"pressed");
     }
     else if(da >= 45 && da < 135){ //left
-        scr_ship_shoot(gid[1],"pressed");
+        scr_wpn_fire(gid[1],"pressed");
     }
     else if(da >= 135 || da < -135){ //back mine-layer
-        scr_ship_shoot(gid[3],"pressed");
+        scr_wpn_fire(gid[3],"pressed");
     }
     else if(da >= -135 && da < -45){ //right
-        scr_ship_shoot(gid[2],"pressed");
+        scr_wpn_fire(gid[2],"pressed");
     }
 }
 

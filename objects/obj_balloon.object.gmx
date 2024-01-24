@@ -199,12 +199,10 @@ if(scr_instance_exists(aid) &amp;&amp; aid.visible){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
-
+            <string>///Update components
+event_inherited();
 drop_bomb_reload_counter = min(drop_bomb_reload_counter+global.game_speed,
     drop_bomb_reload_speed);
-
-scr_ship_advance_frame();
 </string>
           </argument>
         </arguments>

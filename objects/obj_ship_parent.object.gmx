@@ -101,9 +101,10 @@ if(!is_friendly){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
+            <string>///Update components
 
-scr_ship_advance_frame();
+scr_c_hull_step();
+scr_c_engine_step();
 </string>
           </argument>
         </arguments>

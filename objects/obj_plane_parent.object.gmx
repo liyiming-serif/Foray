@@ -155,7 +155,7 @@ scr_ship_update_wpn(sprite_width-sprite_xoffset-2,image_angle,gid);
             <kind>1</kind>
             <string>///Advance frame
 
-scr_ship_advance_frame();
+scr_plane_advance_frame();
 </string>
           </argument>
         </arguments>

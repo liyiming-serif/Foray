@@ -99,8 +99,8 @@ prev_state = state;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///super.advance_frame
-scr_ship_advance_frame();
+            <string>///Update components
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -124,24 +124,24 @@ scr_ship_advance_frame();
             <string>///Act based on AI FSM
 
 if(!scr_instance_exists(global.city_id) || !scr_instance_exists(target_id)){
-    scr_blimp_idle();
+    scr_blimp_ai_retreat();
     return undefined;
 }
 
 switch(state){
     case blimp_ai_states.POSITIONING:
-        scr_blimp_position();
+        scr_blimp_ai_position();
         break;
     case blimp_ai_states.TARGETING_CITY:
-        scr_blimp_aim_city();
+        scr_blimp_ai_aim_city();
         break;
     case blimp_ai_states.TARGETING_PLAYER:
-        scr_blimp_aim_city();
-        scr_blimp_aim_player();
+        scr_blimp_ai_aim_city();
+        scr_blimp_ai_aim_player();
         break;
     case blimp_ai_states.FLEEING:
-        scr_blimp_flee();
-        scr_blimp_aim_player();
+        scr_blimp_ai_flee();
+        scr_blimp_ai_aim_player();
         break;
 }
 

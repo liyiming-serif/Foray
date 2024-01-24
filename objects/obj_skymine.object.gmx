@@ -87,7 +87,7 @@ scr_skymine_chase();
             <kind>1</kind>
             <string>///Advance frame
 
-scr_ship_advance_frame();
+event_inherited();
 
 if(chase_player){
     var gain = (1-(chase_vel-speed)/chase_vel)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);

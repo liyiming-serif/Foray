@@ -387,7 +387,10 @@
       </scripts>
     </scripts>
     <script>scripts\scr_city_hit.gml</script>
-    <script>scripts\scr_wpn_equip.gml</script>
+    <scripts name="wpn_helpers">
+      <script>scripts\scr_wpn_equip.gml</script>
+      <script>scripts\scr_wpn_fire.gml</script>
+    </scripts>
     <scripts name="projectiles">
       <script>scripts\scr_projectile_shade.gml</script>
       <script>scripts\scr_missile_navigate.gml</script>
@@ -397,6 +400,7 @@
     <script>scripts\scr_cursor_frame_move.gml</script>
     <scripts name="ai_helpers">
       <script>scripts\scr_ai_set_avoidance.gml</script>
+      <script>scripts\scr_ai_navigate.gml</script>
     </scripts>
     <scripts name="components">
       <scripts name="c_hull">
@@ -409,6 +413,7 @@
       <scripts name="c_engine">
         <script>scripts\scr_c_engine_add.gml</script>
         <script>scripts\scr_c_engine_turn.gml</script>
+        <script>scripts\scr_c_engine_step.gml</script>
       </scripts>
       <scripts name="c_ignition">
         <script>scripts\scr_c_ignition_step.gml</script>
@@ -423,6 +428,7 @@
       </scripts>
       <scripts name="c_plane_engine">
         <script>scripts\scr_c_plane_engine_add.gml</script>
+        <script>scripts\scr_c_plane_engine_step.gml</script>
         <script>scripts\scr_c_plane_engine_steer.gml</script>
         <script>scripts\scr_c_plane_engine_boost.gml</script>
         <script>scripts\scr_c_plane_engine_brake.gml</script>

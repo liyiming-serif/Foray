@@ -127,7 +127,9 @@ shader_reset();
 #define scr_plane_advance_frame
 ///scr_plane_advance_frame()
 
-scr_ship_advance_frame();
+///Update components
+scr_c_hull_step();
+scr_c_plane_engine_step();
 
 //emit far contrail if boosting
 trail_counter = min(trail_counter+1,global.TRAIL_RATE);
@@ -310,7 +312,7 @@ if(is_rolling){
 //wrapper around executing gid callbacks for reducing copied code
 var cb, ret;
 cb = argument[0];
-ret= scr_ship_shoot(gid,cb);
+ret= scr_wpn_fire(gid,cb);
 if(ret!=undefined){
     //change plane to shooting sprite
     sprite_index = spr_plane1_shoot;

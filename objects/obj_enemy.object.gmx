@@ -81,8 +81,8 @@ else{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
-scr_plane_advance_frame();
+            <string>///Update components
+event_inherited();
 </string>
           </argument>
         </arguments>

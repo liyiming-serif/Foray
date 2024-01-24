@@ -50,9 +50,8 @@ scr_zeppelin_update_wpns();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
-
-scr_ship_advance_frame();
+            <string>///Update components
+event_inherited();
 </string>
           </argument>
         </arguments>

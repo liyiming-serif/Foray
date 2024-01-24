@@ -70,7 +70,7 @@ if(is_friendly!=other.is_friendly && hp>0 && invuln<=0 && abs(speed)<=friction){
     speed = other.dmg*global.game_speed;
     direction = other.direction;
 }
-scr_ship_hit();
+scr_c_hull_collide_with_projectile();
 
 #define scr_skymine_chase
 ///scr_skymine_chase()

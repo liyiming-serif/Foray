@@ -149,7 +149,7 @@ if(scr_instance_exists(target_id) && distance_to_object(target_id)<gid.range[0]*
     
     //shoot if within angle
     if(abs(da) <= accuracy){
-        scr_ship_shoot(gid,"pressed");
+        scr_wpn_fire(gid,"pressed");
     }
 }
 
