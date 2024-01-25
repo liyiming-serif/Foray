@@ -377,7 +377,7 @@
     </scripts>
     <scripts name="ships">
       <scripts name="ships_ai">
-        <script>scripts\scr_ship_init.gml</script>
+        <script>scripts\scr_ship_shade.gml</script>
         <script>scripts\scr_skymine_create.gml</script>
         <script>scripts\scr_balloon_ai_add.gml</script>
         <script>scripts\scr_subballoon_create.gml</script>
@@ -398,6 +398,7 @@
     <script>scripts\scr_grounded_create.gml</script>
     <script>scripts\scr_cursor_frame_move.gml</script>
     <scripts name="ai_helpers">
+      <script>scripts\scr_ai_add_common.gml</script>
       <script>scripts\scr_ai_set_avoidance.gml</script>
       <script>scripts\scr_ai_navigate.gml</script>
     </scripts>

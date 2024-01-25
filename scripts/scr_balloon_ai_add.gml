@@ -2,6 +2,7 @@
 ///scr_balloon_ai_add(aimp)
 //req: neutral_speed, turn, gun_turn
 var aimp = argument[0];
+scr_ai_add_common(aimp);
 alert_range = ds_map_find_value(aimp, "alert_range");
 accuracy_coeff = ds_map_find_value(aimp, "accuracy_coeff");
 aggro_chance = ds_map_find_value(aimp, "aggro_chance");
