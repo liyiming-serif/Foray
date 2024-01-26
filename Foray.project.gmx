@@ -378,11 +378,11 @@
     <scripts name="ships">
       <scripts name="ships_ai">
         <script>scripts\scr_ship_shade.gml</script>
-        <script>scripts\scr_skymine_create.gml</script>
-        <script>scripts\scr_balloon_ai_add.gml</script>
+        <script>scripts\scr_skymine_queue.gml</script>
+        <script>scripts\scr_balloon_ai_step.gml</script>
         <script>scripts\scr_subballoon_create.gml</script>
-        <script>scripts\scr_blimp_create.gml</script>
-        <script>scripts\scr_zeppelin_create.gml</script>
+        <script>scripts\scr_blimp_ai_position.gml</script>
+        <script>scripts\scr_zeppelin_update_wpns.gml</script>
       </scripts>
     </scripts>
     <script>scripts\scr_city_hit.gml</script>
@@ -592,7 +592,8 @@
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>
-  <constants number="4">
+  <constants number="5">
+    <constant name="avoid_alarm">0</constant>
     <constant name="aggro_alarm">1</constant>
     <constant name="update_target_time_alarm">10</constant>
     <constant name="arg_len">global.i_arg_len</constant>

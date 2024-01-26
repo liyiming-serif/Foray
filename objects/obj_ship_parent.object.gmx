@@ -25,21 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///read JSON data(dir, is_friendly)
+            <string>///read common JSON data(dir, is_friendly)
 //req: mp
 direction = arg_buff[0];
 is_friendly = arg_buff[1];
-
-//LOAD COMPONENTS
-var cmp;
-cmp = ds_map_find_value(mp,"c_hull");
-if(cmp!= undefined){
-    scr_c_hull_add(cmp);
-}
-cmp = ds_map_find_value(mp,"c_engine");
-if(cmp != undefined){
-    scr_c_engine_add(cmp);
-}
 
 //common: callbacks
 var v;

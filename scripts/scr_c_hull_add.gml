@@ -1,9 +1,10 @@
-///scr_c_hull_add(cmp)
+///scr_c_hull_add()
 
 //decode json properties
+//req: mp
 //ADDS: max_hp, hp, hp_bar_width, hit_stun, invuln
 
-var cmp = argument[0];
+var cmp = ds_map_find_value(mp,"c_hull");
 
 //hp
 max_hp = ds_map_find_value(cmp, "max_hp");

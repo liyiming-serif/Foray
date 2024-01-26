@@ -65,6 +65,7 @@ var pos = scr_get_point_on_border();
 var pd = point_direction(pos[0],pos[1],room_width/2,room_height/2);
 var dest_x = room_width/2;
 var dest_y = room_height/2;
-scr_zeppelin_create(pos[0],pos[1],dest_x,dest_y,front_wpn,side_wpn,side_wpn,choose(90,-90));
+scr_instance_create(pos[0],pos[1],obj_zeppelin,
+    choose(90,-90),false,front_wpn,side_wpn,side_wpn);
 
 scr_add_design_pattern("scr_spawn_zeppelin");

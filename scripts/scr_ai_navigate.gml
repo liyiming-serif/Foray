@@ -12,7 +12,7 @@ var sm = argument[4];
 var pd, dd, sx, sy, i, adir, adiff, pa, da;
 
 /*clear detour route if avoidance state alarm not active
-if(!alarm[global.AVOIDANCE_ALARM]){
+if(!alarm[avoid_alarm]){
     ax = 0;
     ay = 0;
 }*/
@@ -52,25 +52,25 @@ if(i!=noone){
     }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    if(!alarm[global.AVOIDANCE_ALARM]){
-        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
+    if(!alarm[avoid_alarm]){
+        alarm[avoid_alarm] = avoid_arc;
     }
 }
-if(alarm[global.AVOIDANCE_ALARM]>0){
+if(alarm[avoid_alarm]>0){
     //swerving
     if(away){
-        scr_c_engine_turn_away(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
+        scr_c_engine_turn_away(x+ax, y+ay, global.SWERVE_TURN_MOD*tm, sm);
     }
     else{
-        scr_c_engine_turn(x+ax, y+ay, true, global.SWERVE_TURN_MOD*tm, sm);
+        scr_c_engine_turn(x+ax, y+ay, global.SWERVE_TURN_MOD*tm, sm);
     }
 }
 else{
     //normal flying
     if(away){
-        scr_c_engine_turn_away(tx, ty, true, tm, sm);
+        scr_c_engine_turn_away(tx, ty, tm, sm);
     }
     else{
-        scr_c_engine_turn(tx, ty, true, tm, sm);
+        scr_c_engine_turn(tx, ty, tm, sm);
     }
 }

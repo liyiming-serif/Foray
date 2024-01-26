@@ -1,23 +1,3 @@
-#define scr_balloon_ai_add
-///scr_balloon_ai_add(aimp)
-//req: neutral_speed, turn, gun_turn
-var aimp = argument[0];
-scr_ai_add_common(aimp);
-alert_range = ds_map_find_value(aimp, "alert_range");
-accuracy_coeff = ds_map_find_value(aimp, "accuracy_coeff");
-aggro_chance = ds_map_find_value(aimp, "aggro_chance");
-aggro_interval = room_speed/ds_map_find_value(aimp, "aggro_checks_per_sec");
-player_noticed = false;
-is_aggro = false;
-alarm[aggro_alarm] = aggro_interval;
-scr_ai_set_avoidance(neutral_speed, turn);
-//set accuracy for firing wpn
-if(scr_instance_exists(gid)){
-    gun_turn -= gun_turn*(1-7/gid.recoil);
-    og_accuracy = accuracy_coeff*gid.accuracy;
-    accuracy = og_accuracy;
-}
-
 #define scr_balloon_ai_step
 ///scr_balloon_ai_step()
 //STATELESS: eval behavior based on flags
@@ -100,7 +80,7 @@ if(i!=noone){
         }
     }
 }
-if(!alarm[global.AVOIDANCE_ALARM]){
+if(!alarm[avoid_alarm]){
     ax = 0;
     ay = 0;
 }
@@ -121,17 +101,17 @@ if(i!=noone){
     }
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
-    if(!alarm[global.AVOIDANCE_ALARM]){
-        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
+    if(!alarm[avoid_alarm]){
+        alarm[avoid_alarm] = avoid_arc;
     }
 }
-if(alarm[global.AVOIDANCE_ALARM]){
+if(alarm[avoid_alarm]){
     //swerving
-    scr_c_engine_turn(x+ax, y+ay, false, global.SWERVE_TURN_MOD*tm, sm);
+    scr_c_engine_turn(x+ax, y+ay, global.SWERVE_TURN_MOD*tm, sm);
 }
 else{
     //normal flying
-    scr_c_engine_turn(tx, ty, false, tm, sm);
+    scr_c_engine_turn(tx, ty, tm, sm);
 }
 
 

@@ -1,7 +1,6 @@
 #define scr_set_globals
 ///scr_set_globals()
 
-global.AVOIDANCE_ALARM = 0;
 global.MUZZLE_FLASH_ALARM = 0;
 
 scr_set_ui_consts();

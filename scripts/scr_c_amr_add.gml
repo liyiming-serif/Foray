@@ -1,6 +1,6 @@
-///scr_c_amr_add(cmp)
+///scr_c_amr_add()
 
-var cmp = argument[0];
+var cmp = ds_map_find_value(mp, "c_amr");
 
 //create armor
 aid = 0;

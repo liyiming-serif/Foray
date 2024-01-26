@@ -8,6 +8,115 @@
   <parentName>obj_ship_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set mp; init base ship(dir,is_friendly,front_wpn,left_wpn,right_wpn)
+
+mp = ds_map_find_value(global.ships, "zepplin");
+event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Add components
+scr_c_hull_add();
+scr_c_engine_add(true);
+scr_c_bomber_add();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Mount wpns
+gid[0] = scr_wpn_equip(x,y,arg_buff[2],0,false);
+gid[1] = scr_wpn_equip(x,y,arg_buff[3],0,false);
+gid[2] = scr_wpn_equip(x,y,arg_buff[4],0,false);
+gid[3] = scr_wpn_equip(x,y,obj_mine_layer,0,false);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set AI
+//req: mp, wpn ranges
+scr_ai_add_common();
+//min_range determines nimbus
+min_range = 0;
+for(var i=0; i&lt;array_length_1d(gid)-1; i++){
+    if(scr_instance_exists(gid[i])){
+        if(min_range==0 || gid[i].range[0]&lt;min_range){
+            min_range = gid[i].range[0];
+        }
+    }
+}
+min_range += sprite_width; //offset the zeppelin's own size
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>

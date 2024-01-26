@@ -1,6 +1,6 @@
-///scr_c_bomber_add(cmp)
+///scr_c_bomber_add()
+//req: mp
+var cmp = ds_map_find_value(mp, "c_bomber");
 
-var cmp = argument[0];
-
-drop_bomb_reload_speed = ds_map_find_value(mp, "drop_bomb_reload_speed");
+drop_bomb_reload_speed = ds_map_find_value(cmp, "drop_bomb_reload_speed");
 drop_bomb_reload_counter = 0;

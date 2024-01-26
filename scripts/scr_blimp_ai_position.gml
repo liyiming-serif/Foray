@@ -1,42 +1,3 @@
-#define scr_blimp_create
-///scr_blimp_create(x,y,direction)
-var xv = argument[0];
-var yv = argument[1];
-var dir = argument[2];
-
-with(instance_create(xv,yv,obj_blimp)){
-    //initiallize stats
-    var mp = ds_map_find_value(global.ships, "blimp");
-    scr_ship_init(false,mp);
-    
-    curr_speed = ds_map_find_value(mp, "speed");
-    turn = ds_map_find_value(mp, "turn");
-    
-    //set initial course
-    direction = dir;
-    image_angle = direction;
-    
-    //mount wpns
-    gid[0] = scr_wpn_equip(x,y,obj_city_missile_gun,0,false);
-    gid[1] = scr_wpn_equip(x,y,obj_player_missile_gun,0,false); //left
-    gid[2] = scr_wpn_equip(x,y,obj_player_missile_gun,0,false);//right
-    
-    //ai params
-    //increase sight modifier for oblong shape
-    scr_ai_set_avoidance(neutral_speed, turn, 1);
-    flee_duration = ds_map_find_value(mp,"flee_duration");
-    fleeing_timer = flee_duration;
-    city_range[0] = ds_list_find_value(ds_map_find_value(mp,"city_range"),0);
-    city_range[1] = ds_list_find_value(ds_map_find_value(mp,"city_range"),1);
-    alert_range = ds_map_find_value(mp, "alert_range");
-    active_city_range = irandom_range(city_range[0], city_range[1]);
-    state = blimp_ai_states.POSITIONING;
-    prev_state = blimp_ai_states.POSITIONING;
-    is_left_dom_wpn = choose(true, false);
-    
-    return id;
-}
-
 #define scr_blimp_ai_position
 ///scr_blimp_ai_position()
 
@@ -89,7 +50,7 @@ if(argument_count > 4){
 scr_ai_navigate(argument[0],argument[1],argument[2],tm,sm);
 
 //DEBUGGING
-if(alarm[global.AVOIDANCE_ALARM]>0){
+if(alarm[avoid_alarm]>0){
     //swerving
     image_blend = c_olive;
 }

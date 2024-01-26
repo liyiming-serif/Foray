@@ -27,8 +27,32 @@
             <kind>1</kind>
             <string>///Set mp; init base ship(dir, is_friendly)
 
-mp = ds_map_find_value(global.ships, "skymine");
+mp = ds_map_find_value(global.ships, "blimp");
 event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Add components
+scr_c_hull_add();
+scr_c_engine_add(true);
+
 </string>
           </argument>
         </arguments>
@@ -75,10 +99,12 @@ gid[2] = scr_wpn_equip(x,y,obj_player_missile_gun,0,false);//right
           <argument>
             <kind>1</kind>
             <string>///Set AI
+//req: mp, neutral_speed, turn
+
+scr_ai_add_common();
+scr_ai_set_avoidance();
 
 var aimp = ds_map_find_value(mp, "ai");
-scr_ai_add_common(aimp);
-
 flee_duration = ds_map_find_value(aimp,"flee_duration");
 fleeing_timer = flee_duration;
 
@@ -275,8 +301,8 @@ dpt1 = scr_game_to_gui(x,y);
 dpt2 = scr_game_to_gui(sx+x,sy+y);
 draw_line_width(dpt1[0], dpt1[1], dpt2[0], dpt2[1], 2);
 
-if(alarm[global.AVOIDANCE_ALARM]&gt;0){
-    draw_text(dpt1[0],dpt1[1],string(alarm[global.AVOIDANCE_ALARM]));
+if(alarm[avoid_alarm]&gt;0){
+    draw_text(dpt1[0],dpt1[1],string(alarm[avoid_alarm]));
 }
 </string>
           </argument>

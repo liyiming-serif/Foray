@@ -1,6 +1,6 @@
-///scr_ai_add_common(aimp)
+///scr_ai_add_common()
 
-var aimp = argument[0];
+var aimp = ds_map_find_value(mp, "ai");
 update_target_time = ds_map_find_value(aimp,"update_target_time");
 if(!is_friendly){
     target_id = global.player_id;

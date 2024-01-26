@@ -31,9 +31,9 @@
 event_inherited();
 
 //LOAD COMPONENTS
-scr_c_hull_add(ds_map_find_value(mp,"c_hull"));
-scr_c_bullet_add(ds_map_find_value(mp,"c_bullet"));
-scr_c_engine_add(ds_map_find_value(mp,"c_engine"));
+scr_c_hull_add();
+scr_c_bullet_add();
+scr_c_engine_add(true);
 
 var cmp, v;
 
