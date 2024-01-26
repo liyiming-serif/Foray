@@ -1,11 +1,10 @@
-///scr_c_plane_engine_add(cmp)
+///scr_c_plane_engine_add()
 
-//extends scr_c_engine_add
 //ADDS: speed_rank, turn_rank, turn_accel_rank, roll_duration_rank, roll_cooldown_rank
 //neutral_speed, min_speed, max_speed, base_turn,
 //curr_speed, turn, turn_d
 
-var cmp = argument[0];
+var cmp = ds_map_find_value(mp,"c_plane_engine");
 
 //Use the global lookup table to translate ranks to stats
 speed_rank = ds_map_find_value(cmp,"speed_rank");

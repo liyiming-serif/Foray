@@ -1,18 +1,3 @@
-#define scr_ai_pyro_create
-///scr_ai_pyro_create(ai_map)
-
-var mp = argument[0];
-var opt = ds_map_find_value(mp,"optional");
-
-max_fuel = ds_list_find_value(ds_map_find_value(opt,"fuel"),skill);
-refuel_speed = ds_list_find_value(ds_map_find_value(opt,"refuel_speed"),skill);
-
-//entry point for AI FSM
-state = plane_ai_states.CHASING;
-fuel = max_fuel;
-refuel_state_alarm = 1;
-can_fire = true;
-
 #define scr_ai_pyro_step
 ///scr_ai_pyro_step()
 ///Act based on AI FSM

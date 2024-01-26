@@ -366,13 +366,12 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="planes">
-      <script>scripts\scr_plane_init.gml</script>
+      <script>scripts\scr_plane_shade.gml</script>
       <script>scripts\scr_player_create.gml</script>
       <script>scripts\scr_plane_ui_get_angles.gml</script>
       <scripts name="pilot_ai">
-        <script>scripts\scr_aiplane_init.gml</script>
-        <script>scripts\scr_ai_mg_chaser_create.gml</script>
-        <script>scripts\scr_ai_pyro_create.gml</script>
+        <script>scripts\scr_aiplane_add_common.gml</script>
+        <script>scripts\scr_ai_pyro_step.gml</script>
       </scripts>
     </scripts>
     <scripts name="ships">
@@ -511,7 +510,8 @@
     <objects name="planes">
       <object>objects\obj_plane_parent</object>
       <object>objects\obj_player</object>
-      <object>objects\obj_enemy</object>
+      <object>objects\obj_enemy_parent</object>
+      <object>objects\obj_enemy_mg_chaser</object>
       <object>objects\obj_enemy_pyro</object>
     </objects>
     <objects name="ships">
@@ -595,7 +595,7 @@
   <constants number="5">
     <constant name="avoid_alarm">0</constant>
     <constant name="aggro_alarm">1</constant>
-    <constant name="update_target_time_alarm">10</constant>
+    <constant name="update_target_time_alarm">2</constant>
     <constant name="arg_len">global.i_arg_len</constant>
     <constant name="arg_buff">global.i_arg_buff</constant>
   </constants>
