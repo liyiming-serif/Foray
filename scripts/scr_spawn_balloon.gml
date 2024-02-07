@@ -1,9 +1,7 @@
 #define scr_spawn_balloon
 ///scr_spawn_balloon(wpn_ind=rand)
 
-var wpn_ind = argument[0];
-
-;
+var wpn_ind;
 if(argument_count==1){
     wpn_ind = argument[0];
 }

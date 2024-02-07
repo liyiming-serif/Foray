@@ -4,16 +4,16 @@
 //Helper for creating a generic gun from JSON.
 //Additional JSON properties should be read in wpn obj's create event.
 
-var mp = ds_map_find_value(global.weapons,argument[3]);
-//wpn not found, returning null id
-if(mp==undefined){
+var wpn_ind = argument[2];
+//unarmed, return 0
+if(wpn_ind==noone){
     return 0;
 }
 
 with(scr_instance_create(
     argument[0],
     argument[1],
-    argument[2],
+    wpn_ind,
     argument[3],
     argument[4])){
   

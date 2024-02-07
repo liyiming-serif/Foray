@@ -75,10 +75,10 @@ scr_c_bomber_add();
           <argument>
             <kind>1</kind>
             <string>///Mount wpns
-gid[0] = scr_wpn_equip(x,y,arg_buff[2],0,false);
-gid[1] = scr_wpn_equip(x,y,arg_buff[3],0,false);
-gid[2] = scr_wpn_equip(x,y,arg_buff[4],0,false);
-gid[3] = scr_wpn_equip(x,y,obj_mine_layer,0,false);
+gid[0] = scr_wpn_equip(x,y,arg_buff[2],0,is_friendly);
+gid[1] = scr_wpn_equip(x,y,arg_buff[3],0,is_friendly);
+gid[2] = scr_wpn_equip(x,y,arg_buff[4],0,is_friendly);
+gid[3] = scr_wpn_equip(x,y,obj_mine_layer,0,is_friendly);
 </string>
           </argument>
         </arguments>

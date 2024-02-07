@@ -82,7 +82,7 @@ if(is_amred){
 var wpn_ind = arg_buff[2];
 gid = 0;
 if(wpn_ind!=undefined){
-    gid = scr_wpn_equip(x,y,wpn_ind,270,false);
+    gid = scr_wpn_equip(x,y,wpn_ind,270,is_friendly);
 }
 </string>
           </argument>

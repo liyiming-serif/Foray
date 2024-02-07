@@ -11,7 +11,8 @@
     "scr_spawn_balloon":1.4,
     "scr_spawn_blimp":0.9,
     "scr_spawn_amr_balloon":0.85,
-    "scr_spawn_zeppelin":0.1
+    "scr_spawn_rhino_zeppelin":0.1,
+    "scr_spawn_broad_zeppelin":0.07
   },
   "wpn_weights":{
     "obj_cannon": 5,
