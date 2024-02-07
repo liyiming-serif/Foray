@@ -20,3 +20,5 @@ audio_emitter_falloff(engine_sound_emitter,
     global.SOUND_FALLOFF_REF_DIST,
     global.SOUND_FALLOFF_MAX_DIST,
     global.SOUND_FALLOFF_FACTOR);
+    
+scr_c_add("c_engine");

@@ -1,7 +1,7 @@
 ///scr_c_hull_add(component_map=auto)
 
 //decode json properties
-//auto req: mp
+//req: mp
 //ADDS: max_hp, hp, hp_bar_width, hit_stun, invuln
 
 var cmp;
@@ -26,3 +26,5 @@ hitstun = 0;
 invuln = 0;
 sp_invuln = 0;
 crash_invuln = 0;
+
+scr_c_add("c_hull");

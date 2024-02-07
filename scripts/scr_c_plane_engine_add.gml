@@ -55,3 +55,4 @@ else{
 }
 audio_sound_pitch(engine_sound,1+random_range(-global.SOUND_PITCH_VARIANCE,global.SOUND_PITCH_VARIANCE));
 
+scr_c_add("c_plane_engine");

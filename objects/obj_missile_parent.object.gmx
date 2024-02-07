@@ -34,29 +34,12 @@ event_inherited();
 scr_c_hull_add();
 scr_c_bullet_add();
 scr_c_engine_add(true);
+scr_c_targeting_add();
 
 var cmp, v;
 
 //TODO: scr_c_targeting_add(cmp)
-cmp = ds_map_find_value(mp,"c_targeting");
-target_image_index = 0;
-//set target_id
-targeting_cb = asset_get_index(ds_map_find_value(cmp, "targeting_cb"));
-if(!script_execute(targeting_cb)){
-    instance_destroy();
-    return undefined;
-}
-//optional targeting parameters
-v = ds_map_find_value(cmp, "warn_range");
-if(v != undefined){
-    warn_range = v;
-}
-v = ds_map_find_value(cmp, "targeting_sprite");
-if(v != undefined){
-    target_sprite = asset_get_index(v);
-    target_sprite_ind = 0;
-    scr_missile_set_target();
-}
+
 
 //INIT AI
 scr_ai_set_avoidance(curr_speed, turn);
@@ -132,8 +115,7 @@ scr_missile_destroy();
           <argument>
             <kind>1</kind>
             <string>///[Components]: hull, bullet, (engine), (targeting)
-scr_c_hull_step();
-scr_c_bullet_step();
+event_inherited();
 
 //TODO: refactor c_engine_step
 scr_missile_navigate();

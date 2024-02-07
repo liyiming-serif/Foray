@@ -16,3 +16,5 @@ if(is_armored){
     //future: if it needs to know more, pass balloon ref to armor
     aid.balloon_frames = image_number;
 }
+
+scr_c_add("c_amr");

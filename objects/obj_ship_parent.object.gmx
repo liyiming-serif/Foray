@@ -120,8 +120,7 @@ if(!is_friendly){
             <kind>1</kind>
             <string>///Update components
 
-scr_c_hull_step();
-scr_c_engine_step();
+scr_c_loop("step");
 </string>
           </argument>
         </arguments>
