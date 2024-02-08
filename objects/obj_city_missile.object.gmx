@@ -58,7 +58,7 @@ airtime_invuln = ds_map_find_value(ext, "airtime_invuln");
             <kind>1</kind>
             <string>///explode!
 
-scr_missile_destroy();
+event_inherited();
 
 //out of range
 if(ttl!=undefined &amp;&amp; ttl&lt;=0){
@@ -130,31 +130,6 @@ else{
 
 found_target = true;
 instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///draw target on city
-event_inherited();
-scr_missile_draw_target();
 </string>
           </argument>
         </arguments>

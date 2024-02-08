@@ -162,9 +162,9 @@ global.MIN_DMG = 0.5;
 global.MAX_STATS = 3;
 global.SWERVE_TURN_MOD = 1.5; //turning boost for AI avoiding obstacles
 
-global.MAX_MISSILE_TARGETS = 1;
-//k: obj_name for missile type, v: list of ids allowed to draw targets
-global.missile_slots = ds_map_create(); 
+global.MAX_DRAWN_TARGETS = 1;
+//k: object type name, v: list of ids allowed to draw targets
+global.target_slots = ds_map_create(); 
 
 //UI
 global.UI_MAP = ds_map_find_value(global.DEFAULT_SETTINGS, "ui");
@@ -415,7 +415,7 @@ if(global.curr_level_name!=""){
     ds_map_destroy(global.curr_level_data);
 }
 ds_list_destroy(global.skymine_queue);
-ds_map_destroy(global.missile_slots);
+ds_map_destroy(global.target_slots);
 
 //fonts
 font_delete(global.fnt_4mini);

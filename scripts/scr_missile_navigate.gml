@@ -115,12 +115,6 @@ image_angle = direction;
 var gain = (1-(curr_speed-speed)/curr_speed)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
 audio_emitter_gain(engine_sound_emitter, clamp(gain,0,1));
 
-#define scr_missile_destroy
-///scr_missile_destroy()
-
-//gc audio emitter
-audio_emitter_free(engine_sound_emitter);
-
 #define scr_missile_set_target
 ///scr_missile_set_target()
 if(!variable_instance_exists(id,"target_sprite") || !scr_instance_exists(target_id)){
@@ -153,18 +147,21 @@ if(!variable_instance_exists(id,"target_sprite") ||
     return undefined;
 }
 
-var tpos, wr, can_draw_target, ml, nm, lp;
+var tpos, wr, can_draw_target, ol, ol_len, ol_i;
 
 target_sprite_ind = (target_sprite_ind+0.4)%sprite_get_number(target_sprite);
 
 //decide whether to draw warn target
 can_draw_target = false;
+//within distance?
 wr = point_distance(x,y,target_id.x,target_id.y) > warn_range;
-ml = global.missile_slots[? object_get_name(id.object_index)];
-nm = ds_list_size(ml);
-lp = ds_list_find_index(ml,id);
+//list of targeting objects closing in on the same target
+ol = global.target_slots[? object_get_name(id.object_index)];
+ol_len = ds_list_size(ol);
+//instance's place in the object list
+ol_i = ds_list_find_index(ol,id);
 if(wr){
-    if(nm < global.MAX_MISSILE_TARGETS || lp != -1){
+    if(ol_len < global.MAX_MISSILE_TARGETS || ol_i != -1){
         can_draw_target = true;
     }
 }

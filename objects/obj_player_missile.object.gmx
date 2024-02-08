@@ -53,7 +53,7 @@ event_inherited();
             <kind>1</kind>
             <string>///explode!
 
-scr_missile_destroy();
+event_inherited()
 
 //out of range
 if(ttl!=undefined &amp;&amp; ttl&lt;=0){
@@ -66,31 +66,6 @@ part_particles_create(global.partsys,x,y,air_hit_part,1);
 scr_play_sound(snd_explosion_m,x,y);
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///draw target on player
-event_inherited();
-scr_missile_draw_target();
 </string>
           </argument>
         </arguments>

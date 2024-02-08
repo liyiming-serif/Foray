@@ -391,7 +391,6 @@
     </scripts>
     <scripts name="projectiles">
       <script>scripts\scr_projectile_shade.gml</script>
-      <script>scripts\scr_missile_navigate.gml</script>
       <script>scripts\scr_flame_plume_step.gml</script>
     </scripts>
     <script>scripts\scr_grounded_create.gml</script>
@@ -422,6 +421,7 @@
       </scripts>
       <scripts name="c_targeting">
         <script>scripts\scr_c_targeting_add.gml</script>
+        <script>scripts\scr_c_targeting_draw_ui.gml</script>
       </scripts>
       <scripts name="c_bullet">
         <script>scripts\scr_c_bullet_add.gml</script>

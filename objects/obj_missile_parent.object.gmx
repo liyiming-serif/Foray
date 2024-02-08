@@ -35,14 +35,6 @@ scr_c_hull_add();
 scr_c_bullet_add();
 scr_c_engine_add(true);
 scr_c_targeting_add();
-
-var cmp, v;
-
-//TODO: scr_c_targeting_add(cmp)
-
-
-//INIT AI
-scr_ai_set_avoidance(curr_speed, turn);
 </string>
           </argument>
         </arguments>
@@ -65,33 +57,8 @@ scr_ai_set_avoidance(curr_speed, turn);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///scr_missile_destroy()
-
-scr_missile_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Reset state from AVOIDING
-
+            <string>///gc audio emitter
+audio_emitter_free(engine_sound_emitter);
 </string>
           </argument>
         </arguments>
@@ -117,11 +84,14 @@ scr_missile_destroy();
             <string>///[Components]: hull, bullet, (engine), (targeting)
 event_inherited();
 
-//TODO: refactor c_engine_step
-scr_missile_navigate();
-//update emitter
-audio_emitter_position(engine_sound_emitter,x,y,0);
-audio_emitter_velocity(engine_sound_emitter,hspeed,vspeed,0);
+//simple navi w/out AI
+//req: c_engine, c_targeting
+if(scr_instance_exists(target_id)){
+    scr_c_engine_turn(target_id.x, target_id.y);
+}
+else{
+    speed = global.game_speed*curr_speed;
+}
 </string>
           </argument>
         </arguments>
@@ -192,11 +162,12 @@ scr_c_hull_collide_with_projectile();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///draw healthbar
+            <string>///draw healthbar &amp; targeting sprite
 
 if(hp&lt;max_hp){
     scr_c_hull_draw_hp_bar();
 }
+scr_c_targeting_draw_ui();
 </string>
           </argument>
         </arguments>
