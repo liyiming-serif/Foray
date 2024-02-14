@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///init map(dir, is_friendly)
 
-mp = ds_map_find_value(global.weapons,"mg");
+mp = ds_map_find_value(global.WEAPONS,"mg");
 event_inherited()
 </string>
           </argument>

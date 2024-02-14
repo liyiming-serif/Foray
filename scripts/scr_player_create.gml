@@ -5,7 +5,7 @@ var yv = argument[1];
 var dir = argument[2];
 var model_name = argument[3];
 
-with(scr_instance_create(xv,yv,obj_player,dir,model_name)){
+with(scr_instance_create(xv,yv,obj_player,dir,true,model_name)){
     global.player_id = id;
     obj_cursor.modifier = modifier; //update cursor color palette
     return id;

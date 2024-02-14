@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Set mp; init base ship(dir,is_friendly,front_wpn,left_wpn,right_wpn)
 
-mp = ds_map_find_value(global.ships, "zepplin");
+mp = ds_map_find_value(global.SHIPS, "zepplin");
 event_inherited();
 </string>
           </argument>

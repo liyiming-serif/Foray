@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Set mp; init base ship(dir, is_friendly, wpn_ind, is_armored)
 
-mp = ds_map_find_value(global.ships, "balloon");
+mp = ds_map_find_value(global.SHIPS, "balloon");
 event_inherited();
 </string>
           </argument>

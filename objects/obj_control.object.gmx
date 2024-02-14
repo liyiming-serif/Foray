@@ -40,84 +40,7 @@ global.AB_USE_CHARGE_STEAL = false;
 global.AB_USE_ANGLE_STEAL = false;
 
 //LOAD JSONS
-var f, raw;
-
-//Ship and plane models + AI constants
-f = file_text_open_read(working_directory + "\ships.json");
-raw = "";
-while(!file_text_eof(f)){
-    raw += file_text_read_string(f);
-    file_text_readln(f);
-}
-file_text_close(f);
-global.SHIPS = json_decode(raw);
-
-//Weapon fixures and projectiles
-f = file_text_open_read(working_directory + "\wpns_bullets.json");
-raw = "";
-while(!file_text_eof(f)){
-    raw += file_text_read_string(f);
-    file_text_readln(f);
-}
-file_text_close(f);
-global.WPNS_BULLETS = json_decode(raw);
-
-//Cloaks affect stealing constants
-f = file_text_open_read(working_directory + "\cloaks.json");
-raw = "";
-while(!file_text_eof(f)){
-    raw += file_text_read_string(f);
-    file_text_readln(f);
-}
-file_text_close(f);
-global.CLOAKS = json_decode(raw);
-
-//Design pattern components
-f = file_text_open_read(working_directory + "\design_patterns.json");
-raw = "";
-while(!file_text_eof(f)){
-    raw += file_text_read_string(f);
-    file_text_readln(f);
-}
-file_text_close(f);
-global.DESIGN_PATTERNS = json_decode(raw);
-
-//Player + ui settings
-f = file_text_open_read(working_directory + "\default_settings.json");
-raw = "";
-while(!file_text_eof(f)){
-    raw += file_text_read_string(f);
-    file_text_readln(f);
-}
-file_text_close(f);
-global.DEFAULT_SETTINGS = json_decode(raw);
-
-//PARSE JSONS
-global.planes = ds_map_find_value(global.SHIPS, "planes");
-global.ships = ds_map_find_value(global.SHIPS, "ships");
-global.models = ds_map_find_value(global.planes, "models");
-global.plane_engine_tiers = ds_map_find_value(global.planes, "plane_engine_tiers");
-global.min_speed_tiers = ds_map_find_value(stat_tiers, "min_speeds");
-global.max_speed_tiers = ds_map_find_value(stat_tiers, "max_speeds");
-global.roll_speed_tiers = ds_map_find_value(stat_tiers, "roll_speeds");
-global.base_turn_tiers = ds_map_find_value(stat_tiers, "base_turns");
-global.turn_accel_tiers = ds_map_find_value(stat_tiers, "turn_accels");
-global.amr_tiers = ds_map_find_value(stat_tiers, "armors");
-global.pilot_ai = ds_map_find_value(global.planes, "ai");
-global.weapons = ds_map_find_value(global.WPNS_BULLETS, "weapons");
-global.projectiles = ds_map_find_value(global.WPNS_BULLETS, "projectiles");
-global.missiles = ds_map_find_value(global.WPNS_BULLETS, "missiles");
-global.midflights = ds_map_find_value(global.WPNS_BULLETS, "midflights");
-global.cloaks = ds_map_find_value(global.CLOAKS, "cloaks");
-global.design_pattern_weights = ds_map_find_value(global.DESIGN_PATTERNS, "cb_weights");
-global.wpn_weights = ds_map_find_value(global.DESIGN_PATTERNS, "wpn_weights");
-//default settings
-global.DEFAULT_CONTROLS = ds_map_find_value(global.DEFAULT_SETTINGS, "controls");
-global.DEFAULT_GRAPHICS = ds_map_find_value(global.DEFAULT_SETTINGS, "graphics");
-//NOTE: only default cloak available for now
-global.equipped_cloak = ds_map_find_value(global.cloaks, "default");
-global.steal_charge_rate = ds_map_find_value(global.equipped_cloak, "charge_rate_px");
-global.steal_max_range = ds_map_find_value(global.equipped_cloak, "max_range");
+scr_load_data();
 
 //Unintiallized level json + metadata
 global.curr_level_data = undefined;
@@ -406,11 +329,7 @@ part_type_destroy(global.dmg_ind[2]);
 part_type_destroy(global.trail_far);
 
 //top level data structures
-ds_map_destroy(global.SHIPS);
-ds_map_destroy(global.WPNS_BULLETS);
-ds_map_destroy(global.DESIGN_PATTERNS);
-ds_map_destroy(global.DEFAULT_SETTINGS);
-ds_map_destroy(global.CLOAKS);
+scr_clear_data();
 if(global.curr_level_name!=""){
     ds_map_destroy(global.curr_level_data);
 }

@@ -36,11 +36,10 @@ mp = ds_map_find_value(global.models, key);
 image_angle = direction;
 
 //params common to every model
-max_hp = ds_map_find_value(global.planes,"max_hp");
-
+max_hp = ds_map_find_value(global.PLANES,"max_hp");
 
 var cmp;
-cmp = ds_map_find_value(global.planes,"c_hull");
+cmp = ds_map_find_value(global.PLANES,"c_hull");
 scr_c_hull_add(cmp);
 scr_c_plane_engine_add();
 

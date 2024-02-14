@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Set mp; init base ship(dir, is_friendly)
 
-mp = ds_map_find_value(global.ships, "blimp");
+mp = ds_map_find_value(global.SHIPS, "blimp");
 event_inherited();
 </string>
           </argument>
@@ -102,7 +102,7 @@ gid[2] = scr_wpn_equip(x,y,obj_player_missile_gun,0,false);//right
 //req: mp, neutral_speed, turn
 
 scr_ai_add_common();
-scr_ai_set_avoidance();
+scr_ai_set_avoidance(neutral_speed, turn);
 
 var aimp = ds_map_find_value(mp, "ai");
 flee_duration = ds_map_find_value(aimp,"flee_duration");

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Set mp; init base ship(dir, is_friendly, chase_player)
 
-mp = ds_map_find_value(global.ships, "skymine");
+mp = ds_map_find_value(global.SHIPS, "skymine");
 event_inherited();
 </string>
           </argument>

@@ -41,7 +41,7 @@ dy = 0;
 av = 0;
 
 //graphical
-if(sprite_index!=undefined){
+if(sprite_index!=-1){
     //animation
     anim_speed = ds_map_find_value(mp,"anim_speed");
     image_speed = anim_speed;

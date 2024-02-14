@@ -29,7 +29,7 @@ shader_reset();
 ///scr_plane_advance_frame()
 
 ///Update components
-scr_c_loop();
+scr_c_loop("step");
 
 //emit far contrail if boosting
 trail_counter = min(trail_counter+1,global.TRAIL_RATE);

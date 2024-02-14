@@ -461,6 +461,8 @@
       <script>scripts\scr_play_sound.gml</script>
     </scripts>
     <scripts name="control">
+      <script>scripts\scr_load_data.gml</script>
+      <script>scripts\scr_clear_data.gml</script>
       <script>scripts\scr_set_globals.gml</script>
       <script>scripts\scr_set_screensize.gml</script>
       <script>scripts\scr_set_level.gml</script>
