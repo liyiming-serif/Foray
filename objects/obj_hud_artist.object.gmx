@@ -32,7 +32,7 @@ player_hp_gauge_ref = spr_player_hp_gauge;
 player_hp_bar_ref = spr_player_hp_bar;
 player_hp_gauge_img_ind = 0;
 //hp values to track
-max_hp = ds_map_find_value(ds_map_find_value(global.PLANES,"c_hull"),"map_hp");
+max_hp = ds_map_find_value(ds_map_find_value(global.PLANES,"c_hull"),"max_hp");
 hp = max_hp;
 target_hp = hp;
 
@@ -207,7 +207,7 @@ draw_set_valign(fa_top);
 draw_set_halign(fa_right);
 
 //RGB split fx: draw shadow
-draw_set_colour(global.C_TEXT_SHADOW);
+draw_set_colour(global.C_SHADOW);
 if(window_get_fullscreen()){
     //draw_text(view_wview[0]-xbor+2,ybor-2,score);
 }

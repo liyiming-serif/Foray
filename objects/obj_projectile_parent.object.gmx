@@ -37,7 +37,7 @@ if(ds_map_exists(mp,"anim_speed")){
 if(ds_map_exists(mp,"palette")){
     if(is_friendly){
         //FUTURE: load palette based on dmg stat
-        modifier = ds_map_find_value(mp,"palette1");
+        modifier = ds_map_find_value(mp,"palette");
     }
     else{
         modifier = 129;

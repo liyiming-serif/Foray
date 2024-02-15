@@ -61,7 +61,7 @@ if(sprite_index != -1){
 
 #define scr_wpn_advance_frame
 ///scr_wpn_advance_frame()
-if(sprite_index != undefined){
+if(sprite_index != -1){
     if(image_index>=u_bound_frame){
         image_index = l_bound_frame;
     }
@@ -82,10 +82,11 @@ dy = y-yprevious;
 ///scr_wpn_anim_end()
 
 //finish shooting animation
-if(sprite_index != undefined){
+if(sprite_index != -1){
     l_bound_frame = 0;
     u_bound_frame = shoot_frame;
 }
+
 #define scr_wpn_fire_sound
 ///scr_wpn_fire_sound()
 //wpn helper function for playing a sound or sound group

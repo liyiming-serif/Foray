@@ -5,7 +5,7 @@
 var g, cb, ret;
 g = argument[0];
 cb = argument[1];
-ret = -1;
+ret = undefined;
 
 with(g){
     switch(cb){

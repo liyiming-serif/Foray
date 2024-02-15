@@ -66,7 +66,7 @@ on_release_cb = asset_get_index(ds_map_find_value(mp,"on_release_cb"));
 if(ds_map_exists(mp,"barrel_len")){
     barrel_len = ds_map_find_value(mp,"barrel_len");
 }
-else if(sprite_index != undefined){
+else if(sprite_index != -1){
     barrel_len = sprite_width;
 }
 else{
