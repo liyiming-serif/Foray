@@ -18,7 +18,7 @@ with(instance_create(xv,yv,obj)){
     og_accuracy = ds_list_find_value(ds_map_find_value(mp,"accuracy"),skill); //angle diff before plane opens fire
     accuracy = og_accuracy;
     var utt = ds_map_find_value(mp,"update_target_time"); //update_target_time
-    scr_plane_instantiate(dir,model_name,false,ds_list_find_value(utt,skill));
+    scr_plane_init(dir,model_name,false,ds_list_find_value(utt,skill));
     
     //Handicap AI
     og_base_turn = base_turn;
@@ -34,7 +34,7 @@ with(instance_create(xv,yv,obj)){
     //entry point for AI FSM
     var create_script = asset_get_index(ds_map_find_value(mp,"create_script"));
     script_execute(create_script, mp);
-    scr_set_avoidance(neutral_speed, base_turn, 0);
+    scr_ai_set_avoidance(neutral_speed, base_turn);
     
     return id;
 }
@@ -103,8 +103,8 @@ if(i!=noone){
     ax = lengthdir_x(foresight,adir);
     ay = lengthdir_y(foresight,adir);
     state = plane_ai_states.AVOIDING;
-    if(!alarm[avoid_state_alarm]){
-        alarm[avoid_state_alarm] = avoid_arc;
+    if(!alarm[global.AVOIDANCE_ALARM]){
+        alarm[global.AVOIDANCE_ALARM] = avoid_arc;
         //rounds_left = clamp(rounds_left+1,0,max_rounds);
     }
 }

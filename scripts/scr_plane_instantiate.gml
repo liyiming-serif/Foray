@@ -455,15 +455,15 @@ nw_plane.u_bound_frame = nw_plane.image_number+1;
 nw_plane.timeline_index = tl_steal_coroutine;
 nw_plane.timeline_position = 24;
 nw_plane.timeline_running = true;
-//invincibility during recovery frames
-nw_plane.invincibility = global.SPAWN_INVINCIBILITY*0.5;
+//invuln during recovery frames
+nw_plane.invuln = global.SPAWN_INVULN*0.5;
 //inherit old plane's hp
 nw_plane.hp = hp;
-//restore a bit of hp and double invincibility frames if stealing new plane
+//restore a bit of hp and double invuln frames if stealing new plane
 switch(object_index){
     case obj_enemy:
     case obj_enemy_pyro:
-        nw_plane.invincibility = global.SPAWN_INVINCIBILITY;
+        nw_plane.invuln = global.SPAWN_INVULN;
         nw_plane.timeline_position = 0;
         nw_plane.hp = min(hp+max_hp*0.7, max_hp);
         break;

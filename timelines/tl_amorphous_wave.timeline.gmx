@@ -22,7 +22,7 @@
             <string>///spawn player + starting enemies
 scr_player_create(800,500,90,"firnas");
 
-scr_blimp_create(924,648,30);
+scr_instance_create(924,648,obj_blimp,30,false);
 //scr_blimp_create(689,1122,315);
 //scr_blimp_create(144,527,60);
 //scr_blimp_create(1427,288,225);
@@ -242,9 +242,9 @@ scr_remove_design_pattern("scr_spawn_plane_cmc3");
             <kind>1</kind>
             <string>///introduce balloons
 
-scr_spawn_balloon("");
-scr_spawn_balloon("");
-scr_spawn_balloon("");
+scr_spawn_balloon(undefined);
+scr_spawn_balloon(undefined);
+scr_spawn_balloon(undefined);
 
 //scr_remove_design_pattern("scr_spawn_balloon");
 </string>

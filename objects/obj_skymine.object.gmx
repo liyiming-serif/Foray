@@ -25,8 +25,100 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///set damage to normal type
-is_sp_dmg = false;
+            <string>///Set mp; init base ship(dir, is_friendly, chase_player)
+
+mp = ds_map_find_value(global.SHIPS, "skymine");
+event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Add components
+scr_c_hull_add();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///ext data + graphics
+
+var ext = ds_map_find_value(mp, "extend");
+dmg = ds_map_find_value(ext, "dmg");
+chase_vel = ds_map_find_value(ext, "chase_vel");
+chase_freq = ds_map_find_value(ext, "chase_freq");
+chase_hp_reduc = ds_map_find_value(ext, "chase_hp_reduc");
+chasing_threat = ds_map_find_value(ext, "chasing_threat");
+
+image_speed = 0.5;
+//TODO: replace w weight
+friction = 0.7;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set AI
+
+//Is chasing mine
+//req: chase_freq, chase_hp_reduc, chasing_threat
+chase_player = arg_buff[2];
+if(chase_player){
+    scr_ai_add_common();
+    max_hp *= chase_hp_reduc;
+    hp *= chase_hp_reduc;
+    chase_alarm = 11;
+    alarm[chase_alarm] = chase_freq;
+    threat = ds_map_find_value(mp, "chasing_threat");
+}
+
+var aimp = ds_map_find_value(mp, "ai");
+alert_range = ds_map_find_value(aimp, "alert_range");
 </string>
           </argument>
         </arguments>
@@ -68,7 +160,7 @@ scr_ship_gc();
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="2" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -85,8 +177,8 @@ scr_ship_gc();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///chase sequence
-scr_skymine_chase();
+            <string>///AI chase sequence
+scr_skymine_ai_chase();
 </string>
           </argument>
         </arguments>
@@ -109,10 +201,31 @@ scr_skymine_chase();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
+            <string>///Event Inherited
 
-scr_ship_advance_frame();
+event_inherited();
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///AI emit engine sound when chasing
 if(chase_player){
     var gain = (1-(chase_vel-speed)/chase_vel)*(1-global.SOUND_GAIN_DAMPENER*global.spawn_cap);
     audio_emitter_gain(engine_sound_emitter, gain*global.SOUND_BALLOON_GAIN_SHIFT);
@@ -167,7 +280,7 @@ else{
           <argument>
             <kind>1</kind>
             <string>///Skymine hit
-scr_skymine_hit();
+scr_skymine_collide_with_projectile();
 </string>
           </argument>
         </arguments>
@@ -191,17 +304,7 @@ scr_skymine_hit();
           <argument>
             <kind>1</kind>
             <string>///Detonate!
-if(variable_instance_exists(other, "roll_invuln") &amp;&amp; other.roll_invuln&gt;0){
-    return undefined;
-}
-
-if(other.is_friendly != is_friendly ){
-    points = 0;
-    scr_play_sound(snd_detonation,x,y,);
-    with(other){
-        scr_plane_hit();
-    }
-}
+scr_skymine_collide_with_plane();
 </string>
           </argument>
         </arguments>

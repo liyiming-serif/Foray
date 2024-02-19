@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="2" enumb="11">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,9 +25,78 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Turn off wpn shooting palette
+            <string>///scr_wpn_init(dir, is_friendly)
+//req: mp
 
-rt_modifier = modifier/256.0;
+//NOTE: image_angle = direction
+image_angle = arg_buff[0];
+is_friendly = arg_buff[1];
+
+name = ds_map_find_value(mp,"name")
+
+//angle + position
+image_angle_prev = image_angle;
+dx = 0;
+dy = 0;
+av = 0;
+
+//graphical
+if(sprite_index!=-1){
+    //animation
+    anim_speed = ds_map_find_value(mp,"anim_speed");
+    image_speed = anim_speed;
+    
+    shoot_frame = ds_map_find_value(mp,"shoot_frame");
+    l_bound_frame = 0;
+    u_bound_frame = shoot_frame;
+    
+    //palette swap shader
+    modifier = ds_map_find_value(mp,"palette");
+    rt_modifier = modifier/255.0;
+    palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
+    row_ref = shader_get_uniform(shader_pal_swap, "row");
+}
+
+//callbacks
+on_click_cb = asset_get_index(ds_map_find_value(mp,"on_click_cb"));
+pressed_cb = asset_get_index(ds_map_find_value(mp,"pressed_cb"));
+on_release_cb = asset_get_index(ds_map_find_value(mp,"on_release_cb"));
+
+//optional
+if(ds_map_exists(mp,"barrel_len")){
+    barrel_len = ds_map_find_value(mp,"barrel_len");
+}
+else if(sprite_index != -1){
+    barrel_len = sprite_width;
+}
+else{
+    barrel_len = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn off muzzle flash
+
+rt_modifier = modifier/255.0;
 </string>
           </argument>
         </arguments>
@@ -51,7 +120,7 @@ rt_modifier = modifier/256.0;
           <argument>
             <kind>1</kind>
             <string>///update linear and angular velocity
-scr_wpn_end_frame();
+scr_wpn_end_step();
 </string>
           </argument>
         </arguments>
@@ -100,30 +169,6 @@ image_angle_prev = image_angle;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///increment shoot_counter
-if(variable_instance_exists(id,"shoot_rate")){
-    shoot_counter = min(shoot_counter+global.game_speed,shoot_rate);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Advance frame
 scr_wpn_advance_frame();
 </string>
@@ -149,10 +194,7 @@ scr_wpn_advance_frame();
           <argument>
             <kind>1</kind>
             <string>///finish shooting animation
-
-l_bound_frame = 0;
-u_bound_frame = shoot_frame;
-
+scr_wpn_anim_end();
 </string>
           </argument>
         </arguments>

@@ -8,6 +8,49 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generic projectile properties(is_friendly)
+//req: mp
+is_friendly = arg_buff[0];
+
+if(ds_map_exists(mp,"anim_speed")){
+    image_speed = ds_map_find_value(mp,"anim_speed");
+}
+
+//palette shader
+if(ds_map_exists(mp,"palette")){
+    if(is_friendly){
+        //FUTURE: load palette based on dmg stat
+        modifier = ds_map_find_value(mp,"palette");
+    }
+    else{
+        modifier = 129;
+    }
+    rt_modifier = modifier/255.0;
+    palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
+    row_ref = shader_get_uniform(shader_pal_swap, "row");
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,8 +68,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///scr_projectile_step
-scr_projectile_step();
+            <string>///Update components
+
+scr_c_loop("step");
 </string>
           </argument>
         </arguments>
@@ -81,7 +125,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///apply palette swap shader
+            <string>///Optional: apply shaders
 scr_projectile_shade();
 </string>
           </argument>

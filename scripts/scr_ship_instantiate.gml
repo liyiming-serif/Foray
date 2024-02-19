@@ -2,32 +2,25 @@
 ///scr_ship_instantiate(is_friendly, ds_map, update_target_time=-1)
 
 //SUPERCLASS CONSTRUCTOR: don't call directly
-//hitstun and invincibility frames
 is_friendly = argument[0];
 var mp = argument[1];
 
-//common: hp
-max_hp = ds_map_find_value(mp, "max_hp");
-hp = max_hp;
-hp_bar_width = ds_map_find_value(mp,"hp_bar_width");
-if(hp_bar_width==undefined){
-    hp_bar_width = sprite_width;
-}
+//LOAD COMPONENTS
+scr_c_hull_add(mp);
+scr_c_engine_add(mp);
+
 //common: callbacks
 var dsn = ds_map_find_value(mp,"death_seq_cb");
 if(dsn != undefined){
     death_seq_cb = asset_get_index(dsn);
 }
 //common: collision
-scr_hittable_set();
-sp_invincibility = 0;
+sp_invuln = 0;
 //common: spawning
 threat = ds_map_find_value(mp,"threat");
 
-//TODO: remove scoring
-points = ds_map_find_value(mp, "score");
-
-//Enemies: locate targets
+//ai
+//TODO: REAFACTOR AI
 if(!is_friendly){
     //player
     var utt = ds_map_find_value(mp,"update_target_time");
@@ -53,9 +46,8 @@ audio_emitter_falloff(engine_sound_emitter,
 #define scr_ship_advance_frame
 ///scr_ship_advance_frame()
 
-//countdown hitstun and invincibility
-scr_hittable_step();
-sp_invincibility = max(sp_invincibility-global.game_speed,0);
+//countdown hitstun and invuln
+scr_c_hull_step();
 
 //update emitter
 audio_emitter_position(engine_sound_emitter,x,y,0);
@@ -154,14 +146,14 @@ if(hp<=0) return undefined;
 
 if(is_friendly!=other.is_friendly){
     if(other.is_sp_dmg){
-        if(sp_invincibility>0){
+        if(sp_invuln>0){
             return undefined;
         }
     }
     else{
         //destroy bullet and exit early
-        if(invincibility>0){
-            if(!variable_instance_exists(other,"piercing_invincibility")){
+        if(invuln>0){
+            if(!variable_instance_exists(other,"piercing_invuln")){
                 instance_destroy(other);
                 scr_play_sound(snd_deflect,x,y);
             }
@@ -223,14 +215,14 @@ if(is_friendly!=other.is_friendly){
     
     
     if(other.is_sp_dmg){
-        if(variable_instance_exists(other,"sp_invincibility")){
-            sp_invincibility = other.sp_invincibility;
+        if(variable_instance_exists(other,"sp_invuln")){
+            sp_invuln = other.sp_invuln;
         }
     }
     else{
         //destroy bullet, or set piercing
-        if(variable_instance_exists(other,"piercing_invincibility")){
-            invincibility = other.piercing_invincibility;
+        if(variable_instance_exists(other,"piercing_invuln")){
+            invuln = other.piercing_invuln;
         }
         else{
             instance_destroy(other);
@@ -348,6 +340,7 @@ scr_play_sound(snd_explosion_m,x,y);
 //audio_stop_sound(engine_sound);
 
 instance_destroy();
+
 #define scr_ship_draw_ui
 ///scr_ship_draw_ui()
 
@@ -355,5 +348,5 @@ instance_destroy();
 
 //draw hp bar
 if(hp<max_hp && global.player_id != id){
-    scr_hittable_draw_hp_bar();
+    scr_c_hull_draw_hp_bar();
 }

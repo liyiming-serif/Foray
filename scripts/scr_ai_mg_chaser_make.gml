@@ -1,4 +1,4 @@
-///scr_mg_chaser_make(ai_map)
+///scr_ai_mg_chaser_make(ai_map)
 
 var mp = argument[0];
 var opt = ds_map_find_value(mp,"optional");

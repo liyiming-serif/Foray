@@ -4,11 +4,19 @@ is_wpn_on = true;
 
 //create flame
 if(!scr_instance_exists(projectile_id)){
-    var f = scr_flame_plume_create(x+lengthdir_x(barrel_len,image_angle),y+lengthdir_y(barrel_len,image_angle),bullet_type,is_friendly);
+    var f = scr_instance_create(
+        x+lengthdir_x(barrel_len,image_angle),
+        y+lengthdir_y(barrel_len,image_angle),
+        projectile_ind,
+        is_friendly);
     f.curr_speed = 0;
     f.direction = direction;
     f.image_angle = image_angle;
     f.dmg = dmg;
+    //pass dmg_mod to secondary effects
+    if(variable_instance_exists(id, "dmg_mod")){
+        f.dmg_mod = dmg_mod;
+    }
     projectile_id = f;
 }
 else{ //existing flame
@@ -29,8 +37,8 @@ else{ //existing flame
     //produce recoil flash+animation
     if(!variable_instance_exists(projectile_id,"linger_alarm") ||
         !projectile_id.alarm[projectile_id.linger_alarm]) {
-            rt_modifier = (modifier+1.0)/256.0;
-            alarm[11] = recoil;
+            rt_modifier = (modifier+1.0)/255.0;
+            alarm[global.MUZZLE_FLASH_ALARM] = recoil;
             l_bound_frame = shoot_frame;
             u_bound_frame = image_number;
     }

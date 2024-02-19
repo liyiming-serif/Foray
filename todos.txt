@@ -1,0 +1,8 @@
+P2:
+===
+[] Use target_id as target_slots key
+[] gc audio emitter in c_engine
+
+P3:
+===
+[] partially load data if too much memory

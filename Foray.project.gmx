@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="32" name="datafiles">
+  <datafiles number="37" name="datafiles">
     <datafile>
       <name>Westington.ttf</name>
       <exists>-1</exists>
@@ -20,23 +20,6 @@
         </Config>
       </ConfigOptions>
       <filename>Westington.ttf</filename>
-    </datafile>
-    <datafile>
-      <name>design_patterns.json</name>
-      <exists>-1</exists>
-      <size>141</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>design_patterns.json</filename>
     </datafile>
     <datafile>
       <name>4mini.ttf</name>
@@ -56,6 +39,91 @@
       <filename>4mini.ttf</filename>
     </datafile>
     <datafile>
+      <name>planes.json</name>
+      <exists>-1</exists>
+      <size>2670</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>planes.json</filename>
+    </datafile>
+    <datafile>
+      <name>ships.json</name>
+      <exists>-1</exists>
+      <size>2039</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>ships.json</filename>
+    </datafile>
+    <datafile>
+      <name>weapons.json</name>
+      <exists>-1</exists>
+      <size>3886</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>weapons.json</filename>
+    </datafile>
+    <datafile>
+      <name>projectiles.json</name>
+      <exists>-1</exists>
+      <size>1822</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>projectiles.json</filename>
+    </datafile>
+    <datafile>
+      <name>design_patterns.json</name>
+      <exists>-1</exists>
+      <size>141</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>design_patterns.json</filename>
+    </datafile>
+    <datafile>
       <name>default_settings.json</name>
       <exists>-1</exists>
       <size>177</size>
@@ -71,40 +139,6 @@
         </Config>
       </ConfigOptions>
       <filename>default_settings.json</filename>
-    </datafile>
-    <datafile>
-      <name>ships.json</name>
-      <exists>-1</exists>
-      <size>2812</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>ships.json</filename>
-    </datafile>
-    <datafile>
-      <name>wpns_bullets.json</name>
-      <exists>-1</exists>
-      <size>2786</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>wpns_bullets.json</filename>
     </datafile>
     <datafile>
       <name>cloaks.json</name>
@@ -215,11 +249,11 @@
       <sprite>sprites\spr_drop_bomb</sprite>
     </sprites>
     <sprites name="weapons">
-      <sprite>sprites\spr_wpn_mg</sprite>
-      <sprite>sprites\spr_wpn_bomb</sprite>
-      <sprite>sprites\spr_wpn_flamethrower</sprite>
-      <sprite>sprites\spr_wpn_flamethrower_on</sprite>
-      <sprite>sprites\spr_wpn_airtillery</sprite>
+      <sprite>sprites\spr_mg</sprite>
+      <sprite>sprites\spr_cannon</sprite>
+      <sprite>sprites\spr_flamethrower</sprite>
+      <sprite>sprites\spr_flamethrower_on</sprite>
+      <sprite>sprites\spr_airtillery</sprite>
     </sprites>
     <sprites name="obstacles">
       <sprite>sprites\spr_hbox_island</sprite>
@@ -332,68 +366,115 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="planes">
-      <script>scripts\scr_plane_instantiate.gml</script>
+      <script>scripts\scr_plane_shade.gml</script>
       <script>scripts\scr_player_create.gml</script>
-      <script>scripts\scr_plane_hit.gml</script>
-      <script>scripts\scr_plane_roll.gml</script>
-      <script>scripts\scr_plane_rolling.gml</script>
       <script>scripts\scr_plane_ui_get_angles.gml</script>
       <scripts name="pilot_ai">
-        <script>scripts\scr_aiplane_create.gml</script>
-        <script>scripts\scr_ai_mg_chaser_make.gml</script>
-        <script>scripts\scr_ai_pyro_make.gml</script>
+        <script>scripts\scr_aiplane_add_common.gml</script>
+        <script>scripts\scr_ai_pyro_step.gml</script>
       </scripts>
     </scripts>
     <scripts name="ships">
-      <script>scripts\scr_ship_instantiate.gml</script>
-      <script>scripts\scr_skymine_create.gml</script>
-      <script>scripts\scr_balloon_create.gml</script>
-      <script>scripts\scr_subballoon_create.gml</script>
-      <script>scripts\scr_blimp_create.gml</script>
-      <script>scripts\scr_zeppelin_create.gml</script>
+      <scripts name="ships_ai">
+        <script>scripts\scr_ship_shade.gml</script>
+        <script>scripts\scr_skymine_queue.gml</script>
+        <script>scripts\scr_balloon_ai_step.gml</script>
+        <script>scripts\scr_subballoon_create.gml</script>
+        <script>scripts\scr_blimp_ai_position.gml</script>
+        <script>scripts\scr_zeppelin_update_wpns.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\scr_city_hit.gml</script>
-    <script>scripts\scr_wpn_create.gml</script>
-    <script>scripts\scr_flamethrower_step.gml</script>
-    <scripts name="projectiles">
-      <script>scripts\scr_projectile_create.gml</script>
-      <script>scripts\scr_projectile_collide_with_hittable.gml</script>
-      <script>scripts\scr_projectile_collide_with_solid.gml</script>
-      <script>scripts\scr_projectile_out_of_range.gml</script>
+    <scripts name="wpn_helpers">
+      <script>scripts\scr_wpn_equip.gml</script>
+      <script>scripts\scr_wpn_fire.gml</script>
     </scripts>
-    <script>scripts\scr_flame_plume_create.gml</script>
-    <script>scripts\scr_missile_create.gml</script>
+    <scripts name="projectiles">
+      <script>scripts\scr_projectile_shade.gml</script>
+      <script>scripts\scr_flame_plume_step.gml</script>
+    </scripts>
     <script>scripts\scr_grounded_create.gml</script>
     <script>scripts\scr_cursor_frame_move.gml</script>
-    <scripts name="steerable">
-      <script>scripts\scr_set_avoidance.gml</script>
+    <scripts name="ai_helpers">
+      <script>scripts\scr_ai_add_common.gml</script>
+      <script>scripts\scr_ai_set_avoidance.gml</script>
+      <script>scripts\scr_ai_navigate.gml</script>
     </scripts>
-    <scripts name="hittable">
-      <script>scripts\scr_hittable_set.gml</script>
-      <script>scripts\scr_hittable_draw_hp_bar.gml</script>
-      <script>scripts\scr_hittable_step.gml</script>
-      <script>scripts\scr_hittable_collide_with_projectile.gml</script>
+    <scripts name="components">
+      <script>scripts\scr_c_add.gml</script>
+      <script>scripts\scr_c_loop.gml</script>
+      <scripts name="c_hull">
+        <script>scripts\scr_c_hull_add.gml</script>
+        <script>scripts\scr_c_hull_draw_hp_bar.gml</script>
+        <script>scripts\scr_c_hull_step.gml</script>
+        <script>scripts\scr_c_hull_collide_with_projectile.gml</script>
+        <script>scripts\scr_c_hull_collide_with_obstacle.gml</script>
+        <script>scripts\scr_c_hull_collide_with_skymine.gml</script>
+      </scripts>
+      <scripts name="c_engine">
+        <script>scripts\scr_c_engine_add.gml</script>
+        <script>scripts\scr_c_engine_turn.gml</script>
+        <script>scripts\scr_c_engine_step.gml</script>
+      </scripts>
+      <scripts name="c_ignition">
+        <script>scripts\scr_c_ignition_step.gml</script>
+      </scripts>
+      <scripts name="c_targeting">
+        <script>scripts\scr_c_targeting_add.gml</script>
+        <script>scripts\scr_c_targeting_draw_ui.gml</script>
+      </scripts>
+      <scripts name="c_bullet">
+        <script>scripts\scr_c_bullet_add.gml</script>
+        <script>scripts\scr_c_bullet_step.gml</script>
+      </scripts>
+      <scripts name="c_plane_engine">
+        <script>scripts\scr_c_plane_engine_add.gml</script>
+        <script>scripts\scr_c_plane_engine_step.gml</script>
+        <script>scripts\scr_c_plane_engine_steer.gml</script>
+        <script>scripts\scr_c_plane_engine_boost.gml</script>
+        <script>scripts\scr_c_plane_engine_brake.gml</script>
+        <script>scripts\scr_c_plane_engine_neutral.gml</script>
+        <script>scripts\scr_c_plane_engine_roll.gml</script>
+        <script>scripts\scr_c_plane_engine_rolling.gml</script>
+        <script>scripts\scr_c_plane_engine_idle.gml</script>
+      </scripts>
+      <scripts name="c_bomber">
+        <script>scripts\scr_c_bomber_add.gml</script>
+      </scripts>
+      <scripts name="c_amr">
+        <script>scripts\scr_c_amr_add.gml</script>
+        <script>scripts\scr_c_amr_is_up.gml</script>
+        <script>scripts\scr_c_amr_collide_with_projectile.gml</script>
+      </scripts>
     </scripts>
-    <scripts name="wpn_cbs">
-      <script>scripts\scr_fire_missile.gml</script>
+    <scripts name="callbacks">
+      <script>scripts\scr_shoot.gml</script>
       <script>scripts\scr_ignite.gml</script>
+      <script>scripts\scr_charge_volley.gml</script>
+      <script>scripts\scr_fire_missile.gml</script>
+      <script>scripts\scr_lay_mine.gml</script>
+      <script>scripts\scr_do_nothing.gml</script>
+      <script>scripts\scr_missile_target_player.gml</script>
       <script>scripts\scr_missile_target_city.gml</script>
     </scripts>
     <scripts name="audio">
       <script>scripts\scr_play_sound.gml</script>
     </scripts>
     <scripts name="control">
+      <script>scripts\scr_load_data.gml</script>
+      <script>scripts\scr_clear_data.gml</script>
+      <script>scripts\scr_set_globals.gml</script>
       <script>scripts\scr_set_screensize.gml</script>
       <script>scripts\scr_set_level.gml</script>
-      <script>scripts\scr_set_ui_consts.gml</script>
       <script>scripts\scr_init_part_cloud.gml</script>
     </scripts>
-    <scripts name="design_patterns">
+    <scripts name="spawners">
       <script>scripts\scr_spawn_plane.gml</script>
       <script>scripts\scr_spawn_skymine.gml</script>
       <script>scripts\scr_spawn_balloon.gml</script>
       <script>scripts\scr_spawn_blimp.gml</script>
       <script>scripts\scr_spawn_zeppelin.gml</script>
+      <script>scripts\scr_spawn_choose_wpn.gml</script>
     </scripts>
     <scripts name="UI">
       <script>scripts\scr_tutorial_create.gml</script>
@@ -402,6 +483,7 @@
     </scripts>
     <scripts name="helpers">
       <script>scripts\scr_instance_exists.gml</script>
+      <script>scripts\scr_instance_create.gml</script>
       <script>scripts\scr_game_to_gui.gml</script>
       <script>scripts\scr_interpolate_stat.gml</script>
       <script>scripts\scr_normalize_rgb.gml</script>
@@ -433,7 +515,8 @@
     <objects name="planes">
       <object>objects\obj_plane_parent</object>
       <object>objects\obj_player</object>
-      <object>objects\obj_enemy</object>
+      <object>objects\obj_enemy_parent</object>
+      <object>objects\obj_enemy_mg_chaser</object>
       <object>objects\obj_enemy_pyro</object>
     </objects>
     <objects name="ships">
@@ -464,8 +547,23 @@
     </objects>
     <objects name="weapons">
       <object>objects\obj_wpn_parent</object>
-      <object>objects\obj_charge_wpn_parent</object>
-      <object>objects\obj_wpn_flamethrower</object>
+      <objects name="autos">
+        <object>objects\obj_wpn_auto_parent</object>
+        <object>objects\obj_mg</object>
+        <object>objects\obj_cannon</object>
+        <object>objects\obj_player_missile_gun</object>
+        <object>objects\obj_city_missile_gun</object>
+      </objects>
+      <objects name="repeaters">
+        <object>objects\obj_wpn_repeater_parent</object>
+        <object>objects\obj_airtillery</object>
+        <object>objects\obj_burst_cannon</object>
+        <object>objects\obj_mine_layer</object>
+      </objects>
+      <objects name="ignitions">
+        <object>objects\obj_wpn_ignition_parent</object>
+        <object>objects\obj_flamethrower</object>
+      </objects>
     </objects>
     <objects name="defenders">
       <object>objects\obj_antiair_gun</object>
@@ -499,6 +597,13 @@
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>
+  <constants number="5">
+    <constant name="avoid_alarm">0</constant>
+    <constant name="aggro_alarm">1</constant>
+    <constant name="update_target_time_alarm">2</constant>
+    <constant name="arg_len">global.i_arg_len</constant>
+    <constant name="arg_buff">global.i_arg_buff</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

@@ -15,14 +15,14 @@ with(instance_create(xv,yv,obj_skymine)){
     speed = launch_vel;
     
     //initiallize stats
-    var mp = ds_map_find_value(global.airships, "skymine");
+    var mp = ds_map_find_value(global.ships, "skymine");
     
     friction = ds_map_find_value(mp, "fric");
     dmg = ds_map_find_value(mp, "dmg");
     alert_range = ds_map_find_value(mp, "alert_range");
     chase_player = chp;
     
-    scr_ship_instantiate(false,mp);
+    scr_ship_init(false,mp);
     
     //optional behavior: chase the player like Blooper
     if(chase_player){
@@ -62,15 +62,16 @@ tuple[2] = false;
 
 ds_list_add(global.skymine_queue, tuple);
 
-#define scr_skymine_hit
-///scr_skymine_hit()
+#define scr_skymine_collide_with_projectile
+///scr_skymine_collide_with_projectile()
 
-if(is_friendly!=other.is_friendly && hp>0 && invincibility<=0 && abs(speed)<=friction){
+if(is_friendly!=other.is_friendly && hp>0 && invuln<=0 && abs(speed)<=friction){
     //get pushed around
     speed = other.dmg*global.game_speed;
     direction = other.direction;
 }
-scr_ship_hit();
+scr_c_hull_collide_with_projectile();
+
 #define scr_skymine_chase
 ///scr_skymine_chase()
 
@@ -104,3 +105,14 @@ if(can_move){
 }
 
 alarm[0] = chase_freq;
+#define scr_skymine_collide_with_plane
+///scr_skymine_collide_with_plane()
+if(variable_instance_exists(other, "roll_invuln") && other.roll_invuln>0){
+    return undefined;
+}
+
+if(other.is_friendly != is_friendly ){
+    points = 0;
+    scr_play_sound(snd_detonation,x,y,);
+    instance_destroy();
+}

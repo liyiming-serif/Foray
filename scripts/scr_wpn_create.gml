@@ -57,13 +57,6 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
         display_dmg = argument[5];
     }
     
-    //scr_shoot attributes
-    bullet_type = ds_map_find_value(mp,"projectile");
-    shoot_counter = 0;
-    recoil = ds_map_find_value(mp,"recoil"); //num frames gun and plane flash from firing
-    accuracy = ds_map_find_value(mp,"accuracy");
-    dmg = scr_interpolate_stat(display_dmg, ds_map_find_value(mp,"dmg"));
-    
     var sr = ds_map_find_value(mp,"shoot_rate");
     if(sr!=undefined){
         shoot_rate = sr;
@@ -159,6 +152,7 @@ with(instance_create(argument[0],argument[1],asset_get_index(ds_map_find_value(m
 #define scr_shoot
 ///scr_shoot()
 //Generic shooting callback. Can be expanded and customized.
+//req: shoot_rate, shoot_frame, dx, dy
 
 //check cooldown
 if(shoot_counter < shoot_rate){
@@ -166,8 +160,9 @@ if(shoot_counter < shoot_rate){
 }
 shoot_counter = 0;
 //produce recoil flash+animation
-rt_modifier = (modifier+1.0)/256.0;
-alarm[11] = recoil;
+rt_modifier = (modifier+1.0)/255.0;
+alarm[global.MUZZLE_FLASH] = recoil;
+//animate wpn firing
 l_bound_frame = shoot_frame;
 u_bound_frame = image_number;
 
@@ -244,12 +239,13 @@ if(sprite_index != -1){
 
 #define scr_wpn_advance_frame
 ///scr_wpn_advance_frame()
-
-if(image_index>=u_bound_frame){
-    image_index = l_bound_frame;
-}
-else if(image_index<l_bound_frame){
-    image_index = l_bound_frame;
+if(sprite_index != undefined){
+    if(image_index>=u_bound_frame){
+        image_index = l_bound_frame;
+    }
+    else if(image_index<l_bound_frame){
+        image_index = l_bound_frame;
+    }
 }
 
 #define scr_cannon_shoot
@@ -324,10 +320,20 @@ var b = scr_shoot();
 
 image_angle = og_angle;
 return b;
-#define scr_wpn_end_frame
-///scr_wpn_end_framee()
+#define scr_wpn_end_step
+///scr_wpn_end_step()
 
 //update linear and angular velocity
 av = angle_difference(image_angle,image_angle_prev);
 dx = x-xprevious;
 dy = y-yprevious;
+
+#define scr_wpn_anim_end
+///scr_wpn_anim_end()
+
+//finish shooting animation
+if(sprite_index != undefined){
+    l_bound_frame = 0;
+    u_bound_frame = shoot_frame;
+}
+

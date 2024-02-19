@@ -5,9 +5,66 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_enemy</parentName>
+  <parentName>obj_enemy_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Base enemy pilot(dir,is_friend,model_name,ai_name=default)
+event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Ext AI
+//req: ai_name
+var aimp = ds_map_find_value(global.pilot_ai, ai_name);
+var ext = ds_map_find_value(aimp,"extend");
+
+max_fuel = ds_map_find_value(ext,"fuel");
+refuel_speed = ds_map_find_value(ext,"refuel_speed");
+
+//entry point for AI FSM
+state = plane_ai_states.CHASING;
+fuel = max_fuel;
+refuel_state_alarm = 1;
+can_fire = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -54,8 +111,8 @@ else{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance frame
-scr_plane_advance_frame();
+            <string>///Update components
+event_inherited();
 </string>
           </argument>
         </arguments>
