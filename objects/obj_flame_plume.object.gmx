@@ -47,7 +47,7 @@ flicker_alarm = 9;
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="2">
+    <event eventtype="2" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -64,13 +64,15 @@ flicker_alarm = 9;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///end flicker alarm
+            <string>///end linger
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
+    <event eventtype="2" enumb="10">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -94,7 +96,7 @@ flicker_alarm = 9;
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="2" enumb="9">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -111,9 +113,7 @@ flicker_alarm = 9;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///end linger
-
-instance_destroy();
+            <string>///end flicker alarm
 </string>
           </argument>
         </arguments>

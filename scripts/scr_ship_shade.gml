@@ -16,12 +16,6 @@ shader_reset();
 ///scr_ship_gc()
 scr_ship_gc_wpns();
 
-//HACK: add score system to discourage player from running away
-//TODO: delete this
-if(!is_friendly){
-    score += points;
-}
-
 //gc audio
 audio_emitter_free(engine_sound_emitter);
 
