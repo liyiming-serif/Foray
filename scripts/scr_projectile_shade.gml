@@ -1,10 +1,8 @@
 ///scr_projectile_shade()
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
-if(variable_instance_exists(id,modifier)){
-    shader_set(shader_pal_swap);
-    shader_set_uniform_f(row_ref, rt_modifier);
-    texture_set_stage(palette_ref, global.palette_texture);
+if(ds_map_exists(mp,"c_palette")){
+    scr_c_palette_set_shade();
     draw_self();
     shader_reset();
 }

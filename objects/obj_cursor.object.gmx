@@ -33,10 +33,7 @@ if(instance_number(obj_cursor)&gt;1){
 }
 
 image_speed = 0.4;
-palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
-row_ref = shader_get_uniform(shader_pal_swap, "row");
-modifier = 0
-rt_modifier = modifier;
+scr_c_palette_add(0);
 l_bound_frame = 0;
 u_bound_frame = 7;
 flash_frame = 8;

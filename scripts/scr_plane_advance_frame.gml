@@ -1,30 +1,3 @@
-#define scr_plane_shade
-///scr_plane_shade()
-
-//cast shadow
-scr_cast_shadow();
-
-//Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
-if (is_stealable && image_index%3>1.5){ //apply red/warn flash
-    if(global.AB_USE_CHARGE_STEAL && is_targeted){
-        shader_set(shader_flash);
-        shader_set_uniform_f_array(flash_color_ref, global.C_FLASH_WARN_NORM);
-    }
-    else{
-        shader_set(shader_hurt_flash);
-    }
-}
-else if (hitstun>0){ //apply white flash
-    shader_set(shader_hit_flash);
-}
-else{ //apply palette swap shader
-    shader_set(shader_pal_swap);
-    texture_set_stage(palette_ref, global.palette_texture);
-    shader_set_uniform_f(row_ref, rt_modifier); 
-}
-draw_self();
-shader_reset();
-
 #define scr_plane_advance_frame
 ///scr_plane_advance_frame()
 
@@ -122,7 +95,7 @@ image_speed = 0.2;
 direction += random_range(-10, 10);
 
 //stop other animation seqs
-alarm[11] = -1;
+alarm[SHOOT_FLASH_ALARM] = -1;
 
 //create explosion particle
 part_particles_create(global.partsys,x,y,global.boom_air,1);
@@ -216,7 +189,7 @@ ret= scr_wpn_fire(gid,cb);
 if(ret!=undefined){
     //change plane to shooting sprite
     sprite_index = spr_plane1_shoot;
-    alarm[11] = gid.recoil;
+    alarm[SHOOT_FLASH_ALARM] = gid.recoil;
 }
 return ret;
 

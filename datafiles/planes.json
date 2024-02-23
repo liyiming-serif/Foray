@@ -28,7 +28,9 @@
         "roll_duration_rank": 1,
         "roll_cooldown_rank": 1,
       },
-      "palette": 0
+      "c_palette":{
+        "color": 0
+      }
     },
     "bessie":{
       "name": "BC-4 Bessie",
@@ -41,7 +43,9 @@
         "roll_duration_rank": 1,
         "roll_cooldown_rank": 1,
       },
-      "palette": 1
+      "c_palette":{
+        "color": 1
+      }
     },
     "camel":{
       "name": "Camel",
@@ -54,7 +58,9 @@
         "roll_duration_rank": 1,
         "roll_cooldown_rank": 1,
       },
-      "palette": 3
+      "c_palette":{
+        "color": 3
+      }
     },
     "firnas":{
       "name": "IB-N Firnas",
@@ -67,7 +73,9 @@
         "roll_duration_rank": 1,
         "roll_cooldown_rank": 1,
       },
-      "palette": 2
+      "c_palette":{
+        "color": 2
+      }
     },
     "earl":{
       "name": "Red Baron",
@@ -80,7 +88,9 @@
         "roll_duration_rank": 1,
         "roll_cooldown_rank": 1,
       },
-      "palette": 4
+      "c_palette":{
+        "color": 4
+      }
     },
     "deneb":{
       "name": "Deneb",
@@ -93,7 +103,9 @@
         "roll_duration_rank": 1,
         "roll_cooldown_rank": 1,
       },
-      "palette": 5
+      "c_palette":{
+        "color": 5
+      }
     }
   },
   "ai":{

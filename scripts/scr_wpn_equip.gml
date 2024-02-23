@@ -52,9 +52,7 @@ with(scr_instance_create(
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if(sprite_index != -1){
-    shader_set(shader_pal_swap);
-    shader_set_uniform_f(row_ref, rt_modifier);
-    texture_set_stage(palette_ref, global.palette_texture);
+    scr_c_palette_set_shade();
     draw_self();
     shader_reset();
 }

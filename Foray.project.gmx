@@ -366,7 +366,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="planes">
-      <script>scripts\scr_plane_shade.gml</script>
+      <script>scripts\scr_plane_advance_frame.gml</script>
       <script>scripts\scr_player_create.gml</script>
       <script>scripts\scr_plane_ui_get_angles.gml</script>
       <scripts name="pilot_ai">
@@ -440,6 +440,12 @@
       </scripts>
       <scripts name="c_bomber">
         <script>scripts\scr_c_bomber_add.gml</script>
+      </scripts>
+      <scripts name="c_palette">
+        <script>scripts\scr_c_palette_add.gml</script>
+        <script>scripts\scr_c_palette_set_shade.gml</script>
+        <script>scripts\scr_c_palette_wpn_flash.gml</script>
+        <script>scripts\scr_c_palette_wpn_flash_off.gml</script>
       </scripts>
       <scripts name="c_amr">
         <script>scripts\scr_c_amr_add.gml</script>
@@ -597,7 +603,8 @@
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
+    <constant name="SHOOT_FLASH_ALARM">3</constant>
     <constant name="avoid_alarm">0</constant>
     <constant name="aggro_alarm">1</constant>
     <constant name="update_target_time_alarm">2</constant>

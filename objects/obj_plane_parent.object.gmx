@@ -59,10 +59,7 @@ l_bound_frame = neutral_frame;
 u_bound_frame = right_frame;
 
 //palette swap shader
-modifier = ds_map_find_value(mp,"palette");
-rt_modifier = modifier/255.0; //magic number for 256 max palettes
-palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
-row_ref = shader_get_uniform(shader_pal_swap, "row");
+scr_c_palette_add();
 //flash shader
 flash_color_ref = shader_get_uniform(shader_flash, "flashColor");
 
@@ -149,33 +146,6 @@ scr_plane_gc();
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Turn off plane shooting sprite
-
-if(!is_rolling){
-    sprite_index = spr_plane1;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="2" enumb="10">
       <action>
         <libid>1</libid>
@@ -197,6 +167,33 @@ if(!is_rolling){
 if(!is_friendly){
     target_id = global.player_id;
     alarm[update_target_time_alarm] = update_target_time;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn off plane shooting sprite
+
+if(!is_rolling){
+    sprite_index = spr_plane1;
 }
 </string>
           </argument>
@@ -582,8 +579,29 @@ if(global.AB_USE_ANGLE_STEAL){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Apply shader
-scr_plane_shade();
+            <string>///scr_plane_shade
+
+//cast shadow
+scr_cast_shadow();
+
+//Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
+if (is_stealable &amp;&amp; image_index%3&gt;1.5){ //apply red/warn flash
+    if(global.AB_USE_CHARGE_STEAL &amp;&amp; is_targeted){
+        shader_set(shader_flash);
+        shader_set_uniform_f_array(flash_color_ref, global.C_FLASH_WARN_NORM);
+    }
+    else{
+        shader_set(shader_hurt_flash);
+    }
+}
+else if (hitstun&gt;0){ //apply white flash
+    shader_set(shader_hit_flash);
+}
+else{ //apply palette swap shader
+    scr_c_palette_set_shade();
+}
+draw_self();
+shader_reset();
 </string>
           </argument>
         </arguments>

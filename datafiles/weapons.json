@@ -23,7 +23,9 @@
       "invuln": 102,
       "dmg_mult":1.2
     },
-    "palette":192
+    "c_palette":{
+      "color": 192
+    }
   },
   "cannon":{
     "name":"Cannon",
@@ -43,7 +45,9 @@
       "muzzle_flare":"flare1",
       "shoot_snd":"snd_cannon"
     },
-    "palette":194
+    "c_palette":{
+      "color": 194
+    }
   },
   "flamethrower":{
     "name":"Flame",
@@ -58,7 +62,9 @@
       "recoil":1,
       "accuracy":1
     },
-    "palette":198
+    "c_palette":{
+      "color": 198
+    }
   },
   "airtillery":{
     "name":"Airtillery",
@@ -83,7 +89,9 @@
       "charge_part":["charge",20,30],
       "sweep_angle":90
     },
-    "palette":196
+    "c_palette":{
+      "color": 196
+    }
   },
   "burst_cannon":{
     "name":"Burst Cannon",
@@ -108,7 +116,9 @@
       "charge_part":["charge",20,30],
       "sweep_angle":135
     },
-    "palette":194
+    "c_palette":{
+      "color": 194
+    }
   },
   "mine_layer":{
     "name":"Mine Layer",

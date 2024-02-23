@@ -34,17 +34,13 @@ if(ds_map_exists(mp,"anim_speed")){
 }
 
 //palette shader
-if(ds_map_exists(mp,"palette")){
+if(ds_map_exists(mp,"c_palette")){
     if(is_friendly){
-        //FUTURE: load palette based on dmg stat
-        modifier = ds_map_find_value(mp,"palette");
+        scr_c_palette_add();
     }
     else{
-        modifier = 129;
+        scr_c_palette_add(129);
     }
-    rt_modifier = modifier/255.0;
-    palette_ref = shader_get_sampler_index(shader_pal_swap, "palette");
-    row_ref = shader_get_uniform(shader_pal_swap, "row");
 }
 </string>
           </argument>

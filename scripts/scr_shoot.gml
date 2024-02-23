@@ -8,9 +8,8 @@ if(shoot_counter < shoot_rate){
     return undefined;
 }
 shoot_counter = 0;
-//produce recoil flash+animation
-rt_modifier = (modifier+1.0)/255.0;
-alarm[global.MUZZLE_FLASH] = recoil;
+//produce recoil flash
+scr_c_palette_wpn_flash();
 //animate wpn firing
 l_bound_frame = shoot_frame;
 u_bound_frame = image_number;
