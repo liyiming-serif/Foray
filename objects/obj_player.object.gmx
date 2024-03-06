@@ -55,8 +55,8 @@ if(hp&lt;=0 || !has_pilot || id!=global.player_id) {
     return undefined;
 }
 
-//buckling dampens turning and disables keyboard+firing
-if(sprite_index==spr_plane1_buckle){
+//shaking dampens turning and disables keyboard+firing
+if(anim_state==plane_anim_states.SHAKE){
     scr_c_plane_engine_steer(mouse_x, mouse_y, global.C_TURN_DAMPENER);
     return undefined;
 }
@@ -156,8 +156,8 @@ if(hp&lt;=0){
         scr_ground_particle_create(x, y, global.boom_air);
     }
 }
-else if(sprite_index==spr_plane1_buckle){
-    sprite_index = spr_plane1;
+else if(anim_state==plane_anim_states.SHAKE){
+    anim_state = plane_anim_states.NORM;
     if(!has_pilot){
         var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
         scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));

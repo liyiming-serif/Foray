@@ -47,20 +47,10 @@ with(scr_instance_create(
     return id;
 }
 
-#define scr_wpn_shade
-///scr_wpn_shade()
-
-//Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
-if(sprite_index != -1){
-    scr_c_palette_set_shade();
-    draw_self();
-    shader_reset();
-}
-
 #define scr_wpn_advance_frame
 ///scr_wpn_advance_frame()
 if(sprite_index != -1){
-    if(image_index>=u_bound_frame){
+    if(image_index>u_bound_frame){
         image_index = l_bound_frame;
     }
     else if(image_index<l_bound_frame){

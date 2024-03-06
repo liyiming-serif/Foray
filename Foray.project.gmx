@@ -223,9 +223,21 @@
     <sprites name="planes">
       <sprite>sprites\spr_plane1</sprite>
       <sprite>sprites\spr_plane1_shoot</sprite>
+      <sprite>sprites\spr_plane_a_sport</sprite>
+      <sprite>sprites\spr_plane_a_sport_flash</sprite>
+      <sprite>sprites\spr_plane_a_sport_shake</sprite>
+      <sprite>sprites\spr_plane_e_sport</sprite>
+      <sprite>sprites\spr_plane_e_sport_flash</sprite>
+      <sprite>sprites\spr_plane_e_sport_shake</sprite>
+      <sprite>sprites\spr_plane_a_recon</sprite>
+      <sprite>sprites\spr_plane_a_recon_flash</sprite>
+      <sprite>sprites\spr_plane_a_recon_shake</sprite>
+      <sprite>sprites\spr_plane_e_recon</sprite>
+      <sprite>sprites\spr_plane_e_recon_flash</sprite>
+      <sprite>sprites\spr_plane_e_recon_shake</sprite>
       <sprite>sprites\spr_plane1_roll</sprite>
-      <sprite>sprites\spr_plane1_land</sprite>
-      <sprite>sprites\spr_plane1_buckle</sprite>
+      <sprite>sprites\spr_plane1_crash</sprite>
+      <sprite>sprites\spr_plane1_shake</sprite>
     </sprites>
     <sprites name="ships">
       <sprite>sprites\spr_skymine</sprite>
@@ -250,10 +262,13 @@
     </sprites>
     <sprites name="weapons">
       <sprite>sprites\spr_mg</sprite>
+      <sprite>sprites\spr_revolver</sprite>
+      <sprite>sprites\spr_revolver_flash</sprite>
       <sprite>sprites\spr_cannon</sprite>
+      <sprite>sprites\spr_cannon_flash</sprite>
       <sprite>sprites\spr_flamethrower</sprite>
-      <sprite>sprites\spr_flamethrower_on</sprite>
       <sprite>sprites\spr_airtillery</sprite>
+      <sprite>sprites\spr_airtillery_flash</sprite>
     </sprites>
     <sprites name="obstacles">
       <sprite>sprites\spr_hbox_island</sprite>
@@ -366,9 +381,13 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="planes">
-      <script>scripts\scr_plane_advance_frame.gml</script>
+      <script>scripts\scr_plane_step.gml</script>
+      <script>scripts\scr_plane_shoot.gml</script>
+      <script>scripts\scr_plane_crash.gml</script>
+      <script>scripts\scr_plane_steal.gml</script>
       <script>scripts\scr_player_create.gml</script>
       <script>scripts\scr_plane_ui_get_angles.gml</script>
+      <script>scripts\scr_plane_gen_weakspot.gml</script>
       <scripts name="pilot_ai">
         <script>scripts\scr_aiplane_add_common.gml</script>
         <script>scripts\scr_ai_pyro_step.gml</script>
@@ -386,6 +405,7 @@
     </scripts>
     <script>scripts\scr_city_hit.gml</script>
     <scripts name="wpn_helpers">
+      <script>scripts\scr_wpn_set_sprite.gml</script>
       <script>scripts\scr_wpn_equip.gml</script>
       <script>scripts\scr_wpn_fire.gml</script>
     </scripts>
@@ -417,6 +437,7 @@
         <script>scripts\scr_c_engine_step.gml</script>
       </scripts>
       <scripts name="c_ignition">
+        <script>scripts\scr_c_ignition_add.gml</script>
         <script>scripts\scr_c_ignition_step.gml</script>
       </scripts>
       <scripts name="c_targeting">
@@ -444,8 +465,8 @@
       <scripts name="c_palette">
         <script>scripts\scr_c_palette_add.gml</script>
         <script>scripts\scr_c_palette_set_shade.gml</script>
-        <script>scripts\scr_c_palette_wpn_flash.gml</script>
-        <script>scripts\scr_c_palette_wpn_flash_off.gml</script>
+        <script>scripts\scr_c_palette_flash.gml</script>
+        <script>scripts\scr_c_palette_flash_off.gml</script>
       </scripts>
       <scripts name="c_amr">
         <script>scripts\scr_c_amr_add.gml</script>
@@ -603,13 +624,15 @@
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>
-  <constants number="6">
-    <constant name="SHOOT_FLASH_ALARM">3</constant>
+  <constants number="8">
+    <constant name="arg_len">global.i_arg_len</constant>
+    <constant name="arg_buff">global.i_arg_buff</constant>
     <constant name="avoid_alarm">0</constant>
     <constant name="aggro_alarm">1</constant>
     <constant name="update_target_time_alarm">2</constant>
-    <constant name="arg_len">global.i_arg_len</constant>
-    <constant name="arg_buff">global.i_arg_buff</constant>
+    <constant name="SHOOT_FLASH_ALARM">3</constant>
+    <constant name="SLIGHT_TURN">0.7</constant>
+    <constant name="SHARP_TURN">1.1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

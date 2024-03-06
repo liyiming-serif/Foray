@@ -9,7 +9,8 @@ if(shoot_counter < shoot_rate){
 }
 shoot_counter = 0;
 //produce recoil flash
-scr_c_palette_wpn_flash();
+scr_wpn_set_sprite(true);
+alarm[SHOOT_FLASH_ALARM] = recoil;
 //animate wpn firing
 l_bound_frame = shoot_frame;
 u_bound_frame = image_number;

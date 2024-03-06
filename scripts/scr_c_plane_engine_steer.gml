@@ -103,21 +103,24 @@ direction = angle_difference(direction,0); //constrain angle values
 speed = global.game_speed*curr_speed*(1-abs(turn_d)/(base_turn*global.SPEED_DAMPENER));
     
 //Change sprite based on turn img angle
-if(!is_rolling && sprite_index != spr_plane1_buckle){
-    if(turn > base_turn){
-        //hard left turn
-        l_bound_frame = left_frame;
-        u_bound_frame = image_number;
+if(abs(turn) >= base_turn*SHARP_TURN){
+    if(turn>0){
+        turn_state = plane_turn_states.LEFT_DRIFT;
     }
-    else if(turn < -base_turn){
-        //hard right turn
-        l_bound_frame = right_frame;
-        u_bound_frame = left_frame;
+    else{
+        turn_state = plane_turn_states.RIGHT_DRIFT;
     }
-    else{ //neutral
-        l_bound_frame = neutral_frame;
-        u_bound_frame = right_frame;
+}
+else if(abs(turn) >= base_turn*SLIGHT_TURN){
+    if(turn>0){
+        turn_state = plane_turn_states.LEFT_TURN;
     }
+    else{
+        turn_state = plane_turn_states.RIGHT_TURN;
+    }
+}
+else{
+    turn_state = plane_turn_states.NEUTRAL;
 }
 
 //update sound emitter for doppler effect

@@ -19,7 +19,7 @@
   "models":{
     "bessie":{
       "name": "BC-4 Bessie",
-      "chasis":"sports",
+      "chassis":"sports",
       "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
@@ -35,7 +35,7 @@
     },
     "altair":{
       "name": "Altair",
-      "chasis":"sports",
+      "chassis":"sports",
       "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
@@ -46,12 +46,12 @@
         "roll_cooldown_rank": 1,
       },
       "c_palette":{
-        "color": 1
+        "color": 2
       }
     },
     "firnas":{
       "name": "IB-N Firnas",
-      "chasis":"sports",
+      "chassis":"sports",
       "wpn_ind":"obj_flamethrower",
       "default_ai":"pyro",
       "c_plane_engine":{
@@ -62,12 +62,12 @@
         "roll_cooldown_rank": 1,
       },
       "c_palette":{
-        "color": 2
+        "color": 4
       }
     },
     "deneb":{
       "name": "Deneb",
-      "chasis":"sports",
+      "chassis":"sports",
       "wpn_ind":"obj_flamethrower",
       "default_ai":"pyro",
       "c_plane_engine":{
@@ -78,12 +78,12 @@
         "roll_cooldown_rank": 1,
       },
       "c_palette":{
-        "color": 3
+        "color": 6
       }
     },
     "earl":{
       "name": "Red Baron",
-      "chasis":"sports",
+      "chassis":"sports",
       "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
@@ -94,12 +94,12 @@
         "roll_cooldown_rank": 1,
       },
       "c_palette":{
-        "color": 4
+        "color": 8
       }
     },
     "magnolia":{
       "name": "Magnolia",
-      "chasis":"recon",
+      "chassis":"recon",
       "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
@@ -110,12 +110,12 @@
         "roll_cooldown_rank": 1,
       },
       "c_palette":{
-        "color": 5
+        "color": 10
       }
     },
     "pasque":{
       "name": "Pasque",
-      "chasis":"recon",
+      "chassis":"recon",
       "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
@@ -126,12 +126,12 @@
         "roll_cooldown_rank": 1,
       },
       "c_palette":{
-        "color": 6
+        "color": 12
       }
     },
     "gypsophila":{
       "name": "Gypsophila",
-      "chasis":"recon",
+      "chassis":"recon",
       "wpn_ind":"obj_mg",
       "default_ai":"mg_chaser",
       "c_plane_engine":{
@@ -142,7 +142,7 @@
         "roll_cooldown_rank": 1,
       },
       "c_palette":{
-        "color": 7
+        "color": 14
       }
     }
   },

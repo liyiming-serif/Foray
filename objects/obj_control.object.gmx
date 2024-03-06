@@ -162,7 +162,22 @@ enum mk{ //TODO: add modifiers
     TINT_RED = 255
 };
 
-//Plane AI ENUMS
+//animation controllers
+enum plane_anim_states{ 
+    NORM,
+    SHAKE,
+    ROLL,
+    CRASH
+};
+enum plane_turn_states{
+    NEUTRAL,
+    LEFT_TURN,
+    RIGHT_TURN,
+    LEFT_DRIFT,
+    RIGHT_DRIFT
+};
+
+//AI ENUMS
 enum plane_ai_states{
     CHASING,
     FIRING,
@@ -170,7 +185,7 @@ enum plane_ai_states{
     AVOIDING,
     RELOADING
 };
-//Blimp AI ENUMS
+
 enum blimp_ai_states{
     POSITIONING,
     TARGETING_CITY,

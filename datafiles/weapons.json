@@ -22,9 +22,6 @@
       "duration": 7,
       "invuln": 102,
       "dmg_mult":1.2
-    },
-    "c_palette":{
-      "color": 192
     }
   },
   "cannon":{
@@ -44,9 +41,6 @@
       "range":[440,480],
       "muzzle_flare":"flare1",
       "shoot_snd":"snd_cannon"
-    },
-    "c_palette":{
-      "color": 194
     }
   },
   "flamethrower":{
@@ -61,9 +55,6 @@
       "dmg":1.1,
       "recoil":1,
       "accuracy":1
-    },
-    "c_palette":{
-      "color": 198
     }
   },
   "airtillery":{
@@ -88,9 +79,6 @@
       "charge_snd":"snd_charging",
       "charge_part":["charge",20,30],
       "sweep_angle":90
-    },
-    "c_palette":{
-      "color": 196
     }
   },
   "burst_cannon":{
@@ -115,9 +103,6 @@
       "charge_snd":"snd_charging",
       "charge_part":["charge",20,30],
       "sweep_angle":135
-    },
-    "c_palette":{
-      "color": 194
     }
   },
   "mine_layer":{

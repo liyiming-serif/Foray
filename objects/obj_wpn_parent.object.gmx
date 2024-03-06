@@ -50,8 +50,8 @@ if(sprite_index!=-1){
     l_bound_frame = 0;
     u_bound_frame = shoot_frame;
     
-    //palette swap shader
-    scr_c_palette_add();
+    //FUTURE: palette swap shader
+    //scr_c_palette_add();
 }
 
 //callbacks
@@ -93,7 +93,7 @@ else{
             <kind>1</kind>
             <string>///Turn off muzzle flash
 
-scr_c_palette_wpn_flash_off();
+scr_wpn_set_sprite();
 </string>
           </argument>
         </arguments>
@@ -237,8 +237,15 @@ scr_wpn_anim_end();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///apply palette shader
-scr_wpn_shade();
+            <string>///OPT: apply palette shader
+
+draw_self();
+/*
+if(sprite_index != -1){
+    scr_c_palette_set_shade();
+    draw_self();
+    shader_reset();
+}*/
 </string>
           </argument>
         </arguments>

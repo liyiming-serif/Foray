@@ -19,10 +19,8 @@ has_pilot=false;
 tid.has_pilot = false; //target plane bails too
 
 //play buckling animation for old plane
-sprite_index = spr_plane1_buckle;
+anim_state = plane_anim_states.SHAKE;
 image_index = 0;
-l_bound_frame = 0;
-u_bound_frame = image_number+1;
 
 //creation code for player avatar
 with(instance_create(x,y,obj_player_avatar)){

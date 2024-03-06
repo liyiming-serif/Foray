@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///init map(dir, is_friendly)
-
+show_debug_message("hi");
 mp = ds_map_find_value(global.WEAPONS,"flamethrower");
 event_inherited()
 </string>

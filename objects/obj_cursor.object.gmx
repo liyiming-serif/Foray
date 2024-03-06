@@ -95,7 +95,7 @@ cid = 0;
           <argument>
             <kind>1</kind>
             <string>///Advance frame
-if(scr_instance_exists(global.player_id) &amp;&amp; global.player_id.sprite_index==spr_plane1_shoot){
+if(scr_instance_exists(global.player_id) &amp;&amp; global.player_id.alarm[SHOOT_FLASH_ALARM]){
     image_index = flash_frame;
 }
 else if(image_index&gt;u_bound_frame){

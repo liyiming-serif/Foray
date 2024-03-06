@@ -10,9 +10,7 @@ roll_invuln = roll_duration;
 is_rolling = true;
 
 //TODO: Configure direction of dash
-
-sprite_index = spr_plane1_roll;
-image_speed = roll_anim_speed;
+anim_state = plane_anim_states.ROLL;
 image_index = 0;
 u_bound_frame = roll_end_frame;
 l_bound_frame = 0;

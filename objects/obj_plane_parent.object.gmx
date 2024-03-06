@@ -47,16 +47,11 @@ scr_c_plane_engine_add();
 has_pilot = true;
 
 //animation
-idle_anim_speed = 0.4; //hardcoded values
-roll_anim_speed = 0.7;
-neutral_frame = 0;
-right_frame = 16;
-left_frame = 20;
+anim_state = plane_anim_states.NORM;
+scr_plane_set_sprite();
+//hardcoded values
 roll_start_frame = 5;
 roll_end_frame = 11;
-image_speed = idle_anim_speed; //in-game bounds
-l_bound_frame = neutral_frame; 
-u_bound_frame = right_frame;
 
 //palette swap shader
 scr_c_palette_add();
@@ -139,8 +134,18 @@ display_wpn = gid.name;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///call dispose function
-scr_plane_gc();
+            <string>///garbage collection
+
+scr_play_sound(snd_explosion_m,x,y);
+
+//clean up all sounds under emitter
+audio_stop_sound(engine_sound);
+if(variable_instance_exists(id,"crashing_sound")){
+    audio_stop_sound(crashing_sound);
+}
+
+//dispose function for all ships
+scr_ship_gc();
 </string>
           </argument>
         </arguments>
@@ -192,9 +197,8 @@ if(!is_friendly){
             <kind>1</kind>
             <string>///Turn off plane shooting sprite
 
-if(!is_rolling){
-    sprite_index = spr_plane1;
-}
+scr_c_palette_flash_off();
+
 </string>
           </argument>
         </arguments>
@@ -243,7 +247,7 @@ scr_ship_update_wpn(sprite_width-sprite_xoffset-2,image_angle,gid);
             <kind>1</kind>
             <string>///Advance frame
 
-scr_plane_advance_frame();
+scr_plane_step();
 </string>
           </argument>
         </arguments>
@@ -347,8 +351,7 @@ if(roll_invuln == 0){
             <string>///stop rolling
 
 if(is_rolling &amp;&amp; roll_invuln==0){
-    sprite_index = spr_plane1;
-    image_speed = idle_anim_speed;
+    anim_state = plane_anim_states.NORM;
     is_rolling = false;
     roll_cool = roll_cooldown;
 }
