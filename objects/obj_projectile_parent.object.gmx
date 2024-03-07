@@ -122,7 +122,18 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Optional: apply shaders
-scr_projectile_shade();
+if(sprite_index == -1){
+    exit;
+}
+
+if(ds_map_exists(mp,"c_palette")){
+    scr_c_palette_set_shade();
+    draw_self();
+    shader_reset();
+}
+else{
+    draw_self();
+}
 </string>
           </argument>
         </arguments>

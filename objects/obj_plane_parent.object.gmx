@@ -32,11 +32,14 @@ is_friendly = arg_buff[1];
 key = arg_buff[2];
 mp = ds_map_find_value(global.models, key);
 
+chassis = ds_map_find_value(mp, "chassis");
+
 //orient the plane
 image_angle = direction;
 
 //params common to every model
 max_hp = ds_map_find_value(global.PLANES,"max_hp");
+turn_speed = ds_map_find_value(global.PLANES,"turn_speed");
 
 var cmp;
 cmp = ds_map_find_value(global.PLANES,"c_hull");
@@ -48,6 +51,8 @@ has_pilot = true;
 
 //animation
 anim_state = plane_anim_states.NORM;
+scr_plane_get_sprite();
+turn_state = plane_turn_states.NEUTRAL;
 scr_plane_set_sprite();
 //hardcoded values
 roll_start_frame = 5;
@@ -173,6 +178,29 @@ if(!is_friendly){
     target_id = global.player_id;
     alarm[update_target_time_alarm] = update_target_time;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///end turn state change
 </string>
           </argument>
         </arguments>
@@ -352,6 +380,7 @@ if(roll_invuln == 0){
 
 if(is_rolling &amp;&amp; roll_invuln==0){
     anim_state = plane_anim_states.NORM;
+    scr_plane_get_sprite();
     is_rolling = false;
     roll_cool = roll_cooldown;
 }
@@ -583,6 +612,10 @@ if(global.AB_USE_ANGLE_STEAL){
           <argument>
             <kind>1</kind>
             <string>///scr_plane_shade
+
+if(sprite_index == -1){
+    exit;
+}
 
 //cast shadow
 scr_cast_shadow();

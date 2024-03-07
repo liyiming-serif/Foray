@@ -105,22 +105,22 @@ speed = global.game_speed*curr_speed*(1-abs(turn_d)/(base_turn*global.SPEED_DAMP
 //Change sprite based on turn img angle
 if(abs(turn) >= base_turn*SHARP_TURN){
     if(turn>0){
-        turn_state = plane_turn_states.LEFT_DRIFT;
+        scr_plane_set_turn_state(plane_turn_states.LEFT_DRIFT);
     }
     else{
-        turn_state = plane_turn_states.RIGHT_DRIFT;
+        scr_plane_set_turn_state(plane_turn_states.RIGHT_DRIFT);
     }
 }
 else if(abs(turn) >= base_turn*SLIGHT_TURN){
     if(turn>0){
-        turn_state = plane_turn_states.LEFT_TURN;
+        scr_plane_set_turn_state(plane_turn_states.LEFT_TURN);
     }
     else{
-        turn_state = plane_turn_states.RIGHT_TURN;
+        scr_plane_set_turn_state(plane_turn_states.RIGHT_TURN);
     }
 }
 else{
-    turn_state = plane_turn_states.NEUTRAL;
+    scr_plane_set_turn_state(plane_turn_states.NEUTRAL);
 }
 
 //update sound emitter for doppler effect

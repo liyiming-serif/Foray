@@ -170,10 +170,10 @@ enum plane_anim_states{
     CRASH
 };
 enum plane_turn_states{
-    NEUTRAL,
-    LEFT_TURN,
-    RIGHT_TURN,
     LEFT_DRIFT,
+    LEFT_TURN,
+    NEUTRAL,
+    RIGHT_TURN,
     RIGHT_DRIFT
 };
 

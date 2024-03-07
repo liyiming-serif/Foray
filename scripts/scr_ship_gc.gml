@@ -1,17 +1,3 @@
-#define scr_ship_shade
-///scr_ship_shade()
-
-//Shared shading logic across all ships
-
-//cast shadow
-scr_cast_shadow();
-
-if(hitstun>0){ //apply hit flash
-    shader_set(shader_hit_flash);
-}
-draw_self();
-shader_reset();
-
 #define scr_ship_gc
 ///scr_ship_gc()
 scr_ship_gc_wpns();

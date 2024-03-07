@@ -382,6 +382,7 @@
   <scripts name="scripts">
     <scripts name="planes">
       <script>scripts\scr_plane_step.gml</script>
+      <script>scripts\scr_plane_set_turn_state.gml</script>
       <script>scripts\scr_plane_shoot.gml</script>
       <script>scripts\scr_plane_crash.gml</script>
       <script>scripts\scr_plane_steal.gml</script>
@@ -395,7 +396,7 @@
     </scripts>
     <scripts name="ships">
       <scripts name="ships_ai">
-        <script>scripts\scr_ship_shade.gml</script>
+        <script>scripts\scr_ship_gc.gml</script>
         <script>scripts\scr_skymine_queue.gml</script>
         <script>scripts\scr_balloon_ai_step.gml</script>
         <script>scripts\scr_subballoon_create.gml</script>
@@ -624,15 +625,16 @@
     <room>rooms\rm_level1</room>
     <room>rooms\rm_level1_bk</room>
   </rooms>
-  <constants number="8">
+  <constants number="9">
     <constant name="arg_len">global.i_arg_len</constant>
     <constant name="arg_buff">global.i_arg_buff</constant>
     <constant name="avoid_alarm">0</constant>
     <constant name="aggro_alarm">1</constant>
     <constant name="update_target_time_alarm">2</constant>
     <constant name="SHOOT_FLASH_ALARM">3</constant>
-    <constant name="SLIGHT_TURN">0.7</constant>
-    <constant name="SHARP_TURN">1.1</constant>
+    <constant name="TURN_SPR_ALARM">4</constant>
+    <constant name="SLIGHT_TURN">0.9</constant>
+    <constant name="SHARP_TURN">1.3</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

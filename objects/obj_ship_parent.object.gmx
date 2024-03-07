@@ -217,7 +217,19 @@ scr_ship_draw_ui();
           <argument>
             <kind>1</kind>
             <string>///Generic ship shade
-scr_ship_shade();
+//Shared shading logic across all ships
+if(sprite_index == -1){
+    exit;
+}
+
+//cast shadow
+scr_cast_shadow();
+
+if(hitstun&gt;0){ //apply hit flash
+    shader_set(shader_hit_flash);
+}
+draw_self();
+shader_reset();
 </string>
           </argument>
         </arguments>
