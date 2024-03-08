@@ -37,7 +37,7 @@ for(var i=array_length_1d(global.DMG_THRESHOLDS)-1; i>=0; i--;){
 }
 
 //charge stealing: reset charge progress when not aiming
-if(global.AB_USE_CHARGE_STEAL && !is_targeted){
+if(global.AB_USE_CHARGE_STEAL && !locking_on){
     steal_progress = 0;
 }
 

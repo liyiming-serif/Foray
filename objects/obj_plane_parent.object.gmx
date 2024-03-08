@@ -66,7 +66,7 @@ flash_color_ref = shader_get_uniform(shader_flash, "flashColor");
 //stealing mechanic flags
 is_stealable = false;
 if(global.AB_USE_CHARGE_STEAL){
-    is_targeted = false;
+    locking_on = false;
     steal_progress = 0;
 }
 
@@ -460,7 +460,7 @@ if(global.AB_USE_CHARGE_STEAL){
             sprite_get_number(ret_spr);
     }
     //State: in steal mode, but not aiming at this plane
-    else if(!is_targeted){
+    else if(!locking_on){
         draw_sprite_ext(ret_spr, reticle_img_ind,
             d_pos[0], d_pos[1], reticle_scale, reticle_scale,
             0,c_white,1);
@@ -622,7 +622,7 @@ scr_cast_shadow();
 
 //Decide which shader to use for this frame. CALL ONLY DURING DRAW EVENT
 if (is_stealable &amp;&amp; image_index%3&gt;1.5){ //apply red/warn flash
-    if(global.AB_USE_CHARGE_STEAL &amp;&amp; is_targeted){
+    if(global.AB_USE_CHARGE_STEAL &amp;&amp; locking_on){
         shader_set(shader_flash);
         shader_set_uniform_f_array(flash_color_ref, global.C_FLASH_WARN_NORM);
     }

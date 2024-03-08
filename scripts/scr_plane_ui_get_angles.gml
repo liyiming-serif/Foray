@@ -30,7 +30,7 @@ if(res[1] > pi){
 return res;
 
 #define scr_plane_ui_charge_to_rads
-///scr_plane_ui_charge_to_rads(steal_progress)
+///scr_plane_ui_charge_to_rads(progress)
 //Given target plane's steal progress,
 //return start + end angles for reticle shader in radians
 

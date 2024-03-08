@@ -210,7 +210,7 @@ if(target_prev != target_plane){
     if(scr_instance_exists(target_prev)){
         target_prev.ready_to_steal = false;
         if(global.AB_USE_CHARGE_STEAL){
-            target_prev.is_targeted = false;
+            target_prev.locking_on = false;
         }
     }
 }
@@ -222,9 +222,9 @@ if (scr_instance_exists(target_plane) &amp;&amp;
     scr_instance_exists(global.player_id) &amp;&amp;
     target_plane.is_stealable){
     
-    //charge stealing progress...
     if(global.AB_USE_CHARGE_STEAL){
-        target_plane.is_targeted = true;
+        //charge stealing progress...
+        target_plane.locking_on = true;
     
         var d, a;
         d = point_distance(global.player_id.x, global.player_id.y, target_plane.x, target_plane.y);
@@ -242,10 +242,9 @@ if (scr_instance_exists(target_plane) &amp;&amp;
             target_plane.ready_to_steal = true;
         }
     }
-    
-    //set steal ready based on angle of approach
-    //NOTE: is_stealable implies angles is array
-    if(global.AB_USE_ANGLE_STEAL){
+    else if(global.AB_USE_ANGLE_STEAL){
+        //set ready to steal based on angle of approach
+        //NOTE: is_stealable implies angles is array
         if(scr_is_obj_between_angles(global.player_id, target_plane)){
             target_plane.ready_to_steal = true;
             rt_modifier = mk.TINT_GREEN/256.0;
@@ -260,6 +259,9 @@ if (scr_instance_exists(target_plane) &amp;&amp;
             target_plane.ready_to_steal = false;
             rt_modifier = mk.TINT_RED/256.0;
         }
+    }
+    else{
+        target_plane.ready_to_steal = true;
     }
 }
 
