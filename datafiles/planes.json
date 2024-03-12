@@ -149,22 +149,22 @@
   },
   "ai":{
     "mg_chaser":{
+      "obj_ind": "obj_enemy_mg_chaser",
       "range": 240,
       "accuracy": 25,
       "achy": 0.33,
       "update_target_time": 480,
-      "create_script": "scr_ai_mg_chaser_make",
       "extend":{
         "max_rounds": 5,
         "reload_speed":120
       }
     },
     "pyro":{
+      "obj_ind": "obj_enemy_pyro",
       "range": 192,
       "accuracy": 50,
       "achy": 0.33,
       "update_target_time": 480,
-      "create_script":"scr_ai_pyro_make",
       "extend":{
         "fuel":120,
         "refuel_speed":1

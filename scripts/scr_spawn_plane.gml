@@ -1,8 +1,18 @@
 #define scr_spawn_plane
-///scr_spawn_plane(model_name)
+///scr_spawn_plane(model_name, ai=default)
 
-var pos, dir, dir_ref, plane, cmc, cb, model_name;
+var obj_ind, pos, dir, dir_ref, model_name, ai;
 model_name = argument[0];
+//need AI to know which enemy plane obj to create
+if(argument_count == 2){
+    ai = argument[1];
+}
+else{
+    ai = ds_map_find_value(
+        ds_map_find_value(global.models, model_name), "default_ai");
+}
+obj_ind = ds_map_find_value(
+    ds_map_find_value(global.pilot_ai, ai), "obj_ind");
 
 //set x, y
 pos = scr_get_point_on_border();
@@ -20,7 +30,7 @@ if(scr_instance_exists(global.player_id)){
 }
 
 //actually create plane
-return scr_plane_enemy_create(pos[0],pos[1],dir,model_name);
+return scr_instance_create(pos[0],pos[1],obj_ind,dir,false,model_name,ai);
 
 #define scr_spawn_plane_cmc3
 ///scr_spawn_plane_cmc3()

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Init plane(dir, is_friendly, model_name, ai_name=default)
+            <string>///Init plane(dir, is_friendly, model_name, ai_name)
 //adds: mp, common components, fx
 event_inherited();
 </string>
@@ -49,13 +49,7 @@ event_inherited();
           <argument>
             <kind>1</kind>
             <string>///Add AI
-var key;
-if(array_length_1d(arg_buff)==3){
-    key = ds_map_find_value(mp,"default_ai");
-}
-else{
-    key = arg_buff[3];
-}
+var key = arg_buff[3];
 
 scr_aiplane_add_common(key);
 </string>
