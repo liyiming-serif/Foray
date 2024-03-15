@@ -52,12 +52,15 @@ event_inherited();
 var aimp = ds_map_find_value(global.pilot_ai, ai_name);
 var ext = ds_map_find_value(aimp,"extend");
 
-max_rounds = ds_list_find_value(ds_map_find_value(opt,"max_rounds"),skill);
-reload_speed = ds_list_find_value(ds_map_find_value(opt,"reload_speed"),skill);
+max_rounds = ds_map_find_value(ext,"max_rounds");
+reload_speed = ds_map_find_value(ext,"reload_speed");
 
 //entry point for AI FSM
 state = plane_ai_states.CHASING;
 rounds_left = max_rounds;
+
+show_debug_message("created obj_enemy_mg_chaser");
+
 </string>
           </argument>
         </arguments>

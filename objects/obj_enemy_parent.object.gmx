@@ -27,31 +27,15 @@
             <kind>1</kind>
             <string>///Init plane(dir, is_friendly, model_name, ai_name)
 //adds: mp, common components, fx
-event_inherited();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Add AI
-var key = arg_buff[3];
+var k = arg_buff[3];
 
-scr_aiplane_add_common(key);
+event_inherited();
+
+show_debug = true;
+debug_state_prev = plane_ai_states.CHASING;
+
+//Add AI
+scr_aiplane_add_common(k);
 </string>
           </argument>
         </arguments>
@@ -181,6 +165,13 @@ event_inherited();
             <kind>1</kind>
             <string>///Act based on AI FSM
 
+if(debug_state_prev != state){
+    show_debug = true;
+}
+if(show_debug){
+    show_debug_message(model_name+" switched AI states");
+}
+
 if(hp&lt;=0 || !has_pilot || !scr_instance_exists(target_id)){
     scr_c_plane_engine_idle();
     return undefined;
@@ -199,6 +190,7 @@ switch(state){
         scr_aiplane_navigate(-target_id.x,-target_id.y,global.AI_FLEE_TURN_MOD);
         break;
 }
+show_debug = false;
 </string>
           </argument>
         </arguments>

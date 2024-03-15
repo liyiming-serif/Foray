@@ -1,18 +1,18 @@
 #define scr_spawn_plane
 ///scr_spawn_plane(model_name, ai=default)
 
-var obj_ind, pos, dir, dir_ref, model_name, ai;
-model_name = argument[0];
+var obj_ind, pos, dir, dir_ref, mn, ai;
+mn = argument[0];
 //need AI to know which enemy plane obj to create
 if(argument_count == 2){
     ai = argument[1];
 }
 else{
     ai = ds_map_find_value(
-        ds_map_find_value(global.models, model_name), "default_ai");
+        ds_map_find_value(global.models, mn), "default_ai");
 }
-obj_ind = ds_map_find_value(
-    ds_map_find_value(global.pilot_ai, ai), "obj_ind");
+obj_ind = asset_get_index(ds_map_find_value(
+    ds_map_find_value(global.pilot_ai, ai), "obj_ind"));
 
 //set x, y
 pos = scr_get_point_on_border();
@@ -30,22 +30,22 @@ if(scr_instance_exists(global.player_id)){
 }
 
 //actually create plane
-return scr_instance_create(pos[0],pos[1],obj_ind,dir,false,model_name,ai);
+return scr_instance_create(pos[0],pos[1],obj_ind,dir,false,mn,ai);
 
 #define scr_spawn_plane_cmc3
 ///scr_spawn_plane_cmc3()
-var model_name = choose("bessie", "altair");
-scr_spawn_plane(model_name);
+var mn = choose("bessie", "altair");
+scr_spawn_plane(mn);
 scr_add_design_pattern("scr_spawn_plane_cmc3");
 
 #define scr_spawn_plane_cmc4
 ///scr_spawn_plane_cmc4()
-var model_name = choose("firnas","magnolia","pasque");
-scr_spawn_plane(model_name);
+var mn = choose("firnas","magnolia","pasque");
+scr_spawn_plane(mn);
 scr_add_design_pattern("scr_spawn_plane_cmc4");
 
 #define scr_spawn_plane_cmc5
 ///scr_spawn_plane_cmc5()
-var model_name = choose("deneb","earl","gypsophila");
-scr_spawn_plane(model_name);
+var mn = choose("deneb","earl","gypsophila");
+scr_spawn_plane(mn);
 scr_add_design_pattern("scr_spawn_plane_cmc5");

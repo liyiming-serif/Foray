@@ -391,7 +391,7 @@
       <script>scripts\scr_plane_gen_weakspot.gml</script>
       <scripts name="pilot_ai">
         <script>scripts\scr_aiplane_add_common.gml</script>
-        <script>scripts\scr_ai_pyro_step.gml</script>
+        <script>scripts\scr_ai_pyro_fire.gml</script>
       </scripts>
     </scripts>
     <scripts name="ships">

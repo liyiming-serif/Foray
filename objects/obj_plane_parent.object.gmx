@@ -29,8 +29,8 @@
 
 direction = arg_buff[0];
 is_friendly = arg_buff[1];
-key = arg_buff[2];
-mp = ds_map_find_value(global.models, key);
+model_name = arg_buff[2];
+mp = ds_map_find_value(global.models, model_name);
 
 chassis = ds_map_find_value(mp, "chassis");
 
@@ -116,6 +116,8 @@ display_name = ds_map_find_value(mp,"name");
 display_speed = round(clamp(speed_rank,1,global.MAX_STATS));
 display_turn = round(clamp(turn_rank,1,global.MAX_STATS));
 display_wpn = gid.name;
+
+
 
 </string>
           </argument>

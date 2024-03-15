@@ -4,7 +4,7 @@
 //becomes the active player.
 
 //create player plane
-var nw_plane = scr_player_create(x,y,direction,key);
+var nw_plane = scr_player_create(x,y,direction,model_name);
 nw_plane.speed = speed;
 //play buckling animation for new plane
 nw_plane.anim_state = plane_anim_states.SHAKE;

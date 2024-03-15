@@ -39,6 +39,9 @@ randomize();
 global.AB_USE_CHARGE_STEAL = false;
 global.AB_USE_ANGLE_STEAL = false;
 
+//DEBUG FLAG
+global.show_debug = false;
+
 //LOAD JSONS
 scr_load_data();
 

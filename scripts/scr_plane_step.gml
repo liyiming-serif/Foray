@@ -162,4 +162,3 @@ spr_name += "_"+chassis;
 if(argument_count == 1){
     spr_name += "_"+argument_count[0];
 }
-show_debug_message(spr_name);
