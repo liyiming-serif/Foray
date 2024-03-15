@@ -51,7 +51,6 @@ has_pilot = true;
 
 //animation
 anim_state = plane_anim_states.NORM;
-scr_plane_get_sprite();
 turn_state = plane_turn_states.NEUTRAL;
 scr_plane_set_sprite();
 //hardcoded values
@@ -382,7 +381,6 @@ if(roll_invuln == 0){
 
 if(is_rolling &amp;&amp; roll_invuln==0){
     anim_state = plane_anim_states.NORM;
-    scr_plane_get_sprite();
     is_rolling = false;
     roll_cool = roll_cooldown;
 }

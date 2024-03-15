@@ -382,6 +382,7 @@
   <scripts name="scripts">
     <scripts name="planes">
       <script>scripts\scr_plane_step.gml</script>
+      <script>scripts\scr_plane_set_sprite.gml</script>
       <script>scripts\scr_plane_set_turn_state.gml</script>
       <script>scripts\scr_plane_shoot.gml</script>
       <script>scripts\scr_plane_crash.gml</script>

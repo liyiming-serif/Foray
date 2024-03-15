@@ -158,7 +158,6 @@ if(hp&lt;=0){
 }
 else if(anim_state==plane_anim_states.SHAKE){
     anim_state = plane_anim_states.NORM;
-    scr_plane_get_sprite();
     if(!has_pilot){
         var pa = point_direction(x,y,global.player_id.x,global.player_id.y);
         scr_plane_gen_weakspot(degtorad(angle_difference(pa,image_angle)));

@@ -152,7 +152,7 @@
       "obj_ind": "obj_enemy_mg_chaser",
       "range": 240,
       "accuracy": 25,
-      "achy": 0.33,
+      "achy": 0.8,
       "update_target_time": 480,
       "extend":{
         "max_rounds": 5,
@@ -163,7 +163,7 @@
       "obj_ind": "obj_enemy_pyro",
       "range": 192,
       "accuracy": 50,
-      "achy": 0.33,
+      "achy": 0.8,
       "update_target_time": 480,
       "extend":{
         "fuel":120,
