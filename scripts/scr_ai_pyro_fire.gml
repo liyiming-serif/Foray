@@ -1,10 +1,6 @@
 #define scr_ai_pyro_fire
 ///scr_ai_pyro_fire()
 
-if(show_debug){
-    show_debug_message(model_name+".scr_ai_pyro_fire()");
-}
-
 if(state==plane_ai_states.FIRING && fuel>0){
     scr_plane_shoot("pressed");
     fuel = max(fuel-global.game_speed, 0);
@@ -21,10 +17,6 @@ if(state==plane_ai_states.FIRING && fuel>0){
 
 #define scr_ai_pyro_aim
 ///scr_ai_pyro_aim()
-
-if(show_debug){
-    show_debug_message(model_name+".scr_ai_pyro_aim()");
-}
 
 if(scr_aiplane_aim()){
     can_fire = true;

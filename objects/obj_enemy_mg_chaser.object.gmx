@@ -59,8 +59,71 @@ reload_speed = ds_map_find_value(ext,"reload_speed");
 state = plane_ai_states.CHASING;
 rounds_left = max_rounds;
 
-show_debug_message("created obj_enemy_mg_chaser");
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Update components
+event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Act based on AI FSM
+
+if(hp&lt;=0 || !has_pilot || !scr_instance_exists(target_id)){
+    scr_c_plane_engine_idle();
+    return undefined;
+}
+
+switch(state){
+    case plane_ai_states.CHASING:
+        scr_aiplane_aim();
+    case plane_ai_states.FIRING:
+        scr_aiplane_shoot();
+    case plane_ai_states.AVOIDING:
+        scr_aiplane_navigate(target_id.x,target_id.y);
+        break;
+    case plane_ai_states.FLEEING:
+    case plane_ai_states.RELOADING:
+        scr_aiplane_navigate(-target_id.x,-target_id.y,global.AI_FLEE_TURN_MOD);
+        break;
+}
 </string>
           </argument>
         </arguments>

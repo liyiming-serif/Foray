@@ -25,61 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set mp; init base ship(dir, is_friendly, wpn_ind, is_armored)
-
+            <string>///Init(dir, is_friendly, wpn_ind, is_amred)
+var wpn_ind = arg_buff[2];
+var is_amred = arg_buff[3];
 mp = ds_map_find_value(global.SHIPS, "balloon");
 event_inherited();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Add components
+
+//Add components
 scr_c_hull_add();
 scr_c_engine_add(false);
 scr_c_bomber_add();
-var is_armred = arg_buff[3];
+aid = 0;
 if(is_amred){
-    scr_c_amr_add();
+    aid = scr_c_amr_add();
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Mount weapons
 
-var wpn_ind = arg_buff[2];
+//Mount weapon
 gid = 0;
 if(wpn_ind!=undefined){
     gid = scr_wpn_equip(x,y,wpn_ind,270,is_friendly);

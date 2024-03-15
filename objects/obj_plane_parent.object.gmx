@@ -105,7 +105,7 @@ if(global.AB_USE_ANGLE_STEAL){
 }
 
 //arm the plane
-wpn_ind = asset_get_index(ds_map_find_value(mp,"wpn_ind"));
+var wpn_ind = asset_get_index(ds_map_find_value(mp,"wpn_ind"));
 gid = scr_wpn_equip(x,y,wpn_ind,direction,is_friendly);
 
 //These stats represent how many stars the player sees.

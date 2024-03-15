@@ -16,7 +16,6 @@
   },
   "wpn_weights":{
     "obj_cannon": 5,
-    "obj_light_mg":4,
     "obj_airtillery":2,
     "obj_burst_cannon":1
   }

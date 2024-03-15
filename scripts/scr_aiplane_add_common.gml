@@ -4,7 +4,6 @@
 
 ai_name = argument[0];
 var aimp = ds_map_find_value(global.pilot_ai, ai_name);
-show_debug_message("ai_name: "+ai_name);
 
 //Load AI constants from JSON 
 range = ds_map_find_value(aimp,"range"); //distance before plane opens fire
@@ -32,10 +31,6 @@ return id;
 
 //CALCULATES TRAJECTORY FOR AVOIDING OBSTACLES, THEN TURNS THE PLANE
 //NEEDS: AI states, axy, foresight, turn, turn func, avoid_arc, skill, is_friendly
-
-if(show_debug){
-    show_debug_message(model_name+".scr_aiplane_navigate()");
-}
 
 var xtarget = argument[0];
 var ytarget = argument[1];
@@ -110,10 +105,6 @@ else{
 #define scr_aiplane_shoot
 ///scr_aiplane_shoot()
 
-if(show_debug){
-    show_debug_message(model_name+".scr_aiplane_shoot()");
-}
-
 if(state==plane_ai_states.FIRING && scr_plane_shoot("pressed")!=undefined){
     //Decide to transition AI to 'reloading'
     rounds_left--;
@@ -128,10 +119,6 @@ if(state==plane_ai_states.FIRING && scr_plane_shoot("pressed")!=undefined){
 
 #define scr_aiplane_aim
 ///scr_aiplane_aim()
-
-if(show_debug){
-    show_debug_message(model_name+".scr_aiplane_aim()");
-}
 
 ///check player is within nimbus
 var pd = point_distance(target_id.x,target_id.y,x,y);

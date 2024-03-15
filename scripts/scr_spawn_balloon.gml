@@ -9,8 +9,7 @@ else{
     //random generate wpn_ind
     var poss_wpns;
     poss_wpns[0] = "obj_cannon";
-    poss_wpns[1] = "obj_light_mg";
-    poss_wpns[2] = "obj_airtillery";
+    poss_wpns[1] = "obj_airtillery";
     wpn_ind = scr_spawn_choose_wpn(poss_wpns);
 }
 scr_spawn_balloon_helper(false, wpn_ind);
@@ -28,7 +27,7 @@ else{
     //random generate wpn_ind
     var poss_wpns;
     poss_wpns[0] = "obj_cannon";
-    poss_wpns[1] = "obj_light_mg";
+    poss_wpns[1] = "obj_airtillery";
     poss_wpns[2] = "obj_burst_cannon";
     wpn_ind = scr_spawn_choose_wpn(poss_wpns);
 }
