@@ -32,7 +32,7 @@ scr_player_create(800,500,90,"gypsophila");
 //scr_skymine_create(288,1080,0,0);
 //scr_skymine_create(1080,288,0,0);
 scr_spawn_balloon(obj_cannon);
-scr_spawn_plane("deneb");
+//scr_spawn_plane("deneb");
 timeline_running = false;
 </string>
           </argument>
