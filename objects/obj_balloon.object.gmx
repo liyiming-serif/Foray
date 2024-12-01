@@ -335,12 +335,12 @@ scr_c_amr_collide_with_projectile();
             <string>///debug
 
 event_inherited();
-var sx, sy, dpt1, dpt2;
-sx = lengthdir_x(speed*foresight,direction);
-sy = lengthdir_y(speed*foresight,direction);
-dpt1 = scr_game_to_gui(x,y);
-dpt2 = scr_game_to_gui(sx+x,sy+y);
-draw_line_width(dpt1[0], dpt1[1], dpt2[0], dpt2[1], 2);
+//var sx, sy, dpt1, dpt2;
+//sx = lengthdir_x(speed*foresight,direction);
+//sy = lengthdir_y(speed*foresight,direction);
+//dpt1 = scr_game_to_gui(x,y);
+//dpt2 = scr_game_to_gui(sx+x,sy+y);
+//draw_line_width(dpt1[0], dpt1[1], dpt2[0], dpt2[1], 2);
 </string>
           </argument>
         </arguments>

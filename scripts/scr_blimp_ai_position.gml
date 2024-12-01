@@ -49,8 +49,7 @@ if(argument_count > 4){
 }
 scr_ai_navigate(argument[0],argument[1],argument[2],tm,sm);
 
-//DEBUGGING
-if(alarm[avoid_alarm]>0){
+if(DEBUG && alarm[avoid_alarm]>0){
     //swerving
     image_blend = c_olive;
 }
