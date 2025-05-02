@@ -1,0 +1,12 @@
+On taking mortal damage:
+---------------------
+- plane hp doesn't drop to 0
+- plane death sequence doesn't happen
+    - plane disappears
+    - plane spirals out of control
+-? enemy planes turn toward last player location but drift off in one direction
+
+Misc:
+-----
+- flamethrower doesn't disappear on death
+- no contact dmg on planes

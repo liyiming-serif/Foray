@@ -84,6 +84,7 @@ global.seen_wpns = ds_map_create();
             <string>///[A+] cleanup
 
 ds_map_destroy(global.seen_enemies);
+ds_map_destroy(global.seen_wpns);
 </string>
           </argument>
         </arguments>
@@ -146,6 +147,10 @@ for(var i=0; i&lt;ds_list_size(global.skymine_queue); i++){
           <argument>
             <kind>1</kind>
             <string>///[A+] spawn enemies loop
+
+if(!timeline_running){
+    return undefined;
+}
 
 var t = timeline_position;
 if(t!=0){
